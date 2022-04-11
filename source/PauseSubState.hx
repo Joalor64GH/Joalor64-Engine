@@ -20,7 +20,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Keep Running at the Speed of Sound', 'CTRL + Y', 'Change Difficulty', 'ALT + F4'];
+	var menuItemsOG:Array<String> = ['Keep Calm and Carry On', 'CTRL + Y', 'Change Difficulty', 'ALT + F4'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -210,7 +210,7 @@ class PauseSubState extends MusicBeatSubstate
 
 			switch (daSelected)
 			{
-				case "Keep Running at the Speed of Sound":
+				case "Keep Calm and Carry On":
 					close();
 				case 'Change Difficulty':
 					menuItems = difficultyChoices;
