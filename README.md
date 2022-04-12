@@ -4,7 +4,7 @@
 
 # Features
 * Cool scripts that do things.
-* Watermark, Health Counter, Space to V-pose, Secret Keys, Ratings during Gameplay and Rank Screen!
+* Watermark, Health Counter, Space to V-pose, Secret Keys, Ratings during Gameplay, Cool Icon Bopping and Rank Screen!
 * The ratings will appear in the top left corner while you're playing.
 * After you complete a song, your rank is displayed!
 * After that, just press space to go back to the menu.
