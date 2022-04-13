@@ -1,13 +1,17 @@
-# RIGHT NOW THE MODS FOLDER DOES NOT WORK ENTIRELY JUST YET!!!
-## THIS IS WORK IN PROGRESS!!!
+# PLEASE NOTE THAT THIS ENGINE ADDS EXTRA MODDING SUPPORT!!!
+## HOWEVER, MORE STUFF COULD BE ADDED IN THE FUTURE!!!
 
-# QUICK AND DIRTY MOD GUIDE
+# QUICK GUIDE
 
-With the 0.2.6 update, I added a bit of a slightly nicer mod support backend.
+I added extra folders for the following:
+* Difficulties
+* Credits
+* Note Styles
+* Pixel UI
+* Stages
 
-It's POLYMOD, which is made by Lars Doucet: https://github.com/larsiusprime/polymod
+The Source Code can be found Here: https://github.com/Joalor64GH/FNF-PE-Extra-Folders
 
-You may have noticed that there's a new folder in the assets. MODS. Within it you will see 2 files. modList.txt, and a folder called introMod.
-modList.txt will load any folder into the game. Put the folder you want to load into a new line in modList.txt, and reboot the game.
+To find out how these work, look at the readme.txt file in the folders.
 
-Now you may be wondering, what do I put in the folder? Well later down it'll get a bit more complicated, especially as I'll make the IN-GAME mod loader nicer.
+Have fun with this lol.
