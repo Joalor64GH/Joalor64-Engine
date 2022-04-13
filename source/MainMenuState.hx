@@ -201,7 +201,7 @@ class MainMenuState extends MusicBeatState
 			{
 				if (optionShit[curSelected] == 'donate')
 				{
-					CoolUtil.browserLoad('https://sites.google.com/view/joalor64official-net6-deez/home');
+					CoolUtil.browserLoad('sites.google.com/view/joalor64official-net6-deez/home');
 				}
 				else
 				{
