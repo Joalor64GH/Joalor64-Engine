@@ -3,6 +3,7 @@
 * [ProjectFNF Version](https://github.com/Joalor64GH/Joalor64-Engine-PFNF)
 
 # Features
+* Credits. (Note: If you make a mod, you can edit the credits in mods/data, but ONLY if you keep the J64E credits.)
 * Extra modding support.
 * Cool scripts that do things.
 * Watermark, Health Counter, Space to V-pose, Secret Keys, Ratings during Gameplay, Cool Icon Bopping and Rank Screen!
