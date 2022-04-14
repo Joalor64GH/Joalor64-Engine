@@ -12,6 +12,7 @@ import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.transition.TransitionData;
+import flixel.addons.display.FlxBackdrop;
 import haxe.Json;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
@@ -56,6 +57,8 @@ class TitleState extends MusicBeatState
 	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
 
 	public static var initialized:Bool = false;
+	
+	var newLogo:FlxSprite;
 
 	var blackScreen:FlxSprite;
 	var credGroup:FlxGroup;
@@ -64,6 +67,9 @@ class TitleState extends MusicBeatState
 	var ngSpr:FlxSprite;
 
 	var curWacky:Array<String> = [];
+	
+	var bgScroll:FlxBackdrop;
+	var bg:FlxSprite;
 
 	var wackyImage:FlxSprite;
 
@@ -274,11 +280,13 @@ class TitleState extends MusicBeatState
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
-		// logoBl.screenCenter();
+		logoBl.screenCenter();
+		logoBl.visible = false;
 		// logoBl.color = FlxColor.BLACK;
 
 		swagShader = new ColorSwap();
 		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
+		gfDance.visible = false;
 
 		var easterEgg:String = FlxG.save.data.psychDevsEasterEgg;
 		switch(easterEgg.toUpperCase())
@@ -312,6 +320,18 @@ class TitleState extends MusicBeatState
 		}
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
 		
+		bg = new FlxSprite().loadGraphic(Paths.image('titleMenu/leTitleBG'));
+		bg.setGraphicSize.(Std.int(bg.width * 1.1)); //replace the leTitleBG with your image
+		bg.screenCenter(); //my image isn't big enough so i gotta make it bigger if yours is enough then dont make that
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
+		
+		newLogo = new FlxSprite().loadGraphic(Paths.image'titleMenu/logoNew'));
+		newLogo.screenCenter(); //change the logoNew to your image
+		newLogo.offset.y += 30; //my logo needs a lil offset if yours is perfectly fine dont add this
+		newLogo.antialiasing = ClientPrefs.globalAntialiasing;
+		
+		add(bg);
+		add(newLogo);
 		add(gfDance);
 		gfDance.shader = swagShader.shader;
 		add(logoBl);
@@ -357,6 +377,12 @@ class TitleState extends MusicBeatState
 		blackScreen = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		credGroup.add(blackScreen);
 
+		bgScroll = new FlxBackdrop(Paths.image('titleMenu/titleSCROLL'), 0, 0, true, false);
+		bgScroll.velocity.set(100, 0); //change the titleSCROLL to the image you want to use
+		bgScroll.screenCenter(); //also set the speed as fast or slow as you want, just don't modify the 0
+		bgScroll.setGraphicSize(Std.int(bgScroll.width * 1.1));
+		credGroup.add(bgScroll); //the size is optional my image needs to be bigger if your's not then don't do so
+		
 		credTextShit = new Alphabet(0, 0, "", true);
 		credTextShit.screenCenter();
 
@@ -557,6 +583,8 @@ class TitleState extends MusicBeatState
 	override function beatHit()
 	{
 		super.beatHit();
+		
+		FlxTween.tween(FlxG.camera, {zoom:1.03}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
 
 		if(logoBl != null) 
 			logoBl.animation.play('bump', true);
