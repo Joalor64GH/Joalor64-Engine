@@ -10,7 +10,7 @@ I added extra folders for the following:
 * Pixel UI
 * Stages
 
-I also made a custom Source Code which can be found Here: https://github.com/Joalor64GH/FNF-PE-Extra-Folders
+I also made a custom Source Code which can be found here: https://github.com/Joalor64GH/FNF-PE-Extra-Folders
 
 To find out how these work, look at the readme.txt file in the folders.
 
