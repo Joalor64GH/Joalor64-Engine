@@ -575,7 +575,7 @@ class TitleState extends MusicBeatState
 			{
 				case 1:
 					#if PSYCH_WATERMARKS
-					createCoolText(['CReated by'], 15);
+					createCoolText(['Created by'], 15);
 					#else
 					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 					#end
@@ -624,7 +624,7 @@ class TitleState extends MusicBeatState
 				// credTextShit.text = "Friday";
 				// credTextShit.screenCenter();
 				case 13:
-					addMoreText('Friday Night FUnkin');
+					addMoreText('Friday Night Funkin');
 				// credTextShit.visible = true;
 				case 14:
 					addMoreText('Joalor64 Engine');
