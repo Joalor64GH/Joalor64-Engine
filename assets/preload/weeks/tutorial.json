@@ -1,5 +1,6 @@
 {
 	"storyName": "How to Funk / Test",
+	"difficulties": "Noob, Easy, Normal, Hard, Expert, Insane",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"weekBefore": "tutorial",
@@ -24,7 +25,7 @@
 			"gf",
 			[
 				165,
-				0,
+				20,
 				77
 			]
 		]
