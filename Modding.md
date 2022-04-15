@@ -12,6 +12,10 @@ I added extra folders for the following:
 
 I also made a custom Source Code which can be found here: https://github.com/Joalor64GH/FNF-PE-Extra-Folders
 
-To find out how these work, look at the readme.txt file in the folders.
+To find out how these work, try the following:
+
+* Looking at the readme.txt files
+* Checking out the wiki: https://github.com/Joalor64GH/Joalor64-Engine/wiki
+* Looking at the document in docs/Joalor64 Engine Giude.docx
 
 Have fun with this lol.
