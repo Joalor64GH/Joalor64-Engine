@@ -1,6 +1,7 @@
 # Joalor64 Engine
 * My custom version of Psych Engine made with some changes lol.
 * [ProjectFNF Version](https://github.com/Joalor64GH/Joalor64-Engine-PFNF)
+* [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
 # Features
 * Credits. (Note: If you make a mod, you can edit the credits in mods/data, but ONLY if you keep the J64E credits.)
