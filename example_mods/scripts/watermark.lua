@@ -1,7 +1,7 @@
 currentDifficulty = 'its still fucked';
 
 function onCreate()
-    makeLuaText('songText', songName .. " " .. currentDifficulty .. " // Joalor64 Engine V1.0.0e", 0, 2, 701);
+    makeLuaText('songText', songName .. " " .. currentDifficulty .. " - Joalor64 Engine V1.0.0e", 0, 2, 701);
     setTextAlignment('songText', 'left');
     setTextSize('songText', 15);
     setTextBorder('songText', 1, '000000');
@@ -15,5 +15,5 @@ end
 
 function onUpdate(elapsed)
     currentDifficulty = getProperty('storyDifficultyText');
-    setTextString('songText', songName .. " " .. currentDifficulty .. " // Joalor64 Engine V1.0.0e");
+    setTextString('songText', songName .. " " .. currentDifficulty .. " - Joalor64 Engine V1.0.0e");
 end
