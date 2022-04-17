@@ -16,6 +16,6 @@ To find out how these work, try the following:
 
 * Looking at the readme.txt files
 * Checking out the wiki: https://github.com/Joalor64GH/Joalor64-Engine/wiki
-* Looking at the document in docs/Joalor64 Engine Giude.docx
+* Looking at the document in docs/Joalor64 Engine Guide.docx
 
 Have fun with this lol.
