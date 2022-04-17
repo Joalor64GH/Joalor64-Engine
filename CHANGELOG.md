@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0e-beta] - 2022-4-17
 ### Added
 * 3 New Difficulties: Noob, Expert and Insane
-* Acheivements
+* Achievements
 * Winning Icon Support
 * Noob Chart for Test (All other charts are currently unfinished)
 * Improved Insts for Bopeebo and Test
