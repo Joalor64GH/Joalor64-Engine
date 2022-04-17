@@ -4,6 +4,7 @@
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
 # Features
+* Winning icons. (LET'S FREAKING GOOOOOO)
 * Credits. (Note: If you make a mod, you can edit the credits in mods/data, but ONLY if you keep the J64E credits.)
 * Extra modding support.
 * Cool scripts that do things.
