@@ -1,5 +1,5 @@
 name: Feature Request
-description: No, i won't add 6K/etc to the engine, stop asking for it. REQUESTING FOR A STAGE EDITOR WILL RESULT IN A BAN, I ALREADY SAID I WILL DO IT LATER GOD DAMN IT.
+description: Yes, I will add 6K/etc to the engine, just give me some time to code it. REQUESTING FOR A STAGE EDITOR WILL RESULT IN A BAN, I ALREADY SAID I WILL DO IT LATER GOD DAMN IT.
 labels: [enhancement]
 body:
   - type: textarea
@@ -17,7 +17,8 @@ body:
         - Useful feature
         - Actual feedback
         - A good idea
-        - Stage Editor, and 6K+ support.
+        - 6K+ SUpport
+        - Stage Editor
         - Better LUA mod support idea
         - Code optimization that would make the game faster. (You should make a PR if this is your request, by the way.)
     validations:
