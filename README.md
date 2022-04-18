@@ -5,6 +5,7 @@
 
 # Features
 * Winning icons. (LET'S FREAKING GOOOOOO)
+* Extra Difficulties.
 * Credits. (Note: If you make a mod, you can edit the credits in mods/data, but ONLY if you keep the J64E credits.)
 * Extra modding support.
 * Cool scripts that do things.
