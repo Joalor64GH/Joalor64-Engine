@@ -9,6 +9,7 @@ I added extra folders for the following:
 * Note Styles
 * Pixel UI
 * Stages
+* Main Menu Assets
 
 I also made a custom Source Code which can be found here: https://github.com/Joalor64GH/FNF-PE-Extra-Folders
 
