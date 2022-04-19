@@ -4,6 +4,7 @@
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
 # Features
+* 3D Notes (Soon...)
 * 6K+ Support (Soon...)
 * Winning icons. (LET'S FREAKING GOOOOOO)
 * Extra Difficulties.
