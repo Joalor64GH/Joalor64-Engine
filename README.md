@@ -4,8 +4,8 @@
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
 # Features
-* 3D Notes (Soon...)
-* 6K+ Support (Soon...)
+* 3D Notes
+* 6K+ Support
 * Winning icons. (LET'S FREAKING GOOOOOO)
 * Extra Difficulties.
 * Credits. (Note: If you make a mod, you can edit the credits in mods/data, but ONLY if you keep the J64E credits.)
