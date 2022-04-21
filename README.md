@@ -8,7 +8,7 @@
 * Extra Keys (Look at the Wiki for a tutorial)
 * Winning icons. (LET'S FREAKING GOOOOOO)
 * Extra Difficulties.
-* Credits. (Note: If you make a mod, you can edit the credits in mods/data.)
+* Credits. (Note: If you wanna make mod credits, look at the wiki.)
 * Extra modding support.
 * Cool scripts that do things.
 * Watermark, Health Counter, Space to V-pose, Secret Keys, Ratings during Gameplay, Cool Icon Bopping and Rank Screen!
