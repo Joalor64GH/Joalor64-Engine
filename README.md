@@ -4,8 +4,8 @@
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
 # Features
-* 3D Notes
-* Extra Keys (Look at the Wiki for a tutorial)
+* 3D Notes (Perfect for fanmade DnB mods.)
+* Extra Keys (Look at the Wiki for a tutorial.)
 * Winning icons. (LET'S FREAKING GOOOOOO)
 * Extra Difficulties.
 * Credits. (Note: If you wanna make mod credits, look at the wiki.)
