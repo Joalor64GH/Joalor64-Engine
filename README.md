@@ -1,3 +1,8 @@
+# ANNOUNCEMENT TIME
+* At least 3 playtesters and 3 charters are needed for this thing!
+* Because I'm literally doing everything myself. 💀
+* I will make an application form soon!
+
 # Joalor64 Engine
 * My custom version of Psych Engine made with some changes lol.
 * [ProjectFNF Version](https://github.com/Joalor64GH/Joalor64-Engine-PFNF)
