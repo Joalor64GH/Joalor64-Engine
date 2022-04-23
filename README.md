@@ -1,5 +1,5 @@
 # ANNOUNCEMENT TIME
-* At least 3 playtesters and 1-3 charters are needed for this thing!
+* Three playtesters and three charters are needed for this thing!
 * Because I'm literally doing everything myself. 💀
 * Apply [Here](https://docs.google.com/forms/d/e/1FAIpQLSe79y4ldB4uf6yUbJKpoWgu1gkli6-lG2W7-bYyJF4i2KDcWQ/viewform?usp=sf_link)
 
