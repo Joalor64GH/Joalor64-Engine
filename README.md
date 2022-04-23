@@ -1,7 +1,7 @@
 # ANNOUNCEMENT TIME
 * At least 3 playtesters and 1-3 charters are needed for this thing!
 * Because I'm literally doing everything myself. 💀
-* I will make an application form soon!
+* Apply [Here](https://docs.google.com/forms/d/e/1FAIpQLSe79y4ldB4uf6yUbJKpoWgu1gkli6-lG2W7-bYyJF4i2KDcWQ/viewform?usp=sf_link)
 
 # Joalor64 Engine
 * My custom version of Psych Engine made with some changes lol.
