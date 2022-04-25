@@ -1,5 +1,5 @@
 name: Feature Request
-description: I already added 6K+ support, so do not ask for it. REQUESTING FOR A STAGE EDITOR WILL RESULT IN A BAN, SHADOWMARIO WILL DO IT LATER GOD DAMMIT.
+description: I already added 6K+ support and I also removed winning icons, so do not ask for those. REQUESTING FOR A STAGE EDITOR WILL RESULT IN A BAN, SHADOWMARIO WILL DO IT LATER GOD DAMMIT.
 labels: [enhancement]
 body:
   - type: textarea
@@ -17,7 +17,7 @@ body:
         - Useful feature
         - Actual feedback
         - A good idea
-        - Stage Editor
+        - Stage Editor and Winning Icons
         - Better LUA mod support idea
         - Code optimization that would make the game faster. (You should make a PR if this is your request, by the way.)
     validations:
