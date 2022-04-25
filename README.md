@@ -9,6 +9,7 @@
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
 # Features
+* Latin Alphabet Support (Soon...(i hope))
 * 3D Notes (Perfect for fanmade DnB mods.)
 * Extra Keys (Look at the Wiki for a tutorial.)
 * Extra Difficulties.
