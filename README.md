@@ -16,7 +16,7 @@
 * Credits. (Note: If you wanna make mod credits, look at the wiki.)
 * Extra modding support.
 * Cool scripts that do things.
-* Watermark, Health Counter, Space to V-pose, Secret Keys, Ratings during Gameplay, Cool Icon Bopping and Rank Screen!
+* Watermark, Health Counter, Space to V-pose, Secret Keys, Ratings during Gameplay, Cool Icon Bopping, Combo Counter and Rank Screen!
 * The ratings will appear in the top left corner while you're playing.
 * After you complete a song, your rank is displayed!
 * After that, just press space to go back to the menu.
