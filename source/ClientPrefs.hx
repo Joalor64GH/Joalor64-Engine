@@ -11,6 +11,10 @@ class ClientPrefs {
 	public static var middleScroll:Bool = false;
 	public static var showFPS:Bool = true;
 	public static var flashing:Bool = true;
+	public static var autosaveInterval:Int = 5;
+	public static var autosavecharts:Bool = true;
+	public static var themedmainmenubg:Bool = false;
+	public static var autotitleskip:Bool = false;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
 	public static var lowQuality:Bool = false;
@@ -19,17 +23,29 @@ class ClientPrefs {
 	public static var violence:Bool = true;
 	public static var camZooms:Bool = true;
 	public static var hideHud:Bool = false;
+	public static var hideWatermark:Bool = false;
+	public static var hideScoreText:Bool = false;
 	public static var noteOffset:Int = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var imagesPersist:Bool = false;
 	public static var ghostTapping:Bool = true;
 	public static var timeBarType:String = 'Time Left';
+	public static var colorblindMode:String = 'None';
+	public static var hideMidScrollOpArrows:Bool = false;
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
 	public static var controllerMode:Bool = false;
 	public static var hitsoundVolume:Float = 0;
+	public static var underlaneVisibility:Float = 0;
+	public static var holdNoteVisibility:Float = 1;
+	public static var opponentUnderlaneVisibility:Float = 0;
+	public static var noteSkinSettings:String = 'Classic';
 	public static var pauseMusic:String = 'Tea Time';
+	public static var showcaseMode:Bool = false;
+	public static var cameramoveonnotes:Bool = true;
+	public static var removePerfects:Bool = false;
+	public static var characterTrail:Bool = false;
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -53,6 +69,7 @@ class ClientPrefs {
 
 	public static var comboOffset:Array<Int> = [0, 0, 0, 0];
 	public static var ratingOffset:Int = 0;
+	public static var perfectWindow:Int = 15;
 	public static var sickWindow:Int = 45;
 	public static var goodWindow:Int = 90;
 	public static var badWindow:Int = 135;
@@ -102,20 +119,33 @@ class ClientPrefs {
 		//FlxG.save.data.cursing = cursing;
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
+		FlxG.save.data.colorblindMode = colorblindMode;
+		FlxG.save.data.hideMidScrollOpArrows = hideMidScrollOpArrows;
 		FlxG.save.data.noteOffset = noteOffset;
 		FlxG.save.data.hideHud = hideHud;
+		FlxG.save.data.hideWatermark = hideWatermark;
+		FlxG.save.data.hideScoreText = hideScoreText;
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.scoreZoom = scoreZoom;
+		FlxG.save.data.characterTrail = characterTrail;
 		FlxG.save.data.noReset = noReset;
+		FlxG.save.data.holdNoteVisibility = holdNoteVisibility;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
 		FlxG.save.data.comboOffset = comboOffset;
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
+		FlxG.save.data.autosaveInterval = autosaveInterval;
+		FlxG.save.data.autosavecharts = autosavecharts;
+		FlxG.save.data.themedmainmenubg = themedmainmenubg;
+		FlxG.save.data.autotitleskip = autotitleskip;
 
 		FlxG.save.data.ratingOffset = ratingOffset;
+		FlxG.save.data.showcaseMode = showcaseMode;
+		FlxG.save.data.removePerfects = removePerfects;
+		FlxG.save.data.perfectWindow = perfectWindow;
 		FlxG.save.data.sickWindow = sickWindow;
 		FlxG.save.data.goodWindow = goodWindow;
 		FlxG.save.data.badWindow = badWindow;
@@ -123,7 +153,9 @@ class ClientPrefs {
 		FlxG.save.data.gameplaySettings = gameplaySettings;
 		FlxG.save.data.controllerMode = controllerMode;
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
+		FlxG.save.data.underlaneVisibility = underlaneVisibility;
 		FlxG.save.data.pauseMusic = pauseMusic;
+		FlxG.save.data.noteSkinSettings = noteSkinSettings;
 	
 		FlxG.save.flush();
 
@@ -150,14 +182,26 @@ class ClientPrefs {
 		if(FlxG.save.data.flashing != null) {
 			flashing = FlxG.save.data.flashing;
 		}
+		if(FlxG.save.data.holdNoteVisibility != null) {
+			holdNoteVisibility = FlxG.save.data.holdNoteVisibility;
+		}
 		if(FlxG.save.data.globalAntialiasing != null) {
 			globalAntialiasing = FlxG.save.data.globalAntialiasing;
+		}
+		if(FlxG.save.data.colorblindMode != null) {
+			colorblindMode = FlxG.save.data.colorblindMode;
+		}
+		if(FlxG.save.data.hideMidScrollOpArrows != null) {
+			hideMidScrollOpArrows = FlxG.save.data.hideMidScrollOpArrows;
 		}
 		if(FlxG.save.data.noteSplashes != null) {
 			noteSplashes = FlxG.save.data.noteSplashes;
 		}
 		if(FlxG.save.data.lowQuality != null) {
 			lowQuality = FlxG.save.data.lowQuality;
+		}
+		if(FlxG.save.data.characterTrail != null) {
+			characterTrail = FlxG.save.data.characterTrail;
 		}
 		if(FlxG.save.data.framerate != null) {
 			framerate = FlxG.save.data.framerate;
@@ -168,6 +212,18 @@ class ClientPrefs {
 				FlxG.drawFramerate = framerate;
 				FlxG.updateFramerate = framerate;
 			}
+		}
+		if(FlxG.save.data.autosaveInterval != null) {
+			autosaveInterval = FlxG.save.data.autosaveInterval;
+		}
+		if(FlxG.save.data.autosavecharts != null) {
+			autosavecharts = FlxG.save.data.autosavecharts;
+		}
+		if(FlxG.save.data.themedmainmenubg != null) {
+			themedmainmenubg = FlxG.save.data.themedmainmenubg;
+		}
+		if(FlxG.save.data.autotitleskip != null) {
+			autotitleskip = FlxG.save.data.autotitleskip;
 		}
 		/*if(FlxG.save.data.cursing != null) {
 			cursing = FlxG.save.data.cursing;
@@ -181,8 +237,20 @@ class ClientPrefs {
 		if(FlxG.save.data.hideHud != null) {
 			hideHud = FlxG.save.data.hideHud;
 		}
+		if(FlxG.save.data.hideWatermark != null) {
+			hideWatermark = FlxG.save.data.hideWatermark;
+		}
+		if(FlxG.save.data.hideWatermark != null) {
+			hideScoreText = FlxG.save.data.hideScoreText;
+		}
 		if(FlxG.save.data.noteOffset != null) {
 			noteOffset = FlxG.save.data.noteOffset;
+		}
+		if(FlxG.save.data.removePerfects != null) {
+			removePerfects = FlxG.save.data.removePerfects;
+		}
+		if(FlxG.save.data.showcaseMode != null) {
+			showcaseMode = FlxG.save.data.showcaseMode;
 		}
 		if(FlxG.save.data.arrowHSV != null) {
 			arrowHSV = FlxG.save.data.arrowHSV;
@@ -209,6 +277,9 @@ class ClientPrefs {
 		if(FlxG.save.data.ratingOffset != null) {
 			ratingOffset = FlxG.save.data.ratingOffset;
 		}
+		if(FlxG.save.data.perfectWindow != null) {
+			perfectWindow = FlxG.save.data.perfectWindow;
+		}
 		if(FlxG.save.data.sickWindow != null) {
 			sickWindow = FlxG.save.data.sickWindow;
 		}
@@ -227,8 +298,20 @@ class ClientPrefs {
 		if(FlxG.save.data.hitsoundVolume != null) {
 			hitsoundVolume = FlxG.save.data.hitsoundVolume;
 		}
+		if(FlxG.save.data.cameramoveonnotes != null) {
+			cameramoveonnotes = FlxG.save.data.cameramoveonnotes;
+		}
+		if(FlxG.save.data.underlaneVisibility != null) {
+			underlaneVisibility = FlxG.save.data.underlaneVisibility;
+		}
+		if(FlxG.save.data.OpponentUnderlaneVisibility != null) {
+			opponentUnderlaneVisibility = FlxG.save.data.OpponentUnderlaneVisibility;
+		}
 		if(FlxG.save.data.pauseMusic != null) {
 			pauseMusic = FlxG.save.data.pauseMusic;
+		}
+		if(FlxG.save.data.pauseMusic != null) {
+			noteSkinSettings = FlxG.save.data.noteSkinSettings;
 		}
 		if(FlxG.save.data.gameplaySettings != null)
 		{
