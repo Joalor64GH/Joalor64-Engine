@@ -24,9 +24,12 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import openfl.Lib;
 import openfl.display.BlendMode;
+import openfl.display.ShaderParameter;
 import openfl.filters.BitmapFilter;
+import openfl.filters.ShaderFilter;
 import openfl.utils.Assets;
 import flixel.math.FlxMath;
+import Shaders;
 import flixel.util.FlxSave;
 import flixel.addons.transition.FlxTransitionableState;
 #if sys
@@ -34,8 +37,10 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 import Type.ValueType;
+import Sys;
 import Controls;
 import DialogueBoxPsych;
+import flixel.addons.display.FlxBackdrop;
 
 #if desktop
 import Discord;
@@ -44,8 +49,8 @@ import Discord;
 using StringTools;
 
 class FunkinLua {
-	public static var Function_Stop:Dynamic = 1;
-	public static var Function_Continue:Dynamic = 0;
+	public static var Function_Stop:Dynamic = "Function_Stop";
+	public static var Function_Continue:Dynamic = "Function_Continue";
 
 	#if LUA_ALLOWED
 	public var lua:State = null;
@@ -87,8 +92,8 @@ class FunkinLua {
 		#end
 
 		// Lua shit
-		set('Function_Stop', Function_Stop);
-		set('Function_Continue', Function_Continue);
+		set('Function_Stop', "Function_Stop");
+		set('Function_Continue', "Function_Continue");
 		set('luaDebugMode', false);
 		set('luaDeprecatedWarnings', true);
 		set('inChartEditor', false);
@@ -132,7 +137,7 @@ class FunkinLua {
 		set('rating', 0);
 		set('ratingName', '');
 		set('ratingFC', '');
-		set('version', MainMenuState.psychEngineVersion.trim());
+		set('version', MainMenuState.osEngineVesrion.trim());
 		
 		set('inGameOver', false);
 		set('mustHitSection', false);
@@ -164,11 +169,13 @@ class FunkinLua {
 		// Character shit
 		set('boyfriendName', PlayState.SONG.player1);
 		set('dadName', PlayState.SONG.player2);
-		set('gfName', PlayState.SONG.gfVersion);
+		set('gfName', PlayState.SONG.player3);
 
 		// Some settings, no jokes
 		set('downscroll', ClientPrefs.downScroll);
 		set('middlescroll', ClientPrefs.middleScroll);
+		set('showcaseMode', ClientPrefs.showcaseMode);
+		set('removePerfects', ClientPrefs.removePerfects);
 		set('framerate', ClientPrefs.framerate);
 		set('ghostTapping', ClientPrefs.ghostTapping);
 		set('hideHud', ClientPrefs.hideHud);
@@ -307,6 +314,12 @@ class FunkinLua {
 			}
 			return Reflect.getProperty(getInstance(), variable);
 		});
+		Lua_helper.add_callback(lua, "pcUserName", function() {
+			return Sys.environment()["USERNAME"];
+		});
+		Lua_helper.add_callback(lua, 'openURL', function(url:String) {
+			CoolUtil.browserLoad(url);
+		});
 		Lua_helper.add_callback(lua, "setProperty", function(variable:String, value:Dynamic) {
 			var killMe:Array<String> = variable.split('.');
 			if(killMe.length > 1) {
@@ -355,6 +368,11 @@ class FunkinLua {
 				return;
 			}
 			Reflect.getProperty(getInstance(), obj).remove(Reflect.getProperty(getInstance(), obj)[index]);
+		});
+
+		Lua_helper.add_callback(lua, "revertTime", function(seconds:Int) {
+			PlayState.startOnTime = Conductor.songPosition - seconds*1000;		// you won't use it cuz it's shit, im sure
+			PauseSubState.restartSong(true);
 		});
 
 		Lua_helper.add_callback(lua, "getPropertyFromClass", function(classVar:String, variable:String) {
@@ -884,6 +902,12 @@ class FunkinLua {
 		Lua_helper.add_callback(lua, "setRatingName", function(value:String) {
 			PlayState.instance.ratingName = value;
 		});
+		Lua_helper.add_callback(lua, "setBotPlayText", function(value:String) {
+			PlayState.instance.botplayTxt.text = value;
+		});
+		Lua_helper.add_callback(lua, "setWatermarkText", function(value:String) {
+			PlayState.instance.songTxt.text = value;
+		});
 		Lua_helper.add_callback(lua, "setRatingFC", function(value:String) {
 			PlayState.instance.ratingFC = value;
 		});
@@ -962,6 +986,15 @@ class FunkinLua {
 				leSprite.loadGraphic(Paths.image(image));
 			}
 			leSprite.antialiasing = ClientPrefs.globalAntialiasing;
+			PlayState.instance.modchartSprites.set(tag, leSprite);
+			leSprite.active = true;
+		});
+		Lua_helper.add_callback(lua, "makeLuaShaderSprite", function(tag:String, shader:String, x:Float, y:Float,optimize:Bool=false) {
+			tag = tag.replace('.', '');
+			resetSpriteTag(tag);
+			var leSprite:ModchartSprite = new ModchartSprite(x, y,true,shader,optimize);
+			leSprite.antialiasing = ClientPrefs.globalAntialiasing;
+
 			PlayState.instance.modchartSprites.set(tag, leSprite);
 			leSprite.active = true;
 		});
@@ -1157,6 +1190,115 @@ class FunkinLua {
 				PlayState.instance.modchartSprites.remove(tag);
 			}
 		});
+
+		Lua_helper.add_callback(lua, "addChromaticAbberationEffect", function(camera:String,chromeOffset:Float = 0.005) {
+			
+			PlayState.instance.addShaderToCamera(camera, new ChromaticAberrationEffect(chromeOffset));
+			
+		});
+		
+		Lua_helper.add_callback(lua, "addScanlineEffect", function(camera:String,lockAlpha:Bool=false) {
+			
+			PlayState.instance.addShaderToCamera(camera, new ScanlineEffect(lockAlpha));
+			
+		});
+		Lua_helper.add_callback(lua, "addGrainEffect", function(camera:String,grainSize:Float,lumAmount:Float,lockAlpha:Bool=false) {
+			
+			PlayState.instance.addShaderToCamera(camera, new GrainEffect(grainSize,lumAmount,lockAlpha));
+			
+		});
+		Lua_helper.add_callback(lua, "addTiltshiftEffect", function(camera:String,blurAmount:Float=1.0,center:Float=1.0) {
+			
+			PlayState.instance.addShaderToCamera(camera, new TiltshiftEffect(blurAmount,center));
+			
+		}); 
+		Lua_helper.add_callback(lua, "addVCREffect", function(camera:String,glitchFactor:Float = 0.0,distortion:Bool=true,perspectiveOn:Bool=true,vignetteMoving:Bool=true) {
+			
+			PlayState.instance.addShaderToCamera(camera, new VCRDistortionEffect(glitchFactor,distortion,perspectiveOn,vignetteMoving));
+			
+		});
+
+		Lua_helper.add_callback(lua, "createShaders", function(shaderName:String, ?optimize:Bool = false)
+			{
+				var shader = new DynamicShaderHandler(shaderName, optimize);
+			
+				return shaderName;
+			});
+			/*
+			Lua_helper.add_callback(lua, "modifyShaderProperty", function(shaderName:String, propertyName:String, value:Dynamic)
+			{
+				//var handler:DynamicShaderHandler = PlayState.instance.luaShaders.get(shaderName);
+				//trace(Reflect.getProperty(handler.shader.data, propertyName));
+				//Reflect.setProperty(Reflect.getProperty(handler.shader.data, propertyName), 'value', value);
+				handler.modifyShaderProperty(propertyName, value);
+			});
+			// shader set
+			*/
+			Lua_helper.add_callback(lua, "setShadersToCamera", function(shaderName:Array<String>, cameraName:String)
+			{
+			
+				var shaderArray = new Array<BitmapFilter>();
+			
+				for (i in shaderName)
+				{
+					shaderArray.push(new ShaderFilter(PlayState.instance.luaShaders[i].shader));
+				}
+			
+				cameraFromString(cameraName).setFilters(shaderArray);
+			});
+			
+			// shader clear
+			
+			Lua_helper.add_callback(lua, "clearShadersFromCamera", function(cameraName)
+				{
+					cameraFromString(cameraName).setFilters([]);
+				});	
+						
+				Lua_helper.add_callback(lua, "addGlitchEffect", function(camera:String,waveSpeed:Float = 0.1,waveFrq:Float = 0.1,waveAmp:Float = 0.1) {
+					
+					PlayState.instance.addShaderToCamera(camera, new GlitchEffect(waveSpeed,waveFrq,waveAmp));
+					
+				});
+				Lua_helper.add_callback(lua, "addPulseEffect", function(camera:String,waveSpeed:Float = 0.1,waveFrq:Float = 0.1,waveAmp:Float = 0.1) {
+					
+					PlayState.instance.addShaderToCamera(camera, new PulseEffect(waveSpeed,waveFrq,waveAmp));
+					
+				});
+				Lua_helper.add_callback(lua, "addDistortionEffect", function(camera:String,waveSpeed:Float = 0.1,waveFrq:Float = 0.1,waveAmp:Float = 0.1) {
+					
+					PlayState.instance.addShaderToCamera(camera, new DistortBGEffect(waveSpeed,waveFrq,waveAmp));
+					
+				});
+				Lua_helper.add_callback(lua, "addInvertEffect", function(camera:String,lockAlpha:Bool=false) {
+					
+					PlayState.instance.addShaderToCamera(camera, new InvertColorsEffect(lockAlpha));
+					
+				});
+				Lua_helper.add_callback(lua, "addGreyscaleEffect", function(camera:String) { //for dem funkies
+					
+					PlayState.instance.addShaderToCamera(camera, new GreyscaleEffect());
+					
+				});
+				Lua_helper.add_callback(lua, "addGrayscaleEffect", function(camera:String) { //for dem funkies
+					
+					PlayState.instance.addShaderToCamera(camera, new GreyscaleEffect());
+					
+				});
+				Lua_helper.add_callback(lua, "add3DEffect", function(camera:String,xrotation:Float=0,yrotation:Float=0,zrotation:Float=0,depth:Float=0) { //for dem funkies
+					
+					PlayState.instance.addShaderToCamera(camera, new ThreeDEffect(xrotation,yrotation,zrotation,depth));
+					
+				});
+				Lua_helper.add_callback(lua, "addBloomEffect", function(camera:String,intensity:Float = 0.35,blurSize:Float=1.0) {
+					
+					PlayState.instance.addShaderToCamera(camera, new BloomEffect(blurSize/512.0,intensity));
+					
+				});
+				Lua_helper.add_callback(lua, "clearEffects", function(camera:String) {
+					PlayState.instance.clearShaderFromCamera(camera);
+				});
+			
+			
 
 		Lua_helper.add_callback(lua, "setObjectCamera", function(obj:String, camera:String = '') {
 			if(PlayState.instance.modchartSprites.exists(obj)) {
@@ -1950,7 +2092,6 @@ class FunkinLua {
 			}
 
 			var conv:Dynamic = Convert.fromLua(lua, result);
-			Lua.pop(lua, 1);
 			return conv;
 		}
 		#end
@@ -2051,11 +2192,24 @@ class ModchartSprite extends FlxSprite
 {
 	public var wasAdded:Bool = false;
 	//public var isInFront:Bool = false;
+	var hShader:DynamicShaderHandler;
 
-	public function new(?x:Float = 0, ?y:Float = 0)
+	public function new(?x:Float = 0, ?y:Float = 0,shaderSprite:Bool=false,type:String='', optimize:Bool = false)
 	{
 		super(x, y);
-		antialiasing = ClientPrefs.globalAntialiasing;
+		if(shaderSprite){
+
+			makeGraphic(FlxG.width, FlxG.height, FlxColor.TRANSPARENT);
+
+			hShader = new DynamicShaderHandler(type, optimize);
+
+			if (hShader.shader != null)
+			{
+				shader = hShader.shader;
+			}
+
+			antialiasing = FlxG.save.data.antialiasing;
+			}
 	}
 }
 
