@@ -20,12 +20,13 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Keep Calm and Carry On', 'CTRL + Y', 'Change Difficulty', 'ALT + F4'];
+	var menuItemsOG:Array<String> = ['Keep Calm and Carry On', 'CTRL + Y', 'Options', 'ALT + F4'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
 	var practiceText:FlxText;
+	public static var wasinsongbeforethenwenttooptions:Bool;
 	var skipTimeText:FlxText;
 	var skipTimeTracker:Alphabet;
 	var curTime:Float = Math.max(0, Conductor.songPosition);
@@ -36,7 +37,7 @@ class PauseSubState extends MusicBeatSubstate
 	public function new(x:Float, y:Float)
 	{
 		super();
-		if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
+		//if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
 
 		if(PlayState.chartingMode)
 		{
@@ -248,6 +249,14 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.botplayTxt.visible = PlayState.instance.cpuControlled;
 					PlayState.instance.botplayTxt.alpha = 1;
 					PlayState.instance.botplaySine = 0;
+				case 'Options':
+					PlayState.deathCounter = 0;
+					PlayState.seenCutscene = false;
+					MusicBeatState.switchState(new options.OptionsState());
+					wasinsongbeforethenwenttooptions = true;
+					FlxG.sound.playMusic(Paths.music('freakyMenu'));
+					PlayState.changedDifficulty = false;
+					PlayState.chartingMode = false;
 				case "ALT + F4":
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
