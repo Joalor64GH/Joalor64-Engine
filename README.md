@@ -21,7 +21,14 @@
 * The ratings will appear in the top left corner while you're playing.
 * After you complete a song, your rank is displayed!
 * After that, just press space to go back to the menu.
-* Still tryna figure out how to make the freeplay and pause menu move in a disc-like motion similar to dnb lol.
+
+# Planned Features
+* [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
+* [ ] Health Bar Overlay.
+* [ ] Checkerboard BG for Title lol.
+* [ ] Noob, Expert and Insane Charts for all weeks.
+
+# With that said...
 * Hope you enjoy!
 
 # Credits
