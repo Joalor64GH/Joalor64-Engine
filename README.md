@@ -23,12 +23,14 @@
 * After that, just press space to go back to the menu.
 
 # Planned Features
+* [ ] Noob, Expert and Insane Charts for all weeks. **[In Progress]**
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 * [ ] Health Bar Overlay.
 * [ ] Checkerboard BG for Title lol.
-* [ ] Noob, Expert and Insane Charts for all weeks.
 * [ ] NPS in score HUD.
 * [ ] Restore the "Combo" Asset.
+
+More things could added as we go along!
 
 # With that said...
 * Hope you enjoy!
