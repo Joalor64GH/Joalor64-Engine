@@ -27,6 +27,8 @@
 * [ ] Health Bar Overlay.
 * [ ] Checkerboard BG for Title lol.
 * [ ] Noob, Expert and Insane Charts for all weeks.
+* [ ] NPS in score HUD.
+* [ ] Restore the "Combo" Asset.
 
 # With that said...
 * Hope you enjoy!
