@@ -28,7 +28,6 @@
 * [ ] Health Bar Overlay.
 * [ ] Checkerboard BG for Title lol.
 * [ ] NPS in score HUD.
-* [ ] Restore the "Combo" Asset.
 
 More things could added as we go along!
 
