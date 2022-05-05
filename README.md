@@ -4,6 +4,7 @@
 * Apply [Here](https://docs.google.com/forms/d/e/1FAIpQLSe79y4ldB4uf6yUbJKpoWgu1gkli6-lG2W7-bYyJF4i2KDcWQ/viewform?usp=sf_link)
 
 # Joalor64 Engine
+![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/art/logos/j64elogo.png?raw=true)
 * My custom version of Psych Engine made with some changes lol.
 * [ProjectFNF Version](https://github.com/Joalor64GH/Joalor64-Engine-PFNF)
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
