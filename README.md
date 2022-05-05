@@ -33,7 +33,7 @@
 More things could added as we go along!
 
 # With that said...
-* Hope you enjoy!
+Hope you enjoy!
 
 # Credits
 * [Joalor64 YT](https://www.youtube.com/channel/UC4tRMRL_iAHX5n1qQpHibfg/featured) - Main Programmer
