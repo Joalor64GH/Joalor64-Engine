@@ -5,6 +5,11 @@
 
 # Joalor64 Engine
 ![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/art/logos/j64elogo.png?raw=true)
+
+![](https://img.shields.io/github/v/release/Joalor64GH/Joalor64-Engine?color=0000FF&label=version&style=flat-square)
+![](https://img.shields.io/github/v/release/Joalor64GH/Joalor64-Engine?color=0000&include_prereleases&label=beta&style=flat-square)
+![](https://img.shields.io/github/downloads/Joalor64GH/Joalor64-Engine/total?color=FF00C8&style=flat-square)
+![](https://img.shields.io/github/repo-size/Joalor64GH/Joalor64-Engine?color=AE00FF&style=flat-square)
 * My custom version of Psych Engine made with some changes lol.
 * [ProjectFNF Version](https://github.com/Joalor64GH/Joalor64-Engine-PFNF)
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
