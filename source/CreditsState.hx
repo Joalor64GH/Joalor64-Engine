@@ -86,6 +86,8 @@ class CreditsState extends MusicBeatState
 			['Bot 404',              'bot',             'Tiny little helper, Drew his own icon',                                     	    'https://www.youtube.com/channel/UC9ntkZ4Nz3AVKrAnderJnOg',            'FF0040'],
 			['Special Thanks'],
 			['PE Discord Server Members',             'discord',             'They made the Scripts lmao',                       		'https://discord.gg/2ka77eMXDv',          '6732E3'],
+			['BeastlyGhost',             'none',             'Latin Alphabet Support',                       		'https://github.com/BeastlyGhost',          '00FFAA'],
+			['HiroMizuki',             'none',             'Assistant for Latin Alphabet Support',                       		'https://github.com/HiroMizuki',          '00FFAA'],
 			['You',             'face',             'For playing :)',                       		'https://discord.gg/ScMB5ZX2mE',          '7E00FF'],			
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
