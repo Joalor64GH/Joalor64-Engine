@@ -84,12 +84,14 @@ class CreditsState extends MusicBeatState
 			['Joalor64 Engine Creators'],
 			['Joalor64 YT',         'joalor',             'Project leader, Programmer',                                  		'https://www.youtube.com/channel/UC4tRMRL_iAHX5n1qQpHibfg',  '00FFF6'],
 			['Bot 404',              'bot',             'Tiny little helper, Drew his own icon',                                     	    'https://www.youtube.com/channel/UC9ntkZ4Nz3AVKrAnderJnOg',            'FF0040'],
+			['']
 			['Special Thanks'],
 			['PE Discord Server Members',             'discord',             'They made the Scripts lmao',                       		'https://discord.gg/2ka77eMXDv',          '6732E3'],
-			['BeastlyGhost',             'none',             'Latin Alphabet Support',                       		'https://github.com/BeastlyGhost',          '00FFAA'],
-			['HiroMizuki',             'none',             'Assistant for Latin Alphabet Support',                       		'https://github.com/HiroMizuki',          '912E00'],
-			['weuz_',             'none',             'OS Engine Code',                       		'https://github.com/weuz-github',          '940EEB'],
+			['BeastlyGhost',             'beastly',             'Latin Alphabet Support',                       		'https://github.com/BeastlyGhost',          '00FFAA'],
+			['HiroMizuki',             'hiro',             'Assistant for Latin Alphabet Support',                       		'https://github.com/HiroMizuki',          '912E00'],
+			['weuz_',             'weuz',             'OS Engine Code',                       		'https://github.com/weuz-github',          '940EEB'],
 			['You',             'face',             'For playing :)',                       		'https://discord.gg/ScMB5ZX2mE',          '7E00FF'],			
+			['']
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
 			['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',						'https://twitter.com/RiverOaken',		'C30085'],
