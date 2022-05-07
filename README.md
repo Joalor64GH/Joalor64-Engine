@@ -17,7 +17,7 @@
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
 # Features
-* Max BPM no longer capped at 339 (:trollface:)
+* Max BPM no longer capped at 339 :trollface:
 * Some code borrowed from [OS Engine](https://github.com/weuz-github/FNF-OSEngine) (Thanks weuz_)
 * Latin Alphabet Support (heck ye)
 * 3D Notes (Perfect for fanmade DnB mods.)
