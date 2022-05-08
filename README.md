@@ -38,6 +38,7 @@
 * [ ] Health Bar Overlay.
 * [ ] Checkerboard BG for Title lol.
 * [ ] NPS in score HUD.
+* [ ] Restore "Combo-Pixel" asset.
 
 More things could added as we go along!
 
