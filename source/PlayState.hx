@@ -3869,7 +3869,7 @@ class PlayState extends MusicBeatState
 
 					}
 				}
-				else if (canMiss) {
+				else if (canMiss && !inCutscene) {
 					noteMissPress(key);
 					callOnLuas('noteMissPress', [key]);
 				}
