@@ -17,7 +17,6 @@
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
 # Features
-* Health Bar Overlay
 * Restored "Combo" Asset :trollface:
 * Max BPM no longer capped at 339 :trollface:
 * Some code borrowed from [OS Engine](https://github.com/weuz-github/FNF-OSEngine) (Thanks weuz_)
