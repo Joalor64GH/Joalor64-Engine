@@ -27,6 +27,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * More Credits
 * Latin Alphabet Support
 * Changed a thing in Project.xml
+* Pixel Notesplashes
+* Starting V-Pose
+* Combo Counter
 * And more things I'm too lazy to list.
 ### Removed
 * Max BPM Capping at 339
