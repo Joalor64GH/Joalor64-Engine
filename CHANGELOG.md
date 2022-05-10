@@ -18,8 +18,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Changed Stuff in Project.xml
 * And a tiny bit more.
 
-## [1.0.0e] - UNRELEASED
+## [1.0.0e] - 2022-5-9
 ### Added
-* TBA
+* New Logo
+* Restored Combo Asset
+* New Default Charting Events
+* A **TON** of State Changes
+* More Credits
+* Latin Alphabet Support
+* Changed a thing in Project.xml
+* And more things I'm too lazy to list.
 ### Removed
-* TBA
+* Max BPM Capping at 339
+* Winning Icon Support
