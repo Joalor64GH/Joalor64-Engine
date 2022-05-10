@@ -31,3 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 * Max BPM Capping at 339
 * Winning Icon Support
+
+## [1.1.0] - UNRELEASED
+### Added
+* TBA
