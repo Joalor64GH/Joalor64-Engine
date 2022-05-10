@@ -17,6 +17,7 @@
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
 # Features
+* Health Bar Overlay
 * Restored "Combo" Asset :trollface:
 * Max BPM no longer capped at 339 :trollface:
 * Some code borrowed from [OS Engine](https://github.com/weuz-github/FNF-OSEngine) (Thanks weuz_)
@@ -35,7 +36,6 @@
 # Planned Features
 * [ ] Noob, Expert and Insane Charts for all weeks. **[In Progress]**
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
-* [ ] Health Bar Overlay.
 * [ ] Checkerboard BG for Title lol.
 * [ ] NPS in score HUD.
 * [ ] Restore "Combo-Pixel" asset.
