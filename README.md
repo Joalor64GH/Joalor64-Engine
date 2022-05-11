@@ -33,9 +33,9 @@
 * After that, just press space to go back to the menu.
 
 # Planned Features
+* [X] BG for Title lol. **[Completed]**
 * [ ] Noob, Expert and Insane Charts for all weeks. **[In Progress]**
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
-* [ ] BG for Title lol.
 * [ ] NPS in score HUD.
 * [ ] Restore "Combo-Pixel" asset.
 * [ ] Shader for Freeplay/Main Menu BG.
