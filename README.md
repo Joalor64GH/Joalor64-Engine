@@ -38,7 +38,7 @@
 * [ ] BG for Title lol.
 * [ ] NPS in score HUD.
 * [ ] Restore "Combo-Pixel" asset.
-* [ ] Shader for Freeplay BG.
+* [ ] Shader for Freeplay/Main Menu BG.
 
 More things could added as we go along!
 
