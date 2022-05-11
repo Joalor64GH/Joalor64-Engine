@@ -361,7 +361,7 @@ class TitleState extends MusicBeatState
 		titleText.antialiasing = ClientPrefs.globalAntialiasing;
 		titleText.animation.play('idle');
 		titleText.updateHitbox();
-		// titleText.screenCenter(X);
+		titleText.screenCenter(X);
 		add(titleText);
 
 		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
@@ -389,7 +389,7 @@ class TitleState extends MusicBeatState
 		credTextShit = new Alphabet(0, 0, "", true);
 		credTextShit.screenCenter();
 
-		// credTextShit.alignment = CENTER;
+		credTextShit.alignment = CENTER;
 
 		credTextShit.visible = false;
 
