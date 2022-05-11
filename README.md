@@ -35,9 +35,10 @@
 # Planned Features
 * [ ] Noob, Expert and Insane Charts for all weeks. **[In Progress]**
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
-* [ ] Checkerboard BG for Title lol.
+* [ ] BG for Title lol.
 * [ ] NPS in score HUD.
 * [ ] Restore "Combo-Pixel" asset.
+* [ ] Shader for Freeplay BG.
 
 More things could added as we go along!
 
