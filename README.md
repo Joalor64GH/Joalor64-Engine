@@ -18,6 +18,7 @@
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
 # Features
+* Rainbow FPS Option.
 * Restored "Combo" Asset :trollface:
 * Max BPM no longer capped at 339 :trollface:
 * Some code borrowed from [OS Engine](https://github.com/weuz-github/FNF-OSEngine) (Thanks weuz_)
