@@ -40,6 +40,7 @@
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 * [ ] NPS in score HUD.
 * [ ] Shader for Freeplay/Main Menu BG.
+* [ ] Android Support.
 
 More things could added as we go along!
 
