@@ -88,6 +88,7 @@ class CreditsState extends MusicBeatState
 			['PE Discord Server Members',             'discord',             'They made the Scripts lmao',                       		'https://discord.gg/2ka77eMXDv',          '6732E3'],
 			['BeastlyGhost',             'beastly',             'Latin Alphabet Support',                       		'https://github.com/BeastlyGhost',          '00FFAA'],
 			['HiroMizuki',             'hiro',             'Assistant for Latin Alphabet Support',                       		'https://github.com/HiroMizuki',          '912E00'],
+			['Stilic',             'none',             'Note Combo Script',                       		'https://github.com/Stilic',          'C74B22'],
 			['weuz_',             'weuz',             'OS Engine Code',                       		'https://github.com/weuz-github',          '940EEB'],
 			['You',             'face',             'For playing :)',                       		'https://discord.gg/ScMB5ZX2mE',          '7E00FF'],			
 			['Psych Engine Team'],
