@@ -1,0 +1,161 @@
+<html>
+<head>
+<title>GuessNumber</title>
+<HTA:APPLICATION
+  APPLICATIONNAME="GuessNumber"
+  ID="GuessNumber"
+  VERSION="1.0"
+  MAXIMIZEBUTTON="no"
+  SCROLL="no"/>
+</head>
+
+<style>
+
+body  {color: #808080;}
+
+.txt  {color: #808080;
+    background-color: #000000;
+    text-align: center;}
+
+.sml  {font-size: 9pt;}
+
+hr   {color: #808080;}
+
+</style>
+
+<script language="VBScript">
+
+Sub Window_OnLoad
+ Randomize
+   Dim width,height
+   width=350
+   height=300
+   self.ResizeTo width,height
+   BTNR.style.background = "#000000"
+   BTNR.style.color = "#808080"
+   BTNG.style.background = "#000000"
+   BTNG.style.color = "#808080"
+   cunt.value = 20
+   chk.value = 0
+   count.value = 20
+   cnum.value = Int((Rnd*9999)+0)
+   box.focus
+End Sub
+
+Sub BTNG_OnMouseOver
+BTNG.style.background = "#808080"
+BTNG.style.color = "#000000"
+End Sub
+
+Sub BTNR_OnMouseOver
+BTNR.style.background = "#808080"
+BTNR.style.color = "#000000"
+End Sub
+
+Sub BTNG_OnMouseOut
+BTNG.style.background = "#000000"
+BTNG.style.color = "#808080"
+End Sub
+
+Sub BTNR_OnMouseOut
+BTNR.style.background = "#000000"
+BTNR.style.color = "#808080"
+End Sub
+
+Function Reset
+Randomize
+cnum.value = Int((Rnd*9999)+0)
+cunt.value = 20
+count.value = 20
+info.value = ""
+box.value = ""
+chk.value = 0
+box.focus
+End Function
+
+Function Validate
+chck = chk.value
+num = box.value
+cont = cunt.value
+If (chck = 1) Then
+MsgBox("Reset the game to play again!")
+Else If (cont <= 0) Then
+MsgBox("You ran out of turns! Reset the game to play again!")
+Else If (box.value = "") Then
+MsgBox("Enter number!")
+Else If Not (IsNumeric(box.value)) Then
+MsgBox("Not a valid number!")
+Else If (num < 0) Then
+MsgBox("Not a valid number!")
+Else
+StartGame()
+End If
+End If
+End If
+End If
+End If
+End Function
+
+Function StartGame
+mnum = Int(box.value)
+onum = Int(cnum.value)
+cunt.value = Int(cunt.value)-1
+If (cunt.value <= 0) Then
+box.value = ""
+info.value = "Reset the game!"
+count.value = cunt.value
+MsgBox("You ran out of chances!")
+Else If (mnum < onum) Then
+info.value = "My number is greater than "&mnum&"!"
+count.value = cunt.value
+Else If (mnum > onum) Then
+info.value = "My number is less than "&mnum&"!"
+count.value = cunt.value
+Else If (mnum = onum) Then
+xnum = 20-Int(cunt.value)
+info.value = "You Guessed my numer in "&xnum&" turns!"
+count.value = cunt.value
+chk.value = 1
+Else
+info.value = "ERROR!"
+cunt.value = cunt.value+1
+count.value = cunt.value
+End If
+End If
+End If
+End If
+box.value = ""
+box.focus
+End Function
+
+Function KPress()
+If (window.event.keycode = 13) Then
+Validate()
+Else
+End If
+box.focus
+End Function
+
+</script>
+
+<body bgcolor="black" onkeypress="KPress()">
+<input type="hidden" id="chk">
+<input type="hidden" id="cnum">
+<input type="hidden" id="cunt">
+<table align="center" border="3">
+<caption><hr><b>GUESS NUMBER</b><hr></caption>
+<tr>
+<td>Do you think you can guess a number between 0 and 9999 in less than 20 turns? Play this little game and find out if you can do it!</td>
+</tr>
+<tr>
+<td align="center"><input type="text" id="box" size="5" maxlength="4" class="txt" onkeypress="If (window.event.keycode < 48 Or window.event.keycode > 57) Then window.event.returnvalue = False"> <input type="button" value="Guess" onClick="Validate" id="BTNG"></td>
+</tr>
+<tr>
+<td align="center"># <input type="text" id="count" size="4" class="txt"  maxlength="0" onmousemove="count.value = cunt.value"> <input type="text" id="info" size="32" class="txt" maxlength="0"></td>
+</tr>
+<tr>
+<td align="right"><a class="sml">| Guess Number - By Noor  |  Copyright © 2013 |</a> <input type="button" value="Reset" id="BTNR" onClick="Reset"></td>
+</tr>
+</table>
+</body>
+</html>
