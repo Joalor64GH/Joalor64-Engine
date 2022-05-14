@@ -453,6 +453,7 @@ class TitleState extends MusicBeatState
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
+		var pressedBack:Bool = FlxG.keys.justPressed.ESCAPE || controls.BACK;
 
 		#if mobile
 		for (touch in FlxG.touches.list)
