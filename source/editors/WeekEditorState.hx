@@ -258,7 +258,7 @@ class WeekEditorState extends MusicBeatState
 		
 		tab_group.add(new FlxText(weekBeforeInputText.x, weekBeforeInputText.y - 28, 0, 'Week File name of the Week you have\nto finish for Unlocking:'));
 		tab_group.add(new FlxText(difficultiesInputText.x, difficultiesInputText.y - 20, 0, 'Difficulties:'));
-		tab_group.add(new FlxText(difficultiesInputText.x, difficultiesInputText.y + 20, 0, 'Default difficulties are "Easy, Normal, Hard"\nwithout quotes.'));
+		tab_group.add(new FlxText(difficultiesInputText.x, difficultiesInputText.y + 20, 0, 'Default difficulties are "Noob, Easy, Normal, Hard, Expert, Insane"\nwithout quotes.'));
 		tab_group.add(weekBeforeInputText);
 		tab_group.add(difficultiesInputText);
 		tab_group.add(hiddenUntilUnlockCheckbox);
@@ -401,12 +401,12 @@ class WeekEditorState extends MusicBeatState
 
 				for (i in 0...splittedText.length) {
 					if(i >= weekFile.songs.length) { //Add new song
-						weekFile.songs.push([splittedText[i], 'dad', [146, 113, 253]]);
+						weekFile.songs.push([splittedText[i], 'face', [135, 131, 158]]);
 					} else { //Edit song
 						weekFile.songs[i][0] = splittedText[i];
 						if(weekFile.songs[i][1] == null || weekFile.songs[i][1]) {
-							weekFile.songs[i][1] = 'dad';
-							weekFile.songs[i][2] = [146, 113, 253];
+							weekFile.songs[i][1] = 'face';
+							weekFile.songs[i][2] = [135, 131, 158];
 						}
 					}
 				}
