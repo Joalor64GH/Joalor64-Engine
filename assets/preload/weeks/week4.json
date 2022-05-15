@@ -1,10 +1,11 @@
 {
 	"storyName": "MOMMY MUST MURDER",
-	"difficulties": "Noob, Easy, Normal, Hard, Expert, Insane",
+	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "limo",
 	"weekBefore": "week3",
 	"startUnlocked": true,
+	"hideStoryMode": false,
 	"weekCharacters": [
 		"mom",
 		"bf",
@@ -39,6 +40,5 @@
 			]
 		]
 	],
-	"hideStoryMode": false,
 	"weekName": "Week 4"
 }

@@ -1,10 +1,11 @@
 {
 	"storyName": "How to Funk / Test",
-	"difficulties": "Noob, Easy, Normal, Hard, Expert, Insane",
+	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"weekBefore": "tutorial",
 	"startUnlocked": true,
+	"hideStoryMode": false,
 	"weekCharacters": [
 		"",
 		"bf",
@@ -30,6 +31,5 @@
 			]
 		]
 	],
-	"hideStoryMode": false,
 	"weekName": "Tutorial"
 }

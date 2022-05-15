@@ -1,10 +1,11 @@
 {
 	"storyName": "Daddy Dearest",
-	"difficulties": "Noob, Easy, Normal, Hard, Expert, Insane",
+	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"weekBefore": "tutorial",
 	"startUnlocked": true,
+	"hideStoryMode": false,
 	"weekCharacters": [
 		"dad",
 		"bf",
@@ -39,6 +40,5 @@
 			]
 		]
 	],
-	"hideStoryMode": false,
 	"weekName": "Week 1"
 }

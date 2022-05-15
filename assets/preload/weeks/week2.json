@@ -1,10 +1,11 @@
 {
 	"storyName": "Spooky Month",
-	"difficulties": "Noob, Easy, Normal, Hard, Expert, Insane",
+	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "halloween",
 	"weekBefore": "week1",
 	"startUnlocked": true,
+	"hideStoryMode": false,
 	"weekCharacters": [
 		"spooky",
 		"bf",
@@ -39,6 +40,5 @@
 			]
 		]
 	],
-	"hideStoryMode": false,
 	"weekName": "Week 2"
 }

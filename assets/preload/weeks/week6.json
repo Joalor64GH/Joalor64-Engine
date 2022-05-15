@@ -1,10 +1,11 @@
 {
 	"storyName": "hating simulator ft. moawling",
-	"difficulties": "Noob, Easy, Normal, Hard, Expert, Insane",
+	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "school",
 	"weekBefore": "week5",
 	"startUnlocked": true,
+	"hideStoryMode": false,
 	"weekCharacters": [
 		"senpai",
 		"bf",
@@ -39,6 +40,5 @@
 			]
 		]
 	],
-	"hideStoryMode": false,
 	"weekName": "Week 6"
 }

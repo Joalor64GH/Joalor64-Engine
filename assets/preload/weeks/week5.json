@@ -1,10 +1,11 @@
 {
 	"storyName": "RED SNOW",
-	"difficulties": "Noob, Easy, Normal, Hard, Expert, Insane",
+	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "christmas",
 	"weekBefore": "week4",
 	"startUnlocked": true,
+	"hideStoryMode": false,
 	"weekCharacters": [
 		"parents-christmas",
 		"bf",
@@ -39,6 +40,5 @@
 			]
 		]
 	],
-	"hideStoryMode": false,
 	"weekName": "Week 5"
 }

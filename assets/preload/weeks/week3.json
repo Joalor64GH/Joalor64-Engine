@@ -1,10 +1,11 @@
 {
 	"storyName": "PICO",
-	"difficulties": "Noob, Easy, Normal, Hard, Expert, Insane",
+	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "philly",
 	"weekBefore": "week2",
 	"startUnlocked": true,
+	"hideStoryMode": false,
 	"weekCharacters": [
 		"pico",
 		"bf",
@@ -39,6 +40,5 @@
 			]
 		]
 	],
-	"hideStoryMode": false,
 	"weekName": "Week 3"
 }
