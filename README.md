@@ -68,7 +68,7 @@ Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), 
 * bbpanzu - Ex-Programmer
 
 ### Special Thanks
-* SqirraRNG - Chart Editor's Sound Waveform base code
+* gedehari - Chart Editor's Sound Waveform base code
 * iFlicky - Delay/Combo Menu Song Composer + Dialogue Sounds
 * PolybiusProxy - .MP4 Loader Extension
 * Keoiki - Note Splash Animations
