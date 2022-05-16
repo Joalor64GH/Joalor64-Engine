@@ -61,12 +61,12 @@ Hope you enjoy!
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
 
 ## Credits:
-* Shadow Mario - Coding
-* RiverOaken - Arts and Animations
-* bbpanzu - Assistant Coding
+* Shadow Mario - Main Programmer
+* RiverOaken - Main Artist/Animator
+* Yoshubs - Aditional Programmer
+* bbpanzu - Ex-Programmer
 
 ### Special Thanks
-* shubs - New Input System
 * SqirraRNG - Chart Editor's Sound Waveform base code
 * iFlicky - Delay/Combo Menu Song Composer + Dialogue Sounds
 * PolybiusProxy - .MP4 Loader Extension
