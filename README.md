@@ -39,10 +39,10 @@
 * [X] BG for Title lol. **[Completed]**
 * [ ] Noob, Expert and Insane Charts for all weeks. **[In Progress]**
 * [ ] Alt Difficulty. **[Update 1.2.0]**
+* [ ] Easy-alpha, Normal-alpha, Hard-alpha and Alt-alpha difficulties. **[Update 1.3.0]**
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 * [ ] NPS in score HUD.
 * [ ] Shader for Freeplay/Main Menu BG.
-* [ ] Android Support.
 * [ ] Colored Icons.
 
 More things could added as we go along!
