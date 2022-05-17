@@ -29,18 +29,18 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay'];
+	var options:Array<String> = ['Arrow Colors', 'Keybinds', 'Adjust Delay and Combo', 'Grapchis', 'Visuals and UI', 'Gameplay'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
-			case 'Note Colors':
+			case 'Arrow Colors':
 				openSubState(new options.NotesSubState());
-			case 'Controls':
+			case 'Keybinds':
 				openSubState(new options.ControlsSubState());
-			case 'Graphics':
+			case 'Grapchis':
 				openSubState(new options.GraphicsSettingsSubState());
 			case 'Visuals and UI':
 				openSubState(new options.VisualsUISubState());
