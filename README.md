@@ -41,6 +41,7 @@
 * [ ] Alt Difficulty. **[Update 1.2.0]**
 * [ ] Easy-alpha, Normal-alpha, Hard-alpha and Alt-alpha difficulties. **[Update 1.3.0]**
 * [ ] Noob-alpha, Expert-alpha and Insane-alpha difficulties. **[Update 1.4.0]**
+* [ ] Android Support. **[Update 1.5.0]**
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 * [ ] NPS in score HUD.
 * [ ] Shader for Freeplay/Main Menu BG.
