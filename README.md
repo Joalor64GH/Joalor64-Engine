@@ -38,7 +38,7 @@
 * [X] Restore "Combo-Pixel" asset. **[Completed]**
 * [X] BG for Title lol. **[Completed]**
 * [ ] Noob, Expert and Insane Charts for all weeks. **[In Progress]**
-* [ ] Android Support. **[In Progress]**
+* [ ] Android Support. **[Update 1.2.0]**
 * [ ] Alt Difficulty. **[Update 1.2.0]**
 * [ ] Easy-alpha, Normal-alpha, Hard-alpha and Alt-alpha difficulties. **[Update 1.3.0]**
 * [ ] Noob-alpha, Expert-alpha and Insane-alpha difficulties. **[Update 1.4.0]**
