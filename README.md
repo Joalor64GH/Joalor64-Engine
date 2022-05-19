@@ -76,4 +76,3 @@ Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), 
 * Keoiki - Note Splash Animations
 * Smokey - Spritemap Texture Atlas support
 * Cary - OG Resolution code
-* Nebula_Zorua - VCR Shader code
