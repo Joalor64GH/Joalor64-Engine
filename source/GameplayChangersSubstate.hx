@@ -82,9 +82,6 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		option.displayFormat = '%vX';
 		optionsArray.push(option);
 
-		var option:GameplayOption = new GameplayOption('Mirror Mode', 'mirror', 'bool', false);
-		optionsArray.push(option);
-
 		var option:GameplayOption = new GameplayOption('Hardcore Mode', 'instakill', 'bool', false);
 		optionsArray.push(option);
 
