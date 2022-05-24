@@ -14,7 +14,6 @@
 ![](https://img.shields.io/badge/balls-in%20yo%20jaws-FF0088?style=flat-square)
 ![](https://img.shields.io/github/license/Joalor64GH/Joalor64-Engine?color=00FFAE&style=flat-square)
 * My custom version of Psych Engine made with some changes lol.
-* [Joalor64 Engine PLUS](https://github.com/Joalor64GH/Joalor64-Engine-PLUS)
 * [ProjectFNF Version](https://github.com/Joalor64GH/Joalor64-Engine-PFNF)
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
