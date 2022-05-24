@@ -1,2 +1,2 @@
 Put stages here.
-Specifically stages from MFM Deluxe.
+If they have the path "mods/images/stages" OR "mods/my-mod/images/stages", that is.
