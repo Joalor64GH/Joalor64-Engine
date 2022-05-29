@@ -89,7 +89,7 @@ class CreditsState extends MusicBeatState
 			['BeastlyGhost',             'beastly',             'Latin Alphabet Support',                       		'https://github.com/BeastlyGhost',          '00FFAA'],
 			['HiroMizuki',             'hiro',             'Designer for Latin Alphabet Support',                       		'https://github.com/HiroMizuki',          '912E00'],
 			['Stilic',             'stilic',             'Note Combo Script',                       		'https://github.com/Stilic',          'C74B22'],
-			['weuz_',             'weuz',             'OS Engine Code',                       		'https://github.com/weuz-github',          '940EEB'],
+			['weuz_',             'weuz',             'OS Engine Code',                       		'https://github.com/notweuz',          '940EEB'],
 			['You',             'face',             'For playing :)',                       		'https://discord.gg/ScMB5ZX2mE',          '7E00FF'],			
 			['Psych Engine Team'],
 			['ShadowMario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
