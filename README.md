@@ -51,6 +51,11 @@ More things could added as we go along!
 # With that said...
 Hope you enjoy!
 
+# Downloads
+* [GitHub](https://github.com/Joalor64GH/Joalor64-Engine/tags)
+* [Github (Actions)](https://github.com/Joalor64GH/Joalor64-Engine/actions)
+* [itch.io](https://joalor64.itch.io/joalor64-engine)
+
 # Credits
 * [Joalor64 YT](https://www.youtube.com/channel/UC4tRMRL_iAHX5n1qQpHibfg/featured) - Main Programmer
 * [Bot 404](https://www.youtube.com/channel/UC9ntkZ4Nz3AVKrAnderJnOg) - Little Helper
