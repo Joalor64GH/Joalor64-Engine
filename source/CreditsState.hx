@@ -84,13 +84,15 @@ class CreditsState extends MusicBeatState
 			['Joalor64 Engine Creators'],
 			['Joalor64 YT',         'joalor',             'Project leader, Programmer',                                  		'https://www.youtube.com/channel/UC4tRMRL_iAHX5n1qQpHibfg',  '00FFF6'],
 			['Bot 404',              'bot',             'Tiny little helper, Drew his own icon',                                     	    'https://www.youtube.com/channel/UC9ntkZ4Nz3AVKrAnderJnOg',            'FF0040'],
+			[''],
 			['Special Thanks'],
 			['PE Discord Server Members',             'discord',             'They made the Scripts lmao',                       		'https://discord.gg/2ka77eMXDv',          '6732E3'],
 			['BeastlyGhost',             'beastly',             'Latin Alphabet Support',                       		'https://github.com/BeastlyGhost',          '00FFAA'],
 			['HiroMizuki',             'hiro',             'Designer for Latin Alphabet Support',                       		'https://github.com/HiroMizuki',          '912E00'],
 			['Stilic',             'stilic',             'Note Combo Script',                       		'https://github.com/Stilic',          'C74B22'],
 			['weuz_',             'weuz',             'OS Engine Code',                       		'https://github.com/notweuz',          '940EEB'],
-			['You',             'face',             'For playing :)',                       		'https://joalor64.itch.io',          '7E00FF'],			
+			['You',             'face',             'For playing :)',                       		'https://joalor64.itch.io/',          '7E00FF'],			
+			[''],
 			['Psych Engine Team'],
 			['ShadowMario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
 			['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',						'https://twitter.com/RiverOaken',		'C30085'],
@@ -110,7 +112,13 @@ class CreditsState extends MusicBeatState
 			['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",						'https://twitter.com/ninja_muffin99',	'F73838'],
 			['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",							'https://twitter.com/PhantomArcade3K',	'FFBB1B'],
 			['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",							'https://twitter.com/evilsk8r',			'53E52C'],
-			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",							'https://twitter.com/kawaisprite',		'6475F3']
+			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",							'https://twitter.com/kawaisprite',		'6475F3'],
+		        [''],
+			['Socials'],
+			['Joalor64 Clan Discord Server',             'discord',             'My totally epic Discord server.',                       		'https://discord.gg/ScMB5ZX2mE',          '4903FC'],
+			['My Twitter',             'twitter',             'Yes, I have a twitter account.',                       		'https://twitter.com/fnfkeith19',          '0084FF'],
+			['My Youtube Channel',             'youtube',             'Subscribe or perish.',                       		'https://www.youtube.com/channel/UC4tRMRL_iAHX5n1qQpHibfg',          'FF0000'],
+			['GitHub Profile',             'github',             'My personal coding place.',                       		'https://github.com/Joalor64GH',          '797580']
 		];
 		
 		for(i in pisspoop){
