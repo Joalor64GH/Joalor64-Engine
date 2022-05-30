@@ -4078,6 +4078,7 @@ class PlayState extends MusicBeatState
 			if (combo > 5 && gf != null && gf.animOffsets.exists('sad'))
 			{
 				gf.playAnim('sad');
+				comboUI.breakPopup();
 			}
 			combo = 0;
 
