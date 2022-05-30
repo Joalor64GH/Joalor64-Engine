@@ -839,6 +839,18 @@ class PlayState extends MusicBeatState
 		boyfriendGroup.add(boyfriend);
 		startCharacterLua(boyfriend.curCharacter);
 		
+	if(!pixelSongs.contains(SONG.song.toLowerCase())){
+			
+		        comboUI = new ComboPopup(boyfriend.x - 250, boyfriend.y - 75,	[Paths.image("shared/images/comboBreak"), 403, 163, true], 
+																			[Paths.image("shared/images/comboBreak"), 348, 211, true]);
+		}
+		else{
+			comboUI = new ComboPopup(boyfriend.x - 250, boyfriend.y - 75, 	[Paths.image("shared/images/pixelUI/comboBreak-pixel"), 51, 20, false], 
+																			[Paths.image("shared/images/pixelUI/comboBreak-pixel"), 53, 32, false], 
+																			[daPixelZoom * 0.7, daPixelZoom * 0.8, daPixelZoom * 0.7]);
+			comboUI.numberPosition[0] -= 120;
+		}
+	
 		var camPos:FlxPoint = new FlxPoint(girlfriendCameraOffset[0], girlfriendCameraOffset[1]);
 		if(gf != null)
 		{
