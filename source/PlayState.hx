@@ -839,7 +839,7 @@ class PlayState extends MusicBeatState
 		boyfriendGroup.add(boyfriend);
 		startCharacterLua(boyfriend.curCharacter);
 		
-	if(!pixelSongs.contains(SONG.song.toLowerCase())){
+	if(!pixelStage.contains(SONG.song.toLowerCase())){
 			
 		        comboUI = new ComboPopup(boyfriend.x - 250, boyfriend.y - 75,	[Paths.image("shared/images/comboBreak"), 403, 163, true], 
 																			[Paths.image("shared/images/comboBreak"), 348, 211, true]);
