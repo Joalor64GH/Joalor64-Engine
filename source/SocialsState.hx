@@ -200,10 +200,6 @@ class SocialsState extends MusicBeatState
 				colorTween.cancel();
 			}
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			if (ClientPrefs.lowEndMode)
-				MusicBeatState.switchState(new SimpleMenuState());
-			else
-				MusicBeatState.switchState(new MainMenuState());
 		}
 		if (controls.ACCEPT)
 		{
