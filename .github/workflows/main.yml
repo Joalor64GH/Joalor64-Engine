@@ -139,11 +139,11 @@ jobs:
         with:
           name: macBuild
           path: export/release/macos/bin
-
 buildHtml5:
   runs-on: ubuntu-latest
 
-    steps:
+  steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
     - uses: krdlab/setup-haxe@master
