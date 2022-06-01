@@ -25,7 +25,7 @@ class OutdatedState extends MusicBeatState
 
 		warnText = new FlxText(0, 0, FlxG.width,
 			"Oh teh noes! You're running an   \n
-			outdated version of Joalor64 Engine (" + MainMenuState.psychEngineVersion + "),\n
+			outdated version of Joalor64 Engine (" + MainMenuState.joalor64EngineVersion + "),\n
 			please update to " + TitleState.updateVersion + "!\n
 			Press ESCAPE to proceed anyway.\n
 			\n
