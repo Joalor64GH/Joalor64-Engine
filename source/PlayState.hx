@@ -1050,27 +1050,6 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-	//Watermarks during Songs
-
-		if(ClientPrefs.showWatermarks == true) {
-			versionTxt = new FlxText(0, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.watermarkDiffString() + " | Joalor64 Engine v" + MainMenuState.joalor64EngineVersion + " | Psych Engine v" + MainMenuState.psychEngineVersion, 16);
-			versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			versionTxt.scrollFactor.set();
-			add(versionTxt);
-		}
-
-		if(ClientPrefs.showWatermarks == false)
-			versionTxt = new FlxText(0, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.watermarkDiffString());
-			versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			versionTxt.scrollFactor.set();
-			add(versionTxt);
-	
-	        //Text Borders
-		if(ClientPrefs.infoTextBorder == 'Outline') scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		if(ClientPrefs.infoTextBorder == 'Shadow') scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.SHADOW, FlxColor.BLACK);
-		if(ClientPrefs.infoTextBorder == 'Outline Fast') scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
-		if(ClientPrefs.infoTextBorder == 'None') scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.NONE, FlxColor.BLACK);
-		
 	        botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "SKILL ISSUE", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
