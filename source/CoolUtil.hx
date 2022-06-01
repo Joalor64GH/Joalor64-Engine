@@ -18,7 +18,7 @@ using StringTools;
 
 class CoolUtil
 {
-	public static var defaultDifficulties:Array<String> = ['Noob', 'Easy', 'Normal', 'Hard', 'Expert', 'Insane'];
+	public static var defaultDifficulties:Array<String> = ['Easy', 'Normal', 'Hard', 'Alt'];
 	public static var defaultDifficulty:String = 'Normal'; // The chart that has no suffix and starting difficulty on Freeplay/Story Mode
 
 	public static var difficulties:Array<String> = [];
@@ -45,6 +45,11 @@ class CoolUtil
 		return difficulties[PlayState.storyDifficulty].toUpperCase();
 	}
 
+	public static function watermarkDiffString():String
+		{
+			return difficulties[PlayState.storyDifficulty].toString();
+		}
+	
 	inline public static function boundTo(value:Float, min:Float, max:Float):Float
 	{
 		return Math.max(min, Math.min(max, value));
