@@ -1054,14 +1054,14 @@ class PlayState extends MusicBeatState
 	        //Watermarks during Songs
 
 		if(ClientPrefs.showWatermarks == true) {
-			versionTxt = new FlxText(0, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.watermarkDiffString() + " | Joalor64 Engine v" + MainMenuState.joalor64EngineVersion + " | Psych Engine v" + MainMenuState.psychEngineVersion, 16);
+			versionTxt = new FlxText(0, FlxG.height - 44, 0, SONG.song + " - " + CoolUtil.watermarkDiffString() + " | Joalor64 Engine v" + MainMenuState.joalor64EngineVersion + " | Psych Engine v" + MainMenuState.psychEngineVersion, 16);
 			versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			versionTxt.scrollFactor.set();
 			add(versionTxt);
 		}
 
 		if(ClientPrefs.showWatermarks == false)
-			versionTxt = new FlxText(0, FlxG.height - 24, 0, SONG.song + " - " + CoolUtil.watermarkDiffString());
+			versionTxt = new FlxText(0, FlxG.height - 44, 0, SONG.song + " - " + CoolUtil.watermarkDiffString());
 			versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			versionTxt.scrollFactor.set();
 			add(versionTxt);	
