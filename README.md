@@ -22,11 +22,11 @@
 * Rainbow FPS Option.
 * Restored "Combo" Asset :trollface:
 * Max BPM no longer capped at 339 :trollface:
-* Some code borrowed from [OS Engine](https://github.com/weuz-github/FNF-OSEngine) (Thanks weuz_)
+* Some code borrowed from [OS Engine](https://github.com/weuz-github/FNF-OSEngine) and [ProjectHypnosis](https://github.com/BeastlyGhost/FNF-ProjectHypnosisOld) (Thanks weuz_ and BeastlyGhost)
 * Latin Alphabet Support (heck ye)
 * 3D Notes (Perfect for fanmade DnB mods.)
 * Extra Keys (Look at the Wiki for a tutorial.)
-* Extra Difficulties.
+* "Alt" Difficulty.
 * Credits. (Note: If you wanna make mod credits, look at the wiki.)
 * Extra modding support.
 * Cool scripts that do things.
@@ -61,6 +61,7 @@ Hope you enjoy!
 * [BeastlyGhost](https://github.com/BeastlyGhost) and [HiroMizuki](https://github.com/HiroMizuki) - Latin Alphabet Support
 * [Stilic](https://github.com/Stilic) - Combo Counter Script
 * [weuz_](https://github.com/notweuz) - OS Engine Code
+* [BeastlyGhost](https://github.com/BeastlyGhost) - ProjectHypnosis Code
 
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
