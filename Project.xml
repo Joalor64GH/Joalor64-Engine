@@ -106,8 +106,8 @@
 	
 	<assets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
 	<assets path='art/readme.txt' rename='a little note.txt' />
-	<assets path='launch.bat' rename='Launch.bat' />
-	<assets path='modlist.txt' rename='modsList.txt' />
+	<assets path='Launch.bat' rename='' />
+	<assets path='modsList.txt' rename='' />
 	<!-- <template path='mods' /> -->
 	
 	<!-- assets path="CHANGELOG.md" rename='changelog.txt' -->
