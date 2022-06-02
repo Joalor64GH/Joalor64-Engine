@@ -51,7 +51,6 @@ import flixel.input.keyboard.FlxKey;
 import Note.EventNote;
 import openfl.events.KeyboardEvent;
 import flixel.util.FlxSave;
-import lime.app.Application;
 import Achievements;
 import StageData;
 import FunkinLua;
@@ -117,7 +116,6 @@ class PlayState extends MusicBeatState
 	public var gfGroup:FlxSpriteGroup;
 	public static var curStage:String = '';
 	public static var isPixelStage:Bool = false;
-	public static var songEnded:Bool = false;
 	public static var SONG:SwagSong = null;
 	public static var isStoryMode:Bool = false;
 	public static var storyWeek:Int = 0;
@@ -821,22 +819,6 @@ class PlayState extends MusicBeatState
 					gfVersion = 'gf';
 			}
 			SONG.gfVersion = gfVersion; //Fix for the Chart Editor
-		}
-
-		#if desktop
-		var artist:String = 'KawaiSprite';
-
-		if (curStage != 'schoolEvil')
-		{
-			Application.current.window.title = "Friday Night Funkin': Joalor64 Engine - NOW PLAYING: " + artist + ' - ' + SONG.song.toUpperCase() + ' ['
-				+ storyDifficultyText.toUpperCase() + ']';
-		}
-
-		if (songEnded)
-		{
-			Application.current.window.title = "Friday Night Funkin': Joalor64 Engine";
-		}
-		#end
 			
 		if (!stageData.hide_girlfriend)
 		{
@@ -1067,13 +1049,21 @@ class PlayState extends MusicBeatState
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
+			
+		//Watermarks during Songs
 	       
-	        versionTxt = new FlxText(0, FlxG.height - 24, 0, SONG.song + " - " +
-			CoolUtil.difficultyString() + " | Joalor64 Engine v" +
-			MainMenuState.joalor64EngineVersion, 16);
-		versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		versionTxt.scrollFactor.set();
-		add(versionTxt);
+	        if(ClientPrefs.showWatermarks == true) {
+			versionTxt = new FlxText(0, FlxG.height - 38, 0, SONG.song + " - " + CoolUtil.watermarkDiffString() + " | Joalor64 Engine v" + MainMenuState.joalor64EngineVersion, 16);
+			versionTxt.setFormat(Paths.font("vcr.ttf"), 26, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			versionTxt.scrollFactor.set();
+			add(versionTxt);
+		}
+
+		if(ClientPrefs.showWatermarks == false)
+			versionTxt = new FlxText(0, FlxG.height - 38, 0, SONG.song + " - " + CoolUtil.watermarkDiffString());
+			versionTxt.setFormat(Paths.font("vcr.ttf"), 26, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			versionTxt.scrollFactor.set();
+			add(versionTxt);	
 	
 	        botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "SKILL ISSUE", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
