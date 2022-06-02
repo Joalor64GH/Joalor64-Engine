@@ -821,6 +821,21 @@ class PlayState extends MusicBeatState
 			SONG.gfVersion = gfVersion; //Fix for the Chart Editor
 		}
 
+		#if desktop
+		var artist:String = 'KawaiSprite';
+
+		if (curStage != 'schoolEvil')
+		{
+			Application.current.window.title = "Friday Night Funkin': Joalor64 Engine - NOW PLAYING: " + artist + ' - ' + SONG.song.toUpperCase() + ' ['
+				+ storyDifficultyText.toUpperCase() + ']';
+		}
+
+		if (songEnded)
+		{
+			Application.current.window.title = "Friday Night Funkin': Joalor64 Engine";
+		}
+		#end
+			
 		if (!stageData.hide_girlfriend)
 		{
 			gf = new Character(0, 0, gfVersion);
