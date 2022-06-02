@@ -51,6 +51,7 @@ import flixel.input.keyboard.FlxKey;
 import Note.EventNote;
 import openfl.events.KeyboardEvent;
 import flixel.util.FlxSave;
+import lime.app.Application;
 import Achievements;
 import StageData;
 import FunkinLua;
