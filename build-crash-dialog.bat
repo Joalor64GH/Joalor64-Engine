@@ -1,9 +1,8 @@
 @echo off
 
 cd crash-dialog
-echo Building crash dialog...
-lime build windows
-copy build\openfl\windows\bin\CrashDialog.exe ..\export\release\windows\bin\CrashDialog.exe
+haxe hxwidgets-windows.hxml
+copy build\windows\Main.exe ..\export\release\windows\bin\IzzyEngine-CrashDialog.exe
 cd ..
 
 @echo on

@@ -1,5 +1,4 @@
 cd crash-dialog
-echo "Building crash dialog..."
-lime build linux
-cp build/openfl/linux/bin/CrashDialog ../export/release/linux/bin/CrashDialog
+haxe hxwidgets-linux.hxml
+cp build/linux/Main ../export/release/linux/bin/IzzyEngine-CrashDialog
 cd ..
