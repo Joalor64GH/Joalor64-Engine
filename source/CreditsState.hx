@@ -87,7 +87,7 @@ class CreditsState extends MusicBeatState
 			[''],
 			['Special Thanks'],
 			['PE Discord Server Members',             'discord',             'They made the Scripts lmao',                       		'https://discord.gg/2ka77eMXDv',          '6732E3'],
-			['BeastlyGhost',             'beastly',             'Latin Alphabet Support\nProjectHypnosis Code',                       		'https://github.com/BeastlyGhost',          '8CC4FF'],
+			['BeastlyGhost',             'beastly',             'Latin Alphabet Support',                       		'https://github.com/BeastlyGhost',          '8CC4FF'],
 			['HiroMizuki',             'hiro',             'Designer for Latin Alphabet Support',                       		'https://github.com/HiroMizuki',          '912E00'],
 			['Stilic',             'stilic',             'Note Combo Script',                       		'https://github.com/Stilic',          'C74B22'],
 			['weuz_',             'weuz',             'OS Engine Code',                       		'https://github.com/notweuz',          '940EEB'],
