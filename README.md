@@ -38,11 +38,11 @@
 # Planned Features
 * [X] Restore "Combo-Pixel" asset. **[Completed]**
 * [X] BG for Title lol. **[Completed]**
+* [X] Colored Icons. **[Completed]**
 * [ ] Alt Chart for all weeks. **[Update 1.1.0]**
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 * [ ] NPS in score HUD.
 * [ ] Shader for Freeplay/Main Menu BG.
-* [ ] Colored Icons.
 
 More things could added as we go along!
 
@@ -61,6 +61,7 @@ Hope you enjoy!
 * [BeastlyGhost](https://github.com/BeastlyGhost) and [HiroMizuki](https://github.com/HiroMizuki) - Latin Alphabet Support
 * [Stilic](https://github.com/Stilic) - Combo Counter Script
 * [weuz_](https://github.com/notweuz) - OS Engine Code
+* [sayofthelor](https://twitter.com/sayofthelor) - Crash Dialogue Code
 
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
