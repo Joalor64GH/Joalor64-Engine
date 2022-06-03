@@ -1,1 +1,1 @@
-Add your custom note type's .lua file here
+Add your custom notetype's .lua file here!

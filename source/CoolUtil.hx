@@ -45,11 +45,6 @@ class CoolUtil
 		return difficulties[PlayState.storyDifficulty].toUpperCase();
 	}
 
-	public static function watermarkDiffString():String
-		{
-			return difficulties[PlayState.storyDifficulty].toString();
-		}
-	
 	inline public static function boundTo(value:Float, min:Float, max:Float):Float
 	{
 		return Math.max(min, Math.min(max, value));

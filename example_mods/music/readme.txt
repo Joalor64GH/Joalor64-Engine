@@ -1,8 +1,8 @@
 Drop you custom music here!
-It should be in .ogg otherwise it won't work!!!
+The music should be in an .ogg file, otherwise it won't work!!
 
-BEWARE!!!
-This is not about your Song's music (Instrumental or Voices),
-if you want to implement Song Inst/Voices, go to "mods/songs/" folder
+QUICK NOTE!
+This is not about your custom song's music (Instrumental or Voices).
+If you want to implement your custom song, go to "mods/songs/".
 
-This is simply for being used with Lua's "playMusic".
+This is for being used with Lua's "playMusic".

@@ -1,4 +1,4 @@
-Drop your Dialogue characters shit here
+Drop your dialogue portraits here.
 
-If you're asking "How do i make dialogues play?" or any other questions, read this:
+If you're asking "How do I get the things working?", try reading this:
 https://github.com/ShadowMario/FNF-PsychEngine/wiki/Dialogues

@@ -1,4 +1,4 @@
 Place your custom fonts here!
-If your font is named "amogus.ttf", you can make lua texts use it with the following:
+If your font is named "yourfont.ttf", you can make lua texts use it by typing in the following:
 
-setTextFont("yourObjectTag", "amogus.ttf");
+setTextFont("yourObjectTag", "yourfont.ttf");

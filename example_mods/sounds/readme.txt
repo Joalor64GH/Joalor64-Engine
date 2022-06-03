@@ -1,2 +1,2 @@
 Drop you custom sounds here!
-It should be in .ogg otherwise it won't work!!!
+The file type for the sound should be an .ogg otherwise it won't work!!
