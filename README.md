@@ -42,7 +42,7 @@
 * [ ] Alt Chart for all weeks. **[In Progress]**
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 * [ ] NPS in score HUD.
-* [ ] Shader for Freeplay/Main Menu BG.
+* [ ] Checkers for Main Menu, Freeplay, Options and Substate BGs.
 
 More things could added as we go along!
 
