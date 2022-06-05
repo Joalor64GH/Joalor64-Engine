@@ -91,7 +91,7 @@ class CreditsState extends MusicBeatState
 			['HiroMizuki',             'hiro',             'Designer for Latin Alphabet Support',                       		'https://github.com/HiroMizuki',          '912E00'],
 			['Stilic',             'stilic',             'Note Combo Script',                       		'https://github.com/Stilic',          'C74B22'],
 			['weuz_',             'weuz',             'OS Engine Code',                       		'https://github.com/notweuz',          '940EEB'],
-                        ['sayofthelor',             'lor',             'Created Lore Engine',                       		'https://twitter.com/sayofthelor',          'FFAB94'],
+                        ['sayofthelor',             'lor',             'Checkerboards Code',                       		'https://twitter.com/sayofthelor',          'FFAB94'],
 			['You',             'face',             'For playing :)',                       		'https://joalor64.itch.io/',          '7E00FF'],			
 			[''],
 			['Psych Engine Team'],
