@@ -1,7 +1,7 @@
 --[[
 	SCRIPT BY RALTYRO
-	LAST MODIFIED JUNE 6 2022
-	FIRST CREATED JUNE 5 2022
+	LAST MODIFIED MONDAY JUNE 6 2022
+	FIRST CREATED SUNDAY JUNE 5 2022
 --]]
 
 local gameWidth, gameHeight = 0, 0
@@ -13,6 +13,14 @@ local week7 = false
 function string.startsWith(self, prefix) return self:find(prefix, 1, true) == 1 end
 function string.endsWith(self, suffix) return self:find(suffix, 1, true) == #self - (#suffix - 1) end
 
+function string.duplicate(s, i)
+	local str = ""
+	for i = 1, i do
+		str = str .. s
+	end
+	return str
+end
+
 function table.find(table,v)
 	for i,v2 in next,table do
 		if v2 == v then
@@ -21,20 +29,67 @@ function table.find(table,v)
 	end
 end
 
-local phillyLightsColors = {-13524227, -13501044, -314379, -178895, -285133}
-local function from_hex(hex)
-    local a, r, g, b = string.match(hex, "^0x?(%w%w)(%w%w)(%w%w)(%w%w)$")
-    return tonumber(a, 16), tonumber(r, 16),
-        tonumber(g, 16), tonumber(b, 16)
+function math.clamp(x,min,max)return math.max(min,math.min(x,max))end
+function math.lerp(from,to,i)return from+(to-from)*i end
+
+local function from_hex(hexes, hex)
+	local v = {string.match(hex, "^0x?" .. string.duplicate("(%w%w)", hexes or 3) .. "$")}
+	for i in next, v do v[i] = tonumber(v[i], 16) end
+    return unpack(v)
+end
+
+local function to_num(hexes, ...)
+	return tonumber("0x" .. string.format(string.duplicate("%02X", hexes or 3), ...))
+end
+
+local function from_num(hexes, n)
+	hexes = hexes or 3
+	local v = string.format("%X", n)
+	local l = #v - ((hexes * 2) - 1)
+	local r = -(l - 1) / 2
+	return (r > 0 and string.duplicate("00", r) or "") .. v:sub(l >= 1 and l or 1, #v)
 end
 
 local function colorBrightness(n, br) -- from number
-	local a, r, g, b = from_hex("0x" .. string.format("%X", n):sub(9))
-	local hex = "0x" .. string.format("%02X%02X%02X", math.ceil(r * br), math.ceil(g * br), math.ceil(b * br))
-	return tonumber(hex)
+	local r, g, b = from_hex(3, "0x" .. from_num(3, n))
+	return to_num(3, math.ceil(r * br), math.ceil(g * br), math.ceil(b * br))
 end
 
+local phillyLightsColors = {0x31A2FD, 0x31FD8C, 0xFB33F5, 0xFD4531, 0xFBA633}
+local curColor
+
+local gradX, gradY = 0, 0
+local hasSetPropertyEvent = false
+local specialPsych = false
+local yesCreated = false
+local yesCreatePost = false
+local checked = false
 function onCreate()
+	if (not checked) then
+			-- LMAO DONT RUN THE SCRIPT TWICE!!
+		for i = 0, getProperty("luaArray.length") - 1 do
+			local scriptName = getPropertyFromGroup("luaArray", i, "scriptName"):reverse()
+			scriptName = scriptName:sub(1, scriptName:find("/", 1, true) - 1):reverse()
+			
+			if (scriptName:lower() == "phillyglowlua.lua") then
+				close(false)
+				return
+			end
+		end
+		checked = true
+	end
+	
+	precacheImage("philly/window")
+	precacheImage("philly/gradient")
+	precacheImage("philly/particle")
+	
+	if (type(getProperty("gf.x")) ~= "number") then return end
+	yesCreated = true
+	
+	hasSetPropertyEvent = getProperty("curLightEvent")
+	hasSetPropertyEvent = type(hasSetPropertyEvent) == "number" and hasSetPropertyEvent == -1
+	specialPsych = hasSetPropertyEvent
+	
 	gameWidth, gameHeight = screenWidth, screenHeight
 	local phillyWindowX, phillyWindowY = 0, 0
 	
@@ -108,7 +163,6 @@ function onCreate()
 			updateHitbox("phillyWindow")
 			addLuaSprite("phillyWindow")
 			setObjectOrder("phillyWindow", getObjectOrder("phillyTrain") - 1)
-			setProperty("phillyWindow.alpha", 0)
 			
 			-- after killing the og street, we remake it our own!! :D
 			if (foundStreet) then
@@ -120,12 +174,14 @@ function onCreate()
 	
 	makeLuaSprite("blammedLightsBlack", "", gameWidth * -.5, gameHeight * -.5)
 	makeGraphic("blammedLightsBlack", gameWidth * 2, gameHeight * 2, "000000")
+	scaleObject("blammedLightsBlack", 100, 100)
 	setProperty("blammedLightsBlack.visible", false)
 	addLuaSprite("blammedLightsBlack")
 	setObjectOrder(
 		"blammedLightsBlack",
-		inPhilly and (week7 and getObjectOrder("phillyStreet") or 5) or getObjectOrder("gfGroup") - 1
+		inPhilly and (week7 and getObjectOrder("phillyStreet") or 5) or getObjectOrder("gfGroup") - 2
 	)
+	if (not inPhilly) then setProperty("blammedLightsBlack.alpha", .95) end
 	local order = getObjectOrder("blammedLightsBlack")
 	
 	if (inPhilly) then
@@ -136,23 +192,125 @@ function onCreate()
 		addLuaSprite("phillyWindowEvent")
 		setObjectOrder("phillyWindowEvent", order + 1)
 	end
+	gradX, gradY = inPhilly and -400 or getProperty("gf.x") - 400, inPhilly and 225 or getProperty("gf.y")
 	
-	makePhillyGlowGradient(-400, inPhilly and 225 or 272)
+	if (not inPhilly) then
+		gradX, gradY = gradX + 400, gradY - 225
+		
+		gradX, gradY = gradX + (getProperty("gf.width") / 2), gradY + (getProperty("gf.height") / 2)
+		local v = 1 / 3
+		
+		--[[
+		gradX = math.lerp(gradX, getProperty("bf.x") + (getProperty("bf.width") / 2), v)
+		gradY = math.lerp(gradY, getProperty("bf.y") + (getProperty("bf.height") / 2), v)
+		
+		gradX = math.lerp(gradX, getProperty("dad.x") + (getProperty("dad.width") / 2), v)
+		gradY = math.lerp(gradY, getProperty("dad.y") + (getProperty("dad.height") / 2), v)
+		]]
+	end
+	
+	makePhillyGlowGradient(gradX, gradY)
 	setProperty("phillyGlowGradient.visible", false)
-	if (not inPhilly) then setScrollFactor("phillyGlowGradient", 0.25, 0.25) end
+	setScrollFactor("phillyGlowGradient", 0.5, 0.5)
 	addLuaSprite("phillyGlowGradient")
 	setObjectOrder("phillyGlowGradient", order + 1)
 	
-	precacheImage("philly/particle")
+	if (not inPhilly) then
+		gradX, gradY = gradX - (3000 / 2), gradY - (100 / 2)
+	end
+end
+
+function onCreatePost()
+	if (not yesCreated) then
+		onCreate()
+	end
+	yesCreatePost = true
+	
+	if (not hasSetPropertyEvent) then
+		for i = 0, getProperty("luaArray.length") - 1 do
+			local scriptName = getPropertyFromGroup("luaArray", i, "scriptName"):reverse()
+			scriptName = scriptName:sub(1, scriptName:find("/", 1, true) - 1):reverse()
+			
+			if (scriptName:lower() == "set property.lua") then
+				hasSetPropertyEvent = true
+				break
+			end
+		end
+	end
+end
+
+local function setColors(color, darkColor)
+	if (inPhilly) then
+		setProperty("phillyWindowEvent.color", color)
+		
+		setProperty("phillyStreet.color", darkColor)
+		setProperty("phillyTrain.color", darkColor)
+	else -- sigh..
+		for i = getObjectOrder("phillyGlowGradient") + 1, getProperty("members.length") - 1 do
+			local key = getPropertyFromGroup("members", i, "frame.parent.key")
+			local isGroup = type(getPropertyFromGroup("members", i, "length")) == "number"
+			
+			if (
+				not key:endsWith("philly/particle.png") and
+				(
+					type(getPropertyFromGroup("members", i, "color")) == "number" or
+					(not isGroup or specialPsych)
+				)
+			) then
+				if (key:endsWith("timeBar.png") or key:endsWith("NoteCombo.png")) then
+					break
+				end
+				if (specialPsych and isGroup) then
+					local group = "members[" .. tostring(i) .. "]"
+					
+					for i = 0, getProperty(group .. ".length") - 1 do
+						setPropertyFromGroup(group .. ".members", i, "color", darkColor)
+					end
+				else
+					--print(getPropertyFromGroup("members", i, "cameras"))
+					setPropertyFromGroup("members", i, "color", darkColor)
+				end
+			end
+		end
+	end
+	
+	setProperty("boyfriend.color", color)
+	setProperty("gf.color", color)
+	setProperty("dad.color", color)
+end
+
+local function pickColor(color)
+	if (color) then
+		curColor = color
+	else
+		curLightEvent = getRandomInt(1, #phillyLightsColors, tostring(curLightEvent))
+		curColor = phillyLightsColors[curLightEvent]
+	end
 end
 
 function onEvent(n, v1, v2)
 	if (inGameOver) then return end
+	n = n:lower() or ""
+	v1 = tostring(v1) or ""
+	v2 = tostring(v2) or ""
 	
-	if (n == "PhillyGlowLua" or n == "Philly Glow") then
+	if (n == "phillyglowlua" or n == "philly glow") then
+		local s, empty = false, v2 == "" or v2 == " "
+		local ogV2 = v2
+		
 		v1 = tonumber(v1)
 		
-		local color = 0xFFFFFF
+		local r, g, b
+		if (v1 == 1) then
+			v2 = ogV2:startsWith("0x") and ogV2:sub(3) or ogV2
+			s, r, g, b = pcall(from_hex, 3, "0x" .. v2:sub(#v2 - 5, #v2))
+			if (not s or (not r or not g or not b)) then
+				v2 = nil if (not empty) then debugPrint("PhillyGlowLua Error! Value2 \"" .. ogV2 .. "\" cannot be setted") end
+			else
+				v2 = to_num(3, r, g, b)
+			end
+		end
+		
 		if (v1 == 0) then
 			if (getProperty("phillyGlowGradient.visible")) then
 				cameraFlash("game", "ffffff", .15, true)
@@ -165,20 +323,21 @@ function onEvent(n, v1, v2)
 				)
 				
 				setProperty("blammedLightsBlack.visible", false)
-				setProperty("phillyWindowEvent.visible", false)
 				setProperty("phillyGlowGradient.visible", false)
-				--setProperty("phillyGlowParticles.visible", false)
+				
+				if (inPhilly) then
+					setProperty("phillyWindowEvent.visible", false)
+					--setProperty("phillyGlowParticles.visible", false)
+				end
 				
 				despawnPhillyGlowParticles()
 				
-				setProperty("boyfriend.color", color)
-				setProperty("gf.color", color)
-				setProperty("dad.color", color)
-				setProperty("phillyStreet.color", color)
+				pickColor(0xFFFFFF)
+				setColors(curColor, curColor)
 			end
 		elseif (v1 == 1) then -- turn on
-			curLightEvent = getRandomInt(1, #phillyLightsColors, tostring(curLightEvent))
-			color = phillyLightsColors[curLightEvent]
+			pickColor(v2)
+			local darkColor = colorBrightness(curColor, inPhilly and .5 or .2)
 			
 			if (not getProperty("phillyGlowGradient.visible")) then
 				cameraFlash("game", "ffffff", .15, true)
@@ -189,39 +348,35 @@ function onEvent(n, v1, v2)
 						getPropertyFromClass("ClientPrefs", "camZooms") and .1 or 0
 					)
 				)
-
+				
 				setProperty("blammedLightsBlack.visible", true)
-				setProperty("blammedLightsBlack.alpha", 1)
-				setProperty("phillyWindowEvent.visible", true)
 				setProperty("phillyGlowGradient.visible", true)
-				--setProperty("phillyGlowParticles.visible", true)
+				if (inPhilly) then
+					setProperty("phillyWindowEvent.visible", true)
+					--setProperty("phillyGlowParticles.visible", true)
+				end
 			elseif (getPropertyFromClass("ClientPrefs", "flashing")) then
 				cameraFlash("game", "0x4cffffff", .5, true)
 			end
 			
 			for i, v in pairs(phillyGlowParticles) do
-				setProperty(v .. ".color", color)
+				setProperty(v .. ".color", curColor)
 			end
 			
-			setProperty("boyfriend.color", color)
-			setProperty("gf.color", color)
-			setProperty("dad.color", color)
-			
-			setProperty("phillyGlowGradient.color", color)
-			setProperty("phillyWindowEvent.color", color)
-			setProperty("phillyStreet.color", colorBrightness(color, .5))
+			setProperty("phillyGlowGradient.color", curColor)
+			setColors(curColor, darkColor)
 		elseif (v1 == 2) then -- spawn particles
 			if (not getPropertyFromClass("ClientPrefs", "lowQuality")) then
-				local particlesNum = getRandomInt(8, 12)
-				local width = (2000 / particlesNum)
-				local color = phillyLightsColors[curLightEvent]
+				local particlesNum = getRandomInt(8, 12) * 1.6
+				local width = inPhilly and 2000 or 3000
+				width = (width / particlesNum)
 				
 				for j = 0, 3 do
 					for i = 0, particlesNum do
 						spawnPhillyGlowParticle(
-							-400 + width * i + getRandomFloat(-width / 5, width / 5),
-							phillyGlowGradientOriginY + 200 + (getRandomFloat(0, 125) + j * 40),
-							color
+							gradX + (width * i + getRandomFloat(-width / 5, width / 5)),
+							gradY + (phillyGlowGradientOriginY + 200 + (getRandomFloat(0, 125) + j * 40) + (inPhilly and -32 or 265)),
+							curColor
 						)
 						
 						--[[
@@ -236,35 +391,44 @@ function onEvent(n, v1, v2)
 			end
 			bopPhillyGlowGradient()
 		end
-	elseif (n == "Set Property" and not week7) then
+	elseif (n == "set property" and not hasSetPropertyEvent) then
 		setProperty(v1, tonumber(v2) or v2)
 	end
 end
 
+local windowAlpha, lastWindowAlpha = 0, 0
 function onBeatHit()
 	if (inGameOver) then return end
 	
-	if (inPhilly and math.fmod(curBeat, 4) == 0) then
+	if (inPhilly and math.fmod(curBeat, 4) == 0) then		
 		curLight = getRandomInt(1, #phillyLightsColors, tostring(curLight))
 		local color = phillyLightsColors[curLight]
 		
 		setProperty("phillyWindow.color", color)
-		setProperty("phillyWindow.alpha", 1)
+		windowAlpha = 1
 	end
 end
 
+local camX, camY = 0, 0
 function onUpdate(dt)
+	if (not yesCreatePost) then onCreatePost() end
+	
 	if (inGameOver) then return end
+	camX, camY = getProperty("camFollowPos.x"), getProperty("camFollowPos.y")
 	
 	if (inPhilly) then
-		setProperty("phillyWindow.alpha", getProperty("phillyWindow.alpha") - ((crochet / 1000) * dt * 1.5))
+		windowAlpha = math.clamp(windowAlpha - ((crochet / 1000) * dt * 1.5), 0, 1)
+		
+		if (lastWindowAlpha ~= windowAlpha) then
+			setProperty("phillyWindow.alpha", windowAlpha)
+		end
+		
+		lastWindowAlpha = windowAlpha
 	end
 	
 	updatePhillyGlowGradient(dt)
 	updatePhillyGlowParticles(dt)
 end
-
-
 
 -- QSprite
 function makeQSprite(tag, img, x, y, xscroll, yscroll, active)
@@ -279,6 +443,7 @@ end
 -- phillyGlowParticle
 phillyGlowParticles = {}
 if (true) then
+	local unuseds = {}
 	local i = 0
 	local n = "PhillyGlowParticleLua"
 	
@@ -288,39 +453,71 @@ if (true) then
 	local alphas = {}
 	local originalscales = {}
 	
+	local calmdownbro = 0
 	function spawnPhillyGlowParticle(x, y, color)
-		local spr = n .. tostring(i)
+		if (#phillyGlowParticles + calmdownbro > 2048*(inPhilly and 3 or 4)) then return false end -- bro shits too much, need to stop
+		if (
+			not (
+				x - camX > -gameWidth and
+				y - camY > -gameHeight and
+				x - camX < gameWidth * 1.2 and
+				y - camY < gameHeight * 1.2
+			)
+		)
+		then
+			return false
+		end
 		
-		lifetimes[spr] = getRandomFloat(.6, .9)
+		local recycling = table.remove(unuseds, 1)
+		local spr = recycling or n .. tostring(i)
+		local random = true
+		
+		lifetimes[spr] = inPhilly and getRandomFloat(.6, .9) or getRandomFloat(.75, 1.15)
 		decays[spr] = getRandomFloat(.8, 1)
 		
 		alphas[spr] = 1
 		originalscales[spr] = getRandomFloat(.75, 1)
 		
-		local s = (inPhilly and 1 or .25)
-		makeQSprite(spr, "philly/particle", x, y, getRandomFloat(.3, .75) * s, getRandomFloat(.65, .75) * s, true)
+		local s = (inPhilly and 1 or .5)
+		if (recycling) then
+			random = getRandomInt(0, 5) > 2
+			
+			setProperty(spr .. ".x", x); setProperty(spr .. ".y", y)
+			
+			if (random) then
+				setScrollFactor(spr, getRandomFloat(.3, .75) * s, getRandomFloat(.65, .75) * s)
+			end
+		else
+			makeQSprite(spr, "philly/particle", x, y, getRandomFloat(.3, .75) * s, getRandomFloat(.65, .75) * s, true)
+		end
 		scaleObject(spr, originalscales[spr], originalscales[spr])
 		setProperty(spr .. ".color", color)
 		
-		setProperty(spr .. ".velocity.x", getRandomFloat(-40, 40))
-		setProperty(spr .. ".velocity.y", getRandomFloat(-175, -250))
-		
-		setProperty(spr .. ".acceleration.x", getRandomFloat(-10, 10))
-		setProperty(spr .. ".acceleration.y", 25)
+		if (random) then
+			setProperty(spr .. ".velocity.x", getRandomFloat(-40, 40))
+			setProperty(spr .. ".velocity.y", getRandomFloat(-175, -250))
+			
+			setProperty(spr .. ".acceleration.x", getRandomFloat(-10, 10))
+		end
+		if (not recycling) then setProperty(spr .. ".acceleration.y", 25) end
 		
 		addLuaSprite(spr)
 		setObjectOrder(spr, getObjectOrder("phillyGlowGradient") + 1)
 		
 		table.insert(phillyGlowParticles, spr)
 		i = i + 1
+		
+		calmdownbro = calmdownbro + 3
+		return spr
 	end
 	
 	function despawnPhillyGlowParticle(spr)
-		removeLuaSprite(spr, true)
+		removeLuaSprite(spr, false)
 		
 		local i = table.find(phillyGlowParticles, spr)
 		if (i) then
 			table.remove(phillyGlowParticles, i)
+			table.insert(unuseds, spr)
 			lifetimes[spr] = nil
 			decays[spr] = nil
 			originalscales[spr] = nil
@@ -332,21 +529,32 @@ if (true) then
 		for i = #phillyGlowParticles, 1, -1 do
 			spr = phillyGlowParticles[i]
 			
-			removeLuaSprite(spr, true)
+			removeLuaSprite(spr, false)
 			
 			table.remove(phillyGlowParticles, i)
+			table.insert(unuseds, spr)
 			lifetimes[spr] = nil
 			decays[spr] = nil
 			originalscales[spr] = nil
 		end
 	end
 	
+	local lastIUpdate
+	--local missedDts = {}
 	function updatePhillyGlowParticles(dt)
-		local v, lifetime, alpha
+		--local dt = 0
+		
+		local v, lifetime, alpha, prevAlpha
+		local parUpdates = 0
+		
+		local br = false
 		for i = #phillyGlowParticles, 1, -1 do
+			parUpdates = parUpdates + 1
+			
 			v = phillyGlowParticles[i]
 			
 			alpha = alphas[v]
+			prevAlpha = alpha
 			
 			lifetimes[v] = lifetimes[v] - dt
 			lifetime = lifetimes[v]
@@ -367,9 +575,26 @@ if (true) then
 				despawnPhillyGlowParticle(v)
 			else
 				--print(v, alpha)
-				setProperty(v .. ".alpha", alpha)
+				
+				if (prevAlpha ~= alpha) then
+					setProperty(v .. ".alpha", alpha)
+				end
+			end
+			
+			if (parUpdates > 2048 * 1.5) then
+				lastIUpdate = i
+				br = true
+				break
 			end
 		end
+		
+		if (not br) then
+			lastIUpdate = nil
+		--[[else
+			missedDt[lastIUpdate] = missedDt[lastIUpdate] and missedDt[lastIUpdate] + gdt or gdt]]
+		end
+		
+		calmdownbro = 0
 	end
 end
 
@@ -383,38 +608,59 @@ if (true) then
 	
 	function makePhillyGlowGradient(x, y)
 		if (madedPhillyGlowGradient) then return error("Cannot Create another phillyGlowGradient!") end
+		if (not inPhilly) then originalHeight = originalHeight + 500; y = y - 250 end
+		
 		madedPhillyGlowGradient = true
 		
 		makeQSprite("phillyGlowGradient", "philly/gradient", x, y, 0, .75)
 		phillyGlowGradientOriginY = y
 		originalY = y
 		
-		setGraphicSize("phillyGlowGradient", 2000, originalHeight)
-		updateHitbox("phillyGlowGradient")
+		setGraphicSize("phillyGlowGradient", inPhilly and 2000 or 3000, originalHeight)
+		updatePhillyGlowGradientHitbox()
 	end
 	
+	local dontUpdate = true
 	function updatePhillyGlowGradient(elapsed)
+		if (dontUpdate) then return end
 		local newHeight = math.floor((getProperty("phillyGlowGradient.height") - 1000 * elapsed) + .5)
 		
 		if (newHeight > 0) then
+			dontUpdate = false
+			
 			setProperty("phillyGlowGradient.alpha", 1)
-			setGraphicSize("phillyGlowGradient", 2000, newHeight)
-			updateHitbox("phillyGlowGradient")
+			setGraphicSize("phillyGlowGradient", inPhilly and 2000 or 3000, newHeight)
 			setProperty(
 				"phillyGlowGradient.y",
 				originalY + (originalHeight - getProperty("phillyGlowGradient.height"))
 			)
+			updatePhillyGlowGradientHitbox()
 		else
-			setProperty("phillyGlowGradient.alpha", 0)
-			setProperty("phillyGlowGradient.y", -5000)
+			if (not dontUpdate) then
+				setProperty("phillyGlowGradient.alpha", 0)
+				setProperty("phillyGlowGradient.y", -5000)
+			end
+			dontUpdate = true
+		end
+	end
+	
+	local x, y = 0, 0
+	function updatePhillyGlowGradientHitbox()
+		local gx, gy = getProperty("phillyGlowGradient.x") + x, getProperty("phillyGlowGradient.y") + y
+		updateHitbox("phillyGlowGradient")
+		if (not inPhilly) then
+			x, y = (3000 / 2), (900 / 2)
+			setProperty("phillyGlowGradient.x", gx - x)
+			setProperty("phillyGlowGradient.y", gy - y)
 		end
 	end
 	
 	function bopPhillyGlowGradient()
-		setGraphicSize("phillyGlowGradient", 2000, originalHeight)
-		updateHitbox("phillyGlowGradient")
-		setProperty("phillyGlowGradient.y", originalY)
-		setProperty("phillyGlowGradient.alpha", 1)
+		setGraphicSize("phillyGlowGradient", inPhilly and 2000 or 3000, originalHeight)
+		updatePhillyGlowGradientHitbox()
+		updatePhillyGlowGradient(1/999)
+		
+		dontUpdate = false
 	end
 end
 
@@ -429,105 +675,101 @@ end
 
 
 -- debyggin shits
-local L = onCreate
-function onCreate(...)
-	local s, w = pcall(L, ...)
-	if not s then print(w, debug.getinfo(L)) end
-end
-
-local L = onEvent
-function onEvent(...)
-	local s, w = pcall(L, ...)
-	if not s then print(w, debug.getinfo(L)) end
-end
-
-local L = onUpdate
-function onUpdate(...)
-	local s, w = pcall(L, ...)
-	if not s then print(w, debug.getinfo(L)) end
-end
-
--- stuff omg
-function _G.strThing(s,i)
-	local str = ""
-	for i = 1,i do
-		str = str .. s
+if (false) then
+	local function debugCall(n)
+		local L = _G[n]
+		return function(...)
+			local s, w = pcall(L, ...)
+			if not s then print(n, w, debug.getinfo(L)) end
+		end
 	end
-	return str
-end
 
-local function approriateStr(str,isIndex)
-	if isIndex then
-		local wrap = false
+	onCreate = debugCall("onCreate")
+	onEvent = debugCall("onEvent")
+	onUpdate = debugCall("onUpdate")
+	onBeatHit = debugCall("onBeatHit")
 
-		if str:find(' ') or str:find('	') or str:find('"') or str:find("'") then wrap = true end
-		local c = approriateStr(str)
+	-- stuff omg
+	function _G.strThing(s,i)
+		local str = ""
+		for i = 1,i do
+			str = str .. s
+		end
+		return str
+	end
 
-		return wrap and "["..c..(string.sub(c,#c,#c) == "]" and " ]" or "]") or str
-	else
-		local v = '"'
+	local function approriateStr(str,isIndex)
+		if isIndex then
+			local wrap = false
 
-		if str:find(v) then
-			v = "'"
+			if str:find(' ') or str:find('	') or str:find('"') or str:find("'") then wrap = true end
+			local c = approriateStr(str)
+
+			return wrap and "["..c..(string.sub(c,#c,#c) == "]" and " ]" or "]") or str
+		else
+			local v = '"'
+
 			if str:find(v) then
-				v = "[["
-				if str:find("]]") then
-					v = nil
+				v = "'"
+				if str:find(v) then
+					v = "[["
+					if str:find("]]") then
+						v = nil
+					end
 				end
 			end
-		end
 
-		if v ~= nil then
-			return v..str..(v == "[[" and "]]" or v)
+			if v ~= nil then
+				return v..str..(v == "[[" and "]]" or v)
+			end
 		end
 	end
-end
 
-local tableToStr = nil
-tableToStrLIMITTABLES = 4
-function tableToStr(t,cln,x)
-	if type(x) == "number" and (x or 0) >= tableToStrLIMITTABLES then return "Limited" end
-	local count,indexNumber = 0,true
-	for i,v in pairs(t) do
-		count = count + 1
-		if type(i) ~= "number" or type(v) == "table" then indexNumber = false end
-	end
-	if count < 8 and indexNumber then cln = false end
-	
-	local a = 1+(type(x) == "number" and x or 0)
-	local str = --[[(cln and strThing("	",a-1) or "")..]]"{"..(cln and "\n" or "")
-	
-	for i,v in pairs(t) do
-		if cln then str = str..strThing("	",a) end
-		if type(i) == "string" then
-			str = str..approriateStr(i,true)..' = '
+	local tableToStr = nil
+	tableToStrLIMITTABLES = 4
+	function tableToStr(t,cln,x)
+		if type(x) == "number" and (x or 0) >= tableToStrLIMITTABLES then return "Limited" end
+		local count,indexNumber = 0,true
+		for i,v in pairs(t) do
+			count = count + 1
+			if type(i) ~= "number" or type(v) == "table" then indexNumber = false end
 		end
-		if type(v) == "table" then
-			str = str..tableToStr(v,cln,a)
-		else
-			str = str..(type(v) == "string" and (approriateStr(v) or "") or tostring(v))
-		end
+		if count < 8 and indexNumber then cln = false end
 		
-		str = str..(cln and ",\n" or ",")
-	end
-	if count > 0 then str = str:sub(1,#str-(cln and 2 or 1)) else if cln then str = str:sub(1,#str-1) end end
-
-	str = str..((cln and count and "\n" or "")..(cln and strThing("	",a-1) or "").."}")
-	return str
-end
-
-ogprint = print
-local ogprint = ogprint
-function print(...)
-	local rst = ""
-	for i,v in pairs({...}) do
-		if i > 1 then rst = rst..", " end
-		if type(v) == "table" then
-			rst = rst..tostring(v).." - "..tableToStr(v,true)
-		else
-			rst = rst..tostring(v)
+		local a = 1+(type(x) == "number" and x or 0)
+		local str = --[[(cln and strThing("	",a-1) or "")..]]"{"..(cln and "\n" or "")
+		
+		for i,v in pairs(t) do
+			if cln then str = str..strThing("	",a) end
+			if type(i) == "string" then
+				str = str..approriateStr(i,true)..' = '
+			end
+			if type(v) == "table" then
+				str = str..tableToStr(v,cln,a)
+			else
+				str = str..(type(v) == "string" and (approriateStr(v) or "") or tostring(v))
+			end
+			
+			str = str..(cln and ",\n" or ",")
 		end
+		if count > 0 then str = str:sub(1,#str-(cln and 2 or 1)) else if cln then str = str:sub(1,#str-1) end end
+
+		str = str..((cln and count and "\n" or "")..(cln and strThing("	",a-1) or "").."}")
+		return str
 	end
-	ogprint(rst)
+
+	ogprint = print
+	local ogprint = ogprint
+	function print(...)
+		local rst = ""
+		for i,v in pairs({...}) do
+			if i > 1 then rst = rst..", " end
+			if type(v) == "table" then
+				rst = rst..tostring(v).." - "..tableToStr(v,true)
+			else
+				rst = rst..tostring(v)
+			end
+		end
+		ogprint(rst)
+	end
 end
---
