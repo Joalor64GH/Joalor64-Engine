@@ -41,7 +41,6 @@ class MainMenuState extends MusicBeatState
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
 		#if !switch 'donate', #end
-                'donate2',
 		'options'
 	];
 
@@ -215,14 +214,6 @@ class MainMenuState extends MusicBeatState
 				}
 				else
 				{
-			{      
-				if (optionShit[curSelected] == 'donate2')
-				{
-					FlxG.sound.play(Paths.sound('fartsoundlol'));
-					FlxFlicker.flicker(magenta, 1.1, 0.15, false);
-				}
-				else
-				{
 					selectedSomethin = true;
 					FlxG.sound.play(Paths.sound('confirmMenu'));
 
@@ -268,9 +259,6 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
-		}
-	}
-}
 			#if desktop
 			else if (FlxG.keys.anyJustPressed(debugKeys))
 			{
@@ -279,8 +267,6 @@ class MainMenuState extends MusicBeatState
 			}
 			#end
 		}
-
-        }
 
 		super.update(elapsed);
 
