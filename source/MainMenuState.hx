@@ -41,7 +41,6 @@ class MainMenuState extends MusicBeatState
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
 		#if !switch 'donate', #end
-		'donate2',
 		'options'
 	];
 
@@ -252,9 +251,6 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new AchievementsMenuState());
 									case 'credits':
 										MusicBeatState.switchState(new CreditsState());
-									case 'donate2':
-										FlxG.sound.play(Paths.sound('fartsoundlol'));
-					                                        FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
 								}
@@ -263,7 +259,6 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
-		}
 			#if desktop
 			else if (FlxG.keys.anyJustPressed(debugKeys))
 			{
@@ -273,7 +268,7 @@ class MainMenuState extends MusicBeatState
 			#end
 		}
 
-	}								
+		super.update(elapsed);
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
