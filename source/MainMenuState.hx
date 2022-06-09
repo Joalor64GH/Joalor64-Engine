@@ -274,8 +274,6 @@ class MainMenuState extends MusicBeatState
 		}
 
 	}								
-		
-		super.update(elapsed);
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
