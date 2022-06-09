@@ -214,8 +214,9 @@ class MainMenuState extends MusicBeatState
 					CoolUtil.browserLoad('sites.google.com/view/joalor64official-net6-deez/home');
 				}
 				else
-				}
-                                if (optionShit[curSelected] == 'donate2')
+				{
+			{      
+				if (optionShit[curSelected] == 'donate2')
 				{
 					FlxG.sound.play(Paths.sound('fartsoundlol'));
 					FlxFlicker.flicker(magenta, 1.1, 0.15, false);
