@@ -1,8 +1,11 @@
 --[[
 	SCRIPT BY RALTYRO
-	LAST MODIFIED MONDAY JUNE 6 2022
+	LAST MODIFIED TUESDAY JUNE 8 2022
 	FIRST CREATED SUNDAY JUNE 5 2022
+	
+	if you delete this fuck you
 --]]
+local os = os
 
 local gameWidth, gameHeight = 0, 0
 local curLightEvent = -1
@@ -209,6 +212,8 @@ function onCreate()
 		]]
 	end
 	
+	phillyGlowParticleMax = 2048 * (inPhilly and 3 or 4)
+	
 	makePhillyGlowGradient(gradX, gradY)
 	setProperty("phillyGlowGradient.visible", false)
 	setScrollFactor("phillyGlowGradient", 0.5, 0.5)
@@ -288,6 +293,110 @@ local function pickColor(color)
 	end
 end
 
+local reqs = {
+	turns = 0,
+	on = false,
+	color = nil,
+	spawnPars = 0
+}
+local status = {
+	turns = 0,
+	on = false,
+	color = nil,
+	spawnPars = 0
+}
+
+function ev0()
+	if (getProperty("phillyGlowGradient.visible")) then
+		cameraFlash("game", "ffffff", .15, true)
+		setPropertyFromClass(
+			"flixel.FlxG",
+			"camera.zoom",
+			getPropertyFromClass("flixel.FlxG", "camera.zoom") + .5 + (
+				getPropertyFromClass("ClientPrefs", "camZooms") and .1 or 0
+			)
+		)
+		
+		setProperty("blammedLightsBlack.visible", false)
+		setProperty("phillyGlowGradient.visible", false)
+		
+		if (inPhilly) then
+			setProperty("phillyWindowEvent.visible", false)
+			--setProperty("phillyGlowParticles.visible", false)
+		end
+		
+		despawnPhillyGlowParticles()
+		
+		pickColor(0xFFFFFF)
+		setColors(curColor, curColor)
+	end
+end
+
+function ev1()
+	pickColor(reqs.color)
+	local darkColor = colorBrightness(curColor, inPhilly and .5 or .2)
+	
+	if (not getProperty("phillyGlowGradient.visible")) then
+		cameraFlash("game", "ffffff", .15, true)
+		setPropertyFromClass(
+			"flixel.FlxG",
+			"camera.zoom",
+			getPropertyFromClass("flixel.FlxG", "camera.zoom") + .5 + (
+				getPropertyFromClass("ClientPrefs", "camZooms") and .1 or 0
+			)
+		)
+		
+		setProperty("blammedLightsBlack.visible", true)
+		setProperty("phillyGlowGradient.visible", true)
+		if (inPhilly) then
+			setProperty("phillyWindowEvent.visible", true)
+			--setProperty("phillyGlowParticles.visible", true)
+		end
+		
+		bopPhillyGlowGradient()
+	elseif (getPropertyFromClass("ClientPrefs", "flashing")) then
+		cameraFlash("game", "0x4cffffff", .5, true)
+	end
+	
+	--[[
+	for i, v in pairs(phillyGlowParticles) do
+		setProperty(v .. ".color", curColor)
+	end
+	]]
+	
+	setProperty("phillyGlowGradient.color", curColor)
+	setColors(curColor, darkColor)
+end
+
+function ev2()
+	if (not getProperty("phillyGlowGradient.visible")) then return end
+	
+	if (not getPropertyFromClass("ClientPrefs", "lowQuality")) then
+		local particlesNum = getRandomInt(8, 12) * (inPhilly and 1.6 or 1.85)
+		local width = inPhilly and 2000 or 3000
+		width = (width / particlesNum)
+		
+		for j = 0, inPhilly and 4 or 6 do
+			for i = 0, particlesNum do
+				coroutine.wrap(spawnPhillyGlowParticle)(
+					gradX + (width * i + getRandomFloat(-width / 5, width / 5)),
+					gradY + (phillyGlowGradientOriginY + 200 + (getRandomFloat(0, 125) + j * 40) + (inPhilly and -32 or 265)),
+					curColor
+				)
+				
+				--[[
+				(
+					-400 + width * i + FlxG.random.float(-width / 5, width / 5),
+					phillyGlowGradient.originalY + 200 + (FlxG.random.float(0, 125) + j * 40),
+					color
+				);
+				]]
+			end
+		end
+	end
+	bopPhillyGlowGradient()
+end
+
 function onEvent(n, v1, v2)
 	if (inGameOver) then return end
 	n = n:lower() or ""
@@ -301,7 +410,7 @@ function onEvent(n, v1, v2)
 		v1 = tonumber(v1)
 		
 		local r, g, b
-		if (v1 == 1) then
+		if (v1 == 1 or v1 == 2 or v1 == 3) then
 			v2 = ogV2:startsWith("0x") and ogV2:sub(3) or ogV2
 			s, r, g, b = pcall(from_hex, 3, "0x" .. v2:sub(#v2 - 5, #v2))
 			if (not s or (not r or not g or not b)) then
@@ -312,84 +421,23 @@ function onEvent(n, v1, v2)
 		end
 		
 		if (v1 == 0) then
-			if (getProperty("phillyGlowGradient.visible")) then
-				cameraFlash("game", "ffffff", .15, true)
-				setPropertyFromClass(
-					"flixel.FlxG",
-					"camera.zoom",
-					getPropertyFromClass("flixel.FlxG", "camera.zoom") + .5 + (
-						getPropertyFromClass("ClientPrefs", "camZooms") and .1 or 0
-					)
-				)
-				
-				setProperty("blammedLightsBlack.visible", false)
-				setProperty("phillyGlowGradient.visible", false)
-				
-				if (inPhilly) then
-					setProperty("phillyWindowEvent.visible", false)
-					--setProperty("phillyGlowParticles.visible", false)
-				end
-				
-				despawnPhillyGlowParticles()
-				
-				pickColor(0xFFFFFF)
-				setColors(curColor, curColor)
-			end
+			reqs.on = false
+			reqs.turns = reqs.turns + 1
 		elseif (v1 == 1) then -- turn on
-			pickColor(v2)
-			local darkColor = colorBrightness(curColor, inPhilly and .5 or .2)
-			
-			if (not getProperty("phillyGlowGradient.visible")) then
-				cameraFlash("game", "ffffff", .15, true)
-				setPropertyFromClass(
-					"flixel.FlxG",
-					"camera.zoom",
-					getPropertyFromClass("flixel.FlxG", "camera.zoom") + .5 + (
-						getPropertyFromClass("ClientPrefs", "camZooms") and .1 or 0
-					)
-				)
-				
-				setProperty("blammedLightsBlack.visible", true)
-				setProperty("phillyGlowGradient.visible", true)
-				if (inPhilly) then
-					setProperty("phillyWindowEvent.visible", true)
-					--setProperty("phillyGlowParticles.visible", true)
-				end
-			elseif (getPropertyFromClass("ClientPrefs", "flashing")) then
-				cameraFlash("game", "0x4cffffff", .5, true)
-			end
-			
-			for i, v in pairs(phillyGlowParticles) do
-				setProperty(v .. ".color", curColor)
-			end
-			
-			setProperty("phillyGlowGradient.color", curColor)
-			setColors(curColor, darkColor)
+			reqs.on = true
+			reqs.turns = reqs.turns + 1
+			reqs.color = v2
 		elseif (v1 == 2) then -- spawn particles
-			if (not getPropertyFromClass("ClientPrefs", "lowQuality")) then
-				local particlesNum = getRandomInt(8, 12) * 1.6
-				local width = inPhilly and 2000 or 3000
-				width = (width / particlesNum)
-				
-				for j = 0, 3 do
-					for i = 0, particlesNum do
-						spawnPhillyGlowParticle(
-							gradX + (width * i + getRandomFloat(-width / 5, width / 5)),
-							gradY + (phillyGlowGradientOriginY + 200 + (getRandomFloat(0, 125) + j * 40) + (inPhilly and -32 or 265)),
-							curColor
-						)
-						
-						--[[
-						(
-							-400 + width * i + FlxG.random.float(-width / 5, width / 5),
-							phillyGlowGradient.originalY + 200 + (FlxG.random.float(0, 125) + j * 40),
-							color
-						);
-						]]
-					end
-				end
+			if (reqs.on and v2 ~= nil and reqs.color ~= v2) then
+				reqs.turns = reqs.turns + 1
+				reqs.color = v2
 			end
-			bopPhillyGlowGradient()
+			reqs.spawnPars = reqs.spawnPars + 1
+		elseif (V1 == 3) then
+			reqs.on = true
+			reqs.turns = reqs.turns + 1
+			reqs.color = v2
+			reqs.spawnPars = reqs.spawnPars + 1
 		end
 	elseif (n == "set property" and not hasSetPropertyEvent) then
 		setProperty(v1, tonumber(v2) or v2)
@@ -415,6 +463,20 @@ function onUpdate(dt)
 	
 	if (inGameOver) then return end
 	camX, camY = getProperty("camFollowPos.x"), getProperty("camFollowPos.y")
+	
+	if (reqs.turns ~= status.turns) then
+		if (reqs.on) then
+			ev1()
+		else
+			ev0()
+		end
+	end
+	
+	if (reqs.spawnPars ~= status.spawnPars) then
+		ev2()
+	end
+	
+	for i, v in next, reqs do status[i] = v end
 	
 	if (inPhilly) then
 		windowAlpha = math.clamp(windowAlpha - ((crochet / 1000) * dt * 1.5), 0, 1)
@@ -442,20 +504,25 @@ end
 
 -- phillyGlowParticle
 phillyGlowParticles = {}
+phillyGlowParticleMax = 2048
 if (true) then
 	local unuseds = {}
 	local i = 0
 	local n = "PhillyGlowParticleLua"
 	
+	local timer = 0
+	
 	local lifetimes = {}
 	local decays = {}
+	local lastTimer = {}
+	local colors = {}
 	
 	local alphas = {}
 	local originalscales = {}
 	
 	local calmdownbro = 0
 	function spawnPhillyGlowParticle(x, y, color)
-		if (#phillyGlowParticles + calmdownbro > 2048*(inPhilly and 3 or 4)) then return false end -- bro shits too much, need to stop
+		if (#phillyGlowParticles + calmdownbro > phillyGlowParticleMax) then return false end -- bro shits too much, need to stop
 		if (
 			not (
 				x - camX > -gameWidth and
@@ -470,13 +537,16 @@ if (true) then
 		
 		local recycling = table.remove(unuseds, 1)
 		local spr = recycling or n .. tostring(i)
-		local random = true
+		local random = math.random(0, 7) > 4
+		
+		lastTimer[spr] = timer
 		
 		lifetimes[spr] = inPhilly and getRandomFloat(.6, .9) or getRandomFloat(.75, 1.15)
 		decays[spr] = getRandomFloat(.8, 1)
 		
 		alphas[spr] = 1
 		originalscales[spr] = getRandomFloat(.75, 1)
+		colors[spr] = color
 		
 		local s = (inPhilly and 1 or .5)
 		if (recycling) then
@@ -518,9 +588,9 @@ if (true) then
 		if (i) then
 			table.remove(phillyGlowParticles, i)
 			table.insert(unuseds, spr)
-			lifetimes[spr] = nil
-			decays[spr] = nil
-			originalscales[spr] = nil
+			--lifetimes[spr] = nil
+			--decays[spr] = nil
+			--originalscales[spr] = nil
 		end
 	end
 	
@@ -533,26 +603,38 @@ if (true) then
 			
 			table.remove(phillyGlowParticles, i)
 			table.insert(unuseds, spr)
-			lifetimes[spr] = nil
-			decays[spr] = nil
-			originalscales[spr] = nil
+			--lifetimes[spr] = nil
+			--decays[spr] = nil
+			--originalscales[spr] = nil
 		end
 	end
 	
+	local maxUpdate = 1024
+	local maxStuff = 1024 * 1.5
 	local lastIUpdate
-	--local missedDts = {}
 	function updatePhillyGlowParticles(dt)
-		--local dt = 0
+		gDt = dt
+		timer = timer + dt
 		
-		local v, lifetime, alpha, prevAlpha
+		local dt, v, lifetime, alpha, prevAlpha
 		local parUpdates = 0
 		
+		if (#phillyGlowParticles > maxStuff) then
+			for i = #phillyGlowParticles, maxStuff, -1 do
+				v = phillyGlowParticles[i]
+				if (alphas[v] - (timer - lastTimer[v]) < .3) then
+					despawnPhillyGlowParticle(v)
+				end
+			end
+		end
+		
 		local br = false
-		for i = #phillyGlowParticles, 1, -1 do
+		for i = lastIUpdate or #phillyGlowParticles, 1, -1 do
 			parUpdates = parUpdates + 1
 			
 			v = phillyGlowParticles[i]
 			
+			dt = timer - lastTimer[v]
 			alpha = alphas[v]
 			prevAlpha = alpha
 			
@@ -562,11 +644,6 @@ if (true) then
 				alpha = alpha - (decays[v] * dt)
 				
 				lifetime = 0
-				
-				if (alpha > 0) then
-					local originalScale = originalscales[v]
-					scaleObject(v, originalScale * alpha, originalScale * alpha)
-				end
 			end
 			
 			alphas[v] = alpha
@@ -574,24 +651,30 @@ if (true) then
 			if (alpha < 0) then
 				despawnPhillyGlowParticle(v)
 			else
-				--print(v, alpha)
-				
 				if (prevAlpha ~= alpha) then
+					local originalScale = originalscales[v]
+					
 					setProperty(v .. ".alpha", alpha)
+					scaleObject(v, originalScale * alpha, originalScale * alpha)
+				end
+				
+				if (colors[v] ~= curColor) then
+					colors[v] = curColor
+					setProperty(v .. ".color", curColor)
 				end
 			end
 			
-			if (parUpdates > 2048 * 1.5) then
+			if (parUpdates > maxUpdate) then
 				lastIUpdate = i
 				br = true
 				break
 			end
+			
+			lastTimer[v] = timer
 		end
 		
 		if (not br) then
 			lastIUpdate = nil
-		--[[else
-			missedDt[lastIUpdate] = missedDt[lastIUpdate] and missedDt[lastIUpdate] + gdt or gdt]]
 		end
 		
 		calmdownbro = 0
@@ -646,8 +729,8 @@ if (true) then
 	
 	local x, y = 0, 0
 	function updatePhillyGlowGradientHitbox()
-		local gx, gy = getProperty("phillyGlowGradient.x") + x, getProperty("phillyGlowGradient.y") + y
 		updateHitbox("phillyGlowGradient")
+		local gx, gy = getProperty("phillyGlowGradient.x") + x, getProperty("phillyGlowGradient.y") + y
 		if (not inPhilly) then
 			x, y = (3000 / 2), (900 / 2)
 			setProperty("phillyGlowGradient.x", gx - x)
@@ -657,7 +740,7 @@ if (true) then
 	
 	function bopPhillyGlowGradient()
 		setGraphicSize("phillyGlowGradient", inPhilly and 2000 or 3000, originalHeight)
-		updatePhillyGlowGradientHitbox()
+		--updatePhillyGlowGradientHitbox()
 		updatePhillyGlowGradient(1/999)
 		
 		dontUpdate = false
