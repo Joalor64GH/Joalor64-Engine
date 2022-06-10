@@ -1,2 +1,1 @@
-Put your custom pixel assets here.
-Preferably arrows.
+Put your custom pixel UI assets here!
