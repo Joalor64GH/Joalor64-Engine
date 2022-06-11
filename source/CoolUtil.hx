@@ -132,6 +132,18 @@ class CoolUtil
 		return dumbArray;
 	}
 
+	public static function smoothColorChange(from:FlxColor, to:FlxColor, speed:Float = 0.045):FlxColor
+	{
+
+	    var result:FlxColor = FlxColor.fromRGBFloat
+	    (
+	        CoolUtil.coolLerp(from.redFloat, to.redFloat, speed), //red
+
+	        CoolUtil.coolLerp(from.greenFloat, to.greenFloat, speed), //green
+
+	        CoolUtil.coolLerp(from.blueFloat, to.blueFloat, speed) //blue
+	    );
+		
 	// uhhhh does this even work at all? i'm starting to doubt
 	public static function precacheSound(sound:String, ?library:String = null):Void
 	{
