@@ -143,7 +143,10 @@ class CoolUtil
 
 	        CoolUtil.coolLerp(from.blueFloat, to.blueFloat, speed) //blue
 	    );
-		
+	
+	    return result;
+	}
+	
 	// uhhhh does this even work at all? i'm starting to doubt
 	public static function precacheSound(sound:String, ?library:String = null):Void
 	{
