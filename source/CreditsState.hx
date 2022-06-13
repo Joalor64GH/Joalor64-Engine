@@ -41,7 +41,7 @@ class CreditsState extends MusicBeatState
 	{
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Credits Menu", null);
 		#end
 
 		persistentUpdate = true;
@@ -87,7 +87,7 @@ class CreditsState extends MusicBeatState
 			[''],
 			['Special Thanks'],
 			['PE Discord Server Members',             'discord',             'They made the Scripts lmao',                       		'https://discord.gg/2ka77eMXDv',          '6732E3'],
-			['BeastlyGhost',             'beastly',             'Latin Alphabet Support',                       		'https://github.com/BeastlyGhost',          '8CC4FF'],
+			['BeastlyGhost',             'beastly',             'Latin Alphabet Support\nCustomizable Main Menu with .JSON',                       		'https://github.com/BeastlyGhost',          '8CC4FF'],
 			['HiroMizuki',             'hiro',             'Designer for Latin Alphabet Support',                       		'https://github.com/HiroMizuki',          '912E00'],
 			['Stilic',             'stilic',             'Note Combo Script',                       		'https://github.com/Stilic',          'C74B22'],
 			['weuz_',             'weuz',             'OS Engine Code',                       		'https://github.com/notweuz',          '940EEB'],
@@ -97,7 +97,7 @@ class CreditsState extends MusicBeatState
 			['Psych Engine Team'],
 			['ShadowMario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
 			['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',						'https://twitter.com/RiverOaken',		'C30085'],
-			['Yoshubs',				'shubs',			'Additional Programmer of Psych Engine',					'https://twitter.com/yoshubs',			'279ADC'],
+			['Yoshubs',				'shubs',			'Additional Programmer of Psych Engine\nEpic Input System',					'https://twitter.com/yoshubs',			'279ADC'],
 			[''],
 			['Former Engine Members'],
 			['bbpanzu',			'bb-panzu',			'Ex-Programmer of Psych Engine',							'https://twitter.com/bbsub3',			'389A58'],
