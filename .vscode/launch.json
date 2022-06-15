@@ -1,0 +1,129 @@
+// A launch configuration that compiles the extension and then opens it inside a new window
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Extension (vscode-codeql)",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceRoot}/extensions/ql-vscode",
+        // Add a reference to a workspace to open. Eg-
+        // "${workspaceRoot}/../vscode-codeql-starter/vscode-codeql-starter.code-workspace"
+      ],
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/extensions/ql-vscode/out/**/*.js",
+      ],
+      "env": {
+        // change to 'true' debug the IDE or Query servers
+        "IDE_SERVER_JAVA_DEBUG": "false",
+        "QUERY_SERVER_JAVA_DEBUG": "false",
+        "CLI_SERVER_JAVA_DEBUG": "false",
+        // Uncomment to set the JAVA_HOME for the codeql instance to use
+        // "CODEQL_JAVA_HOME": "/Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home"
+      }
+    },
+    {
+      "name": "Launch Unit Tests (vscode-codeql)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/extensions/ql-vscode/node_modules/mocha/bin/_mocha",
+      "showAsyncStacks": true,
+      "cwd": "${workspaceFolder}/extensions/ql-vscode",
+      "runtimeArgs": [
+        "--inspect=9229"
+      ],
+      "args": [
+        "--exit",
+        "-u",
+        "bdd",
+        "--colors",
+        "--diff",
+        "-r",
+        "ts-node/register",
+        "test/pure-tests/**/*.ts"
+      ],
+      "stopOnEntry": false,
+      "sourceMaps": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Launch Integration Tests - No Workspace (vscode-codeql)",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceRoot}/extensions/ql-vscode",
+        "--extensionTestsPath=${workspaceRoot}/extensions/ql-vscode/out/vscode-tests/no-workspace/index",
+        "--disable-workspace-trust",
+        "--disable-extensions",
+        "--disable-gpu"
+      ],
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/extensions/ql-vscode/out/**/*.js",
+      ],
+    },
+    {
+      "name": "Launch Integration Tests - Minimal Workspace (vscode-codeql)",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceRoot}/extensions/ql-vscode",
+        "--extensionTestsPath=${workspaceRoot}/extensions/ql-vscode/out/vscode-tests/minimal-workspace/index",
+        "--disable-workspace-trust",
+        "--disable-extensions",
+        "--disable-gpu",
+        "${workspaceRoot}/extensions/ql-vscode/test/data"
+      ],
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/extensions/ql-vscode/out/**/*.js",
+      ],
+    },
+    {
+      "name": "Launch Integration Tests - With CLI",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceRoot}/extensions/ql-vscode",
+        "--extensionTestsPath=${workspaceRoot}/extensions/ql-vscode/out/vscode-tests/cli-integration/index",
+        "--disable-workspace-trust",
+        "--disable-gpu",
+        "--disable-extension",
+        "eamodio.gitlens",
+        "--disable-extension",
+        "github.codespaces",
+        "--disable-extension",
+        "github.copilot",
+        "${workspaceRoot}/extensions/ql-vscode/src/vscode-tests/cli-integration/data",
+        // Uncomment the last line and modify the path to a checked out 
+        // instance of the codeql repository so the libraries are
+        // available in the workspace for the tests.
+        // "${workspaceRoot}/../codeql"
+      ],
+      "env": {
+        // Optionally, set the version to use for the integration tests.
+        // Use "nightly" to use the latest nightly build.
+        // "CLI_VERSION": "2.7.0",
+
+        // If CLI_VERSION is set to nightly, set this to the url of the nightly build.
+        // "NIGHTLY_URL": "some url to grab the nightly build",
+
+        // Optionally, add a path to the codeql executable to be used during these tests.
+        // If not specified, one will be downloaded automatically.
+        // This option overrides the CLI_VERSION option.
+        // "CLI_PATH": "${workspaceRoot}/../semmle-code/target/intree/codeql/codeql",
+      },
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/extensions/ql-vscode/out/**/*.js",
+      ],
+    }
+  ]
+}
