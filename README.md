@@ -51,7 +51,7 @@ Hope you enjoy!
 
 # Downloads
 * [GitHub](https://github.com/Joalor64GH/Joalor64-Engine/tags)
-* [Github (Actions)](https://github.com/Joalor64GH/Joalor64-Engine/actions)
+* [GitHub (Actions)](https://github.com/Joalor64GH/Joalor64-Engine/actions)
 * [itch.io](https://joalor64.itch.io/joalor64-engine)
 
 # Credits
