@@ -109,6 +109,7 @@
 	<assets path='art/readme.txt' rename='a little note.txt' />
        	<assets path='Launch.bat' if="windows"/>
 	<assets path='modsList.txt' rename='' />
+	<assets path='VERSION' rename='' />
 	<!-- <template path='mods' /> -->
 	
 	<!-- assets path="CHANGELOG.md" rename='changelog.txt' -->
