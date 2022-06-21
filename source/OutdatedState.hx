@@ -27,9 +27,9 @@ class OutdatedState extends MusicBeatState
 			"Oh teh noes! You're running an   \n
 			outdated version of Joalor64 Engine (" + MainMenuState.joalor64EngineVersion + ")!\n
 			Please update to " + TitleState.updateVersion + "!\n
-			Press ESCAPE to proceed anyway.\n
-			\n
-			Thank you for using the Engine! :)",
+			Press ENTER to open the downloads page!\n
+			Press ESCAPE to proceed anyways.\n
+                        Thank you for using the engine! :)",
 			32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
