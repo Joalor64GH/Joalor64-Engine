@@ -42,6 +42,7 @@
 * [X] Checkerboards for backgrounds. **[Completed]**
 * [X] NPS/KPS in score HUD. **[Completed]**
 * [ ] Alt Chart for all weeks. **[In Progress]**
+* [ ] Quant Notes.
 * [ ] Extension Webm.
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 
