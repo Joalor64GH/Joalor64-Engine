@@ -601,6 +601,10 @@ class WeekEditorFreeplayState extends MusicBeatState
 		bg.color = FlxColor.WHITE;
 		add(bg);
 
+                #if sys
+		ArtemisIntegration.setBackgroundFlxColor (bg.color);
+		#end
+
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
 

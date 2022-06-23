@@ -239,6 +239,10 @@ class ChartingState extends MusicBeatState
 		bg.color = 0xFF222222;
 		add(bg);
 
+		#if sys
+		ArtemisIntegration.setBackgroundFlxColor (bg.color);
+		#end
+
 		checker.color = FlxColor.GRAY;
 		add(checker);
 		checker.scrollFactor.set(0.07,0);

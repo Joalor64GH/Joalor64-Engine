@@ -70,6 +70,10 @@ class OptionsState extends MusicBeatState
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+                #if sys
+		ArtemisIntegration.setBackgroundFlxColor (bg.color);
+		#end
+
                 checker.x=BaseOptionsMenu.checkerX;
 		checker.y=BaseOptionsMenu.checkerY;
 		add(checker);

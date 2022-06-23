@@ -93,6 +93,12 @@ class StoryMenuState extends MusicBeatState
 		DiscordClient.changePresence("Story Mode Menu", null);
 		#end
 
+		#if sys
+		ArtemisIntegration.setGameState ("menu");
+		ArtemisIntegration.resetModName ();
+		ArtemisIntegration.setBackgroundColor ("#FFFDE871");
+		#end
+
 		var num:Int = 0;
 		for (i in 0...WeekData.weeksList.length)
 		{

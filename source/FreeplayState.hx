@@ -64,6 +64,11 @@ class FreeplayState extends MusicBeatState
 		DiscordClient.changePresence("Freeplay Menu", null);
 		#end
 
+                #if sys
+		ArtemisIntegration.setGameState ("menu");
+		ArtemisIntegration.resetModName ();
+		#end
+
 		for (i in 0...WeekData.weeksList.length) {
 			if(weekIsLocked(WeekData.weeksList[i])) continue;
 
@@ -159,6 +164,9 @@ class FreeplayState extends MusicBeatState
 		if(curSelected >= songs.length) curSelected = 0;
 		bg.color = songs[curSelected].color;
 		intendedColor = bg.color;
+                #if sys
+		ArtemisIntegration.setBackgroundFlxColor (intendedColor);
+		#end
 
 		if(lastDifficultyName == '')
 		{
@@ -441,6 +449,9 @@ class FreeplayState extends MusicBeatState
 				colorTween.cancel();
 			}
 			intendedColor = newColor;
+                        #if sys
+			ArtemisIntegration.setBackgroundFlxColor (intendedColor);
+			#end
 			colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
 				onComplete: function(twn:FlxTween) {
 					colorTween = null;

@@ -1,5 +1,6 @@
 {
-	"name": "Name",
+	"id": "name",
+        "name": "Name",
 	"description": "Description",
 	"restart":false,
 	"color": [170, 0, 255]

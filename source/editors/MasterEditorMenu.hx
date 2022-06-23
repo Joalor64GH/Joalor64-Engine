@@ -48,6 +48,10 @@ class MasterEditorMenu extends MusicBeatState
 		bg.color = 0xFF353535;
 		add(bg);
 
+		#if sys
+		ArtemisIntegration.setBackgroundFlxColor (bg.color);
+		#end
+
 		grpTexts = new FlxTypedGroup<Alphabet>();
 		add(grpTexts);
 
