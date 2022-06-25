@@ -43,6 +43,7 @@
 * [X] NPS/KPS in score HUD. **[Completed]**
 * [X] Quant Notes. **[Completed]**
 * [ ] Alt Chart for all weeks. **[In Progress]**
+* [ ] Better Noteskin Support.
 * [ ] Extension Webm.
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 
