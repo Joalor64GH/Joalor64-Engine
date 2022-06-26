@@ -1,12 +1,16 @@
-1.0.0e;
-- New Logo
-- Restored Combo Asset
-- New Default Charting Events
-- A TON of State Changes
-- More Credits
-- Latin Alphabet Support
-- Changed a thing in Project.xml
-- Pixel Notesplashes
-- Starting V-Pose
-- Combo Counter
-- And more things I'm too lazy to list.
+1.1.0;
+- Artemis Integration
+- Improved Title State
+- A LOT of Changes in Project.xml
+- More Intro Text
+- Editors Button in Main Menu
+- Even More Credits
+- New Custom License
+- Customizable Main Menu via JSON
+- Alpha, Beta, Hotfix and Pre-release Strings
+- QoL Stuffs
+- Discord RPC Edits
+- Noteskins and Modules Folders
+- Hscript Support
+- Philly Glow
+- And a whole lot more!
