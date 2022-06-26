@@ -60,3 +60,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Crash Dialogue
 * Score Text Color Change
 * Long Health Bar
+* Mirror Mode
