@@ -1,8 +1,3 @@
-# ANNOUNCEMENT TIME
-* Three playtesters are needed for this thing!
-* Because I'm literally doing everything myself. 💀
-* Apply [Here](https://docs.google.com/forms/d/e/1FAIpQLSe79y4ldB4uf6yUbJKpoWgu1gkli6-lG2W7-bYyJF4i2KDcWQ/viewform?usp=sf_link)
-
 # Joalor64 Engine
 ![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/art/logos/j64elogo.png?raw=true)
 
@@ -36,13 +31,6 @@
 * After that, just press space to go back to the menu.
 
 # Planned Features
-* [X] Restore "Combo-Pixel" asset. **[Completed]**
-* [X] BG for Title lol. **[Completed]**
-* [X] Colored Icons. **[Completed]**
-* [X] Checkerboards for backgrounds. **[Completed]**
-* [X] NPS/KPS in score HUD. **[Completed]**
-* [X] Quant Notes. **[Completed]**
-* [ ] Alt Chart for all weeks. **[In Progress]**
 * [ ] Better Noteskin Support.
 * [ ] Extension Webm.
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
