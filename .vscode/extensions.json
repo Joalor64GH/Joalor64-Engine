@@ -1,6 +1,8 @@
 {
 	"recommendations": [
-		"openfl.lime-vscode-extension",
-		"redhat.vscode-xml"
+	  "nadako.vshaxe",
+	  "wiggin77.codedox",
+	  "vshaxe.hxcpp-debugger",
+	  "openfl.lime-vscode-extension"
 	]
-}
+  }

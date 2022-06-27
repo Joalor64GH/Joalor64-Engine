@@ -1,14 +1,29 @@
 {
-	"search.exclude": {
-		"export/**/*.hx": true
-	},
 	"[haxe]": {
-		"editor.formatOnPaste": true,
-		"editor.codeActionsOnSave": {
-			"source.sortImports": true
-		}
-		
+	  "editor.formatOnSave": true,
+	  "editor.formatOnPaste": true
 	},
-	"haxe.enableExtendedIndentation": true,
-	"restructuredtext.confPath": "${workspaceFolder}\\docs"
-}
+	"lime.targetConfigurations": [
+	  {
+		"label": "Build Windows",
+		"target": "windows",
+		"args": [
+		  "-release"
+		]
+	  },
+	  {
+		"label": "Build Linux",
+		"target": "linux",
+		"args": [
+		  "-release"
+		]
+	  },
+	  {
+		"label": "Build Mac",
+		"target": "mac",
+		"args": [
+		  "-release"
+		]
+	  }
+	]
+  }
