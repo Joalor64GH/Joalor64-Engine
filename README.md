@@ -21,7 +21,6 @@
 * Latin Alphabet Support (heck ye)
 * 3D Notes (Perfect for fanmade DnB mods.)
 * Extra Keys (Look at the Wiki for a tutorial.)
-* "Alt" Difficulty.
 * Credits. (Note: If you wanna make mod credits, look at the wiki.)
 * Extra modding support.
 * Cool scripts that do things.
@@ -71,6 +70,8 @@ Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), 
 * gedehari - Chart Editor's Sound Waveform base code
 * iFlicky - Delay/Combo Menu Song Composer + Dialogue Sounds
 * PolybiusProxy - .MP4 Loader Extension
+* KadeDev - Fixed Stuff in Chart Editor + Many Pull Requests
 * Keoiki - Note Splash Animations
 * Smokey - Spritemap Texture Atlas support
 * Cary - OG Resolution code
+* Nebula_Zorua - VCR Shader Code + LUA JIT Fork/Lua Reworks
