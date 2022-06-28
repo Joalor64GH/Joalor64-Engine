@@ -1,16 +1,7 @@
-1.1.0;
-- Artemis Integration
-- Improved Title State
-- A LOT of Changes in Project.xml
-- More Intro Text
-- Editors Button in Main Menu
-- Even More Credits
-- New Custom License
-- Customizable Main Menu via JSON
-- Alpha, Beta, Hotfix and Pre-release Strings
-- QoL Stuffs
-- Discord RPC Edits
-- Noteskins and Modules Folders
-- Hscript Support
-- Philly Glow
-- And a whole lot more!
+1.1.1;
+- Re-added the Notestyles folder
+- Watermark in Title State
+- Changed one thing in Project.xml
+- Updated Tasks for VS. Code
+- Bugfix String for Main menu
+- Some Missing Credits
