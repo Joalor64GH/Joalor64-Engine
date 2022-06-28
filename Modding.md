@@ -7,6 +7,7 @@ I added extra folders for the following:
 * Difficulties
 * Credits
 * Note Skins
+* Note Styles
 * Pixel UI
 * Stages
 * Main Menu Assets
