@@ -33,7 +33,7 @@ import sys.io.File;
 typedef MenuData =
 {
 	enableReloadKey:Bool,
-    alignToCenter:Bool,
+        alignToCenter:Bool,
 	centerOptions:Bool,
 	optionX:Float,
 	optionY:Float,
@@ -56,7 +56,7 @@ class MainMenuState extends MusicBeatState
 	public static var preRelease:String = '';
 	public static var hotfixRelease:String = '';
 	public static var bugfixRelease:String = ''; 
-	public static var joalor64EngineVersion:String = '1.1.0'; // This is also used for Discord RPC
+	public static var joalor64EngineVersion:String = '1.1.1'; // This is also used for Discord RPC
 	public static var psychEngineVersion:String = '0.5.2h'; // This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Main_Checker'), 0.2, 0.2, true, true);
