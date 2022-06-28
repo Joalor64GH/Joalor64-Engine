@@ -61,3 +61,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Score Text Color Change
 * Long Health Bar
 * Mirror Mode
+
+## [1.1.1] - 2022-6-28
+### Added
+* Re-added the Notestyles folder
+* Watermark in Title State
+* Changed one thing in Project.xml
+* Updated Tasks for VS. Code
+* Bugfix String for Main menu
+* Some Missing Credits
