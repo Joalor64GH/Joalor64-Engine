@@ -20,7 +20,7 @@
 		"type": "hxcpp",
 		"preLaunchTask": "Build Linux (Release)",
 		"request": "launch",
-		"program": "${workspaceFolder}/export/mac/bin/J64EMac"
+		"program": "${workspaceFolder}/export/macos/bin/J64EMac"
 	  },
 	],
   }
