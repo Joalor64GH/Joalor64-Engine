@@ -32,6 +32,7 @@
 
 # Planned Features
 * [X] Extension Webm. **[Completed]**
+* [ ] Systools.
 * [ ] Better Noteskin Support.
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 
