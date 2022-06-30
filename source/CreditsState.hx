@@ -98,6 +98,7 @@ class CreditsState extends MusicBeatState
 			['weuz_',             'weuz',             'OS Engine Code\nStage Editor (BETA)',                       		'https://github.com/notweuz',          '940EEB'],
                         ['sayofthelor',             'lor',             'Checkerboards Code',                       		'https://twitter.com/sayofthelor',          'FFAB94'],
                         ['skedgyedgy',             'skedgy',             'Artemis Integration',                       		'https://github.com/skedgyedgy',          'D000FF'],
+			            ['Verwex',             'verwex',             'Systools\nCreator of Mic'd Up',                       		'https://twitter.com/ShiftVer',          '70FFF8'],
 			['You',             'face',             'For playing :)',                       		'https://joalor64.itch.io/',          '7E00FF'],			
 			[''],
 			['Psych Engine Team'],
