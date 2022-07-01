@@ -18,7 +18,7 @@
 	  {
 		"name": "Mac",
 		"type": "hxcpp",
-		"preLaunchTask": "Build Linux (Release)",
+		"preLaunchTask": "Build Mac",
 		"request": "launch",
 		"program": "${workspaceFolder}/export/macos/bin/J64EMac"
 	  },
