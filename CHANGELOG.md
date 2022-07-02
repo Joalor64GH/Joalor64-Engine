@@ -70,3 +70,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Updated Tasks for VS. Code
 * Bugfix String for Main menu
 * Some Missing Credits
+
+## [1.2.0] - UNRELEASED
+### Added
+* TBA
