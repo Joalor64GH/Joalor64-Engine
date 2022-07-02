@@ -73,8 +73,8 @@ Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), 
 * gedehari - Chart Editor's Sound Waveform base code
 * iFlicky - Delay/Combo Menu Song Composer + Dialogue Sounds
 * PolybiusProxy - .MP4 Loader Extension
-* KadeDev - Fixed Stuff in Chart Editor + Many Pull Requests
+* KadeDev - Fixed Stuff in Chart Editor and Many Pull Requests + Extension Webm
 * Keoiki - Note Splash Animations
 * Smokey - Spritemap Texture Atlas support
 * Cary - OG Resolution code
-* Nebula_Zorua - VCR Shader Code + LUA JIT Fork/Lua Reworks
+* Nebula the Zorua - VCR Shader Code + LUA JIT Fork/Lua Reworks
