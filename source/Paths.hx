@@ -45,7 +45,6 @@ class Paths
 		'weeks',
 		'fonts',
 		'scripts',
-		'noteskins',
 		'libs',
 		'achievements'
 	];
