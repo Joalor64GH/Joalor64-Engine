@@ -1,83 +1,221 @@
 {
-  "animation": {
-    "idle": {
-      "name": "Template idle Dance",
-      "loop": false
-    },
-    "singUP": {
-      "name": "Template NOTE UP0",
-      "loop": false
-    },
-    "singDOWN": {
-      "name": "Template NOTE DOWN0",
-      "loop": false
-    },
-    "singLEFT": {
-      "name": "Template NOTE LEFT0",
-      "loop": false
-    },
-    "singRIGHT": {
-      "name": "Template NOTE RIGHT0",
-      "loop": false
-    },
-    "singLEFTmiss": {
-      "name": "Template NOTE LEFT MISS",
-      "loop": false
-    },
-    "singRIGHTmiss": {
-      "name": "Template NOTE RIGHT MISS",
-      "loop": false
-    },
-    "singUPmiss": {
-      "name": "Template NOTE UP MISS",
-      "loop": false
-    },
-    "singDOWNmiss": {
-      "name": "Template NOTE DOWN MISS",
-      "loop": false
-    },
-    "hey": {
-      "name": "Template Hey",
-      "loop": false
-    },
-    "firstDeath": {
-      "name": "Template dies",
-      "loop": false
-    },
-    "deathLoop": {
-      "name": "Template Dead Loop",
-      "loop": true
-    },
-    "deathConfirm": {
-      "name": "Template Dead confirm",
-      "loop": false
-    },
-    "scared": {
-      "name": "Template idle shaking",
-      "loop": false
-    }
-  },
-  "offset": {
-    "idle": [-5,0],
-    "singUP": [-29,27],
-    "singRIGHT": [-38,-7],
-    "singLEFT": [12, -6],
-    "singDOWN": [-11, -19],
-    "singUPmiss": [-29, 27],
-    "singRIGHTmiss": [-30, 21],
-    "singLEFTmiss": [12,24],
-    "singDOWNmiss": [-11, -19],
-    "hey": [7,4],
-    "firstDeath": [37,11],
-    "deathLoop": [37,69],
-    "deathConfirm": [37,69],
-    "scared": [-4, 0]
-  },
-  "flipx": true,
-  "camOffsetX": 0,
-  "camOffsetY": 0,
-  "enemyOffsetX": 0,
-  "enemyOffsetY": 350,
-  "icons": [0, 1],
-  "likebf": true
+	"animations": [
+		{
+			"offsets": [
+				-5,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Template idle dance"
+		},
+		{
+			"offsets": [
+				5,
+				-6
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Template NOTE LEFT0"
+		},
+		{
+			"offsets": [
+				-20,
+				-51
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Template NOTE DOWN0"
+		},
+		{
+			"offsets": [
+				-46,
+				27
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Template NOTE UP0"
+		},
+		{
+			"offsets": [
+				-48,
+				-7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Template NOTE RIGHT0"
+		},
+		{
+			"offsets": [
+				7,
+				19
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "Template NOTE LEFT MISS"
+		},
+		{
+			"offsets": [
+				-15,
+				-19
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "Template NOTE DOWN MISS"
+		},
+		{
+			"offsets": [
+				-46,
+				27
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "Template NOTE UP MISS"
+		},
+		{
+			"offsets": [
+				-44,
+				22
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "Template NOTE RIGHT MISS"
+		},
+		{
+			"offsets": [
+				-3,
+				5
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "hey",
+			"indices": [],
+			"name": "Template HEY"
+		},
+		{
+			"offsets": [
+				14,
+				18
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "hurt",
+			"indices": [],
+			"name": "Template hit"
+		},
+		{
+			"offsets": [
+				-4,
+				0
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "scared",
+			"indices": [],
+			"name": "Template idle shaking"
+		},
+		{
+			"offsets": [
+				37,
+				11
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "firstDeath",
+			"indices": [],
+			"name": "Template dies"
+		},
+		{
+			"offsets": [
+				37,
+				5
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "deathLoop",
+			"indices": [],
+			"name": "Template Dead Loop"
+		},
+		{
+			"offsets": [
+				37,
+				69
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "Template Dead confirm"
+		},
+		{
+			"offsets": [
+				-10,
+				-16
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "dodge",
+			"indices": [],
+			"name": "template dodge"
+		},
+		{
+			"offsets": [
+				294,
+				267
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "attack",
+			"indices": [],
+			"name": "template attack"
+		},
+		{
+			"offsets": [
+				-40,
+				-40
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "pre-attack",
+			"indices": [],
+			"name": "template pre attack"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "custom_chars/template",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "bf",
+	"flip_x": true,
+	"healthbar_colors": [
+		49,
+		176,
+		209
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
 }
