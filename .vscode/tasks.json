@@ -24,6 +24,30 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "Build Windows Debug",
+      "command": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build Mac Debug",
+      "command": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build Linux Debug",
+      "command": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
 	]
 }
