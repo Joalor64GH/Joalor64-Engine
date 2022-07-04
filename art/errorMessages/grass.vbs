@@ -1,0 +1,1 @@
+x=msgbox("Go touch grass.", 0+0, "Hey, you.")
