@@ -650,7 +650,7 @@ class TitleState extends MusicBeatState
 					#if PSYCH_WATERMARKS
 					createCoolText(['Created By'], 15);
 					#else
-					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
+					createCoolText(['ninjamuffin99', 'PhantomArcade', 'KawaiSprite', 'Evilsk8er']);
 					#end
 				// credTextShit.visible = true;
 				case 3:
@@ -678,7 +678,7 @@ class TitleState extends MusicBeatState
 					addMoreText('Psych Engine', -40);
 					yt.visible = true;
 					funky.visible = true;
-				// credTextShit.text += '\nNewgrounds';
+				// credTextShit.text += '\nPsych Engine';
 				case 8:
 					deleteCoolText();
 					yt.visible = false;
@@ -705,9 +705,9 @@ class TitleState extends MusicBeatState
 					addMoreText('Joalor64 Engine');
 				// credTextShit.text += '\nJoalor64 Engine';
 				case 15:
-					addMoreText('V1.1.0'); // credTextShit.text += '\nV1.0.0';
+					addMoreText('V1.2.0'); // credTextShit.text += '\nV1.2.0';
 				case 16:
-			     	addMoreText('LOL');
+			     	addMoreText('LOL'); // credTextShit.text += '\nLOL';
 
 				case 17:
 					skipIntro();
