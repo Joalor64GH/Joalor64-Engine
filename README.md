@@ -66,6 +66,7 @@ Hope you enjoy!
 * [sayofthelor](https://twitter.com/sayofthelor) - Checkerboards Code
 * [skedgyedgy](https://github.com/skedgyedgy) - Artemis Integration
 * [Verwex](https://twitter.com/ShiftVer) - Systools Code
+* [TahirRollingArch](https://github.com/TahirRollingArch) - Replay System
 
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
