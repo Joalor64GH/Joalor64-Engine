@@ -401,7 +401,7 @@ class FreeplayState extends MusicBeatState
 			}
 
 			FlxG.sound.music.volume = 0;
-			FlxG.sound.play(Paths.sound('confirmMenu')); //		
+			FlxG.sound.play(Paths.sound('storySelect')); //		
 			destroyFreeplayVocals();
 		}
 		else if(controls.RESET)
