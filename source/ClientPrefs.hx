@@ -48,6 +48,7 @@ class ClientPrefs {
 	public static var opponentUnderlaneVisibility:Float = 0;
 	public static var noteSkinSettings:String = 'Classic';
 	public static var pauseMusic:String = 'Tea Time';
+	public static var saveReplay:Bool = true;
 	public static var showcaseMode:Bool = false;
 	public static var cameramoveonnotes:Bool = true;
 	public static var removePerfects:Bool = false;
@@ -163,6 +164,7 @@ class ClientPrefs {
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.underlaneVisibility = underlaneVisibility;
 		FlxG.save.data.pauseMusic = pauseMusic;
+		FlxG.save.data.saveReplay = saveReplay;
 		FlxG.save.data.noteSkinSettings = noteSkinSettings;
 	
 		FlxG.save.flush();
@@ -332,6 +334,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.pauseMusic != null) {
 			noteSkinSettings = FlxG.save.data.noteSkinSettings;
+		}
+		if(FlxG.save.data.saveReplay != null) {
+			    saveReplay = FlxG.save.data.saveReplay;
 		}
 		if(FlxG.save.data.gameplaySettings != null)
 		{

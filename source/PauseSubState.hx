@@ -226,6 +226,8 @@ class PauseSubState extends MusicBeatSubstate
 					practiceText.visible = PlayState.instance.practiceMode;
 				case "CTRL + Y":
 					restartSong();
+				case 'Restart Replay':
+					FlxG.resetState();
 				case "Leave Charting Mode":
 					restartSong();
 					PlayState.chartingMode = false;
