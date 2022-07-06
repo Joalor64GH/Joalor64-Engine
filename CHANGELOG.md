@@ -71,6 +71,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Bugfix String for Main menu
 * Some Missing Credits
 
-## [1.2.0] - UNRELEASED
+## [1.2.0] - 2022-7-6
 ### Added
-* TBA
+* Extension Webm
+* Systools
+* Debug Workflow
+* New Stages for Weeks 3, 5 and 6
+* Rain Script (By me!!!)
+* Noteskins
+* And just a tiny bit more.
