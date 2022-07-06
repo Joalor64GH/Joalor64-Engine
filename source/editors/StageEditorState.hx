@@ -109,7 +109,7 @@ class StageEditorState extends MusicBeatState
             {name: 'Add/Remove', label: 'Add/Remove'},
         ];
 
-        betaTXT = new FlxText(12, FlxG.height - 24, 0, "ALPHA", 20);
+        betaTXT = new FlxText(12, FlxG.height - 24, 0, "BETA", 20);
 		betaTXT.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		betaTXT.scrollFactor.set();
 		betaTXT.borderSize = 1;
