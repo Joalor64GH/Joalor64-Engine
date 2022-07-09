@@ -3,9 +3,9 @@ package editors;
 #if desktop
 import Discord.DiscordClient;
 #end
-import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;
 import flixel.FlxObject;
+import flixel.math.FlxPoint;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.FlxCamera;
@@ -13,9 +13,10 @@ import flixel.input.keyboard.FlxKey;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.graphics.FlxGraphic;
+import StageData.StageFile;
+import LayerFile;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import Paths;
 import flixel.addons.ui.FlxInputText;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.addons.ui.FlxUI;
@@ -27,15 +28,15 @@ import flixel.addons.ui.FlxUITooltip.FlxUITooltipStyle;
 import flixel.ui.FlxButton;
 import flixel.ui.FlxSpriteButton;
 import openfl.net.FileReference;
+import flixel.group.FlxSpriteGroup;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import haxe.Json;
-import Character;
 import flixel.system.debug.interaction.tools.Pointer.GraphicCursorCross;
 import lime.system.Clipboard;
 import flixel.animation.FlxAnimation;
-
-#if MODS_ALLOWED
+import flash.net.FileFilter;
+#if sys
 import sys.io.File;
 import sys.FileSystem;
 #end
@@ -44,626 +45,597 @@ using StringTools;
 
 class StageEditorState extends MusicBeatState
 {
-	var bf:Character;
-    var dad:Character;
-    var gf:Character;
+	var layers:Array<String>;
+	var bf:Boyfriend;
+	var i:LayerFile;
+	var dad:Character;
+	var gf:Character;
+	var startMousePos:FlxPoint = new FlxPoint();
+	var holdingObjectType:Null<Bool> = null;
+	var startDragging:FlxPoint = new FlxPoint();
+	var directories:Array<String>;
+	var defaultZoom:Float;
+	var isPixelStage:Bool;
+	var camFollow:FlxObject;
+	var confirmAdded:Bool = false;
+
+	var ispixel:FlxUICheckBox;
+
+	var isflippedY:FlxUICheckBox;
+	var isflippedX:FlxUICheckBox;
+
+	var ischar:FlxUICheckBox;
+
+	var isgf:FlxUICheckBox;
+
+	var data:StageFile;
+	var shouldStayIn:FlxSprite;
+
+	public static var stageFile:StageFile;
+	public static var stepperscrollX:FlxUIInputText;
+	public static var stepperscrollY:FlxUIInputText;
+
+	var scaleStepper:FlxUINumericStepper;
+	public static var layerStepper:FlxUINumericStepper;
+	var coolstageFile:StageData;
+	var addedLayers:Array<LayerFile>;
+
+	var dummyLayer:FlxSprite;
+
+	public static var luaStages:Array<String> = [];
+	public static var luaScrollFactors:Array<String> = [];
+	public static var luaAdded:Array<String> = [];
+	public static var luaFlipX:Array<String> = [];
+	public static var luaFlipY:Array<String> = [];
+
+	var visualLayers:Array<FlxSprite> = [];
+
+	var createdLayer:FlxSprite;
+
+	var boyfriend:Array<Dynamic>;
+	var girlfriend:Array<Dynamic>;
+	var opponent:Array<Dynamic>;
+
+	var layerAdded:Bool = false;
+
+	var stageCounter:Int;
+
+	var noStage:Bool = true;
+
+	var bg:FlxSprite;
+	var stageFront:FlxSprite;
+	var stageCurtains:FlxSprite;
 
 	var UI_box:FlxUITabMenu;
+	var UI_stagebox:FlxUITabMenu;
 
-    var characterList:Dynamic;
-
-    var guideButton:FlxButton;
-    var betaTXT:FlxText;
-
-    private var camEditor:FlxCamera;
+	private var camEditor:FlxCamera;
 	private var camHUD:FlxCamera;
-
-    var bfjson:Dynamic;
-    var gfjson:Dynamic;
-    var dadjson:Dynamic;
-    var top10awesome:Dynamic;
-
-    var bfidle:Array<Int> = [0, 0];
-    var gfidle:Array<Int> = [0, 0];
-    var dadidle:Array<Int> = [0, 0];
-
-    var daAnim:String;
-
 	private var camMenu:FlxCamera;
+	private var camTips:FlxCamera;
+	private var camGrid:FlxCamera;
+	private var camPeople:FlxCamera;
+	private var camshit:FlxCamera;
+	private var camhidden:FlxCamera;
 
-    var selectedObj:FlxSprite;
-    var objectName:String;
-    var tagName:String;
+	// so many text boxes lol
+	public static var nameInputText:FlxUIInputText;
+	public static var directoryInputText:FlxUIInputText;
+	public static var directoryInputTextcool:FlxUIInputText;
+	public static var xInputText:FlxUIInputText;
+	public static var yInputText:FlxUIInputText;
+	public static var gfInputText:FlxUIInputText;
+	public static var bfInputText:FlxUIInputText;
+	public static var opponentinputtext:FlxUIInputText;
+	public static var zoominputtext:FlxUIInputText;
+	public static var dirinputtext:FlxUIInputText;
+	public static var goToPlayState:Bool = true;
+	public static var boffsettext:FlxUIInputText;
+	public static var goffsettext:FlxUIInputText;
+	public static var ooffsettext:FlxUIInputText;
+	public static var speedoffsettext:FlxUIInputText;
 
-    var selectedObjName:Int; // it's supposed to be a string, but its int now
+	override function create()
+	{
+		camFollow = new FlxObject(0, 0, 2, 2);
+		camFollow.screenCenter();
+		add(camFollow);
 
-	var bgLayer:FlxTypedGroup<FlxSprite>;
+		bf = new Boyfriend(770, 450, 'bf');
+		dad = new Character(100, 100, 'dad');
+		gf = new Character(400, 130, 'gf');
 
-    var bgMap:Map<FlxSprite, Dynamic> = [];
+		bg = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
+		bg.antialiasing = true;
 
-	var charLayer:FlxTypedGroup<Character>;
+		stageFront = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
+		stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+		stageFront.updateHitbox();
+		stageFront.antialiasing = true;
 
-    var spritesLayer:Array<String> = [];
+		stageCurtains = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+		stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+		stageCurtains.updateHitbox();
+		stageCurtains.antialiasing = true;
 
-    var defaultcamzoom:Float = 1;
-    var stageispixel:Bool = false;
+		FlxG.camera.follow(camFollow);
 
-    var charactersOnStage:Array<String>;
-    var charactersObjects:Array<Character>;
-
-	var camFollow:FlxObject;
-	var cameraFollowPointer:FlxSprite;
-
-    override function create() {
-		FlxG.sound.playMusic(Paths.music('breakfast'), 0.5);
-
-        camEditor = new FlxCamera();
+		camEditor = new FlxCamera();
 		camHUD = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
 		camMenu = new FlxCamera();
 		camMenu.bgColor.alpha = 0;
-
-        var uibox_tabs = [
-            {name: 'Characters', label: 'Characters'},
-            {name: 'Objects Info', label: 'Objects Info'},
-            {name: 'Add/Remove', label: 'Add/Remove'},
-        ];
-
-        betaTXT = new FlxText(12, FlxG.height - 24, 0, "BETA", 20);
-		betaTXT.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		betaTXT.scrollFactor.set();
-		betaTXT.borderSize = 1;
-		betaTXT.cameras = [camMenu];
-        betaTXT.visible = true;
-		add(betaTXT);
+		camTips = new FlxCamera();
+		camTips.bgColor.alpha = 0;
+		camGrid = new FlxCamera();
+		camGrid.bgColor.alpha = 0;
+		camPeople = new FlxCamera();
+		camPeople.bgColor.alpha = 0;
+		camshit = new FlxCamera();
+		camshit.bgColor.alpha = 0;
+		camhidden = new FlxCamera();
+		camhidden.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camEditor);
+		FlxG.cameras.add(camshit);
+		FlxG.cameras.add(camPeople);
 		FlxG.cameras.add(camHUD);
 		FlxG.cameras.add(camMenu);
+		FlxG.cameras.add(camTips);
+		FlxG.cameras.add(camGrid);
+
 		FlxCamera.defaultCameras = [camEditor];
 
-        UI_box = new FlxUITabMenu(null, uibox_tabs, true);
+		gf.cameras = [camPeople];
+		bf.cameras = [camPeople];
+		dad.cameras = [camPeople];
+
+		var tabs = [{name: 'Layers', label: 'Layers'}, {name: 'Settings', label: 'Settings'},];
+
+		UI_box = new FlxUITabMenu(null, tabs, true);
 		UI_box.cameras = [camMenu];
 
-		UI_box.resize(300, 250);
-		UI_box.x = FlxG.width - 325;
+		UI_box.resize(250, 120);
+		UI_box.x = FlxG.width - 275;
 		UI_box.y = 25;
 		UI_box.scrollFactor.set();
 
-        var tipTextArray:Array<String> = "E/Q - Camera Zoom In/Out
-        \nO/P - Object Size Increase/Decrease
-		\nR - Reset Camera Zoom
-		\nJKLI - Move Camera
-		\nArrow Keys - Move Object Offset
-		\nHold Shift to Move 10x faster
-        \nHold Ctrl to Move 100x faster\n".split('\n');
+		UI_stagebox = new FlxUITabMenu(null, tabs, true);
+		UI_stagebox.cameras = [camMenu];
 
-		for (i in 0...tipTextArray.length-1)
-		{
-			var tipText:FlxText = new FlxText(FlxG.width - 320, FlxG.height - 15 - 16 * (tipTextArray.length - i), 300, tipTextArray[i], 12);
-			tipText.cameras = [camHUD];
-			tipText.setFormat(null, 12, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
-			tipText.scrollFactor.set();
-			tipText.borderSize = 1;
-			add(tipText);
-		}
+		UI_stagebox.resize(350, 350);
+		UI_stagebox.x = UI_box.x - 100;
+		UI_stagebox.y = UI_box.y + UI_box.height;
+		UI_stagebox.scrollFactor.set();
+		add(UI_stagebox);
 
-        camFollow = new FlxObject(0, 0, 2, 2);
-		camFollow.screenCenter();
-		add(camFollow);
+		addLayersUI();
+		addSettingsUI();
 
-        bgLayer = new FlxTypedGroup<FlxSprite>();
-		add(bgLayer);
-		charLayer = new FlxTypedGroup<Character>();
-		add(charLayer);
+		add(bg);
+		add(stageCurtains);
+		add(stageFront);
 
-		FlxG.camera.follow(camFollow);
-        FlxG.camera.zoom = 0.5; // big big big big big
+		UI_stagebox.selected_tab_id = 'Layers';
 
-        bf = new Boyfriend(1500, 0, "bf");
-        gf = new Character(600, 0, "gf", false);
-        dad = new Character(0, 0, "dad", false);
+		var tipText:FlxText = new FlxText(FlxG.width - FlxG.width + 250, FlxG.height, 0, "E/Q - Camera Zoom In/Out
+        \nArrow Keys/Hold And Drag\n - Move Layer
+        \nR - Reset Current Zoom", 12);
+		tipText.cameras = [camTips];
+		tipText.setFormat(null, 12, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		tipText.scrollFactor.set();
+		tipText.borderSize = 1;
+		tipText.screenCenter(Y);
+		tipText.x -= tipText.width;
+		tipText.y -= tipText.height - 10;
+		add(tipText);
 
-        charLayer.add(gf);
-        charLayer.add(dad);
-        charLayer.add(bf);
-
-        charactersOnStage = ['bf', 'gf', 'dad'];
-        charactersObjects = [bf, gf, dad];
-
-        for (i in charactersObjects) {
-            i.updateHitbox(); //dflsdflsdkfdslfkslfk hitboxes i hate them so much
-        }
-
-		add(UI_box);
-
-        selectedObj = bf;
-
-        for (i in charactersOnStage) {
-            var cjson:CharacterFile = characterjson(i);
-            
-            if (i == 'dad') {
-                dadjson = cjson;
-                dadidle = getIdleOffset('dad');
-            } else if (i == 'gf') {
-                gfjson = cjson;
-                gfidle = getIdleOffset('gf');
-            } else {
-                bfjson = cjson;
-                bfidle = getIdleOffset('bf');
-            }
-        }
-
-        addCharactersUI();
-        addObjectsUI();
-        addAddRemoveUI();
-
-		UI_box.selected_tab_id = 'Add/Remove';
+		var gridOutline:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('stageborder'));
+		gridOutline.screenCenter();
+		gridOutline.cameras = [camGrid];
+		add(gridOutline);
 
 		FlxG.mouse.visible = true;
 
-        guideButton = new FlxButton(12, FlxG.height - 50, "Guide", function() {
-            CoolUtil.browserLoad("https://www.youtube.com/watch?v=oZpLuBPSkcQ"); // there's supposed to be google.com actually (cuz it should be funny... but it isn't)
-        });
-		guideButton.cameras = [camMenu];
+		dummyLayer = new FlxSprite();
+        dummyLayer.visible = false;
+		dummyLayer.cameras = [camhidden];
+		visualLayers.push(dummyLayer);
 
-        add(guideButton);
+		makePlaceholders();
 
-        #if desktop
-        // Updating Discord Rich Presence
-        DiscordClient.changePresence("In Stage Editor", "Making a stage...");
-        #end
-
-        super.create();
-    }
-
-    var objectInputText:FlxUIInputText;
-    var tagInputText:FlxUIInputText;
-    var objectAdd:FlxButton;
-    var objectRemove:FlxButton;
-    var spritesDropDown:FlxUIDropDownMenuCustom;
-
-    function addAddRemoveUI() {
-        var tab_group = new FlxUI(null, UI_box);
-		tab_group.name = "Add/Remove";
-        
-        objectInputText = new FlxUIInputText(10, 30, 100, "examplefolder/example", 8);
-
-        tagInputText = new FlxUIInputText(objectInputText.x + 150, objectInputText.y, 100, "tag", 8);
-
-        objectAdd = new FlxButton(objectInputText.x, objectInputText.y + 22, "Add Sprite", function() {
-            if (FileSystem.exists(Paths.modsImages(objectName))) {
-                var sprite:FlxSprite = new FlxSprite();
-                sprite.loadGraphic(Paths.image(objectName), false, 0, 0, false, objectName);
-                sprite.x = 0;
-                sprite.y = 0;
-                sprite.updateHitbox();
-                var objectArray:Array<Dynamic> = [
-                    tagName,
-                    objectName,
-                    sprite.x,
-                    sprite.y,
-                    sprite.scale.x,
-                    sprite.scale.y,
-                    false,
-                    sprite
-                ];
-                bgMap.set(sprite, objectArray);
-                bgLayer.add(sprite);
-                spritesLayer.push(objectArray[0]);
-                selectedObj = sprite;
-                selectedObj.updateHitbox();
-                reloadSpritesDropdown();
-            }
-        });
-
-        objectRemove = new FlxButton(objectAdd.x + 90, objectAdd.y, "Remove Sprite", function() {
-            if (selectedObj != gf && selectedObj != bf && selectedObj != dad && selectedObj != null) {
-                bgLayer.remove(selectedObj, true);
-                for (i in bgMap.keys()) {
-                    if (i == selectedObj) {
-                        bgMap.remove(selectedObj);
-                    }
-                }
-                selectedObj.destroy();
-                spritesLayer.splice(selectedObjName, 1);
-                selectedObj = bf;
-                reloadSpritesDropdown();
-                selectedObjName = -1;
-                bgLayer.update(1);
-            }
-        });
-
-        spritesDropDown = new FlxUIDropDownMenuCustom(objectInputText.x, objectInputText.y + 60, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(sprite:String)
-		{
-            bgLayer.update(1);
-            selectedObj = bgLayer.members[Std.parseInt(sprite)];
-            spritesDropDown.selectedLabel = "";
-            selectedObjName = Std.parseInt(sprite);
-            selectedObj.updateHitbox();
-            updateCoords();
-            updateSize();
-		});
-
-        tab_group.add(objectAdd);
-        tab_group.add(objectRemove);
-        tab_group.add(spritesDropDown);
-		tab_group.add(new FlxText(spritesDropDown.x, spritesDropDown.y - 18, 0, 'Background Sprite:'));
-		tab_group.add(new FlxText(objectInputText.x, objectInputText.y - 18, 0, 'Image Path:'));
-		tab_group.add(new FlxText(tagInputText.x, tagInputText.y - 18, 0, 'Object Tag:'));
-        tab_group.add(objectInputText);
-        tab_group.add(tagInputText);
-        UI_box.addGroup(tab_group);
+		super.create();
 	}
 
-    var objCoords:FlxText;
-    var objSize:FlxText;
-    var objCopyCoords:FlxButton;
-    var objCopySize:FlxButton;
-    var saveCharacterCoordsBtn:FlxButton;
-    var saveAdvancedCoordsBtn:FlxButton;
+	function addLayersUI()
+	{
 
-    function addObjectsUI() {
-        var tab_group = new FlxUI(null, UI_box);
-		tab_group.name = "Objects Info";
+		nameInputText = new FlxUIInputText(15, 50, 200, "", 8);
+		var namelabel = new FlxText(15, nameInputText.y + 20, 64, 'Layer Name');
+		directoryInputText = new FlxUIInputText(15, nameInputText.y + 50, 200, "", 8);
+		var directlabel = new FlxText(15, directoryInputText.y + 20, 64, 'Image Directory');
+		xInputText = new FlxUIInputText(15, directoryInputText.y + 50, 200, "", 8);
+		var xlabel = new FlxText(15, xInputText.y + 20, 64, 'X Axis');
+		yInputText = new FlxUIInputText(15, xInputText.y + 50, 200, "", 8);
+		var ylabel = new FlxText(15, yInputText.y + 20, 64, 'Y Axis');
 
-        objCoords = new FlxText(10, 30, 0, 'Object Coords: - -');
-        objSize = new FlxText(objCoords.x, objCoords.y + 15, 0, 'Object Size: - -');
+		stepperscrollY = new FlxUIInputText(240, yInputText.y, 64, '');
 
-        objCopyCoords = new FlxButton(objSize.x, objSize.y + 20, "Copy Coords", function() {
-            if (selectedObj != null && selectedObj != bf && selectedObj != gf && selectedObj != dad) {
-                Clipboard.text = "makeLuaSprite('name', '"+ spritesLayer[selectedObjName] +"', "+ selectedObj.x +", "+ selectedObj.y +");";
-            }
-        });
+		var whylabel = new FlxText(240, stepperscrollY.y + 20, 64, 'Scroll Factor Y');
 
-        objCopySize = new FlxButton(objCopyCoords.x, objCopyCoords.y + 25, "Copy Size", function() {
-            if (selectedObj != null && selectedObj != bf && selectedObj != gf && selectedObj != dad) {
-                Clipboard.text = "scaleObject('name', "+ selectedObj.scale.x +", "+ selectedObj.scale.y +");";
-            }
-        });
+		stepperscrollX = new FlxUIInputText(240, xInputText.y, 64, '');
 
-        saveCharacterCoordsBtn = new FlxButton(objCopySize.x, objCopySize.y + 25, "Save Char Json", function() {
-            saveCharacterCoords();
-        });
+		var exlabel = new FlxText(240, stepperscrollX.y + 20, 64, 'Scroll Factor X');
 
-        saveAdvancedCoordsBtn = new FlxButton(saveCharacterCoordsBtn.x+85, saveCharacterCoordsBtn.y, 'Save Advanced Json', function() {
-            saveAdvancedJson();
-        });
+		scaleStepper = new FlxUINumericStepper(240, directoryInputText.y, 0.1, 1, 0, 10, 1);
 
-		var check_Pixel = new FlxUICheckBox(saveCharacterCoordsBtn.x, saveCharacterCoordsBtn.y+30, null, null, "Pixel Stage", 100);
-		check_Pixel.checked = stageispixel;
-		check_Pixel.callback = function()
+		var scalelabel = new FlxText(240, scaleStepper.y + 20, 64, 'Scale');
+
+		layerStepper = new FlxUINumericStepper(15, scaleStepper.y + 150, 1, 0, 0, 0, 1);
+
+		var layerlabel = new FlxText(15, layerStepper.y + 20, 64, 'Selected Layer');
+
+
+		isflippedX = new FlxUICheckBox(240, layerStepper.y + 20, null, null, "FlipX", 100);
+
+		isflippedY = new FlxUICheckBox(240, isflippedX.y + 20, null, null, "FlipY", 100);
+
+		var addLayer:FlxButton = new FlxButton(140, 20, "Add Layer", function()
 		{
-			stageispixel = check_Pixel.checked;
-		};
+			noStage = false;
+			layerAdded = true;
+			stageCounter + 1;
+			var stageSwag:LayerFile = {
+				name: nameInputText.text,
+				directory: directoryInputText.text,
+				xAxis: Std.parseFloat(xInputText.text),
+				yAxis: Std.parseFloat(yInputText.text),
+				scrollY: Std.parseFloat(stepperscrollX.text),
+				scrollX: Std.parseFloat(stepperscrollY.text),
+				scale: scaleStepper.value,
+				flipX: isflippedX.checked,
+				flipY: isflippedY.checked
+			};
 
-		var stepper_Zoom:FlxUINumericStepper = new FlxUINumericStepper(check_Pixel.x, check_Pixel.y+30, .05, 1, 0.1, 10, 2);
-		stepper_Zoom.value = defaultcamzoom;
-		stepper_Zoom.name = 'stage_zoom';
-
-		var check_hideGirlfriend = new FlxUICheckBox(stepper_Zoom.x, stepper_Zoom.y+30, null, null, "Hide Girlfriend", 100);
-		check_hideGirlfriend.checked = !gf.visible;
-		check_hideGirlfriend.callback = function()
-		{
-			gf.visible = !check_hideGirlfriend.checked;
-		};
-
-        tab_group.add(stepper_Zoom);
-        //tab_group.add(objCopyCoords);
-		tab_group.add(new FlxText(stepper_Zoom.x, stepper_Zoom.y - 15, 0, 'Default Zoom:'));
-        tab_group.add(check_Pixel);
-        tab_group.add(check_hideGirlfriend);
-        tab_group.add(saveCharacterCoordsBtn);
-        tab_group.add(saveAdvancedCoordsBtn);
-        //tab_group.add(objCopySize);
-        tab_group.add(objCoords);
-        tab_group.add(objSize);
-        UI_box.addGroup(tab_group);
-	}
-
-    var dadSelect:FlxUIDropDownMenuCustom;
-    var bfSelect:FlxUIDropDownMenuCustom;
-    var gfSelect:FlxUIDropDownMenuCustom;
-    var charDropDown:FlxUIDropDownMenuCustom;
-
-    function addCharactersUI() {
-        var tab_group = new FlxUI(null, UI_box);
-		tab_group.name = "Characters";
-        
-        dadSelect = new FlxUIDropDownMenuCustom(10, 30, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(sprite:String)
-            {
-                //dad.x = 0;
-                //dad.y = 0;
-
-                charLayer.remove(dad);
-                dad = new Character(dad.x, dad.y, characterList[Std.parseInt(sprite)], false);
-                dadSelect.selectedLabel = "";
-                charLayer.add(dad);
-                dad.updateHitbox();
-                charactersObjects = [bf, gf, dad];
-
-                var json:CharacterFile = characterjson(characterList[Std.parseInt(sprite)]);
-
-                dadjson = json;
-                dadidle = getIdleOffset(characterList[Std.parseInt(sprite)]);
-            });
-
-        bfSelect = new FlxUIDropDownMenuCustom(dadSelect.x+130, dadSelect.y, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(sprite:String)
-            {
-                //dad.x = 0;
-                //dad.y = 0;
-
-                charLayer.remove(bf);
-                bf = new Boyfriend(bf.x, bf.y, characterList[Std.parseInt(sprite)]);
-                bfSelect.selectedLabel = "";
-                charLayer.add(bf);
-                bf.updateHitbox();
-                charactersObjects = [bf, gf, dad];
-
-                var json:CharacterFile = characterjson(characterList[Std.parseInt(sprite)]);
-
-                bfjson = json;
-                bfidle = getIdleOffset(characterList[Std.parseInt(sprite)]);
-            });
-
-        gfSelect = new FlxUIDropDownMenuCustom(dadSelect.x - 130, dadSelect.y, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(sprite:String)
-            {
-                //dad.x = 0;
-                //dad.y = 0;
-
-                charLayer.remove(gf);
-                gf = new Character(gf.x, gf.y, characterList[Std.parseInt(sprite)], false);
-                gfSelect.selectedLabel = "";
-                charLayer.add(gf);
-                gf.updateHitbox();
-                charactersObjects = [bf, gf, dad];
-
-                var json:CharacterFile = characterjson(characterList[Std.parseInt(sprite)]);
-
-                gfjson = json;
-                gfidle = getIdleOffset(characterList[Std.parseInt(sprite)]);
-            });
-
-        reloadCharDrops();
-        
-        charDropDown = new FlxUIDropDownMenuCustom(gfSelect.x-130, dadSelect.y, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(character:String)
-		{
-            selectedObj = charactersObjects[Std.parseInt(character)];
-            reloadCharacterDropDown();
-            charDropDown.selectedLabel = charactersOnStage[Std.parseInt(character)];
-            selectedObj.updateHitbox();
-            updateCoords();
-            updateSize();
-		});
-		reloadCharacterDropDown();
-            
-        tab_group.add(dadSelect);
-        tab_group.add(new FlxText(dadSelect.x, dadSelect.y - 15, 0, 'Opponent:'));
-        tab_group.add(bfSelect);
-        tab_group.add(new FlxText(bfSelect.x, bfSelect.y - 15, 0, 'Player:'));
-        tab_group.add(gfSelect);
-        tab_group.add(new FlxText(gfSelect.x, gfSelect.y - 15, 0, 'Girlfriend:'));
-        tab_group.add(charDropDown);
-		tab_group.add(new FlxText(charDropDown.x, charDropDown.y - 18, 0, 'Character:'));
-        UI_box.addGroup(tab_group);
-	}
-
-    
-    function reloadCharDrops() {
-        var charsLoaded:Map<String, Bool> = new Map();
-
-		#if MODS_ALLOWED
-		characterList = [];
-		var directories:Array<String> = [Paths.mods('characters/'), Paths.mods(Paths.currentModDirectory + '/characters/'), Paths.getPreloadPath('characters/')];
-		for (i in 0...directories.length) {
-			var directory:String = directories[i];
-			if(FileSystem.exists(directory)) {
-				for (file in FileSystem.readDirectory(directory)) {
-					var path = haxe.io.Path.join([directory, file]);
-					if (!sys.FileSystem.isDirectory(path) && file.endsWith('.json')) {
-						var charToCheck:String = file.substr(0, file.length - 5);
-						if(!charsLoaded.exists(charToCheck)) {
-							characterList.push(charToCheck);
-							charsLoaded.set(charToCheck, true);
-						}
+			var luaMakeStage:String = "makeLuaSprite('" + nameInputText.text + "', " + "'" + directoryInputText.text + "', " + xInputText.text + ", "
+				+ yInputText.text + ");";
+			var luaMakeScrollFactor:String = "setScrollFactor('" + nameInputText.text + "', " + stepperscrollX.text + ", " + stepperscrollY.text + ");";
+			var luaAdd:String = "addLuaSprite('" + nameInputText.text + "', " + "'false'" + ");";
+			var luaFlipYstring:String = "setProperty('" + nameInputText.text + ".flipY', " + isflippedY.checked + ");";
+			var luaFlipXstring:String = "setProperty('" + nameInputText.text + ".flipX', " + isflippedX.checked + ");";
+			createdLayer = new FlxSprite();
+			if (visualLayers.contains(dummyLayer)) {
+				visualLayers.remove(dummyLayer);
+			}
+			add(createdLayer);
+			visualLayers.push(createdLayer);
+			luaStages.push(luaMakeStage);
+			luaScrollFactors.push(luaMakeScrollFactor);
+			luaAdded.push(luaAdd);
+			layerStepper.max = stageFile.layerArray.length;
+			layerStepper.value++;
+			luaFlipX.push(luaFlipXstring);
+			luaFlipY.push(luaFlipYstring);
+			stageFile.layerArray.push(stageSwag);
+			remove(bg);
+			remove(stageFront);
+			remove(stageCurtains);
+			// we need to make sure the created layer exists before being able to scale it or we'll experience a crash
+			if (stageFile.layerArray.contains(stageSwag))
+			{
+				for (cool in stageFile.layerArray)
+				{
+					if (cool.directory != "")
+					{
+						confirmAdded = true;
 					}
 				}
 			}
-		}
-		#else
-		characterList = CoolUtil.coolTextFile(Paths.txt('characterList'));
-		#end
+		});
 
-		dadSelect.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(characterList, true));
-        bfSelect.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(characterList, true));
-        gfSelect.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(characterList, true));
-		dadSelect.selectedLabel = daAnim;
-		bfSelect.selectedLabel = daAnim;
-		gfSelect.selectedLabel = daAnim;
-    }
+		var removeLayer:FlxButton = new FlxButton(40, 20, "Remove Layer", function()
+		{
+			if (!noStage)
+			{
+				var stageSwag:LayerFile = {
+					name: nameInputText.text,
+					directory: directoryInputText.text,
+					xAxis: Std.parseFloat(xInputText.text),
+					yAxis: Std.parseFloat(yInputText.text),
+					scrollY: Std.parseFloat(stepperscrollX.text),
+					scrollX: Std.parseFloat(stepperscrollY.text),
+					scale: scaleStepper.value,
+					flipX: isflippedX.checked,
+					flipY: isflippedY.checked
+				};
 
-    function characterjson(characteruse:String) {
-        var characterPath:String = 'characters/' + characteruse + '.json';
+				var luaMakeStage:String = "makeLuaSprite('" + nameInputText.text + "', " + "'" + directoryInputText.text + "', " + xInputText.text + ", "
+					+ yInputText.text + ");";
+				var luaMakeScrollFactor:String = "setScrollFactor('" + nameInputText.text + "', " + stepperscrollX.text + ", " + stepperscrollY.text + ");";
+				var luaAdd:String = "addLuaSprite('" + nameInputText.text + "', " + "'false'" + ");";
+				var luaFlipYstring:String = "setProperty('" + nameInputText.text + ".flipY', " + isflippedY.checked + ");";
+				var luaFlipXstring:String = "setProperty('" + nameInputText.text + ".flipX', " + isflippedX.checked + ");";
 
-        #if MODS_ALLOWED
-        var path:String = Paths.modFolders(characterPath);
-        if (!FileSystem.exists(path)) {
-            path = Paths.getPreloadPath(characterPath);
-        }
+				deleteLayer();
+				xInputText.text = "" + 0;
+				yInputText.text = "" + 0;
+				luaStages.remove(luaMakeStage);
+				luaScrollFactors.remove(luaMakeScrollFactor);
+				luaAdded.remove(luaAdd);
+				luaFlipX.remove(luaFlipXstring);
+				luaFlipY.remove(luaFlipYstring);
+				layerStepper.value--;
+				remove(createdLayer);
+				visualLayers.remove(createdLayer);
+				stageFile.layerArray.remove(stageSwag);
 
-        if (!FileSystem.exists(path))
-        #else
-        var path:String = Paths.getPreloadPath(characterPath);
-        if (!Assets.exists(path))
-        #end
-        {
-            path = Paths.getPreloadPath('characters/bf.json'); //If a character couldn't be found, change him to BF just to prevent a crash
-        }
+			}
+		});
 
-        #if MODS_ALLOWED
-        var rawJson = File.getContent(path);
-        #else
-        var rawJson = Assets.getText(path);
-        #end
+		removeLayer.color = FlxColor.RED;
+		removeLayer.label.color = FlxColor.WHITE;
 
-        var json:CharacterFile = cast Json.parse(rawJson);
-        return json;
-    }
+		var tab_group_layers = new FlxUI(null, UI_stagebox);
+		tab_group_layers.name = "Layers";
+		tab_group_layers.add(nameInputText);
+		tab_group_layers.add(isflippedY);
+		tab_group_layers.add(isflippedX);
+		tab_group_layers.add(directoryInputText);
+		tab_group_layers.add(removeLayer);
+		tab_group_layers.add(addLayer);
+		tab_group_layers.add(scaleStepper);
+		tab_group_layers.add(layerStepper);
+		tab_group_layers.add(layerlabel);
+		tab_group_layers.add(scalelabel);
+		tab_group_layers.add(namelabel);
+		tab_group_layers.add(directlabel);
+		tab_group_layers.add(stepperscrollX);
+		tab_group_layers.add(stepperscrollY);
+		tab_group_layers.add(whylabel);
+		tab_group_layers.add(exlabel);
+		tab_group_layers.add(xInputText);
+		tab_group_layers.add(yInputText);
+		tab_group_layers.add(ylabel);
+		tab_group_layers.add(xlabel);
 
-    function reloadCharacterDropDown() {
-		charDropDown.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(charactersOnStage, true));
+		UI_stagebox.addGroup(tab_group_layers);
+
+		UI_stagebox.scrollFactor.set();
 	}
 
-    function reloadSpritesDropdown() {
-        bgLayer.update(1);
-        spritesDropDown.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(spritesLayer, true));
-    }
+	function makePlaceholders()
+	{
+		add(gf);
+		add(bf);
+		add(dad);
+	}
 
-    function updateCoords() {
-        if (selectedObj == bf || selectedObj == dad) {
-            var xobj = selectedObj.x;
-            var yobj = selectedObj.y-230;
-            objCoords.text = 'Object Coords: [' + xobj + '; ' + yobj + ']';
-        } else {
-            objCoords.text = 'Object Coords: [' + selectedObj.x + '; ' + selectedObj.y + ']';
-            for (i in bgMap.keys()) {
-                if (i == selectedObj) {
-                    var objectArray:Array<Dynamic> = [
-                        bgMap[i][0],
-                        bgMap[i][1],
-                        selectedObj.x,
-                        selectedObj.y,
-                        bgMap[i][4],
-                        bgMap[i][5],
-                        bgMap[i][6],
-                        bgMap[i][7]
-                    ];
-                    bgMap.set(i, objectArray);
-                }
-            }
-        }
-        selectedObj.updateHitbox();
-    }      
-    
-    function updateSize() {
-        selectedObj.updateHitbox();
-        objSize.text = 'Object Size: [' + selectedObj.scale.x + '; ' + selectedObj.scale.y + ']';
-        for (i in bgMap.keys()) {
-            if (i == selectedObj) {
-                var objectArray:Array<Dynamic> = [
-                    bgMap[i][0],
-                    bgMap[i][1],
-                    bgMap[i][2],
-                    bgMap[i][3],
-                    selectedObj.scale.x,
-                    selectedObj.scale.y,
-                    bgMap[i][6],
-                    bgMap[i][7]
-                ];
-                bgMap.set(i, objectArray);
-            }
-        }
-        updateCoords();
-    }
+	var stageFiler:StageFile = null;
 
-	var _file:FileReference;
+	function addSettingsUI()
+	{
+		directoryInputTextcool = new FlxUIInputText(15, 20, 200, "", 8);
+		var directlabel = new FlxText(15, directoryInputTextcool.y + 20, 64, 'Image Directory');
+		bfInputText = new FlxUIInputText(15, directoryInputTextcool.y + 50, 200, "770, 450", 8);
+		var xlabel = new FlxText(15, bfInputText.y + 20, 64, 'BoyFriend Position');
+		gfInputText = new FlxUIInputText(15, bfInputText.y + 50, 200, "400, 130", 8);
+		var gflabel = new FlxText(15, gfInputText.y + 20, 64, 'GirlFriend Position');
+		opponentinputtext = new FlxUIInputText(15, gfInputText.y + 50, 200, "100, 100", 8);
+		var ylabel = new FlxText(15, opponentinputtext.y + 20, 64, 'Opponent Position');
+		zoominputtext = new FlxUIInputText(15, opponentinputtext.y + 50, 200, "", 8);
+		var elabel = new FlxText(15, zoominputtext.y + 20, 64, 'Default Zoom');
+		dirinputtext = new FlxUIInputText(15, zoominputtext.y + 50, 200, "", 8);
+		var directorycoollabel = new FlxText(dirinputtext.x - 85, dirinputtext.y, 64, 'Stage Name');
+		goffsettext = new FlxUIInputText(15, dirinputtext.y + 20, 64, "", 8);
+		var gflabel = new FlxText(goffsettext.x, goffsettext.y + 20, 64, 'Girlfriend Camera Offset');
+		boffsettext = new FlxUIInputText(goffsettext.x + 80, dirinputtext.y + 20, 64, "", 8);
+		var bflabel = new FlxText(boffsettext.x, boffsettext.y + 20, 64, 'Boyfriend Camera Offset');
+		ooffsettext = new FlxUIInputText(boffsettext.x + 80, dirinputtext.y + 20, 64, "", 8);
+		var olabel = new FlxText(ooffsettext.x, ooffsettext.y + 20, 64, 'Opponent Camera Offset');
+		speedoffsettext = new FlxUIInputText(ooffsettext.x + 80, dirinputtext.y + 20, 64, "", 8);
+		var speedlabel = new FlxText(speedoffsettext.x, speedoffsettext.y + 20, 64, 'Camera Speed');
 
-    function onSaveComplete(_):Void
-        {
-            _file.removeEventListener(Event.COMPLETE, onSaveComplete);
-            _file.removeEventListener(Event.CANCEL, onSaveCancel);
-            _file.removeEventListener(IOErrorEvent.IO_ERROR, onSaveError);
-            _file = null;
-            FlxG.log.notice("Successfully saved file.");
-        }
-    
-        /**
-            * Called when the save file dialog is cancelled.
-            */
-        function onSaveCancel(_):Void
-        {
-            _file.removeEventListener(Event.COMPLETE, onSaveComplete);
-            _file.removeEventListener(Event.CANCEL, onSaveCancel);
-            _file.removeEventListener(IOErrorEvent.IO_ERROR, onSaveError);
-            _file = null;
-        }
-    
-        /**
-            * Called if there is an error while saving the gameplay recording.
-            */
-        function onSaveError(_):Void
-        {
-            _file.removeEventListener(Event.COMPLETE, onSaveComplete);
-            _file.removeEventListener(Event.CANCEL, onSaveCancel);
-            _file.removeEventListener(IOErrorEvent.IO_ERROR, onSaveError);
-            _file = null;
-            FlxG.log.error("Problem saving file");
-        }
+		ispixel = new FlxUICheckBox(240, 220, null, null, "IsPixelStage", 100);
+		ischar = new FlxUICheckBox(240, 270, null, null, "Characters Are Visible", 100);
+		isgf = new FlxUICheckBox(240, 235, null, null, "Hide GirlFriend", 100);
 
-    function saveCharacterCoords() {
-        var json = {
-            "directory": "", // honestly i have no idea what is the point of directory
-            "defaultZoom": defaultcamzoom,
-            "isPixelStage": stageispixel,
-            "boyfriend": [ bf.x - bfjson.position[0] + bfidle[0], bf.y - bfjson.position[1] + bfidle[1] ],
-            "girlfriend": [ gf.x - gfjson.position[0] + gfidle[0], gf.y- gfjson.position[1] + gfidle[1] ],
-            "opponent": [ dad.x - dadjson.position[0] + dadidle[0], dad.y - dadjson.position[1] + dadidle[1] ],
-            "hide_girlfriend": !gf.visible  
-        };
+		ischar.checked = true;
 
-		var data:String = Json.stringify(json, "\t");
+		var saveStuff:FlxButton = new FlxButton(240, 20, "Save Stage", function()
+		{
+			saveStage(stageFile);
+		});
+		var saveLua:FlxButton = new FlxButton(240, 70, "Save LUA Script", function()
+		{
+			saveStageLua();
+		});
+		var saveLuaj:FlxButton = new FlxButton(240, 120, "Save LUA Config", function()
+		{
+			saveStageLuaJSON();
+		});
 
-		if (data.length > 0)
-            {
-                _file = new FileReference();
-                _file.addEventListener(Event.COMPLETE, onSaveComplete);
-                _file.addEventListener(Event.CANCEL, onSaveCancel);
-                _file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
-                _file.save(data, "stage.json");
-            }
-    }
+		saveLua.color = FlxColor.BLUE;
+		saveLua.label.color = FlxColor.WHITE;
+		saveLuaj.color = FlxColor.ORANGE;
+		saveLuaj.label.color = FlxColor.WHITE;
 
-    function saveAdvancedJson() {
-        var json = {};
-        var tempid:Int = 0; 
-        for (i in bgMap.keys()) {
-            if (i == selectedObj) {
-                var tempy = bgMap[i];
-                json = {
-                    "tag": tempy[0],
-                    "path": tempy[1],
-                    "x": tempy[2],
-                    "y": tempy[3],
-                    "scalex": tempy[4],
-                    "scaley": tempy[5],
-                    "animated": tempy[6]
-                }
-            }
-        }
+		var loadStuff:FlxButton = new FlxButton(240, 170, "Load Stage", function()
+		{
+			loadStage();
+		});
 
-		var data:String = Json.stringify(json, "\t");
+		var tab_group_settings = new FlxUI(null, UI_stagebox);
+		tab_group_settings.name = "Settings";
+		tab_group_settings.add(saveStuff);
+		tab_group_settings.add(saveLua);
+		tab_group_settings.add(ischar);
+		tab_group_settings.add(boffsettext);
+		tab_group_settings.add(bflabel);
+		tab_group_settings.add(goffsettext);
+		tab_group_settings.add(gflabel);
+		tab_group_settings.add(ooffsettext);
+		tab_group_settings.add(olabel);
+		tab_group_settings.add(speedoffsettext);
+		tab_group_settings.add(speedlabel);
+		tab_group_settings.add(saveLuaj);
+		tab_group_settings.add(bfInputText);
+		tab_group_settings.add(isgf);
+		tab_group_settings.add(ispixel);
+		tab_group_settings.add(loadStuff);
+		tab_group_settings.add(gfInputText);
+		tab_group_settings.add(opponentinputtext);
+		tab_group_settings.add(xlabel);
+		tab_group_settings.add(ylabel);
+		tab_group_settings.add(gflabel);
+		tab_group_settings.add(elabel);
+		tab_group_settings.add(zoominputtext);
+		tab_group_settings.add(dirinputtext);
+		tab_group_settings.add(directorycoollabel);
 
-		if (data.length > 0)
-            {
-                _file = new FileReference();
-                _file.addEventListener(Event.COMPLETE, onSaveComplete);
-                _file.addEventListener(Event.CANCEL, onSaveCancel);
-                _file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
-                _file.save(data, "object.json");
-            }
-    }
-    
-    
-    override function update(elapsed:Float) {
-        var inputTexts:Array<FlxUIInputText> = [objectInputText, tagInputText];
-		for (i in 0...inputTexts.length) {
-			if(inputTexts[i].hasFocus) {
-				if(FlxG.keys.pressed.CONTROL && FlxG.keys.justPressed.V && Clipboard.text != null) { //Copy paste
-					inputTexts[i].text = ClipboardAdd(inputTexts[i].text);
+		UI_stagebox.addGroup(tab_group_settings);
+
+		UI_stagebox.scrollFactor.set();
+	}
+
+	function reloadStages() {
+
+		bfInputText.text = Std.string(stageFile.boyfriend[0] + ", " + stageFile.boyfriend[1]);
+		gfInputText.text = Std.string(stageFile.girlfriend[0] + ", " + stageFile.girlfriend[1]);
+		opponentinputtext.text = Std.string(stageFile.opponent[0] + ", " + stageFile.opponent[1]);
+		dirinputtext.text = stageFile.name;
+		directoryInputText.text = stageFile.directory + "";
+		zoominputtext.text = Std.string(stageFile.defaultZoom + "");
+		ispixel.checked = stageFile.isPixelStage;
+		isgf.checked = stageFile.hide_girlfriend;
+		ooffsettext.text = stageFile.camera_opponent[0] + ", " + stageFile.camera_opponent[1];
+		goffsettext.text = stageFile.camera_girlfriend[0] + ", " + stageFile.camera_girlfriend[1];
+		boffsettext.text = stageFile.camera_boyfriend[0] + ", " + stageFile.camera_boyfriend[1];
+		speedoffsettext.text = Std.string(stageFile.camera_speed);
+
+		for (layer in stageFile.layerArray) {
+
+			layerStepper.value++;
+			layerStepper.max++;
+
+			nameInputText.text = layer.name;
+			directoryInputText.text = layer.directory;
+			xInputText.text = Std.string(layer.xAxis);
+			yInputText.text = Std.string(layer.yAxis);
+			stepperscrollX.text = Std.string(layer.scrollX);
+			stepperscrollY.text = Std.string(layer.scrollY);
+			scaleStepper.value = layer.scale;
+			isflippedX.checked = layer.flipX;
+            isflippedY.checked = layer.flipY;
+
+			var assetName:String = layer.directory;
+			var directoryLayer:String = "images/" + assetName + ".png";
+			                        //.cpp error moment
+			if (FileSystem.exists(Paths.modsImages(assetName))) {
+			createdLayer = new FlxSprite();
+			createdLayer.loadGraphic(Paths.image(assetName));
+			createdLayer.x = layer.xAxis;
+			createdLayer.y = layer.yAxis;
+			createdLayer.setGraphicSize(Std.int(createdLayer.width * layer.scale));
+			add(createdLayer);
+			visualLayers.push(createdLayer);
+			}
+			                       //.cpp error moment
+			if (Paths.fileExists(directoryLayer, IMAGE)) {
+			createdLayer = new FlxSprite();
+			createdLayer.loadGraphic(Paths.getPath(directoryLayer, IMAGE));
+			createdLayer.x = layer.xAxis;
+			createdLayer.y = layer.yAxis;
+			createdLayer.setGraphicSize(Std.int(createdLayer.width * layer.scale));
+			add(createdLayer);
+			visualLayers.push(createdLayer);
+			}
+       }	
+  }
+
+	function searchForLayer()
+	{
+		var assetName:String = directoryInputText.text.trim();
+		var directoryLayer:String = "images/" + assetName + ".png";
+		if (assetName != null && assetName.length > 0)
+		{
+			if (FileSystem.exists(Paths.modFolders(directoryLayer)))
+			{
+				visualLayers[Std.int(layerStepper.value)].loadGraphic(Paths.image(assetName));
+				visualLayers[Std.int(layerStepper.value)].visible = true;
+				bg.visible = false;
+				stageFront.visible = false;
+				stageCurtains.visible = false;
+			}
+			else
+			{
+				visualLayers[Std.int(layerStepper.value)].visible = false;
+			}
+			if (Paths.fileExists(directoryLayer, IMAGE))
+			{
+				visualLayers[Std.int(layerStepper.value)].loadGraphic(Paths.getPath(directoryLayer, IMAGE));
+				visualLayers[Std.int(layerStepper.value)].visible = true;
+				bg.visible = false;
+				stageFront.visible = false;
+				stageCurtains.visible = false;
+			}
+			else
+			{
+				visualLayers[Std.int(layerStepper.value)].visible = false;
+			}
+		}
+		else
+		{
+			visualLayers[Std.int(layerStepper.value)].visible = false;
+		} 
+	}
+
+	function deleteLayer()
+	{
+		remove(visualLayers[Std.int(layerStepper.value)]);
+	}
+
+	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>)
+	{
+		if (id == FlxUINumericStepper.CHANGE_EVENT && (sender is FlxUINumericStepper))
+		{
+			if (sender == scaleStepper)
+			{
+				var stageSwag:LayerFile = {
+					name: nameInputText.text,
+					directory: directoryInputText.text,
+					xAxis: Std.parseFloat(xInputText.text),
+					yAxis: Std.parseFloat(yInputText.text),
+					scrollY: Std.parseFloat(stepperscrollX.text),
+					scrollX: Std.parseFloat(stepperscrollY.text),
+					scale: scaleStepper.value,
+					flipX: isflippedX.checked,
+					flipY: isflippedY.checked
+				};
+				stageSwag.scale = sender.value;
+				visualLayers[Std.int(layerStepper.value)].setGraphicSize(Std.int(visualLayers[Std.int(layerStepper.value)].width * stageSwag.scale));
+			}
+		}
+	}
+
+	override public function update(elapsed:Float)
+	{
+
+		var inputTexts:Array<FlxUIInputText> = [
+			nameInputText, directoryInputText, directoryInputText, directoryInputTextcool, xInputText, yInputText, gfInputText, bfInputText,
+			opponentinputtext, zoominputtext, dirinputtext
+		];
+		for (i in 0...inputTexts.length)
+		{
+			if (inputTexts[i].hasFocus)
+			{
+				if (FlxG.keys.pressed.CONTROL && FlxG.keys.justPressed.V && Clipboard.text != null)
+				{ // Copy paste
+					inputTexts[i].text = CharacterEditorState.ClipboardAdd(inputTexts[i].text);
 					inputTexts[i].caretIndex = inputTexts[i].text.length;
 					getEvent(FlxUIInputText.CHANGE_EVENT, inputTexts[i], null, []);
 				}
-				if(FlxG.keys.justPressed.ENTER) {
+				if (FlxG.keys.justPressed.ENTER)
+				{
 					inputTexts[i].hasFocus = false;
 				}
 				FlxG.sound.muteKeys = [];
@@ -674,146 +646,345 @@ class StageEditorState extends MusicBeatState
 			}
 		}
 
-        FlxG.sound.muteKeys = TitleState.muteKeys;
-		FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
-		FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
-
-        if(!charDropDown.dropPanel.visible) {
-
-            if (FlxG.keys.justPressed.ESCAPE) {
-                MusicBeatState.switchState(new editors.MasterEditorMenu());
-                FlxG.sound.playMusic(Paths.music('freakyMenu'));
-				FlxG.mouse.visible = false;
-			}
-
-            if (FlxG.keys.justPressed.R) {
-                FlxG.camera.zoom = 1;
-            }
-
-            if (FlxG.keys.pressed.E && FlxG.camera.zoom < 3) {
-                FlxG.camera.zoom += elapsed * FlxG.camera.zoom;
-                if(FlxG.camera.zoom > 3) FlxG.camera.zoom = 3;
-            }
-            if (FlxG.keys.pressed.Q && FlxG.camera.zoom > 0.1) {
-                FlxG.camera.zoom -= elapsed * FlxG.camera.zoom;
-                if(FlxG.camera.zoom < 0.1) FlxG.camera.zoom = 0.1;
-            }
-
-            if (FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L)
-            {
-                var addToCam:Float = 500 * elapsed;
-                if (FlxG.keys.pressed.SHIFT)
-                    addToCam *= 4;
-
-                if (FlxG.keys.pressed.I)
-                    camFollow.y -= addToCam;
-                else if (FlxG.keys.pressed.K)
-                    camFollow.y += addToCam;
-
-                if (FlxG.keys.pressed.J)
-                    camFollow.x -= addToCam;
-                else if (FlxG.keys.pressed.L)
-                    camFollow.x += addToCam;
-            }
-            if (FlxG.keys.justPressed.LEFT) {
-                var addToObj:Float = 1;
-                if (FlxG.keys.pressed.SHIFT) {
-                    addToObj *= 10;
-                } else if (FlxG.keys.pressed.CONTROL) {
-                    addToObj *= 100;
-                }
-                selectedObj.x = selectedObj.x - addToObj;
-                updateCoords();
-            } else if (FlxG.keys.justPressed.UP) {
-                var addToObj:Float = 1;
-                if (FlxG.keys.pressed.SHIFT) {
-                    addToObj *= 10;
-                } else if (FlxG.keys.pressed.CONTROL) {
-                    addToObj *= 100;
-                }
-                selectedObj.y = selectedObj.y - addToObj;
-                updateCoords();
-            } else if (FlxG.keys.justPressed.RIGHT) {
-                var addToObj:Float = 1;
-                if (FlxG.keys.pressed.SHIFT) {
-                    addToObj *= 10;
-                } else if (FlxG.keys.pressed.CONTROL) {
-                    addToObj *= 100;
-                }
-                selectedObj.x = selectedObj.x + addToObj;
-                updateCoords();
-            } else if (FlxG.keys.justPressed.DOWN) {
-                var addToObj:Float = 1;
-                if (FlxG.keys.pressed.SHIFT) {
-                    addToObj *= 10;
-                } else if (FlxG.keys.pressed.CONTROL) {
-                    addToObj *= 100;
-                }
-                selectedObj.y = selectedObj.y + addToObj;
-                updateCoords();
-            }
-
-            if (FlxG.keys.justPressed.O && selectedObj != bf && selectedObj != gf && selectedObj != dad) {
-                if (!FlxG.keys.pressed.SHIFT) {
-                    selectedObj.scale.x += 0.1;
-                    selectedObj.scale.y += 0.1;
-                    updateSize();
-                } else {
-                    selectedObj.scale.x += 1;
-                    selectedObj.scale.y += 1;
-                    updateSize();
-                }
-            } else if (FlxG.keys.justPressed.P && selectedObj != bf && selectedObj != gf && selectedObj != dad) {
-                if (!FlxG.keys.pressed.SHIFT) {
-                    selectedObj.scale.x -= 0.1;
-                    selectedObj.scale.y -= 0.1;
-                    updateSize();
-                } else {
-                    selectedObj.scale.x -= 1;
-                    selectedObj.scale.y -= 1;
-                    updateSize();
-                }
-            }
-        }
-        super.update(elapsed);
-    }
-
-    function getIdleOffset(character:String) {
-        var tempjson = characterjson(character);
-
-        for (i in tempjson.animations) {
-            if (i.anim == "idle") {
-                top10awesome = i.offsets;
-            }
-        }
-        return top10awesome;
-    }
-
-    function ClipboardAdd(prefix:String = ''):String {
-		if(prefix.toLowerCase().endsWith('v')) //probably copy paste attempt
+		if (loadedFile != null)
 		{
-			prefix = prefix.substring(0, prefix.length-1);
+			stageFile = loadedFile;
+			loadedFile = null;
+
+			reloadStages();
 		}
 
-		var text:String = prefix + Clipboard.text.replace('\n', '');
-		return text;
-	}
-    
-    override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) {
-        if(id == FlxUIInputText.CHANGE_EVENT && (sender is FlxUIInputText)) {
-			if(sender == objectInputText) {
-				objectName = objectInputText.text;
-			}
-            if (sender == tagInputText) {
-                tagName = tagInputText.text;
-            }
-		} else if(id == FlxUINumericStepper.CHANGE_EVENT && (sender is FlxUINumericStepper)) {
-			var nums:FlxUINumericStepper = cast sender;
-			var wname = nums.name;
-			FlxG.log.add(wname);
-            if (wname == 'stage_zoom') {
-                defaultcamzoom = nums.value;
-            }            
+		if (FlxG.save.data.layerPositions == null)
+			FlxG.save.data.layerPositions = [0, 0];
+
+		super.update(elapsed);
+
+		gf.visible = ischar.checked;
+		bf.visible = ischar.checked;
+		dad.visible = ischar.checked;
+
+		searchForLayer();
+
+		if (stageFile == null)
+		{
+			stageFile = {
+				name: "",
+				directory: "",
+				defaultZoom: 0.9,
+				isPixelStage: false,
+
+				boyfriend: [770, 100],
+				girlfriend: [400, 130],
+				opponent: [100, 100],
+				layerArray: [],
+				hide_girlfriend: false,
+
+				camera_boyfriend: [0, 0],
+				camera_opponent: [0, 0],
+				camera_girlfriend: [0, 0],
+				camera_speed: 1
+			};
 		}
-    }
-}
+		else
+		{
+			var STRING = bfInputText.text.trim().split(", ");
+			var x = Std.parseInt(STRING[0].trim());
+			var y = Std.parseInt(STRING[1].trim());
+			stageFile.boyfriend = [x, y];
+			bf.x = x;
+			bf.y = y;
+
+			var STRING2 = gfInputText.text.trim().split(", ");
+			var x2 = Std.parseInt(STRING2[0].trim());
+			var y2 = Std.parseInt(STRING2[1].trim());
+			stageFile.girlfriend = [x2, y2];
+			gf.x = x2;
+			gf.y = y2;
+
+			var STRING3 = opponentinputtext.text.trim().split(", ");
+			var x3 = Std.parseInt(STRING3[0].trim());
+			var y3 = Std.parseInt(STRING3[1].trim());
+			stageFile.opponent = [x3, y3];
+			dad.x = x3;
+			dad.y = y3;
+
+			var STRINGG = boffsettext.text.trim().split(", ");
+			var xx = Std.parseInt(STRINGG[0].trim());
+			var yy = Std.parseInt(STRINGG[1].trim());
+			stageFile.camera_boyfriend = [xx, yy];
+
+			var STRINGG2 = goffsettext.text.trim().split(", ");
+			var xx2 = Std.parseInt(STRINGG2[0].trim());
+			var yy2 = Std.parseInt(STRINGG2[1].trim());
+			stageFile.camera_girlfriend = [xx2, yy2];
+
+			var STRINGG3 = ooffsettext.text.trim().split(", ");
+			var xx3 = Std.parseInt(STRINGG3[0].trim());
+			var yy3 = Std.parseInt(STRINGG3[1].trim());
+			stageFile.camera_opponent = [xx3, yy3];
+
+		}
+
+		stageFile.defaultZoom = Std.parseFloat(zoominputtext.text);
+		stageFile.name = dirinputtext.text;
+		stageFile.camera_speed = Std.parseFloat(speedoffsettext.text);
+		stageFile.isPixelStage = ispixel.checked;
+		stageFile.hide_girlfriend = isgf.checked;
+
+		visualLayers[Std.int(layerStepper.value)].flipX = isflippedX.checked;
+		visualLayers[Std.int(layerStepper.value)].flipY = isflippedY.checked;
+
+		yInputText.text = visualLayers[Std.int(layerStepper.value)].y + "";
+		xInputText.text = visualLayers[Std.int(layerStepper.value)].x + "";
+
+		if (FlxG.keys.pressed.LEFT)
+		{
+			visualLayers[Std.int(layerStepper.value)].x -= 1;
+			xInputText.text = visualLayers[Std.int(layerStepper.value)].x + "";
+		}
+		else if (FlxG.keys.pressed.RIGHT)
+		{
+			visualLayers[Std.int(layerStepper.value)].x += 1;
+			xInputText.text = visualLayers[Std.int(layerStepper.value)].x + "";
+		}
+		else if (FlxG.keys.pressed.UP)
+		{
+			visualLayers[Std.int(layerStepper.value)].y -= 1;
+			yInputText.text = visualLayers[Std.int(layerStepper.value)].y + "";
+		}
+		else if (FlxG.keys.pressed.DOWN)
+		{
+			visualLayers[Std.int(layerStepper.value)].y += 1;
+			yInputText.text = visualLayers[Std.int(layerStepper.value)].y + "";
+		}
+
+		if (FlxG.mouse.justPressed)
+		{
+			holdingObjectType = null;
+			FlxG.mouse.getScreenPosition(camEditor, startMousePos);
+			if (startMousePos.x - visualLayers[Std.int(layerStepper.value)].x >= 0
+				&& startMousePos.x - visualLayers[Std.int(layerStepper.value)].x <= visualLayers[Std.int(layerStepper.value)].width
+				&& startMousePos.y - visualLayers[Std.int(layerStepper.value)].y >= 0
+				&& startMousePos.y - visualLayers[Std.int(layerStepper.value)].y <= visualLayers[Std.int(layerStepper.value)].height)
+			{
+				holdingObjectType = false;
+				startDragging.x = FlxG.save.data.layerPositions[0];
+				startDragging.y = FlxG.save.data.layerPositions[1];
+			}
+		}
+		if (FlxG.mouse.justReleased)
+			holdingObjectType = null;
+
+		if (holdingObjectType != null && FlxG.mouse.justMoved)
+		{
+			var mousePos:FlxPoint = FlxG.mouse.getScreenPosition(camEditor);
+			var addNum:Int = holdingObjectType ? 2 : 0;
+			FlxG.save.data.layerPositions[addNum + 0] = Math.round((mousePos.x - startMousePos.x) + startDragging.x);
+			FlxG.save.data.layerPositions[addNum + 1] = -Math.round((mousePos.y - startMousePos.y) - startDragging.y);
+			repositionShit();
+		}
+
+		if (FlxG.keys.justPressed.R)
+		{
+			FlxG.camera.zoom = 1;
+		}
+		if (FlxG.keys.pressed.E && FlxG.camera.zoom < 3)
+		{
+			FlxG.camera.zoom += elapsed * FlxG.camera.zoom;
+			if (FlxG.camera.zoom > 3)
+				FlxG.camera.zoom = 3;
+		}
+		if (FlxG.keys.pressed.Q && FlxG.camera.zoom > 0.1)
+		{
+			FlxG.camera.zoom -= elapsed * FlxG.camera.zoom;
+			if (FlxG.camera.zoom < 0.1)
+				FlxG.camera.zoom = 0.1;
+		}
+
+		camMenu.zoom = FlxG.camera.zoom;
+		camPeople.zoom = FlxG.camera.zoom;
+		camGrid.zoom = FlxG.camera.zoom;
+
+		if (FlxG.keys.justPressed.ESCAPE)
+		{
+			MusicBeatState.switchState(new editors.MasterEditorMenu());
+			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+
+			FlxG.mouse.visible = false;
+			return;
+		}
+	}
+
+	function repositionShit()
+	{
+		visualLayers[Std.int(layerStepper.value)].screenCenter();
+		visualLayers[Std.int(layerStepper.value)].x = visualLayers[Std.int(layerStepper.value)].x - 40 + FlxG.save.data.layerPositions[0];
+		visualLayers[Std.int(layerStepper.value)].y -= 60 + FlxG.save.data.layerPositions[1];
+	}
+
+	private static var _file:FileReference;
+
+	public static function saveStage(stageFile:StageFile)
+	{
+		var data:String = Json.stringify(stageFile, "\t");
+		if (data.length > 0)
+		{
+			_file = new FileReference();
+			_file.addEventListener(Event.COMPLETE, onSaveComplete);
+			_file.addEventListener(Event.CANCEL, onSaveCancel);
+			_file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
+			_file.save(data, dirinputtext.text + ".json");
+		}
+	}
+
+	// for the json config if you are using lua
+	public static function saveStageLuaJSON()
+	{
+		var stageFile = {
+			directory: "",
+			defaultZoom: stageFile.defaultZoom,
+			isPixelStage: false,
+			boyfriend: stageFile.boyfriend,
+			girlfriend: stageFile.girlfriend,
+			opponent: stageFile.opponent,
+
+			hide_girlfriend: stageFile.hide_girlfriend,
+
+			camera_boyfriend: stageFile.camera_boyfriend,
+			camera_opponent: stageFile.camera_opponent,
+			camera_girlfriend: stageFile.camera_girlfriend,
+			camera_speed: stageFile.camera_speed
+
+		}
+
+		var data:String = Json.stringify(stageFile, "\t");
+		if (data.length > 0)
+		{
+			_file = new FileReference();
+			_file.addEventListener(Event.COMPLETE, onSaveComplete);
+			_file.addEventListener(Event.CANCEL, onSaveCancel);
+			_file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
+			_file.save(data, dirinputtext.text + ".json");
+		}
+	}
+
+	public static function saveStageLua()
+	{
+		if (dirinputtext.text != "")
+		{
+			_file = new FileReference();
+			_file.addEventListener(Event.COMPLETE, onSaveComplete);
+			_file.addEventListener(Event.CANCEL, onSaveCancel);
+			_file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
+			_file.save("function onCreate()\n" + luaStages.join("\n") + "\n" + luaScrollFactors.join("\n") + "\n" + luaFlipY.join("\n") + "\n" + luaFlipX.join("\n") + "\n" + luaAdded.join("\n") + "\n" + "end",
+			dirinputtext.text + ".lua");
+		}
+	}
+
+	private static function onSaveComplete(_):Void
+	{
+		_file.removeEventListener(Event.COMPLETE, onSaveComplete);
+		_file.removeEventListener(Event.CANCEL, onSaveCancel);
+		_file.removeEventListener(IOErrorEvent.IO_ERROR, onSaveError);
+		_file = null;
+		FlxG.log.notice("Successfully saved file.");
+	}
+
+	/**
+	 * Called when the save file dialog is cancelled.
+	 */
+	private static function onSaveCancel(_):Void
+	{
+		_file.removeEventListener(Event.COMPLETE, onSaveComplete);
+		_file.removeEventListener(Event.CANCEL, onSaveCancel);
+		_file.removeEventListener(IOErrorEvent.IO_ERROR, onSaveError);
+		_file = null;
+	}
+
+	/**
+	 * Called if there is an error while saving the gameplay recording.
+	 */
+	private static function onSaveError(_):Void
+	{
+		_file.removeEventListener(Event.COMPLETE, onSaveComplete);
+		_file.removeEventListener(Event.CANCEL, onSaveCancel);
+		_file.removeEventListener(IOErrorEvent.IO_ERROR, onSaveError);
+		_file = null;
+		FlxG.log.error("Problem saving file");
+	}
+
+	public static function loadStage()
+	{
+		var jsonFilter:FileFilter = new FileFilter('JSON', 'json');
+		_file = new FileReference();
+		_file.addEventListener(Event.SELECT, onLoadComplete);
+		_file.addEventListener(Event.CANCEL, onLoadCancel);
+		_file.addEventListener(IOErrorEvent.IO_ERROR, onLoadError);
+		_file.browse([jsonFilter]);
+	}
+
+	public static var loadedFile:StageFile = null;
+	public static var loadError:Bool = false;
+
+	private static function onLoadComplete(_):Void
+	{
+		_file.removeEventListener(Event.SELECT, onLoadComplete);
+		_file.removeEventListener(Event.CANCEL, onLoadCancel);
+		_file.removeEventListener(IOErrorEvent.IO_ERROR, onLoadError);
+
+		#if sys
+		var fullPath:String = null;
+		@:privateAccess
+		if (_file.__path != null)
+			fullPath = _file.__path;
+
+		if (fullPath != null)
+		{
+			var rawJson:String = File.getContent(fullPath);
+			if (rawJson != null)
+			{
+				loadedFile = cast Json.parse(rawJson);
+				if (loadedFile.layerArray != null && loadedFile.name != null)
+				{
+					var cutName:String = _file.name.substr(0, _file.name.length - 5);
+					trace("Successfully loaded file: " + cutName);
+					loadError = false;
+
+					stageFile.name = cutName;
+					_file = null;
+					return;
+				}
+			}
+		}
+		loadError = true;
+		loadedFile = null;
+		_file = null;
+		#else
+		trace("File couldn't be loaded! You aren't on Desktop, are you?");
+		#end
+	}
+
+	/**
+	 * Called when the save file dialog is cancelled.
+	 */
+	private static function onLoadCancel(_):Void
+	{
+		_file.removeEventListener(Event.SELECT, onLoadComplete);
+		_file.removeEventListener(Event.CANCEL, onLoadCancel);
+		_file.removeEventListener(IOErrorEvent.IO_ERROR, onLoadError);
+		_file = null;
+		trace("Cancelled file loading.");
+	}
+
+	/**
+	 * Called if there is an error while saving the gameplay recording.
+	 */
+	private static function onLoadError(_):Void
+	{
+		_file.removeEventListener(Event.SELECT, onLoadComplete);
+		_file.removeEventListener(Event.CANCEL, onLoadCancel);
+		_file.removeEventListener(IOErrorEvent.IO_ERROR, onLoadError);
+		_file = null;
+		trace("Problem loading file");
+	}
+} 
