@@ -81,3 +81,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Noteskins
 * Replay System
 * And just a tiny bit more.
+
+## [1.3.0] - UNRELEASED 
+### Added
+* TBA
