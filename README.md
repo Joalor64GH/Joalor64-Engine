@@ -23,6 +23,7 @@
 ![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/docs/img/screenshots/credits.png?raw=true)
 
 # Features
+* Stage Editor (HECK YEAH)
 * Rainbow FPS Option.
 * Restored "Combo" Asset :trollface:
 * Max BPM no longer capped at 339 :trollface:
@@ -67,6 +68,7 @@ Hope you enjoy!
 * [skedgyedgy](https://github.com/skedgyedgy) - Artemis Integration
 * [Verwex](https://twitter.com/ShiftVer) - Systools Code
 * [TahirRollingArch](https://github.com/TahirRollingArch) - Replay System
+* [Magnumsrt](https://github.com/Magnumsrt) - Stage Editor
 
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
@@ -74,7 +76,7 @@ Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), 
 ## Credits:
 * ShadowMario - Main Programmer
 * RiverOaken - Main Artist/Animator
-* Yoshubs - Aditional Programmer
+* Yoshubs - Aditional Programmer + Epic Inpot System
 * bbpanzu - Ex-Programmer
 
 ### Special Thanks
