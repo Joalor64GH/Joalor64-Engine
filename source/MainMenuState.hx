@@ -115,15 +115,15 @@ class MainMenuState extends MusicBeatState
 			optionShit = [
 				'story_mode',
 				'freeplay',
+				'credits',
+				#if !switch 'donate',
+				#end
+				'editors',
 				#if MODS_ALLOWED 'mods',
 				#end
 				#if ACHIEVEMENTS_ALLOWED
 				'awards',
 				#end
-				'credits',
-				#if !switch 'donate',
-				#end
-                                'editors',
 				'options'
 			];
 		}
