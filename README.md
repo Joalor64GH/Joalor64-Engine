@@ -19,7 +19,7 @@
 ![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/docs/img/screenshots/freeplay.png?raw=true)
 ![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/docs/img/screenshots/highgameplay.png?raw=true)
 ![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/docs/img/screenshots/rosesgameplay.png?raw=true)
-![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/docs/img/screenshots/stageeditor.png?raw=true)
+![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/docs/img/screenshots/stageditor.png?raw=true)
 ![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/docs/img/screenshots/credits.png?raw=true)
 
 # Features
@@ -63,7 +63,7 @@ Hope you enjoy!
 * [People on the PE Discord Server](https://discord.gg/2ka77eMXDv) - They made the Scripts lol
 * [BeastlyGhost](https://github.com/BeastlyGhost) and [HiroMizuki](https://github.com/HiroMizuki) - Latin Alphabet Support
 * [Stilic](https://github.com/Stilic) - Combo Counter Script
-* [weuz_](https://github.com/notweuz) - OS Engine Code + Stage Editor (BETA)
+* [weuz_](https://github.com/notweuz) - OS Engine Code + Beta Stage Editor
 * [sayofthelor](https://twitter.com/sayofthelor) - Checkerboards Code
 * [skedgyedgy](https://github.com/skedgyedgy) - Artemis Integration
 * [Verwex](https://twitter.com/ShiftVer) - Systools Code
