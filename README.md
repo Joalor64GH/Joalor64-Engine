@@ -74,17 +74,17 @@ Hope you enjoy!
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
 
 ## Credits:
-* ShadowMario - Main Programmer
-* RiverOaken - Main Artist/Animator
-* Yoshubs - Aditional Programmer + Epic Inpot System
-* bbpanzu - Ex-Programmer
+* [ShadowMario](https://github.com/ShadowMario) - Main Programmer
+* [RiverOaken](https://twitter.com/RiverOaken) - Main Artist/Animator
+* [Yoshubs](https://github.com/Yoshubs) - Aditional Programmer + Epic Inpot System
+* [bbpanzu](https://twitter.com/bbpanzu) - Ex-Programmer
 
 ### Special Thanks
-* gedehari - Chart Editor's Sound Waveform base code
-* iFlicky - Delay/Combo Menu Song Composer + Dialogue Sounds
-* PolybiusProxy - .MP4 Loader Extension
-* KadeDev - Fixed Stuff in Chart Editor and Other PRs + Extension Webm
-* Keoiki - Note Splash Animations
-* Smokey - Spritemap Texture Atlas support
+* [gedehari](https://github.com/gedehari) - Chart Editor's Sound Waveform base code
+* [iFlicky](https://twitter.com/flicky_i) - Delay/Combo Menu Song Composer + Dialogue Sounds
+* [PolybiusProxy](https://github.com/polybiusproxy) - .MP4 Loader Extension
+* [KadeDev](https://github.com/KadeDev) - Fixed Stuff in Chart Editor and Other PRs + Extension Webm
+* [Keoiki](https://twitter.com/Keoiki_) - Note Splash Animations
+* [Smokey](https://twitter.com/Smokey_5_) - Spritemap Texture Atlas support
 * Cary - OG Resolution code
-* Nebula the Zorua - VCR Shader Code + LUA JIT Fork/Lua Reworks
+* [Nebula the Zorua](https://twitter.com/nebula_zorua) - VCR Shader Code + LUA JIT Fork/Lua Reworks
