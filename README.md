@@ -12,6 +12,7 @@
 * [Joalor64 Engine FOREVER](https://github.com/Joalor64GH/Joalor64-Engine-FOREVER)
 * [Joalor64 Engine PLUS](https://github.com/Joalor64GH/Joalor64-Engine-PLUS)
 * [ProjectFNF Version](https://github.com/Joalor64GH/Joalor64-Engine-PFNF)
+* [Discord Server](https://discord.gg/GnXqAVMFbA)
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
 # Previews ([skip](https://github.com/Joalor64GH/Joalor64-Engine#features))
@@ -41,7 +42,6 @@
 
 # Planned Features
 * [ ] MP3 and WAV support.
-* [ ] MKV video support.
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 
 More things could added as we go along!
@@ -53,9 +53,6 @@ Hope you enjoy!
 * [GitHub](https://github.com/Joalor64GH/Joalor64-Engine/tags)
 * [GitHub (Actions)](https://github.com/Joalor64GH/Joalor64-Engine/actions)
 * [itch.io](https://joalor64.itch.io/joalor64-engine)
-
-# Discord Server
-* [Joalor64 Engine Discord Server](https://discord.gg/GnXqAVMFbA)
 
 # Credits
 * [Joalor64 YT](https://www.youtube.com/channel/UC4tRMRL_iAHX5n1qQpHibfg/featured) - Main Programmer
