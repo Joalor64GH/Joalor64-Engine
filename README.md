@@ -83,5 +83,4 @@ Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), 
 * [KadeDev](https://github.com/KadeDev) - Fixed Stuff in Chart Editor and Other PRs + Extension Webm
 * [Keoiki](https://twitter.com/Keoiki_) - Note Splash Animations
 * [Smokey](https://twitter.com/Smokey_5_) - Spritemap Texture Atlas support
-* Cary - OG Resolution code
 * [Nebula the Zorua](https://twitter.com/nebula_zorua) - VCR Shader Code + LUA JIT Fork/Lua Reworks
