@@ -73,7 +73,7 @@ Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), 
 ## Credits:
 * [ShadowMario](https://github.com/ShadowMario) - Main Programmer
 * [RiverOaken](https://twitter.com/RiverOaken) - Main Artist/Animator
-* [Yoshubs](https://github.com/Yoshubs) - Aditional Programmer + Epic Inpot System
+* [Yoshubs](https://github.com/Yoshubs) - Aditional Programmer + Epic Input System
 * [bbpanzu](https://twitter.com/bbpanzu) - Ex-Programmer
 
 ### Special Thanks
