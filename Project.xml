@@ -209,7 +209,10 @@
 	
 	<icon path="art/icon8.png" size='8'/>
 	<icon path="art/icon16.png" size='16'/>
+	<icon path="art/icon24.png" size='24'/>
 	<icon path="art/icon32.png" size='32'/>
+	<icon path="art/icon40.png" size='40'/>
+	<icon path="art/icon48.png" size='48'/>
 	<icon path="art/icon64.png" size='64'/>
 	<icon path="art/icon128.png" size='128'/>
 	<icon path="art/icon256.png" size='256'/>
