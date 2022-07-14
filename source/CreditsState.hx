@@ -114,7 +114,7 @@ class CreditsState extends MusicBeatState
 			['Engine Contributors'],
 			['iFlicky',				'iflicky',			'Composer of Psync and Tea Time\nMade the Dialogue Sounds',	'https://twitter.com/flicky_i',			'AA32FE'],
 			['gedehari',			'gedehari',			'Chart Editor\'s Sound Waveform base',						'https://twitter.com/gedehari',			'FF9300'],
-			['PolybiusProxy',		'polybiusproxy',	'.MP4 Video Loader Extension',								'https://twitter.com/polybiusproxy',	'FFEAA6'],
+			['PolybiusProxy',		'polybiusproxy',	'.MP4 Video Loader Extension\nPolymod Support',								'https://twitter.com/polybiusproxy',	'FFEAA6'],
 			['KadeDev',				'kade',				'Fixed some cool stuff on Chart Editor + Other PRs\nExtension Webm',			'https://twitter.com/kade0912',			'64A250'],
 			['Keoiki',				'keoiki',			'Note Splash Animations',									'https://twitter.com/Keoiki_',			'FFFFFF'],
 			['Nebula the Zorua',	'nebula',			'LUA JIT Fork and some Lua reworks',							'https://twitter.com/Nebula_Zorua',		'7D40B2'],
