@@ -120,6 +120,7 @@
         <assets path="assets/artemis"         library="artemis"     if="windows"/>
 
 	<assets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
+	<assets path='polymod_mods' rename='polymods' if="MODS_ALLOWED"/>
 	<assets path='art/readme.txt' rename='a little note.txt' />
        	<assets path='Launch.bat' if="windows"/>
 	<assets path='modsList.txt' rename='' />
@@ -153,7 +154,7 @@
 	<haxelib name="linc_luajit" if="LUA_ALLOWED"/>
         <haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
 	<haxelib name="faxe" if='switch'/>
-	<!--<haxelib name="polymod"/> -->
+	<haxelib name="polymod" if="MODS_ALLOWED"/>
 	<haxelib name="discord_rpc" if="desktop"/>
 	<haxelib name="systools" />
 	<ndll name="systools" haxelib="systools" />
