@@ -24,6 +24,7 @@
 ![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/docs/img/screenshots/credits.png?raw=true)
 
 # Features
+* Polymod Support (Kinda weird)
 * Stage Editor (HECK YEAH)
 * Rainbow FPS Option.
 * Restored "Combo" Asset :trollface:
@@ -79,7 +80,7 @@ Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), 
 ### Special Thanks
 * [gedehari](https://github.com/gedehari) - Chart Editor's Sound Waveform base code
 * [iFlicky](https://twitter.com/flicky_i) - Delay/Combo Menu Song Composer + Dialogue Sounds
-* [PolybiusProxy](https://github.com/polybiusproxy) - .MP4 Loader Extension
+* [PolybiusProxy](https://github.com/polybiusproxy) - .MP4 Loader Extension + Polymod Support
 * [KadeDev](https://github.com/KadeDev) - Fixed Stuff in Chart Editor and Other PRs + Extension Webm
 * [Keoiki](https://twitter.com/Keoiki_) - Note Splash Animations
 * [Smokey](https://twitter.com/Smokey_5_) - Spritemap Texture Atlas support
