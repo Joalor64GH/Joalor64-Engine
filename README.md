@@ -8,6 +8,8 @@
 ![](https://img.shields.io/badge/subscribe%20to-joalor64%20yt-FF0000?style=flat-square)
 ![](https://img.shields.io/badge/balls-in%20yo%20jaws-FF0088?style=flat-square)
 ![](https://img.shields.io/discord/988897056292733049?color=7289DA&label=discord&style=flat-square)
+![](https://img.shields.io/github/stars/Joalor64GH/Joalor64-Engine?color=FFF200&label=stargazers&style=flat-square)
+![](https://img.shields.io/github/forks/Joalor64GH/Joalor64-Engine?color=6200FF&style=flat-square)
 * My custom version of Psych Engine made with some changes lol.
 * [Joalor64 Engine FOREVER](https://github.com/Joalor64GH/Joalor64-Engine-FOREVER)
 * [Joalor64 Engine PLUS](https://github.com/Joalor64GH/Joalor64-Engine-PLUS)
