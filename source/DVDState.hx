@@ -30,11 +30,16 @@ override function create() {
     dvdLogo.setColorTransform(0, 0, 0, 1, 255, 255, 255);
     dvdLogo.antialiasing = true;
     FlxG.state.add(dvdLogo);
+    
+    super.create();
 }
 
 override function update(elapsed:Float) {
     if (FlxG.keys.justPressed.ESCAPE) {
         FlxG.switchState(new MainMenuState());
+        
+    super.update(elapsed);
+        
     }
     if (dvdLogo.x > FlxG.width - dvdLogo.width || dvdLogo.x < 0) {
         dvdLogo.velocity.x = -dvdLogo.velocity.x;
