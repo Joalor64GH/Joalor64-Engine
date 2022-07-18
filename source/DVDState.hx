@@ -36,10 +36,7 @@ override function create() {
 
 override function update(elapsed:Float) {
     if (FlxG.keys.justPressed.ESCAPE) {
-        FlxG.switchState(new MainMenuState());
-        
-    super.update(elapsed);
-        
+        FlxG.switchState(new MainMenuState());  
     }
     if (dvdLogo.x > FlxG.width - dvdLogo.width || dvdLogo.x < 0) {
         dvdLogo.velocity.x = -dvdLogo.velocity.x;
@@ -49,6 +46,9 @@ override function update(elapsed:Float) {
         dvdLogo.velocity.y = -dvdLogo.velocity.y;
         switchColor();
     }
+            
+    super.update(elapsed);
+      
 }
 
 function switchColor() {
