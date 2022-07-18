@@ -121,6 +121,7 @@ class MainMenuState extends MusicBeatState
 				'editors',
 				#if MODS_ALLOWED 'mods',
 				#end
+				'dvd',
 				#if ACHIEVEMENTS_ALLOWED
 				'awards',
 				#end
@@ -368,6 +369,8 @@ class MainMenuState extends MusicBeatState
 									case 'mods':
 										MusicBeatState.switchState(new ModsMenuState());
 									#end
+									case 'dvd':
+										MusicBeatState.switchState(new DVDState());
 									case 'awards':
 										MusicBeatState.switchState(new AchievementsMenuState());
 									case 'credits':
