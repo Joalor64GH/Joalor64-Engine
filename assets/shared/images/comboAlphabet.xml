@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="comboAlphabet.png">
+    <SubTexture name="letter A0000" x="2" y="2" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter B0000" x="97" y="2" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter C0000" x="192" y="2" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter D0000" x="287" y="2" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter E0000" x="2" y="117" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter F0000" x="97" y="117" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter G0000" x="192" y="117" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter H0000" x="287" y="117" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter I0000" x="2" y="232" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter J0000" x="97" y="232" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter K0000" x="192" y="232" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter L0000" x="287" y="232" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter M0000" x="2" y="347" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter N0000" x="97" y="347" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter O0000" x="192" y="347" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter P0000" x="287" y="347" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter Q0000" x="2" y="462" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter R0000" x="97" y="462" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter S0000" x="192" y="462" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter T0000" x="287" y="462" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter U0000" x="2" y="577" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter V0000" x="97" y="577" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter W0000" x="192" y="577" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter X0000" x="287" y="577" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter Y0000" x="2" y="692" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter Z0000" x="97" y="692" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+    <SubTexture name="letter SPACE0000" x="192" y="692" width="91" height="111" frameX="0" frameY="0" frameWidth="91" frameHeight="111" />
+</TextureAtlas>
