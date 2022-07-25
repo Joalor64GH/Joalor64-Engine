@@ -45,6 +45,7 @@
 
 # Planned Features
 * [X] MP3 and WAV support. **[Completed]**
+* [ ] Improved Polymod Support.
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 
 More things could added as we go along!
