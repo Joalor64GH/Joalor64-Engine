@@ -63,6 +63,11 @@ class OptionsState extends MusicBeatState
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 
+        var changedMusic:Bool = false;
+		FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath('configurator')));
+
+		changedMusic = true;
+
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.color = 0xFFea71fd;
 		bg.updateHitbox();
