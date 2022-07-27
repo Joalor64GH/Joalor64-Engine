@@ -68,7 +68,7 @@ Hope you enjoy!
 * [sayofthelor](https://twitter.com/sayofthelor) - Checkerboards Code
 * [skedgyedgy](https://github.com/skedgyedgy) - Artemis Integration
 * [Verwex](https://twitter.com/ShiftVer) - Systools Code
-* [TahirRollingArch](https://github.com/TahirRollingArch) - Replay System
+* [TahirRollingArch](https://github.com/TahirRollingArch) - Replay System + SScript
 * [Magnumsrt](https://github.com/Magnumsrt) - Stage Editor
 
 # Friday Night Funkin' - Psych Engine
