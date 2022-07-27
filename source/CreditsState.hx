@@ -99,7 +99,7 @@ class CreditsState extends MusicBeatState
                         ['sayofthelor',             'lor',             'Checkerboards Code',                       		'https://twitter.com/sayofthelor',          'FFAB94'],
                         ['skedgyedgy',             'skedgy',             'Artemis Integration',                       		'https://github.com/skedgyedgy',          'D000FF'],
 			['Verwex',             'verwex',             'Systools\nCreator of Micd Up',                       		'https://twitter.com/ShiftVer',          '70FFF8'],
-			['TahirRollingArch',             'tahir',             'Replay System',                       		'https://github.com/TahirRollingArch',          '638F5B'],
+			['TahirRollingArch',             'tahir',             'Replay System\nSScript',                       		'https://github.com/TahirRollingArch',          '638F5B'],
 			['Magnumsrt',             'mag',             'Stage Editor',                       		'https://github.com/Magnumsrt',          '0000FF'],
 			['You',             'face',             'For playing :)',                       		'https://joalor64.itch.io/',          '7E00FF'],			
 			[''],

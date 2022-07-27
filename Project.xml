@@ -48,6 +48,7 @@
 	<classpath name="source" />
 	
 	<!-- PSYCH ENGINE CUSTOMIZATION -->
+	<define name="HAXE_EXTENSION" unless="web || neko" />
 	<define name="MODS_ALLOWED" if="desktop" />
 	<define name="LUA_ALLOWED" if="desktop" />
         <define name="HSCRIPT_ALLOWED" />
@@ -149,6 +150,7 @@
         <haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
 	<haxelib name="faxe" if='switch'/>
 	<haxelib name="polymod" if="MODS_ALLOWED"/>
+	<haxelib name="SScript" if="HAXE_EXTENSION"/>
 	<haxelib name="discord_rpc" if="desktop"/>
 	<haxelib name="systools" />
 	<ndll name="systools" haxelib="systools" />
