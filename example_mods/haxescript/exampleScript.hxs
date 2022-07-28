@@ -1,0 +1,46 @@
+function onCreate()
+{
+    trace('at the beginning of PlayState (post script setup)');
+}
+
+function onCreatePost()
+{
+    trace('Post Character Creation');
+}
+
+function onUpdate(elapsed)
+{
+    //trace('during PlayState\'s Update Function');
+}
+
+function onStepHit(curStep:Int)
+{
+    if (curStep == 15)
+        trace('on a Step Hit');
+}
+
+function onBeatHit(curBeat:Int)
+{
+    if (curBeat == 5)
+        trace('on a Beat Hit');
+}
+
+function onStartCountdown()
+{
+    trace('on Countdown Start');
+}
+
+function onSongStart()
+{
+    trace('on Song Start');
+}
+
+function onSongEnd()
+{
+    trace('Song Ended!');
+}
+
+function destroy()
+{
+    trace('Script Destroyed!');
+}
