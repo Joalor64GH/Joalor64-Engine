@@ -43,7 +43,6 @@ jobs:
           haxelib install flixel-tools
           haxelib install flixel-ui
           haxelib install flixel-addons
-          haxelib install haxe-strings
           haxelib install tjson
           haxelib install hxjsonast
           haxelib install hxCodec
@@ -92,7 +91,6 @@ jobs:
           haxelib install flixel-tools
           haxelib install flixel-ui
           haxelib install flixel-addons
-          haxelib install haxe-strings
           haxelib install tjson
           haxelib install hxjsonast
           haxelib install hxCodec
@@ -144,7 +142,6 @@ jobs:
           haxelib install flixel-tools
           haxelib install flixel-ui
           haxelib install flixel-addons
-          haxelib install haxe-strings
           haxelib install tjson
           haxelib install hxjsonast
           haxelib install hxCodec
