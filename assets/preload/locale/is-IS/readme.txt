@@ -1,0 +1,1 @@
+This folder contains localization data for the Icelandic (Iceland) language.

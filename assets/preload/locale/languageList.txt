@@ -1,21 +1,39 @@
+Albanian:sq-AL
 Arabic:ar-AE
+Armenian:hy-AM
+Belgian Dutch:nl-BE
 Belgian French:fr-BE
 Brazilian Portuguese:pt-BR
 Canadian French:fr-CA
 Chinese:zh-CN
+Croatian:hr-HR
 Dutch:nl-NL
 English:en-US
 French:fr-FR
 German:de-DE
 Greek:el-GR
+Hawaiian:haw-US
 Hebrew:iw-IL
+Hindi:hi-IN
+Icelandic:is-IS
 Italian:it-IT
 Japanese:ja-JP
+Kazakh:kk-KZ
+Khmer:km-KH
+Macedonian:mk-MK
+Nepali:ne-NP
 North Korean:ko-KP
+Polish:pl-PL
 Portuguese:pt-PT
+Romanian:ro-RO
 Russian:ru-RU
+Serbian:sr-RS
 Slovak:sk-SK
+Slovenian:sl-SL
 South Korean:ko-KR
 Spanish:es-ES
 Swedish:sv-SE
+Swiss German:gsw-CH
 Ukrainian:uk-UA
+Urdu:ur-PK
+Uzbek:uz-UZ
