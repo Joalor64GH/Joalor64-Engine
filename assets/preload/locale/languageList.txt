@@ -1,0 +1,10 @@
+Canadian French:fr-CA
+Dutch:nl-NL
+English:en-US
+French:fr-FR
+German:de-DE
+Italian:it-IT
+Japanese:ja-JP
+Portuguese:pt-BR
+Russian:ru-RU
+Spanish:es-ES
