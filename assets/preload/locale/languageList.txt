@@ -1,3 +1,4 @@
+Afghanistani Uzbek:uz-AF
 Albanian:sq-AL
 Arabic:ar-AE
 Armenian:hy-AM

@@ -1,1 +1,1 @@
-This folder contains localization data for the Uzbek (Uzbekistan) language.
+This folder contains localization data for the Uzbek (Afghanistan) language.
