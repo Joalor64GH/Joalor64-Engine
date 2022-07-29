@@ -1,1 +1,1 @@
-This folder contains localization data for the Korean (Korea) language.
+This folder contains localization data for the Korean (South Korea) language.
