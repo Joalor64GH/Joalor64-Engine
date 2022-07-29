@@ -17,7 +17,7 @@ class ModCore
 	 * 
 	 * Remember to increment the major version if you make breaking changes to mods!
 	 */
-	static final API_VERSION = "1.0.0";
+	static final API_VERSION = "1.5.2";
 
 	static final MOD_DIRECTORY = "polymods";
 

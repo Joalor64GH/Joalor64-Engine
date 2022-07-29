@@ -3,6 +3,6 @@
 	"description": "A template for your mods made with polymod.",
 	"author": "Joalor64GH",
 	"api_version": "1.5.2",
-	"mod_version": "1.0.0-alpha",
+	"mod_version": "1.0.0",
 	"license": "Apache-2.0"
 }
