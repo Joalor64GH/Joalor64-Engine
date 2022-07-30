@@ -82,6 +82,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Replay System
 * And just a tiny bit more.
 
-## [1.3.0] - UNRELEASED 
+## [1.3.0] - 2022-7-30
 ### Added
-* TBA
+* Polymod Support
+* STAGE EDITOR
+* DVD State
+* Improved Hscript Support
+* HaxeScript Support
+* SScript
+* Balls Mod Folder (Joke)
+* And a bit more.
