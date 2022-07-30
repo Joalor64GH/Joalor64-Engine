@@ -1,1 +1,0 @@
-This folder contains localization data for the Italian (Italy) language.
