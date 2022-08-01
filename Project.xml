@@ -148,6 +148,7 @@
 	
 	<!--In case you want to use the ui package-->
 	<haxelib name="flixel-ui" />
+	<haxelib name="flixel-tools" />
 	<haxelib name="linc_luajit" if="LUA_ALLOWED"/>
 	<haxelib name="hxvm-luajit" if="LUA_ALLOWED"/>
         <haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
@@ -158,7 +159,7 @@
 	<haxelib name="discord_rpc" if="desktop"/>
 	<haxelib name="systools" />
 	<ndll name="systools" haxelib="systools" />
-	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
+	<haxelib name="hxcpp-debug-server" if="desktop"/>
 
 	<!-- <haxelib name="markdown" /> -->
 	<!-- <haxelib name="HtmlParser" /> -->
