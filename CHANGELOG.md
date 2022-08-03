@@ -92,3 +92,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * SScript
 * Balls Mod Folder (Joke)
 * And a bit more.
+
+## [1.4.0b] - UNRELEASED
+### Added
+* TBA

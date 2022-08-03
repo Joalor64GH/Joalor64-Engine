@@ -433,7 +433,7 @@ class TitleState extends MusicBeatState
 		funky.antialiasing = ClientPrefs.globalAntialiasing;
 		add(funky); //basically i have 2 sprites instead of newgrounds one
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Joalor64 Engine v1.3.0 (PE 0.5.2h)" #if debug + " DEBUG BUILD" #end, 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Joalor64 Engine v1.4.0b (PE 0.5.2h)" #if debug + " DEBUG BUILD" #end, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
