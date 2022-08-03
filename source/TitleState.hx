@@ -705,7 +705,7 @@ class TitleState extends MusicBeatState
 					addMoreText('Joalor64 Engine');
 				// credTextShit.text += '\nJoalor64 Engine';
 				case 15:
-					addMoreText('V1.3.0'); // credTextShit.text += '\nV1.3.0';
+					addMoreText('V1.4.0b'); // credTextShit.text += '\nV1.4.0b';
 				case 16:
 			     	addMoreText('LOL'); // credTextShit.text += '\nLOL';
 
