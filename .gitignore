@@ -4,6 +4,14 @@ APIStuff.hx
 art/build_x32-officialrelease.bat
 art/build_x64-officialrelease.bat
 art/test_x64-debug-officialrelease.bat
+### Misc
+Preloader.hx
+
+### Crash Stuff
+crash-dialog/
+build-crash-dialog.bat
+build-crash-dialog-linux.sh
+build-crash-dialog-mac.sh
 
 ### FNF-Bot
 FNFBot.exe
