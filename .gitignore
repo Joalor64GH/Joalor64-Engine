@@ -17,8 +17,11 @@ build-crash-dialog-mac.sh
 FNFBot.exe
 
 ### GameJolt-Specific
-GJKeys.hx
-GameJolt.hx
+source/GJKeys.hx
+source/GameJolt.hx
+
+### Source Testing
+source_test/
 
 ### VS Code
 export/*
