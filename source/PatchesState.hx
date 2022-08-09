@@ -94,7 +94,13 @@ class PatchesState extends MusicBeatState
 			['V1.1.0',             'speed',             'Too much to List',                       		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.1.0',          'F09800'],
 			['V1.0.0e',             'torb',             'Too much to List',                       		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.0.0e',          '00FF08'],
 			['V1.0.0e-beta',             'horb',             'Noob, Expert, and Insane Difficulties, Achievevements,\nWinning Icon Support, Test Noob Chart,\nBetter Bopeebo and Test Instrumentals, Project.xml Changes,\nand a tiny bit more.',                       		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.0.0e-beta',          '0099FF'],
-			['V1.0.0',             'dorb',             'Initial Release',                       		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.0.0',          '6600FF']
+			['V1.0.0',             'dorb',             'Initial Release',                       		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.0.0',          '6600FF'],
+			[''],
+			[''],
+			[''],
+			[''],
+			[''],
+			['hi',										'dorb',			'this is the end of the list',					'https://adobearchive.org/',			'6600FF']
 		];
 		
 		for(i in pisspoop){
