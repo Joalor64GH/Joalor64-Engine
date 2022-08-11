@@ -1,9 +1,11 @@
-1.3.0;
-- Polymod Support
-- STAGE EDITOR
-- DVD State
-- Improved Hscript Support
-- HaxeScript Support
-- SScript
-- Balls Mod Folder (Joke)
-- And a bit more.
+1.4.0;
+- Python Support
+- SWF SUPPORT
+- Patches Menu
+- Newer Logo
+- Removed Extra Zeroes from the Combo Counter
+- HX Plugins Code
+- Custom States Support
+- Extra Plugins for hxCodec
+- More Noteskins
+- And more!
