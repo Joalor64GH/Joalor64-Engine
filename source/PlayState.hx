@@ -69,6 +69,10 @@ import sys.io.File;
 import vlc.MP4Handler;
 #end
 
+/*#if SWF_ALLOWED
+import swf.SWF;
+#end*/
+
 using CoolUtil;
 using StringTools;
 
