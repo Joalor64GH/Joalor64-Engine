@@ -87,7 +87,7 @@ class PatchesState extends MusicBeatState
 
 		var pisspoop:Array<Array<String>> = [ //Patch - Icon name - Changelog - Link to Version - BG Color
 			['Patch Notes'],
-			['V1.4.0b',         'stamina',             'UNRELEASED',                                  		'https://joalor64.itch.io',  'FEE8FF'],
+			['V1.4.0b',         'stamina',             'Too much to list',                                  		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.4.0b',  'FEE8FF'],
 			['V1.3.0',              'widol',             'Polymod Support, STAGE EDITOR, DVD State,\nImproved Hscript Support, HaxeScript Support,\nSScript, Balls Mod Folder (Joke),\nAnd a bit more.',                                     	    'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.3.0',            '1C9C20'],
 			['V1.2.0',             'tidol',             'Extension Webm, Systools, Debug Workflow,\nNew Stages for Weeks 3, 5, and 6, Rain Script (By me!!),\nNoteskins, Replay System,\nAnd a tiny bit more.',                       		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.2.0',          'B3FF00'],
 			['V1.1.1',             'speed',             'Readded the Notestyles Folder, TitleState Watermark,\nOne Project.xml Change, Update for VS. Code Tasks,\nBugfix String for Main Menu,\nSome Missing Credits',                       		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.1.1',          'F09800'],
