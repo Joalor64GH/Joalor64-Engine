@@ -93,6 +93,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Balls Mod Folder (Joke)
 * And a bit more.
 
-## [1.4.0b] - UNRELEASED
+## [1.4.0b] - 2022-8-11
 ### Added
-* TBA
+* Python Support
+* SWF SUPPORT
+* Patches Menu
+* Newer Logo
+* Removed Extra Zeroes from the Combo Counter
+* HX Plugins Code
+* Custom States Support
+* Extra Plugins for hxCodec
+* More Noteskins
+* And more!
