@@ -1,8 +1,8 @@
 # Joalor64 Engine
 ![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/art/logos/j64elogo.png?raw=true)
 
-![](https://img.shields.io/github/v/release/Joalor64GH/Joalor64-Engine?color=0000FF&label=version&style=flat-square)
-![](https://img.shields.io/github/commits-since/Joalor64GH/Joalor64-Engine/v1.3.0?color=0&style=flat-square)
+![](https://img.shields.io/github/v/release/Joalor64GH/Joalor64-Engine?color=0000FF&include_prereleases&label=pre-release&style=flat-square)
+![](https://img.shields.io/github/commits-since/Joalor64GH/Joalor64-Engine/v1.4.0b?color=0&style=flat-square)
 ![](https://img.shields.io/github/downloads/Joalor64GH/Joalor64-Engine/total?color=FF00C8&style=flat-square)
 ![](https://img.shields.io/github/repo-size/Joalor64GH/Joalor64-Engine?color=AE00FF&style=flat-square)
 ![](https://img.shields.io/badge/subscribe%20to-joalor64%20yt-FF0000?style=flat-square)
@@ -67,7 +67,7 @@ Hope you enjoy!
 * [skedgyedgy](https://github.com/skedgyedgy) - Artemis Integration
 * [Verwex](https://twitter.com/ShiftVer) - Systools Code
 * [TahirRollingArch](https://github.com/TahirRollingArch) - Replay System + SScript
-* [Magnumsrt](https://github.com/Magnumsrt) - Stage Editor
+* [Magnumsrt](https://github.com/Magnumsrt) - Stage Editor + Python Support + Custom State Support
 
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
