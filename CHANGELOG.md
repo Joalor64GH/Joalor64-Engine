@@ -105,3 +105,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Extra Plugins for hxCodec
 * More Noteskins
 * And more!
+
+## [1.4.0b-HOTFIX] - 2022-8-12
+### Added
+* Simply Prevented the Outdated Screen from Showing Up

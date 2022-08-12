@@ -1,11 +1,2 @@
-1.4.0;
-- Python Support
-- SWF SUPPORT
-- Patches Menu
-- Newer Logo
-- Removed Extra Zeroes from the Combo Counter
-- HX Plugins Code
-- Custom States Support
-- Extra Plugins for hxCodec
-- More Noteskins
-- And more!
+1.4.0b-HOTFIX;
+- Simply Prevented the Outdated Screen from Showing Up

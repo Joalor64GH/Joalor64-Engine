@@ -51,12 +51,12 @@ typedef MenuData =
 
 class MainMenuState extends MusicBeatState
 {
-	public static var alphaRelease:String = 'a'; 
+	/*public static var alphaRelease:String = 'a'; 
 	public static var betaRelease:String = 'b'; 
 	public static var preRelease:String = '-PRE';
 	public static var hotfixRelease:String = 'h';
-	public static var bugfixRelease:String = '-BUGFIX'; 
-	public static var joalor64EngineVersion:String = '1.4.0'; // This is also used for Discord RPC
+	public static var bugfixRelease:String = '-BUGFIX'; */
+	public static var joalor64EngineVersion:String = '1.4.0b-HOTFIX'; // This is also used for Discord RPC
 	public static var psychEngineVersion:String = '0.5.2h'; // This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Main_Checker'), 0.2, 0.2, true, true);
@@ -243,7 +243,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Joalor64 Engine v" + joalor64EngineVersion + betaRelease #if debug + " DEBUG BUILD" #end, 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Joalor64 Engine v" + joalor64EngineVersion #if debug + " DEBUG BUILD" #end, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
