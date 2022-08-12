@@ -214,7 +214,7 @@
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
 
 	<!-- Defines whether the Mods menu will display before launching. -->
-    <haxedef name="FEATURE_MODCORE" if="desktop" />
+        <haxedef name="FEATURE_MODCORE" if="desktop" />
 
 	<!-- _________________________________ Custom _______________________________ -->
 
