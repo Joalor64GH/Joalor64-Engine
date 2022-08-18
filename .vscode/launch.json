@@ -6,42 +6,42 @@
 		"type": "hxcpp",
 		"preLaunchTask": "Build Windows",
 		"request": "launch",
-		"program": "${workspaceFolder}/export/release/windows/bin/J64Engine.exe"
+		"program": "${workspaceFolder}/export/release/windows/bin/J64Engine_WIN.exe"
 	  },
 	  {
 		"name": "Linux",
 		"type": "hxcpp",
 		"preLaunchTask": "Build Linux",
 		"request": "launch",
-		"program": "${workspaceFolder}/export/release/linux/bin/J64ELinux"
+		"program": "${workspaceFolder}/export/release/linux/bin/J64E_APP"
 	  },
 	  {
 		"name": "Mac",
 		"type": "hxcpp",
 		"preLaunchTask": "Build Mac",
 		"request": "launch",
-		"program": "${workspaceFolder}/export/release/macos/bin/J64EMac"
+		"program": "${workspaceFolder}/export/release/macos/bin/J64E_MAC"
 	  },
 	  {
 		"name": "Windows Debug",
 		"type": "hxcpp",
 		"preLaunchTask": "Build Windows Debug",
 		"request": "launch",
-		"program": "${workspaceFolder}/export/debug/windows/bin/J64Engine.exe"
+		"program": "${workspaceFolder}/export/debug/windows/bin/J64Engine_WIN.exe"
 	  },
 	  {
 		"name": "Linux Debug",
 		"type": "hxcpp",
 		"preLaunchTask": "Build Linux Debug",
 		"request": "launch",
-		"program": "${workspaceFolder}/export/debug/linux/bin/J64ELinux"
+		"program": "${workspaceFolder}/export/debug/linux/bin/J64E_APP"
 	  },
 	  {
 		"name": "Mac Debug",
 		"type": "hxcpp",
 		"preLaunchTask": "Build Mac Debug",
 		"request": "launch",
-		"program": "${workspaceFolder}/export/debug/macos/bin/J64EMac"
+		"program": "${workspaceFolder}/export/debug/macos/bin/J64E_MAC"
 	  },
 	],
   }

@@ -23,8 +23,12 @@ FNFBot.exe
 source/GJKeys.hx
 source/GameJolt.hx
 
-### Source Testing
+### Source Stuff
 source_test/
+sourceUnstable/
+source - Copy/
+source_old/
+source_backup/
 
 ### VS Code
 export/*

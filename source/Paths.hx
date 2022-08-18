@@ -42,6 +42,7 @@ class Paths
 		'sounds',
 		'shaders',
 		'videos',
+		'swf',
 		'images',
 		'stages',
 		'weeks',
