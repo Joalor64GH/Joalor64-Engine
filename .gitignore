@@ -30,6 +30,13 @@ source - Copy/
 source_old/
 source_backup/
 
+### Android-Specific
+source/SUtil.hx
+source/android/
+assets/android/
+art/setupFiles/android/build_android.bat
+art/setupFiles/android/build_android-debug.bat
+
 ### VS Code
 export/*
 .vscode/*
@@ -45,3 +52,4 @@ desktop.ini
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.vs/*

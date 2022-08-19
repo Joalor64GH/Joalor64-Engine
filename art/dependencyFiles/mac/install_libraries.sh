@@ -1,4 +1,6 @@
-haxelib update
+haxelib install lime
+haxelib install openfl
+haxelib install flixel
 haxelib install flixel-tools
 haxelib install flixel-ui
 haxelib install flixel-demos
@@ -16,6 +18,5 @@ haxelib install swf 3.0.2
 haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
 haxelib git extension-webm https://github.com/KadeDev/extension-webm
 haxelib run lime rebuild extension-webm mac
-haxelib install hxcpp-debug-server
 haxelib git systools https://github.com/haya3218/systools
 haxelib install actuate

@@ -1,0 +1,1 @@
+haxelib install hxcpp-debug-server
