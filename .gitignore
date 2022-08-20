@@ -29,6 +29,7 @@ sourceUnstable/
 source - Copy/
 source_old/
 source_backup/
+newSource/
 
 ### Android-Specific
 source/SUtil.hx
@@ -36,16 +37,54 @@ source/android/
 assets/android/
 art/setupFiles/android/build_android.bat
 art/setupFiles/android/build_android-debug.bat
+art/dependencyFiles/android/
+
+### Appveyor-Specific
+appveyor.yml
+appveyor-linux.yml
+appveyor-macos.yml
+appveyor-windows.yml
+appveyor-win32.yml
+
+### Markdown Files
+BUILDING.md
+ModCharts.md
+beta.md
+
+### Miscellaneous
+.github/PULL_REQUEST_TEMPLATE/
+.circleci/
+ndll/
+Week7Assets/
+dump/
+git/
+documentaton/
+open cmd.bat
+open wsl.bat
+builddocs.bat
+wintestdebug.bat
+daversion
+version.Awesome
+gameVersion.txt
+
+### Add these regardless of them getting ignored.
+!TempFiles/
+!modchartexample.mc
+!azure-pipelines.yml
+!VERSION
+!.hxml
+!.hxproj
 
 ### VS Code
 export/*
 .vscode/*
 .DS_Store
+.vscode/.temp
 # Local history which shouldn't be shared.
 desktop.ini
 .history/
 .ionide
-# ! means a file should be added regardless of it it gets ignored prior.
+# ! means a file should be added regardless of it getting ignored prior.
 # Including to allow others to use already set-up configuration tweaked for the project.
 !.code-workspace
 !.vscode/settings.json
