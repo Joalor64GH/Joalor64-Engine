@@ -41,15 +41,16 @@ art/dependencyFiles/android/
 
 ### Appveyor-Specific
 appveyor.yml
-appveyor-linux.yml
-appveyor-macos.yml
-appveyor-windows.yml
 appveyor-win32.yml
 
 ### Markdown Files
 BUILDING.md
 ModCharts.md
 beta.md
+
+### Git-Specific
+.gitmodules
+.gitconfig
 
 ### Miscellaneous
 .github/PULL_REQUEST_TEMPLATE/
@@ -66,10 +67,14 @@ wintestdebug.bat
 daversion
 version.Awesome
 gameVersion.txt
+PlayState - Copy.hx
 
 ### Add these regardless of them getting ignored.
 !TempFiles/
 !modchartexample.mc
+!appveyor-linux.yml
+!appveyor-macos.yml
+!appveyor-windows.yml
 !azure-pipelines.yml
 !VERSION
 !.hxml
