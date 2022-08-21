@@ -52,6 +52,10 @@ beta.md
 .gitmodules
 .gitconfig
 
+### Polymod-Related
+polymod_mods/
+source/ModCore.hx
+
 ### Miscellaneous
 .github/PULL_REQUEST_TEMPLATE/
 .circleci/
