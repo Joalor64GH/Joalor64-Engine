@@ -125,6 +125,7 @@
 	<assets path="assets/swf"         library="swf"     if="SWF_ALLOWED"/>
 
 	<assets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
+	<assets path='polymod_mods' rename='polymods' if="MODS_ALLOWED"/>
 	<assets path='art/readme.txt' rename='a little note.txt' />
        	<assets path='Launch.bat' if="windows"/>
 	<assets path='modsList.txt' rename='' />
@@ -160,6 +161,7 @@
 	<haxelib name="hxvm-luajit" if="LUA_ALLOWED"/>
         <haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
 	<haxelib name="faxe" if='switch'/>
+	<haxelib name="polymod" if="MODS_ALLOWED"/>
 	<haxelib name="swf" if="SWF_ALLOWED"/>
 	<haxelib name="SScript" if="HAXE_EXTENSION"/>
 	<haxelib name="tjson"/>
@@ -211,6 +213,9 @@
 
 	<!--Enable this for Nape release builds for a serious peformance improvement-->
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
+
+	<!-- Defines whether the Mods menu will display before launching. -->
+    <haxedef name="FEATURE_MODCORE" if="desktop" />
 
 	<!-- _________________________________ Custom _______________________________ -->
 
