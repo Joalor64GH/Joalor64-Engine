@@ -649,6 +649,8 @@ class TitleState extends MusicBeatState
 				case 1:
 					#if JOALOR64_WATERMARKS
 					createCoolText(['Created By'], 15);
+					#elseif PSYCH_WATERMARKS
+ 					createCoolText(['Psych Engine by'], 15);
 					#else
 					createCoolText(['ninjamuffin99', 'PhantomArcade', 'KawaiSprite', 'Evilsk8er']);
 					#end
@@ -658,6 +660,10 @@ class TitleState extends MusicBeatState
 					addMoreText('Joalor64 YT', 15);
 					addMoreText('Bot 404', 15);
 					addMoreText('PE Devs', 15);
+					#elseif PSYCH_WATERMARKS
+ 					addMoreText('ShadowMario', 15);
+ 					addMoreText('RiverOaken', 15);
+ 					addMoreText('Yoshubs', 15);
 					#else
 					addMoreText('present');
 					#end
@@ -669,7 +675,7 @@ class TitleState extends MusicBeatState
 				// credTextShit.text = 'In association \nwith';
 				// credTextShit.screenCenter();
 				case 5:
-					#if JOALOR64_WATERMARKS
+					#if (JOALOR64_WATERMARKS || PSYCH_WATERMARKS)
 					createCoolText(['Powered', 'with'], -40);
 					#else
 					createCoolText(['Not in association', 'with'], -40);

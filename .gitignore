@@ -77,8 +77,8 @@ PlayState - Copy.hx
 !appveyor-windows.yml
 !azure-pipelines.yml
 !VERSION
-!.hxml
-!.hxproj
+!*.hxml
+!*.hxproj
 
 ### VS Code
 export/*
