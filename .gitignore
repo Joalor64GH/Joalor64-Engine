@@ -30,6 +30,7 @@ source - Copy/
 source_old/
 source_backup/
 newSource/
+source-default/
 
 ### Android-Specific
 source/SUtil.hx
@@ -66,6 +67,7 @@ Week7Assets/
 dump/
 git/
 documentaton/
+source/.vscode/launch.json
 open cmd.bat
 open wsl.bat
 builddocs.bat
@@ -82,7 +84,6 @@ PlayState - Copy.hx
 !appveyor-macos.yml
 !appveyor-windows.yml
 !azure-pipelines.yml
-!VERSION
 !*.hxml
 !*.hxproj
 

@@ -1,0 +1,1 @@
+Developer logs will be saved here. This is useful for dealing with null object references and such.

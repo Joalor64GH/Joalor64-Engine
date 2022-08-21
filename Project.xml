@@ -126,6 +126,7 @@
 
 	<assets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
 	<assets path='polymod_mods' rename='polymods' if="MODS_ALLOWED"/>
+	<assets path='example_logs' rename='logs' embed='false' />
 	<assets path='art/readme.txt' rename='a little note.txt' />
        	<assets path='Launch.bat' if="windows"/>
 	<assets path='modsList.txt' rename='' />
