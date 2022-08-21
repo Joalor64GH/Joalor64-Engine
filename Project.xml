@@ -55,7 +55,7 @@
 	<define name="DISCORD_ALLOWED" if="desktop" />
         <define name="HSCRIPT_ALLOWED" />
 	<define name="ACHIEVEMENTS_ALLOWED" />
-	<define name="PYTHON_ALLOWED"/>
+	<define name="PYTHON_SCRIPTING" if="windows"/>
 	<define name="VIDEOS_ALLOWED" if="web || windows" unless="32bits"/>
 	<define name="SWF_ALLOWED"/>
 	<define name="JOALOR64_WATERMARKS"/> <!-- DELETE THIS TO REMOVE WATERMARKS/DEV NAMES ON TITLE SCREEN -->
@@ -100,7 +100,7 @@
 	</section>
 	
 	<assets path="plugins/"             rename=''               if="VIDEOS_ALLOWED windows" />
-	<assets path="dlls/"                rename=''               if="PYTHON_ALLOWED" />
+	<assets path="dlls/"                rename=''               if="PYTHON_SCRIPTING windows" />
 	<assets path="assets/videos"        library="videos"        if="VIDEOS_ALLOWED"/>
 	<assets path="assets/songs"         library="songs"         exclude="*.ogg" if="web"/>
 	<assets path="assets/songs"         library="songs"         exclude="*.mp3" unless="web"/>

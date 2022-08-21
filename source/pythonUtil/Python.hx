@@ -1,5 +1,6 @@
 package pythonUtil;
 
+#if PYTHON_SCRIPTING
 using StringTools;
 
 @:include("PythonHandler.cpp")
@@ -12,3 +13,4 @@ extern class Python
 	@:native("doFile")
 	public static function doFile(str:String):Void;
 }
+#end
