@@ -4,8 +4,8 @@
 
 	<app title="Friday Night Funkin': Joalor64 Engine" packageName="com.joalor64gh.joalor64engine" package="com.joalor64gh.joalor64engine" main="Main" version="0.2.8" company="Joalor64GH" />
         <app file="J64Engine_WIN" if="windows" />
-	<app file="J64E_APP" if="linux" />
-	<app file="J64E_MAC" if="mac" />
+	<app file="J64Engine_APP" if="linux" />
+	<app file="J64Engine_MAC" if="mac" />
 	<!-- <app file="J64Engine (x64)" unless="32bit" /> -->
 	
 	<!--Switch Export with Unique ApplicationID and Icon-->
