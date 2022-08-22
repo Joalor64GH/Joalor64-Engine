@@ -75,6 +75,7 @@ wintestdebug.bat
 daversion
 version.Awesome
 gameVersion.txt
+version.txt
 PlayState - Copy.hx
 
 ### Add these regardless of them getting ignored.
