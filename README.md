@@ -27,7 +27,6 @@
 
 # Features
 * Polymod Support (Kinda weird)
-* Stage Editor (HECK YEAH)
 * Rainbow FPS Option.
 * Restored "Combo" Asset :trollface:
 * Max BPM no longer capped at 339 :trollface:
