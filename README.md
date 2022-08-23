@@ -30,7 +30,7 @@
 * Rainbow FPS Option.
 * Restored "Combo" Asset :trollface:
 * Max BPM no longer capped at 339 :trollface:
-* Some code borrowed from [OS Engine](https://github.com/weuz-github/FNF-OSEngine) (Thanks weuz_)
+* Some code borrowed from [OS Engine](https://github.com/weuz-github/FNF-OSEngine) (Thanks notweuz)
 * Latin Alphabet Support (heck ye)
 * 3D Notes (Perfect for fanmade DnB mods.)
 * Extra Keys (Look at the Wiki for a tutorial.)
@@ -61,11 +61,11 @@ Hope you enjoy!
 * [People on the PE Discord Server](https://discord.gg/2ka77eMXDv) - They made the Scripts lol
 * [BeastlyGhost](https://github.com/BeastlyGhost) and [HiroMizuki](https://github.com/HiroMizuki) - Latin Alphabet Support
 * [Stilic](https://github.com/Stilic) - Combo Counter Script
-* [weuz_](https://github.com/notweuz) - OS Engine Code + Beta Stage Editor
+* [notweuz (Formerly weuz_)](https://github.com/notweuz) - OS Engine Code + Beta Stage Editor
 * [sayofthelor](https://twitter.com/sayofthelor) - Checkerboards Code
 * [skedgyedgy](https://github.com/skedgyedgy) - Artemis Integration
 * [Verwex](https://twitter.com/ShiftVer) - Systools Code
-* [TahirRollingArch](https://github.com/TahirRollingArch) - Replay System + SScript
+* [TheWorldMachine (Formerly TahirRollingArch)](https://github.com/TheWorldMachine) - Replay System + SScript
 * [Magnumsrt](https://github.com/Magnumsrt) - Stage Editor + Python Support + Custom State Support
 
 # Friday Night Funkin' - Psych Engine
