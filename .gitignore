@@ -59,6 +59,10 @@ assets/images/stageborder.png
 source/editors/StageEditorState.hx
 source/LayerFile.hx
 
+### Stepmania Stuff
+assets/sm/
+source/smTools/
+
 ### Miscellaneous
 .github/PULL_REQUEST_TEMPLATE/
 .circleci/
