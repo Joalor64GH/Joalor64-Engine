@@ -110,6 +110,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 * Simply Prevented the Outdated Screen from Showing Up
 
-## [1.4.0] - UNRELEASED
+## [1.4.0] - 2022-8-23
 ### Added
-* TBA
+* More Polymod Folders
+* Logs
+* FIXED MOD CRASHING (at a cost)
+* Windows-Exclusive Python Support
+* Renamed the Executable Files
+* And some more stuff.
