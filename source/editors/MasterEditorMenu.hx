@@ -27,9 +27,6 @@ class MasterEditorMenu extends MusicBeatState
 		'Dialogue Portrait Editor',
 		'Character Editor',
 		'Chart Editor',
-		#if MODS_ALLOWED
-		'Polymods Manager'
-		#end
 	];
 	private var grpTexts:FlxTypedGroup<Alphabet>;
 	private var directories:Array<String> = [null];
@@ -133,10 +130,6 @@ class MasterEditorMenu extends MusicBeatState
 					LoadingState.loadAndSwitchState(new DialogueEditorState(), false);
 				case 'Chart Editor'://felt it would be cool maybe
 					LoadingState.loadAndSwitchState(new ChartingState(), false);
-				#if MODS_ALLOWED
-				case 'Polymods Manager':
-					LoadingState.loadAndSwitchState(new editors.PolymodsMenuState(), false);		   
-				#end
 			}
 			FlxG.sound.music.volume = 0;
 			#if PRELOAD_ALL
