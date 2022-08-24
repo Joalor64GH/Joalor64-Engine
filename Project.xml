@@ -221,7 +221,7 @@
         <haxedef name="FEATURE_MODCORE" if="desktop" />
 
 	<haxedef name="HXCPP_STACK_LINE" />  <!--if you want line numbers-->
-    <haxedef name="HXCPP_STACK_TRACE"/>  <!--if you want stack traces-->
+        <haxedef name="HXCPP_STACK_TRACE"/>  <!--if you want stack traces-->
 
 	<!-- _________________________________ Custom _______________________________ -->
 
