@@ -1,0 +1,9 @@
+name: Miscellaneous
+description: Get help with any other issue here.
+labels: [misc]
+body:
+  - type: textarea
+    attributes:
+      label: What is your issue?
+    validations:
+      required: true
