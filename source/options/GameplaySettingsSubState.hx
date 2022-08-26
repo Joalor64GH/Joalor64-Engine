@@ -34,6 +34,34 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		title = 'Gameplay Settings';
 		rpcTitle = 'Gameplay Settings Menu'; //for Discord Rich Presence
 
+        var option:Option = new Option('Opponent CrossFade Limit',
+			"Determines the maximium amount of frames of CrossFade the opponent can have.",
+			'crossFadeLimit',
+			'int',
+			4);
+		addOption(option);
+
+		option.minValue = 1;
+		option.maxValue = 10;
+
+		var option:Option = new Option('BF CrossFade Limit',
+			"Determines the maximium amount of frames of CrossFade the player can have.",
+			'boyfriendCrossFadeLimit',
+			'int',
+			1);
+		addOption(option);
+
+		option.minValue = 1;
+		option.maxValue = 10;
+
+		var option:Option = new Option('CrossFade Mode:',
+			"What mode should CrossFade be in?",
+			'crossFadeMode',
+			'string',
+			'Mid-Fight Masses',
+			['Mid-Fight Masses', 'Static', 'Eccentric', 'Off']);
+		addOption(option);
+
 		var option:Option = new Option('Controller Mode',
 			'Check this if you want to play with\na controller instead of using your Keyboard.',
 			'controllerMode',

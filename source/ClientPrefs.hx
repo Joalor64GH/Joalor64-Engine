@@ -20,6 +20,8 @@ class ClientPrefs {
 	public static var noteSplashes:Bool = true;
 	public static var lowQuality:Bool = false;
 	public static var framerate:Int = 60;
+	public static var crossFadeLimit:Null<Int> = 4;
+	public static var boyfriendCrossFadeLimit:Null<Int> = 1;
 	public static var cursing:Bool = true;
 	public static var violence:Bool = true;
 	public static var camZooms:Bool = true;
@@ -29,6 +31,7 @@ class ClientPrefs {
 	public static var noteOffset:Int = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var imagesPersist:Bool = false;
+	public static var crossFadeMode:String = 'Mid-Fight Masses';
 	public static var ghostTapping:Bool = true;
 	public static var timeBarType:String = 'Time Left';
 	public static var colorblindMode:String = 'None';
@@ -124,6 +127,8 @@ class ClientPrefs {
 		FlxG.save.data.noteSplashes = noteSplashes;
 		FlxG.save.data.lowQuality = lowQuality;
 		FlxG.save.data.framerate = framerate;
+		FlxG.save.data.crossFadeLimit = crossFadeLimit;
+		FlxG.save.data.boyfriendCrossFadeLimit = boyfriendCrossFadeLimit;
 		//FlxG.save.data.cursing = cursing;
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
@@ -135,6 +140,7 @@ class ClientPrefs {
 		FlxG.save.data.hideScoreText = hideScoreText;
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.imagesPersist = imagesPersist;
+		FlxG.save.data.crossFadeMode = crossFadeMode;
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.scoreZoom = scoreZoom;
@@ -213,6 +219,12 @@ class ClientPrefs {
 		if(FlxG.save.data.lowQuality != null) {
 			lowQuality = FlxG.save.data.lowQuality;
 		}
+		if(FlxG.save.data.crossFadeLimit != null) {
+			crossFadeLimit = FlxG.save.data.crossFadeLimit;
+		}
+		if(FlxG.save.data.boyfriendCrossFadeLimit != null) {
+			boyfriendCrossFadeLimit = FlxG.save.data.boyfriendCrossFadeLimit;
+		}
 		if(FlxG.save.data.characterTrail != null) {
 			characterTrail = FlxG.save.data.characterTrail;
 		}
@@ -267,6 +279,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.arrowHSV != null) {
 			arrowHSV = FlxG.save.data.arrowHSV;
+		}
+		if(FlxG.save.data.crossFadeMode != null) {
+			crossFadeMode = FlxG.save.data.crossFadeMode;
 		}
 		if(FlxG.save.data.ghostTapping != null) {
 			ghostTapping = FlxG.save.data.ghostTapping;
