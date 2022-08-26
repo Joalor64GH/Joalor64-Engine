@@ -868,23 +868,6 @@ class PlayState extends MusicBeatState
 			luaArray.push(new FunkinLua(luaFile));
 		#end
 
-		#if (MODS_ALLOWED && HSCRIPT_ALLOWED)
-		var doPush:Bool = false;
-		var hscriptFile:String = 'stages/' + curStage + '.hscript';
-		if(FileSystem.exists(Paths.modFolders(hscriptFile))) {
-			hscriptFile = Paths.modFolders(hscriptFile);
-			doPush = true;
-		} else {
-			hscriptFile = Paths.getPreloadPath(hscriptFile);
-			if (OpenFlAssets.exists(hscriptFile)) {
-				doPush = true;
-			}
-		}
-
-		if(doPush) 
-			addHscript(hscriptFile);
-		#end
-
 		if(!modchartSprites.exists('blammedLightsBlack')) { //Creates blammed light black fade in case you didn't make your own
 			blammedLightsBlack = new ModchartSprite(FlxG.width * -0.5, FlxG.height * -0.5);
 			blammedLightsBlack.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
