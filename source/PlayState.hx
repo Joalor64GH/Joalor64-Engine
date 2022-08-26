@@ -41,6 +41,9 @@ import flixel.util.FlxColor;
 import flixel.util.FlxSort;
 import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
+#if HSCRIPT_ALLOWED
+import hscript.ParserEx;
+#end
 import haxe.Json;
 import lime.utils.Assets;
 import openfl.Lib;
@@ -863,6 +866,23 @@ class PlayState extends MusicBeatState
 
 		if(doPush) 
 			luaArray.push(new FunkinLua(luaFile));
+		#end
+
+		#if (MODS_ALLOWED && HSCRIPT_ALLOWED)
+		var doPush:Bool = false;
+		var hscriptFile:String = 'stages/' + curStage + '.hscript';
+		if(FileSystem.exists(Paths.modFolders(hscriptFile))) {
+			hscriptFile = Paths.modFolders(hscriptFile);
+			doPush = true;
+		} else {
+			hscriptFile = Paths.getPreloadPath(hscriptFile);
+			if (OpenFlAssets.exists(hscriptFile)) {
+				doPush = true;
+			}
+		}
+
+		if(doPush) 
+			addHscript(hscriptFile);
 		#end
 
 		if(!modchartSprites.exists('blammedLightsBlack')) { //Creates blammed light black fade in case you didn't make your own
