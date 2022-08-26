@@ -118,3 +118,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Windows-Exclusive Python Support
 * Renamed the Executable Files
 * And some more stuff.
+
+
+## [1.4.1] - UNRELEASES
+### Added
+* TBA
