@@ -26,6 +26,7 @@
 ![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/docs/img/screenshots/credits.png?raw=true)
 
 # Features
+* Crossfades (Because MFM lmao)
 * Polymod Support (Kinda weird)
 * Rainbow FPS Option.
 * Restored "Combo" Asset :trollface:
@@ -67,6 +68,8 @@ Hope you enjoy!
 * [Verwex](https://twitter.com/ShiftVer) - Systools Code
 * [TheWorldMachine (Formerly TahirRollingArch)](https://github.com/TheWorldMachine) - Replay System + SScript
 * [Magnumsrt](https://github.com/Magnumsrt) - Stage Editor + Python Support + Custom State Support
+* [BulbyVR](https://harlessben321.itch.io/) - Modding Plus Code
+* [TheZoroForce240 (Formerly TheZoroForce420)](https://gamebanana.com/members/1708748) - Extra Keys made with LUA
 
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
