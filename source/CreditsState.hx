@@ -103,6 +103,7 @@ class CreditsState extends MusicBeatState
 			['Magnumsrt',             'mag',             'Stage Editor\nPython Support\nCustom State Support',                       		'https://github.com/Magnumsrt',          '0000FF'],
 			['BulbyVR',             'bulby',             'Modding Plus Code',                       		'https://harlessben321.itch.io/',          '0044FF'],
 			['TheZoroForce240',             'zoro',             'Extra Keys made with LUA',                       		'https://gamebanana.com/members/1708748',          'FFD900'],
+			['AT',             'at',             'Hardcoded Crossfades',                       		'https://github.com/UmbratheUmbreon',          'E8E8E8'],
 			['You',             'face',             'For playing :)',                       		'https://joalor64.itch.io/',          '7E00FF'],			
 			[''],
 			['Psych Engine Team'],
