@@ -119,6 +119,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Renamed the Executable Files
 * And some more stuff.
 
-## [1.4.1] - UNRELEASED
+## [1.4.1] - 2022-8-26
 ### Added
-* TBA
+* Fully Compatible Hscript Support
+* Crossfades
+* Fixed a thing in OutdatedState
+* And just a bit more.
