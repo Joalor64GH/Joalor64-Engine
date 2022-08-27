@@ -102,10 +102,6 @@ class PlayState extends MusicBeatState
 	public var modchartSounds:Map<String, FlxSound> = new Map<String, FlxSound>();
 	public var modchartTexts:Map<String, ModchartText> = new Map<String, ModchartText>();
 	public var modchartSaves:Map<String, FlxSave> = new Map<String, FlxSave>();
-	//crossfade groups
-	public var grpCrossFade:FlxTypedGroup<CrossFade>;
-	public var grpBFCrossFade:FlxTypedGroup<BFCrossFade>;
-	public var grpIdiotFade:FlxTypedGroup<CrossFade>;
 	//event variables
 	private var isCameraOnForcedPos:Bool = false;
 	#if (haxe >= "4.0.0")
@@ -765,35 +761,13 @@ class PlayState extends MusicBeatState
 			introSoundsSuffix = '-pixel';
 		}
 
-		//inside create(), crossfade
-		grpIdiotFade = new FlxTypedGroup<CrossFade>(ClientPrefs.crossFadeLimit); // limit
-		if (ClientPrefs.crossFadeLimit != null) {
-			grpCrossFade = new FlxTypedGroup<CrossFade>(ClientPrefs.crossFadeLimit); // limit
-		} else {
-			grpCrossFade = new FlxTypedGroup<CrossFade>(4); // limit
-		}
-		if (ClientPrefs.crossFadeLimit != null) {
-			grpBFCrossFade = new FlxTypedGroup<BFCrossFade>(ClientPrefs.boyfriendCrossFadeLimit); // limit
-		} else {
-			grpBFCrossFade = new FlxTypedGroup<BFCrossFade>(1); // limit
-		}
-		//grpCrossFade = new FlxTypedGroup<CrossFade>(4); // limit
-		//add(grpCrossFade);
-
-		//grpBFCrossFade = new FlxTypedGroup<BFCrossFade>(1); // limit
-		//add(grpBFCrossFade);
-
-		add(grpIdiotFade);
-		add(idiotGroup);
 		add(gfGroup); //Needed for blammed lights
 
 		// Shitty layering but whatev it works LOL
 		if (curStage == 'limo')
 			add(limo);
 
-        add(grpCrossFade);
 		add(dadGroup);
-		add(grpBFCrossFade);
 		add(boyfriendGroup);
 		
 		if(curStage == 'spooky') {
@@ -2501,27 +2475,6 @@ class PlayState extends MusicBeatState
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
 	var limoSpeed:Float = 0;
-
-	override public function update(elapsed:Float)
-	{
-
-	//inside update(elapsed)
-	grpCrossFade.update(elapsed);
-	grpCrossFade.forEachDead(function(img:CrossFade) {
-		grpCrossFade.remove(img, true);
-	});
-
-	grpBFCrossFade.update(elapsed);
-	grpBFCrossFade.forEachDead(function(img:BFCrossFade) {
-		grpBFCrossFade.remove(img, true);
-	});
-
-	grpIdiotFade.update(elapsed);
-	grpIdiotFade.forEachDead(function(img:CrossFade) {
-		grpIdiotFade.remove(img, true);
-	});
-
-	}
 
 	override public function update(elapsed:Float)
 	{
@@ -4326,9 +4279,6 @@ class PlayState extends MusicBeatState
 
 	function opponentNoteHit(note:Note):Void
 	{
-		//if (SONG.notes[Math.floor(curStep / 16)] != null && SONG.notes[Math.floor(curStep / 16)].crossFade){
-		//new CrossFade(dad, grpCrossFade, false);
-		//}
 		if (Paths.formatToSongPath(SONG.song) != 'tutorial')
 			camZooming = true;
 
@@ -4345,28 +4295,6 @@ class PlayState extends MusicBeatState
 				if (SONG.notes[curSection].altAnim || note.noteType == 'Alt Animation') {
 					altAnim = '-alt';
 				}
-			}
-
-				if (SONG.notes[curSection].crossFade) {
-					if (ClientPrefs.crossFadeMode != 'Off') {
-						new CrossFade(dad, grpCrossFade, false);
-					}
-					//trace('Made Dad CrossFade');
-				}
-			}
-
-			if (note.noteType == 'Cross Fade') {
-				if (ClientPrefs.crossFadeMode != 'Off') {
-					new CrossFade(dad, grpCrossFade, false);
-				}
-				//trace('Made Dad CrossFade');
-			}
-
-			if (note.noteType == 'GF Cross Fade') {
-				if (ClientPrefs.crossFadeMode != 'Off') {
-					new CrossFade(gf, grpIdiotFade, false);
-				}
-				//trace('Made GF CrossFade');
 			}
 
 			var char:Character = dad;
@@ -4490,31 +4418,6 @@ class PlayState extends MusicBeatState
 						gf.heyTimer = 0.6;
 					}
 				}
-			}
-            var curSection:Int = Math.floor(curStep / 16);
-			if (SONG.notes[curSection] != null)
-			{
-				if (SONG.notes[curSection].crossFade) {
-					if (ClientPrefs.crossFadeMode != 'Off') {
-						new BFCrossFade(boyfriend, grpBFCrossFade, false);
-					}
-					//trace('Made BF CrossFade');
-				}
-			}
-			//new BFCrossFade(boyfriend, grpBFCrossFade, true);
-			//trace('Made BF CrossFade');
-
-			switch(note.noteType) {
-				case 'Cross Fade': //CF note
-					if (ClientPrefs.crossFadeMode != 'Off') {
-						new BFCrossFade(boyfriend, grpBFCrossFade, false);
-					}
-					//trace('Made BF CrossFade');
-				case 'GF Cross Fade': //GFCF note
-				if (ClientPrefs.crossFadeMode != 'Off') {
-					new CrossFade(gf, grpIdiotFade, false);
-				}
-					//trace('Made GF CrossFade');
 			}
 
 			if(cpuControlled) {

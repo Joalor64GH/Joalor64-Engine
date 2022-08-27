@@ -63,9 +63,7 @@ class ChartingState extends MusicBeatState
 		'Hey!',
 		'Hurt Note',
 		'GF Sing',
-		'No Animation',
-		'Cross Fade',
-		'GF Cross Fade'
+		'No Animation'
 	];
 	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'), 0.2, 0.2, true, true);
         private var noteTypeIntMap:Map<Int, String> = new Map<Int, String>();
@@ -647,7 +645,6 @@ class ChartingState extends MusicBeatState
 	var check_changeBPM:FlxUICheckBox;
 	var stepperSectionBPM:FlxUINumericStepper;
 	var check_altAnim:FlxUICheckBox;
-	var check_crossFade:FlxUICheckBox;
 
 	var sectionToCopy:Int = 0;
 	var notesCopied:Array<Dynamic>;
@@ -674,10 +671,6 @@ class ChartingState extends MusicBeatState
 		check_altAnim = new FlxUICheckBox(10, 60, null, null, "Alt Animation", 100);
 		check_altAnim.checked = _song.notes[curSection].altAnim;
 		check_altAnim.name = 'check_altAnim';
-
-		check_crossFade = new FlxUICheckBox(130, 60, null, null, "Cross Fade", 100);
-		check_crossFade.checked = _song.notes[curSection].crossFade;
-		check_crossFade.name = 'check_crossFade';
 
 		check_changeBPM = new FlxUICheckBox(10, 90, null, null, 'Change BPM', 100);
 		check_changeBPM.checked = _song.notes[curSection].changeBPM;
@@ -879,7 +872,6 @@ class ChartingState extends MusicBeatState
 		tab_group_section.add(check_mustHitSection);
 		tab_group_section.add(check_gfSection);
 		tab_group_section.add(check_altAnim);
-		tab_group_section.add(check_crossFade);
 		tab_group_section.add(check_changeBPM);
 		tab_group_section.add(copyButton);
 		tab_group_section.add(pasteButton);
@@ -1369,8 +1361,6 @@ class ChartingState extends MusicBeatState
 					FlxG.log.add('changed bpm shit');
 				case "Alt Animation":
 					_song.notes[curSection].altAnim = check.checked;
-				case "Cross Fade":
-					_song.notes[curSection].crossFade = check.checked;
 			}
 		}
 		else if (id == FlxUINumericStepper.CHANGE_EVENT && (sender is FlxUINumericStepper))
@@ -2278,7 +2268,6 @@ class ChartingState extends MusicBeatState
 		check_mustHitSection.checked = sec.mustHitSection;
 		check_gfSection.checked = sec.gfSection;
 		check_altAnim.checked = sec.altAnim;
-		check_crossFade.checked = sec.crossFade;
 		check_changeBPM.checked = sec.changeBPM;
 		stepperSectionBPM.value = sec.bpm;
 
@@ -2557,8 +2546,6 @@ class ChartingState extends MusicBeatState
 			sectionNotes: [],
 			typeOfSection: 0,
 			altAnim: false
-			crossFade: false
-		        }
 		};
 
 		_song.notes.push(sec);
