@@ -1,7 +1,5 @@
-1.4.0;
-- More Polymod Folders
-- Logs
-- FIXED MOD CRASHING (at a cost)
-- Windows-Exclusive Python Support
-- Renamed the Executable Files
-- And some more stuff.
+1.4.1;
+- Fully Compatible Hscript Support
+- Crossfades
+- Fixed a thing in OutdatedState
+- And just a bit more.
