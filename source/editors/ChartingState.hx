@@ -2558,6 +2558,7 @@ class ChartingState extends MusicBeatState
 			typeOfSection: 0,
 			altAnim: false
 			crossFade: false
+		        }
 		};
 
 		_song.notes.push(sec);
