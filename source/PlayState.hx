@@ -69,7 +69,7 @@ import sys.io.File;
 #end
 
 #if VIDEOS_ALLOWED
-import vlc.MP4Handler;
+import VideoHandler;
 #end
 
 /*#if SWF_ALLOWED
@@ -1471,7 +1471,7 @@ class PlayState extends MusicBeatState
 		}
 		
 		FlxG.sound.music.stop();
-		var video:MP4Handler = new MP4Handler();
+		var video:VideoHandler = new VideoHandler();
 		video.playVideo(filepath);
 
 		video.finishCallback = function()
