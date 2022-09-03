@@ -84,6 +84,7 @@ PlayState - Copy.hx
 
 ### Add these regardless of them getting ignored.
 !TempFiles/
+!art/setupFiles/switch/build-lime-SWITCH.bat
 !modchartexample.mc
 !appveyor-linux.yml
 !appveyor-macos.yml
