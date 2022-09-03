@@ -850,6 +850,36 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
+		#if HAXE_MODCHART
+		var filesPushed:Array<String> = [];
+		var foldersToCheck:Array<String> = [Paths.getPreloadPath('modcharts/')];
+
+		#if MODS_ALLOWED
+		foldersToCheck.insert(0, Paths.mods('modcharts/'));
+		if(Paths.currentModDirectory != null && Paths.currentModDirectory.length > 0)
+			foldersToCheck.insert(0, Paths.mods(Paths.currentModDirectory + '/modcharts/'));
+		#end
+
+		for (folder in foldersToCheck)
+		{
+			if(FileSystem.exists(folder))
+			{
+				for (file in FileSystem.readDirectory(folder))
+				{
+					if(file.endsWith('.hx') && !filesPushed.contains(file))
+					{
+						var expr = file;
+						var parser = new hscript.Parser();
+						var ast = parser.parseString(expr);
+						var interp = new hscript.Interp();
+						trace(interp.execute(ast));
+						filesPushed.push(file);
+					}
+				}
+			}
+		}
+		#end
+
 		// STAGE SCRIPTS
 		#if (MODS_ALLOWED && LUA_ALLOWED)
 		var doPush:Bool = false;
@@ -1207,6 +1237,36 @@ class PlayState extends MusicBeatState
 				for (file in FileSystem.readDirectory(folder))
 				{
 					if(file == '.hscript' && !filesPushed.contains(file))
+					{
+						var expr = file;
+						var parser = new hscript.Parser();
+						var ast = parser.parseString(expr);
+						var interp = new hscript.Interp();
+						trace(interp.execute(ast));
+						filesPushed.push(file);
+					}
+				}
+			}
+		}
+		#end
+
+		#if HAXE_MODCHART
+		var filesPushed:Array<String> = [];
+		var foldersToCheck:Array<String> = [Paths.getPreloadPath('data/' + Paths.formatToSongPath(SONG.song) + '/')];
+
+		#if MODS_ALLOWED
+		foldersToCheck.insert(0, Paths.mods('data/' + Paths.formatToSongPath(SONG.song) + '/'));
+		if(Paths.currentModDirectory != null && Paths.currentModDirectory.length > 0)
+			foldersToCheck.insert(0, Paths.mods(Paths.currentModDirectory + '/data/' + Paths.formatToSongPath(SONG.song) + '/'));
+		#end
+
+		for (folder in foldersToCheck)
+		{
+			if(FileSystem.exists(folder))
+			{
+				for (file in FileSystem.readDirectory(folder))
+				{
+					if(file == '.hx' && !filesPushed.contains(file))
 					{
 						var expr = file;
 						var parser = new hscript.Parser();

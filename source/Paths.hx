@@ -49,6 +49,7 @@ class Paths
 		'fonts',
 		'haxescript',
 		'scripts',
+		'modcharts',
 		'libs',
 		'achievements'
 	];

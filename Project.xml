@@ -54,6 +54,7 @@
 	<define name="LUA_ALLOWED" if="desktop" />
 	<define name="DISCORD_ALLOWED" if="desktop" />
         <define name="HSCRIPT_ALLOWED" />
+	<define name="HAXE_MODCHART" />
 	<define name="ACHIEVEMENTS_ALLOWED" />
 	<define name="PYTHON_SCRIPTING" if="windows"/>
 	<define name="VIDEOS_ALLOWED" if="web || windows" unless="32bits"/>
