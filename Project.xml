@@ -219,9 +219,6 @@
 	<!-- Defines whether the Mods menu will display before launching. -->
         <haxedef name="FEATURE_MODCORE" if="desktop" />
 
-	<haxedef name="HXCPP_STACK_LINE" />  <!--if you want line numbers-->
-        <haxedef name="HXCPP_STACK_TRACE"/>  <!--if you want stack traces-->
-
 	<!-- _________________________________ Custom _______________________________ -->
 
 	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
