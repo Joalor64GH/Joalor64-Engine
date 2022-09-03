@@ -125,3 +125,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Crossfades
 * Fixed a thing in OutdatedState
 * And just a bit more.
+
+## [1.4.2] - UNRELEASED
+### Added
+* TBA
