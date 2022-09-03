@@ -87,6 +87,7 @@ class PatchesState extends MusicBeatState
 
 		var pisspoop:Array<Array<String>> = [ //Patch - Icon name - Changelog - Link to Version - BG Color
 			['Patch Notes'],
+			['V1.4.2',         'stamina',             'UNRELEASED',                                  		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.4.2',  'FEE8FF'],
 			['V1.4.1',         'stamina',             'Fully Compatible Hscript Support, Crossfades,\nFixed a thing in OutdatedState,\n and just a bit more.',                                  		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.4.1',  'FEE8FF'],
 			['V1.4.0',         'stamina',             'More Polymod Folders, Logs, FIXED MODS CRASHING (at a cost),\nWindows-Exclusive Python Support, Renamed the Executable Files,\nand some more stuff.',                                  		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.4.0',  'FEE8FF'],
 			['V1.4.0b-HOTFIX',         'stamina',             'Simply Prevented the Outdated Screen from Showing Up',                                  		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.4.0b-HOTFIX',  'FEE8FF'],
