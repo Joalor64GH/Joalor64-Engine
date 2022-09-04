@@ -933,7 +933,7 @@ class PlayState extends MusicBeatState
 					if(file.endsWith('.py') && !filesPushed.contains(file))
 					{
 	                    Python.doFile(folder + file);
-						filesInserted.push(file);
+						filesPushed.push(file);
 					}
 				}
 			}
@@ -1389,7 +1389,7 @@ class PlayState extends MusicBeatState
 					if(file == '.py' && !filesPushed.contains(file))
 					{
 	                    Python.doFile(folder + file);
-						filesInserted.push(file);
+						filesPushed.push(file);
 					}
 				}
 			}
