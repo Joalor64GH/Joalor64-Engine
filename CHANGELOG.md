@@ -126,6 +126,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fixed a thing in OutdatedState
 * And just a bit more.
 
-## [1.4.2] - UNRELEASED
+## [1.4.2] - 2022-9-4
 ### Added
-* TBA
+* Full Support for Haxe, Haxescript, and Python Scripts
+* Support for Haxe Modcharts
+* Changed my Profile Link Again
+* And just a bit more.
