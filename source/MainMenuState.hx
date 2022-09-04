@@ -53,7 +53,6 @@ class MainMenuState extends MusicBeatState
 {
 	/*public static var alphaRelease:String = 'a'; 
 	public static var betaRelease:String = 'b';
-	public static var piRelease:String = 'π';  
 	public static var preRelease:String = '-PRE';
 	public static var hotfixRelease:String = 'h';
 	public static var bugfixRelease:String = '-BUGFIX'; */

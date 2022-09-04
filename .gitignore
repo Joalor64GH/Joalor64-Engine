@@ -72,6 +72,7 @@ dump/
 git/
 documentaton/
 source/.vscode/launch.json
+export/release/.build
 open cmd.bat
 open wsl.bat
 builddocs.bat
@@ -84,12 +85,13 @@ PlayState - Copy.hx
 
 ### Add these regardless of them getting ignored.
 !TempFiles/
-!art/setupFiles/switch/build-lime-SWITCH.bat
+!art/setupFiles/switch/build-switch.bat
 !modchartexample.mc
 !appveyor-linux.yml
 !appveyor-macos.yml
 !appveyor-windows.yml
 !azure-pipelines.yml
+!Thumbs.db
 !*.hxml
 !*.hxproj
 
