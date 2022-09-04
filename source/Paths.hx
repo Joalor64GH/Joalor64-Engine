@@ -48,6 +48,7 @@ class Paths
 		'weeks',
 		'fonts',
 		'haxescript',
+		'pyscripts',
 		'scripts',
 		'modcharts',
 		'libs',

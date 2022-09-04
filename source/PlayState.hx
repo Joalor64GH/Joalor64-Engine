@@ -76,6 +76,10 @@ import VideoHandler;
 import swf.SWF;
 #end*/
 
+#if PYTHON_SCRIPTING
+import pythonUtil.Python;
+#end
+
 using CoolUtil;
 using StringTools;
 
@@ -910,6 +914,32 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
+		#if PYTHON_SCRIPTING
+		var filesPushed:Array<String> = [];
+		var foldersToCheck:Array<String> = [Paths.getPreloadPath('pyscripts/')];
+
+		#if MODS_ALLOWED
+		foldersToCheck.insert(0, Paths.mods('pyscripts/'));
+		if(Paths.currentModDirectory != null && Paths.currentModDirectory.length > 0)
+			foldersToCheck.insert(0, Paths.mods(Paths.currentModDirectory + '/pyscripts/'));
+		#end
+
+		for (folder in foldersToCheck)
+		{
+			if(FileSystem.exists(folder))
+			{
+				for (file in FileSystem.readDirectory(folder))
+				{
+					if(file.endsWith('.py') && !filesPushed.contains(file))
+					{
+	                    Python.doFile(folder + file);
+						filesInserted.push(file);
+					}
+				}
+			}
+		}
+		#end
+
 		// STAGE SCRIPTS
 		#if (MODS_ALLOWED && LUA_ALLOWED)
 		var doPush:Bool = false;
@@ -1334,6 +1364,32 @@ class PlayState extends MusicBeatState
 						var interp = new hscript.Interp();
 						trace(interp.execute(ast));
 						filesPushed.push(file);
+					}
+				}
+			}
+		}
+		#end
+
+		#if PYTHON_SCRIPTING
+		var filesPushed:Array<String> = [];
+		var foldersToCheck:Array<String> = [Paths.getPreloadPath('data/' + Paths.formatToSongPath(SONG.song) + '/')];
+
+		#if MODS_ALLOWED
+		foldersToCheck.insert(0, Paths.mods('data/' + Paths.formatToSongPath(SONG.song) + '/'));
+		if(Paths.currentModDirectory != null && Paths.currentModDirectory.length > 0)
+			foldersToCheck.insert(0, Paths.mods(Paths.currentModDirectory + '/data/' + Paths.formatToSongPath(SONG.song) + '/'));
+		#end
+
+		for (folder in foldersToCheck)
+		{
+			if(FileSystem.exists(folder))
+			{
+				for (file in FileSystem.readDirectory(folder))
+				{
+					if(file == '.py' && !filesPushed.contains(file))
+					{
+	                    Python.doFile(folder + file);
+						filesInserted.push(file);
 					}
 				}
 			}
