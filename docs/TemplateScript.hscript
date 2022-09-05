@@ -1,95 +1,44 @@
-//lets start off basic.
-//this will include most of the things you can look for lol.
 
-function loadScript () // executed when the script is loaded. this is during the black screen.
+function start(song) {
+
+}
+
+
+function beatHit(beat)
 {
 
 }
 
-function dialogueGenerated ()  // when dialogue is found.
+function update(elapsed)
+{
+}
+
+function stepHit(step)
+{
+}
+
+function playerTwoTurn()
 {
     
 }
-    
-function endScript ()  // if script is ended for any reason. like ending song, going to chart editor.
-{
-        
-}
-        
-function startSong (song)  // after go, executes when inst starts playing.
-{
-            
-}
-            
-function onPlayStateCreated ()
-{
-                
-}
-//these 2 are the same and are executed at the exact same time. dk why i did this. 
-function onStateCreated ()
-{
 
-}
-                
-function onCamZoom ()  // when cam zooms
-{
-                    
-}
-                    
-function CircleNotes (circle)  // activates if the current person has circle notes.
-{
-                        
-}
-                        
-function update ()  // activates every ms i think
-{
-                            
-}
-
-function stepHit ()  // activates every step (curStep)
+function playerTwoMiss()
 {
     
 }
-    
-function beatHit () // activates every beat (basically camZoom but better)
+
+function playerTwoSing()
 {
-        
-}
-        
-function P1NoteHit (note) // when you hit a note as bf //note has the noteType. maybe like accelarant you can make dad play anim when bf hits note?
-{
-            
-}
-            
-function P2CpuNoteHit (note) // when dad sings //same as bf, note has data in it.
-{
-                
-}
-                
-function P1NoteMiss ()  // when u miss a note
-{
-                    
-}
-                    
-function P1MissPress () //tbh, idek if a implemented the detection for this one correctly.
-{ // when you press and there's no note. (ghost tapping still activates this. I think.)
-                        
-}
-                        
-function characterMade (character) // vars: var name - ingame | boyfriend - bf | dad - dad | gf - gf |
-{
-                            
-}
-                            
-function onManiaChange (mania) //mania is only changed through modcharts. so thats when this is activated. also added a **getMania** function for modcharts. returns current mania lol. so ig you can stop people from making 4k charts of ur song.
-{
-                                
 }
 
-//thats most you'll porbably use. the rest are vars like you can make a Character on here.
-//One important thing to note is modchartStorage. It can be accessed by PlayState.instance.modchartStorage. It houses all vars for hscript since vars in hscript are wack lol.
+function playerOneTurn()
+{
+}
 
-//example:
+function playerOneMiss()
+{
+}
 
-//var dad2 = new Character(x, y, 'scabe')
-//dad2.animation.play('idle');
+function playerOneSing()
+{
+}
