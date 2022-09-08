@@ -44,6 +44,8 @@
 * After that, just press space to go back to the menu.
 
 # Planned Features
+* [ ] HX Stages Support.
+* [ ] Template Files.
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 
 More things could added as we go along!
@@ -67,7 +69,7 @@ Hope you enjoy!
 * [skedgyedgy](https://github.com/skedgyedgy) - Artemis Integration
 * [Verwex](https://twitter.com/ShiftVer) - Systools Code
 * [TheWorldMachine (Formerly TahirRollingArch)](https://github.com/TheWorldMachine) - Replay System + SScript
-* [Magnumsrt](https://github.com/Magnumsrt) - Stage Editor + Python Support + Custom State Support
+* [stephensrt (Formerly Magnumsrt)](https://github.com/stephensrt) - Stage Editor + Python Support + Custom State Support
 * [BulbyVR](https://harlessben321.itch.io/) - Modding Plus Code
 * [TheZoroForce240 (Formerly TheZoroForce420)](https://gamebanana.com/members/1708748) - Extra Keys made with LUA
 * [AT](https://github.com/UmbratheUmbreon) - Hardcoded Crossfades
