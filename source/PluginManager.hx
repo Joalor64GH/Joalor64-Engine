@@ -35,7 +35,11 @@ class PluginManager {
         for (file in filelist) {
             if (FNFAssets.exists("assets/scripts/plugin_classes/" + file + ".hx")) {
 				interp.addModule(FNFAssets.getText("assets/scripts/plugin_classes/" + file + '.hx'));
-            }
+        }
+        var stageList = CoolUtil.coolTextFile("assets/scripts/custom_stages/classes.txt");
+        // then process stages...
+        for (file in stageList) {
+            interp.addModule(FNFAssets.getText("assets/scripts/custom_stages/" + file + ".hscript"));
         }
         trace(InterpEx._scriptClassDescriptors);
     }

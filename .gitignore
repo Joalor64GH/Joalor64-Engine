@@ -94,6 +94,7 @@ PlayState - Copy.hx
 !Thumbs.db
 !*.hxml
 !*.hxproj
+!*.jsonc
 
 ### VS Code
 export/*
