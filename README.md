@@ -44,7 +44,7 @@
 * After that, just press space to go back to the menu.
 
 # Planned Features
-* [ ] HX Stages Support.
+* [X] HX Stages Support. **[Completed]**
 * [ ] Template Files.
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 
