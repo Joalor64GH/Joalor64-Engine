@@ -3,14 +3,10 @@
 title Joalor64 Engine Setup
 echo Before continuing, please install the latest version of Haxe (v4.2.4).
 echo https://haxe.org/download/
-echo Press any key to continue...
+echo Press any key to install the following libraries...
 pause >nul
-
-REM Install dependencies
-
-echo Installing Haxe libraries...
-
-REM Regular Haxe Stuff
+title Joalor64 Engine Setup - Installing libraries
+echo Installing haxelib libraries...
 haxelib install lime
 haxelib install openfl
 haxelib install flixel
@@ -18,60 +14,54 @@ haxelib install flixel-tools
 haxelib install flixel-ui
 haxelib install flixel-demos
 haxelib install flixel-addons
-REM Not Sure what These are For
+title Joalor64 Engine Setup - User action required
+cls
+haxelib run flixel-tools setup
+haxelib run lime setup flixel
+cls
+echo Make sure you have git installed. You can download it here: https://git-scm.com/downloads
+echo Press any key to install necessary libraries.
+pause >nul
+title Joalor64 Engine Setup - Installing libraries
 haxelib install tjson
 haxelib install hxjsonast
-REM hxCodec
 haxelib git hxCodec https://github.com/polybiusproxy/hxcodec
-REM Scripting and Stuff
 haxelib git SScript https://github.com/TahirRollingArch/SScript.git
 haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
 haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit
 haxelib install hscript 
 haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
-REM Polymod
 haxelib install polymod 1.5.2
-REM SWF Support
 haxelib install swf 3.0.2
-REM Discord RPC
 haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-REM extension-webm
 haxelib git extension-webm https://github.com/KadeDev/extension-webm
 haxelib run lime rebuild extension-webm windows
-REM Systools
 haxelib git systools https://github.com/haya3218/systools
-REM Also extension-webm
 haxelib install actuate
+cls
+goto CommunitySetup
 
-REM Install Visual Studio tools
-echo Visual Studio Community Edition and Windows 10 SDK 1901 are required dependencies for Enigma Engine.
-echo Total required disk space: ~5.5GB
-echo If you have already successfully built Friday Night Funkin' mods in the past, you can skip this step.
-echo Would you like to install them now?
-CHOICE /C YN 
-IF %ERRORLEVEL% EQU 1 goto InstallWindowsSDK
-IF %ERRORLEVEL% EQU 2 goto SkipInstallWindowsSDK
+:CommunitySetup
+cls
+title FNF Setup - User action required
+set /p menu="Would you like to install Visual Studio Community and components? (Necessary to compile/ 5.5GB) [Y/N]"
+       if %menu%==Y goto InstallVSCommunity
+       if %menu%==y goto InstallVSCommunity
+       if %menu%==N goto SkipVSCommunity
+       if %menu%==n goto SkipVSCommunity
+       cls
 
-:InstallWindowsSDK
-echo Installing Windows 10 SDK...
-curl -# -O https://download.visualstudio.microsoft.com/download/pr/7aa16be3-9952-4bd2-8ecf-eae91faa0a06/14fe35fa35c305b03032a885ff3ebefaf88fce5051ee84183d4c5de75783339e/vs_Community.exe
+
+:SkipVSCommunity
+cls
+title FNF Setup - Success
+echo Setup successful. Press any key to exit.
+pause >nul
+exit
+
+:InstallVSCommunity
+title FNF Setup - Installing Visual Studio Community
+curl -# -O https://download.visualstudio.microsoft.com/download/pr/3105fcfe-e771-41d6-9a1c-fc971e7d03a7/8eb13958dc429a6e6f7e0d6704d43a55f18d02a253608351b6bf6723ffdaf24e/vs_Community.exe
 vs_Community.exe --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK.19041 -p
 del vs_Community.exe
-
-:SkipInstallWindowsSDK
-
-echo Joalor64 Engine highly recommends installing Visual Studio Code, which is a free and open-source IDE.
-echo Would you like to install it now?
-CHOICE /C YN
-IF %ERRORLEVEL% EQU 1 goto InstallVSCode
-IF %ERRORLEVEL% EQU 2 goto SkipInstallVSCode
-
-:InstallVSCode
-echo Installing Visual Studio Code...
-curl -# -o vs_code.exe -O https://code.visualstudio.com/sha/download?build=stable&os=win32-x64
-vs_code.exe
-del vs_code.exe
-
-:SkipInstallVSCode
-
-echo Setup is complete. Have fun!
+goto SkipVSCommunity
