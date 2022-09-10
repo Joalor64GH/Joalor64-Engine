@@ -30,7 +30,7 @@ haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
 # Polymod
 haxelib install polymod 1.5.2
 # SWF Support
-haxelib install swf 3.0.2 
+haxelib install swf 3.1.0
 # Discord RPC
 haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
 # extension-webm

@@ -32,7 +32,7 @@ haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit
 haxelib install hscript 
 haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
 haxelib install polymod 1.5.2
-haxelib install swf 3.0.2
+haxelib install swf 3.1.0
 haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
 haxelib git extension-webm https://github.com/KadeDev/extension-webm
 haxelib run lime rebuild extension-webm windows
