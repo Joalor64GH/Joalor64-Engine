@@ -51,8 +51,10 @@ ModCharts.md
 beta.md
 
 ### Git-Specific
-.gitmodules
 .gitconfig
+
+### Polymod Stuff
+polymod_mods/introMod/
 
 ### Stage Editor-Related
 assets/images/stageborder.png
