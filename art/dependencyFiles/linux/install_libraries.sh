@@ -33,8 +33,6 @@ haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
 haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit
 haxelib install hscript
 haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
-# Loacalization stuff
-haxelib install firetongue
 # Polymod
 haxelib install polymod 1.5.2
 # SWF Support

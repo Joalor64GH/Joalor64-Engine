@@ -52,6 +52,12 @@ beta.md
 
 ### Git-Specific
 .gitconfig
+.gitmodules
+
+### Localization-Specific
+source/locale/I18n.hx
+assets/locale/
+assets/locales/
 
 ### Polymod Stuff
 polymod_mods/introMod/

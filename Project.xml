@@ -52,7 +52,6 @@
 	<define name="HAXE_EXTENSION" unless="web || neko" />
 	<define name="MODS_ALLOWED" if="desktop" />
 	<define name="LUA_ALLOWED" if="desktop" />
-	<define name="EMBED_ASSETS" />
 	<define name="DISCORD_ALLOWED" if="desktop" />
         <define name="HSCRIPT_ALLOWED" />
 	<define name="HAXE_MODCHART" />
@@ -133,14 +132,6 @@
        	<assets path='Launch.bat' if="windows"/>
 	<assets path='modsList.txt' rename='' />
 	<assets path='LICENSE' rename='LICENSE.txt' />
-	 
-    <!-- Localization data comes from the i18n folder, which is provided by a separate repository. -->
-    <section if="EMBED_ASSETS">
-            <assets path="i18n" rename="assets/locale" embed="true" />
-    </section>
-    <section unless="EMBED_ASSETS">
-            <assets path="i18n" rename="assets/locale" embed="false" />
-    </section>
 	<!-- <template path='mods' /> -->
 	
 	<!-- assets path="CHANGELOG.md" rename='changelog.txt' -->
@@ -158,7 +149,6 @@
 
 	<!--In case you want to use the addons package-->
 	<haxelib name="flixel-addons" />
-	<haxelib name="firetongue" />
 	<haxelib name="hscript" if="HSCRIPT_ALLOWED"/>
         <haxelib name="hscript-ex" if="HSCRIPT_ALLOWED"/>
 
