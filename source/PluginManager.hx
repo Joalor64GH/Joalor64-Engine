@@ -39,7 +39,7 @@ class PluginManager {
         var stageList = CoolUtil.coolTextFile("assets/scripts/custom_stages/classes.txt");
         // then process stages...
         for (file in stageList) {
-            interp.addModule(FNFAssets.getText("assets/scripts/custom_stages/" + file + ".hscript"));
+            interp.addModule(FNFAssets.getText("assets/scripts/custom_stages/" + file + ".hx"));
         }
         trace(InterpEx._scriptClassDescriptors);
     }
