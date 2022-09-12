@@ -2801,6 +2801,9 @@ class PlayState extends MusicBeatState
 		} else {
 			scoreTxt.text = 'Score: ' + songScore + ' // Combo Breaks: ' + songMisses + ' // Accuracy: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' // Rank: ' + ratingFC;//peeps wanted no integer rating
 		}
+		if(cpuControlled) {
+			scoreTxt.text = 'Cheater!';
+		}
 
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
