@@ -42,7 +42,10 @@ import flixel.util.FlxSort;
 import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
 #if HSCRIPT_ALLOWED
+import hscript.Expr;
+import hscript.Parser;
 import hscript.ParserEx;
+import hscript.Interp;
 #end
 import haxe.Json;
 import lime.utils.Assets;
