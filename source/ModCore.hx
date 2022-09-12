@@ -18,7 +18,7 @@
  * ModCore.hx
  * The central handler for the system which handles retrieving and loading mods.
  */
-package funkin.behavior.mods;
+package;
 
 import flixel.FlxG;
 import polymod.Polymod;
