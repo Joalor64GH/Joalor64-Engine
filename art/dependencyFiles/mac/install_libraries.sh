@@ -20,8 +20,11 @@ haxelib install flixel-addons
 # Not Sure what These are For
 haxelib install tjson
 haxelib install hxjsonast
-# Scripting and Stuff
+# hxCodec
 haxelib git hxCodec https://github.com/polybiusproxy/hxcodec
+# openfl-webm
+haxelib install openfl-webm
+# Scripting and Stuff
 haxelib git SScript https://github.com/TahirRollingArch/SScript.git
 haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
 haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit
