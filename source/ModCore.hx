@@ -21,7 +21,11 @@
 package;
 
 import flixel.FlxG;
+import polymod.*;
 import polymod.Polymod;
+import polymod.Polymod.ModMetadata;
+import polymod.Polymod.PolymodError;
+import polymod.format.ParseRules;
 #if FEATURE_MODCORE
 import polymod.backends.OpenFLBackend;
 import polymod.backends.PolymodAssets.PolymodAssetType;
@@ -41,9 +45,6 @@ class ModCore
 	 * Remember to increment the major version if you make breaking changes to mods!
 	 */
 	static final API_VERSION = "1.5.2";
-
-	static final API_MATCH_VERSION = "1.5.2";
-
 	static final MOD_DIRECTORY = "polymods";
 
 	public static function loadAllMods()
@@ -176,7 +177,7 @@ class ModCore
 		for (item in fileList)
 			Debug.logTrace('  * $item');
 
-		fileList = Polymod.listModFiles("SOUND");
+		fileList = Polymod.listModFiles("SOUNDS");
 		Debug.logInfo('Installed mods have replaced ${fileList.length} sound files.');
 		for (item in fileList)
 			Debug.logTrace('  * $item');

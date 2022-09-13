@@ -1,9 +1,13 @@
 #!/bin/bash
 
-# hxCodec Stuff
-echo "Installing hxCodec Necessities..."
+# Linux Stuff
+echo "Installing Linux Necessities..."
+sudo apt-get update
+sudo apt-get install gcc-multilib g++-multilib haxe -y
 sudo apt-get install libvlc-dev
 sudo apt-get install libvlccore-dev
+sudo apt-get install vlc-bin
+sudo apt-get -y install libidn12
 
 ## https://haxe.org/download/linux/
 echo "Installing Haxe..."
