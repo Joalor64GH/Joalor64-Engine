@@ -13,7 +13,7 @@ function destroy()
 	// after playstate ends
 }
 
-function update(elapsed)
+function update(elapsed:Float)
 {
 	// during playstate's update function
 }
@@ -23,7 +23,7 @@ function postUpdate()
 	// after playstate's update function
 }
 
-function goodNoteHit(coolNote)
+function goodNoteHit(coolNote:Note, character:Character)
 {
 	// when you hit a note on PlayState
 }
@@ -38,7 +38,7 @@ function startCountdown()
 	// when the countdown starts
 }
 
-function onCountdownTick(swagCounter)
+function onCountdownTick(swagCounter:Int)
 {
 	// when the countdown is ticking (e.g: three(0), two(1), one(2), go(3))
 }
@@ -48,12 +48,12 @@ function startSong()
 	// when the song starts
 }
 
-function stepHit(curStep)
+function stepHit(curStep:Int)
 {
 	// when a song step is hit
 }
 
-function beatHit(curBeat)
+function beatHit(curBeat:Int)
 {
 	// when a song beat is hit
 }

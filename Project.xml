@@ -160,6 +160,7 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="flixel-demos" />
 	<haxelib name="flixel-tools" />
+	<haxelib name="flixel-studio" />
 	<haxelib name="linc_luajit" if="LUA_ALLOWED"/>
 	<haxelib name="hxvm-luajit" if="LUA_ALLOWED"/>
         <haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>

@@ -21,3 +21,4 @@
 .bat
 .ico
 .exe
+.dat
