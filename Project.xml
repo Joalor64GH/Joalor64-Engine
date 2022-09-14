@@ -237,4 +237,15 @@
 	<icon path="art/icon256.png" size='256'/>
 	<icon path="art/icon512.png" size='512'/>
 	<icon path="art/iconOG.png" />
+		
+	<!-- so that everything within flixel gets compiled which means hscript super powaaah -->
+	<haxeflag name="--macro" value="include('flixel')" />
+	<haxeflag name="--macro" value="include('sys')" />
+
+	<!-- HAXE STUFF !-->
+	<haxeflag name="--macro" value="include('DateTools')" />
+	<haxeflag name="--macro" value="include('EReg')" />
+	<haxeflag name="--macro" value="include('Lambda')" />
+	<haxeflag name="--macro" value="include('StringBuf')" />
+	<haxeflag name="--macro" value="include('haxe.crypto')" />
 </project>
