@@ -1,4 +1,3 @@
-import dev_toolbox.ProgressBarWindow.IProgressObject;
 import flixel.addons.ui.StrNameLabel;
 import haxe.Exception;
 import haxe.Json;
