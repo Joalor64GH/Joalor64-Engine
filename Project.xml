@@ -152,6 +152,7 @@
 	<haxelib name="openfl-webm" />
 	<haxelib name="hscript" if="HSCRIPT_ALLOWED"/>
         <haxelib name="hscript-ex" if="HSCRIPT_ALLOWED"/>
+	<define name="hscriptPos" />
 
 	<haxelib name="actuate" />
 	<haxelib name="extension-webm" if="windows || mac"/> <!-- Make sure to use https://github.com/KadeDev/extension-webm/ -->
