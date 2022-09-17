@@ -61,6 +61,7 @@ assets/locales/
 
 ### Polymod Stuff
 polymod_mods/introMod/
+art/How to make a mod.url
 
 ### Stage Editor-Related
 assets/images/stageborder.png
@@ -99,6 +100,7 @@ PlayState - Copy.hx
 !appveyor-macos.yml
 !appveyor-windows.yml
 !azure-pipelines.yml
+!.DS_Store
 !Thumbs.db
 !*.hxml
 !*.hxproj
@@ -107,7 +109,6 @@ PlayState - Copy.hx
 ### VS Code
 export/*
 .vscode/*
-.DS_Store
 .vscode/.temp
 # Local history which shouldn't be shared.
 desktop.ini

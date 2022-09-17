@@ -41,6 +41,16 @@ class PluginManager {
         for (file in stageList) {
             interp.addModule(FNFAssets.getText("assets/scripts/custom_stages/" + file + ".hx"));
         }
+        var menuList = CoolUtil.coolTextFile("assets/scripts/custom_menus/classes.txt");
+        // menus next...
+        for (file in menuList) {
+            interp.addModule(FNFAssets.getText("assets/scripts/custom_menus/" + file + ".hscript"));
+        }
+        var hstageList = CoolUtil.coolTextFile("assets/scripts/hscript_stages/classes.txt");
+        // and now stages with hscript...
+        for (file in hstageList) {
+            interp.addModule(FNFAssets.getText("assets/scripts/hscript_stages/" + file + ".hscript"));
+        }
         trace(InterpEx._scriptClassDescriptors);
     }
     /**
