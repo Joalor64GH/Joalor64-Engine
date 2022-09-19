@@ -133,6 +133,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Changed my Profile Link Again
 * And just a bit more.
 
-## [1.5.0] - UNRELEASED
+## [1.5.0] - 2022-9-19
 ### Added
-* TBA
+* Support for Haxe and Hscript Stages
+* Custom Menu Hscripts Support (WIP)
+* Added Missing Credits Again
+* Openfl-Webm
+* Updated SWF to 3.1.0
+* And a lot more.
