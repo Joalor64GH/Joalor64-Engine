@@ -44,8 +44,6 @@
 * After that, just press space to go back to the menu.
 
 # Planned Features
-* [X] HX Stages Support. **[Completed]**
-* [ ] Hardcoded Scripts Support.
 * [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
 
 More things could added as we go along!
