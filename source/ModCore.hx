@@ -14,7 +14,7 @@ import polymod.format.ParseRules.TextFileFormat;
 #end
 
 /**
- * Class based from Kade Engine, Enigma Engine, and ChainSaw Engine.
+ * Class based off of Kade Engine, Enigma Engine, and ChainSaw Engine.
  * Credits: KadeDev, MasterEric, MAJigsaw77.
  */
 class ModCore

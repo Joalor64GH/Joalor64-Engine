@@ -17,6 +17,7 @@
 .frag
 .vert
 .ttf
+.otf
 .py
 .bat
 .ico
