@@ -1,23 +1,3 @@
-/*
- * Apache License, Version 2.0
- *
- * Copyright (c) 2021 MasterEric
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at:
- *     http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/*
- * ModCore.hx
- * The central handler for the system which handles retrieving and loading mods.
- */
 package;
 
 import flixel.FlxG;
@@ -34,7 +14,8 @@ import polymod.format.ParseRules.TextFileFormat;
 #end
 
 /**
- * Okay now this is epic.
+ * Class based from Kade Engine, Enigma Engine, and ChainSaw Engine.
+ * Credits: KadeDev, MasterEric, MAJigsaw77.
  */
 class ModCore
 {
@@ -46,6 +27,27 @@ class ModCore
 	 */
 	static final API_VERSION = "1.5.2";
 	static final MOD_DIRECTORY = "polymods";
+
+	private static final modExtensions:Map<String, PolymodAssetType> = [
+		'mp3' => AUDIO_GENERIC,
+		'ogg' => AUDIO_GENERIC,
+		'wav' => AUDIO_GENERIC,
+		'png' => IMAGE,
+		'txt' => TEXT,
+		'xml' => TEXT,
+		'json' => TEXT,
+		'jsonc' => TEXT,
+		'frag' => SHADER,
+		'vert' => SHADER,
+		'ttf' => FONT,
+		'otf' => FONT,
+		'webm' => VIDEO,
+		'mp4' => VIDEO,
+		'py' => SCRIPT,
+		'hxs' => SCRIPT,
+		'hx' => SCRIPT,
+		'hscript' => SCRIPT
+	];
 
 	public static function loadAllMods()
 	{
@@ -115,20 +117,14 @@ class ModCore
 			Debug.logInfo('Attempting to load ${ids.length} mods...');
 		}
 		var loadedModList = polymod.Polymod.init({
-			// Root directory for all mods.
 			modRoot: MOD_DIRECTORY,
-			// The directories for one or more mods to load.
 			dirs: ids,
-			// Framework being used to load assets. We're using a CUSTOM one which extends the OpenFL one.
 			framework: CUSTOM,
-			// The current version of our API.
 			apiVersion: API_VERSION,
-			// Call this function any time an error occurs.
 			errorCallback: onPolymodError,
-			// Enforce semantic version patterns for each mod.
-			// modVersions: null,
-			// A map telling Polymod what the asset type is for unfamiliar file extensions.
-			// extensionMap: [],
+			parseRules: getParseRules(),
+			extensionMap: modExtensions,
+			ignoredFiles: Polymod.getDefaultIgnoreList()
 
 			frameworkParams: buildFrameworkParams(),
 
@@ -244,6 +240,13 @@ class ModCore
 				"week6" => "./week6",
 			]
 		}
+	}
+
+	public static function getParseRules():ParseRules
+	{
+		var output = ParseRules.getDefault();
+		output.addType("txt", TextFileFormat.LINES);
+		return output;
 	}
 
 	static function onPolymodError(error:PolymodError):Void

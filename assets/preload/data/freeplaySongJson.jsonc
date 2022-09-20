@@ -106,6 +106,7 @@
     },
     // trailing commas don't matter with tjson
     // visual studio code is just pissy
+    // oh okay because i was confused lol
     /*
     uncomment this for an example
      {
