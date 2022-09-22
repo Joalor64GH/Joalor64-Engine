@@ -25,8 +25,8 @@ class ModCore
 	 * 
 	 * Remember to increment the major version if you make breaking changes to mods!
 	 */
-	static final API_VERSION = "1.5.2";
-	static final MOD_DIRECTORY = "polymods";
+	static final API_VERSION:String = "1.5.2";
+	static final MOD_DIRECTORY:String = "polymods";
 
 	private static final modExtensions:Map<String, PolymodAssetType> = [
 		'mp3' => AUDIO_GENERIC,

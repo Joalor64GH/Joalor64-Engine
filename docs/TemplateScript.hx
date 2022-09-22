@@ -25,12 +25,12 @@ function postUpdate()
 
 function goodNoteHit(coolNote:Note, character:Character)
 {
-	// when you hit a note on PlayState
+	// called when you hit a note on PlayState
 }
 
-function noteMissCheck()
+function noteMiss(strumNote:Note)
 {
-	// when you miss a note
+	// called when you miss a note on PlayState
 }
 
 function startCountdown()
@@ -38,7 +38,7 @@ function startCountdown()
 	// when the countdown starts
 }
 
-function onCountdownTick(swagCounter:Int)
+function countdownTick(swagCounter:Int)
 {
 	// when the countdown is ticking (e.g: three(0), two(1), one(2), go(3))
 }
