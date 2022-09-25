@@ -79,15 +79,15 @@ class EngineType
 					extensions = ['.ttf', '.otf'];
 				case HSCRIPT:
 					extensions = ['.hxs', '.hx', '.hscript'];
-                case LUA:
+                                case LUA:
 					extensions = ['.lua'];
-                case PYTHON:
+                                case PYTHON:
 					extensions = ['.py'];
-                case VIDEO:
+                                case VIDEO:
 					extensions = ['.mp4', '.swf', '.webm'];
-                case SHADER:
+                                case SHADER:
 					extensions = ['.frag', '.vert'];
-                case TEXT:
+                                case TEXT:
 					extensions = ['.txt'];
             }    
         }
