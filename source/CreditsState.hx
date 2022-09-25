@@ -105,7 +105,7 @@ class CreditsState extends MusicBeatState
 			['TheZoroForce240',             'zoro',             'Extra Keys made with LUA',                       		'https://gamebanana.com/members/1708748',          'FFD900'],
 			['AT',             'at',             'Hardcoded Crossfades',                       		'https://github.com/UmbratheUmbreon',          'E8E8E8'],
 			['YoshiCrafter29',             'yoshi',             'DVD State + Yoshi Engine Code',                       		'https://github.com/YoshiCrafter29',          '8C00FF'],
-			['ElAnthonyVixtin',             'vix',             'Vixtin Engine Code',                       		'https://www.youtube.com/c/ElAnthonyVixtin',          'FF2A00'],
+			['ElAnthonyVixtin',             'vix',             'Vixtin Engine Code',                       		'https://github.com/ElAnthonyVix',          'FF2A00'],
 			['MemeHoovy',             'meme',             'Modified Forever Assets Manager',                       		'https://github.com/MemeHoovy',          'FFEDD9'],
 			['You',             'face',             'For playing :)',                       		'https://joalor64.itch.io/',          '7E00FF'],			
 			[''],
