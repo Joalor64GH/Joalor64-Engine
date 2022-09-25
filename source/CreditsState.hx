@@ -106,7 +106,7 @@ class CreditsState extends MusicBeatState
 			['AT',             'at',             'Hardcoded Crossfades',                       		'https://github.com/UmbratheUmbreon',          'E8E8E8'],
 			['YoshiCrafter29',             'yoshi',             'DVD State + Yoshi Engine Code',                       		'https://github.com/YoshiCrafter29',          '8C00FF'],
 			['ElAnthonyVixtin',             'vix',             'Vixtin Engine Code',                       		'https://www.youtube.com/c/ElAnthonyVixtin',          'FF2A00'],
-			['MemeHoovy',             meme',             'Modified Forever Assets Manager',                       		'https://github.com/MemeHoovy',          'FFEDD9'],
+			['MemeHoovy',             'meme',             'Modified Forever Assets Manager',                       		'https://github.com/MemeHoovy',          'FFEDD9'],
 			['You',             'face',             'For playing :)',                       		'https://joalor64.itch.io/',          '7E00FF'],			
 			[''],
 			['Psych Engine Team'],
