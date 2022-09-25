@@ -72,7 +72,7 @@ Hope you enjoy!
 * [TheZoroForce240 (Formerly TheZoroForce420)](https://gamebanana.com/members/1708748) - Extra Keys made with LUA
 * [AT](https://github.com/UmbratheUmbreon) - Hardcoded Crossfades
 * [YoshiCrafter29](https://github.com/YoshiCrafter29) - DVD State + Yoshi Engine Code
-* [ElAnthonyVixtin](https://www.youtube.com/c/ElAnthonyVixtin) - Vixtin Engine Code
+* [ElAnthonyVixtin](https://github.com/ElAnthonyVix) - Vixtin Engine Code
 * [MemeHoovy](https://github.com/MemeHoovy) - Modified Forever Asset Manager
 
 # Friday Night Funkin' - Psych Engine
