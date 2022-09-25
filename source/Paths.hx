@@ -51,6 +51,7 @@ class Paths
 		'pyscripts',
 		'scripts',
 		'modcharts',
+		'states',
 		'libs',
 		'achievements'
 	];

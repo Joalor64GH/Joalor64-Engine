@@ -122,9 +122,11 @@ class ModCore
 			framework: CUSTOM,
 			apiVersion: API_VERSION,
 			errorCallback: onPolymodError,
-			parseRules: getParseRules(),
 			extensionMap: modExtensions,
+			frameworkParams: buildFrameworkParams(),
+			customBackend: ModCoreBackend,
 			ignoredFiles: Polymod.getDefaultIgnoreList()
+			parseRules: buildParseRules(),
 
 			frameworkParams: buildFrameworkParams(),
 
@@ -266,6 +268,7 @@ class ModCore
 			// case "parse_mod_api_version":
 			// case "missing_mod":
 			// case "missing_meta":
+			// case "missing_icon":
 			// case "version_conflict_mod":
 			// case "version_conflict_api":
 			// case "version_prerelease_api":

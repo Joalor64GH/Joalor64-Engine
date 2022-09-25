@@ -90,6 +90,7 @@ daversion
 version.Awesome
 gameVersion.txt
 version.txt
+ver.thing
 PlayState - Copy.hx
 
 ### Add these regardless of them getting ignored.
