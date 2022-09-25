@@ -31,7 +31,7 @@
 * Rainbow FPS Option.
 * Restored "Combo" Asset :trollface:
 * Max BPM no longer capped at 339 :trollface:
-* Some code borrowed from [OS Engine](https://github.com/weuz-github/FNF-OSEngine) (Thanks notweuz)
+* Some code borrowed from [OS Engine](https://github.com/notweuz/FNF-OSEngine) (Thanks notweuz)
 * Latin Alphabet Support (heck ye)
 * 3D Notes (Perfect for fanmade DnB mods.)
 * Extra Keys (Look at the Wiki for a tutorial.)
@@ -73,6 +73,7 @@ Hope you enjoy!
 * [AT](https://github.com/UmbratheUmbreon) - Hardcoded Crossfades
 * [YoshiCrafter29](https://github.com/YoshiCrafter29) - DVD State + Yoshi Engine Code
 * [ElAnthonyVixtin](https://www.youtube.com/c/ElAnthonyVixtin) - Vixtin Engine Code
+* [MemeHoovy](https://github.com/MemeHoovy) - Modified Forever Asset Manager
 
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
@@ -80,7 +81,7 @@ Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), 
 ## Credits:
 * [ShadowMario](https://github.com/ShadowMario) - Main Programmer
 * [RiverOaken](https://twitter.com/RiverOaken) - Main Artist/Animator
-* [Yoshubs](https://github.com/Yoshubs) - Aditional Programmer + Epic Input System
+* [Yoshubs](https://github.com/Yoshubs) - Aditional Programmer + Epic Input System + OG Forever Asset Manager
 * [bbpanzu](https://twitter.com/bbpanzu) - Ex-Programmer
 
 ### Special Thanks
