@@ -7,14 +7,14 @@ class ModState extends MusicBeatState
     public var stateName:String;
     public function new(stateName:String) {
         this.stateName = stateName;
-        var assets:String = 'assets/states';
-        var mods:String = 'mods/${Paths.currentModDirectory}/states';
+        var assets:String = 'assets/states/';
+        var mods:String = 'mods/${Paths.currentModDirectory}/states/';
         #if MODS_ALLOWED
-        if (Assets.exists('$mods/$stateName.hscript'))
-            PlayState.instance.addHscript('$mods/$stateName.hscript');
+        if (Assets.exists('$mods/$states/$stateName.hscript'))
+            PlayState.instance.addHscript('$mods/$states/$stateName.hscript');
         #else
-        if (Assets.exists('$assets/$stateName.hscript'))
-            PlayState.instance.addHscript('$assets/$stateName.hscript');
+        if (Assets.exists('$assets/$states/$stateName.hscript'))
+            PlayState.instance.addHscript('$assets/$states/$stateName.hscript');
         #end
         super();
         // ONLY IF IT EXISTS!!!!
