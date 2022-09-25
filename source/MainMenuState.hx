@@ -56,7 +56,7 @@ class MainMenuState extends MusicBeatState
 	public static var preRelease:String = '-PRE';
 	public static var hotfixRelease:String = 'h';
 	public static var bugfixRelease:String = '-BUGFIX'; */
-	public static var joalor64EngineVersion:String = '1.5.0'; // This is also used for Discord RPC
+	public static var joalor64EngineVersion:String = '1.5.1'; // This is also used for Discord RPC
 	public static var psychEngineVersion:String = '0.5.2h'; // This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Main_Checker'), 0.2, 0.2, true, true);
