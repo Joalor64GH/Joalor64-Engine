@@ -1,4 +1,4 @@
-package;
+package assetUtil;
 
 import haxe.crypto.Md5;
 import openfl.utils.Assets;
