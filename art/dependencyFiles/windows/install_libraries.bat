@@ -33,7 +33,7 @@ haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
 haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit
 haxelib install hscript 
 haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
-haxelib git polymod https://github.com/MasterEric/polymod.git
+haxelib install polymod 1.5.2
 haxelib install swf 3.1.0
 haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
 haxelib git extension-webm https://github.com/KadeDev/extension-webm
