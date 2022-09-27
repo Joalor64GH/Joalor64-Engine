@@ -43,10 +43,13 @@ class ModCore
 		'otf' => FONT,
 		'webm' => VIDEO,
 		'mp4' => VIDEO,
+		'swf' => VIDEO,
 		'py' => SCRIPT,
 		'hxs' => SCRIPT,
 		'hx' => SCRIPT,
 		'hscript' => SCRIPT
+		//'hsc' => HARDCODE
+		//'hhx' => HARDCODE
 	];
 
 	public static function loadAllMods()

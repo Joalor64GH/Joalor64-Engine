@@ -44,6 +44,7 @@ import openfl.utils.Assets;
     var SOUND = '.ogg';
     var SPARROW = '.xml';
     var LUA = '.lua';
+    // var HARDCODED = '.hhx'; //soon...
     var PYTHON = '.py';
     var VIDEO = '.mp4';
     var SHADER = '.frag';
@@ -89,6 +90,8 @@ class EngineType
 					extensions = ['.frag', '.vert'];
                                 case TEXT:
 					extensions = ['.txt'];
+                    //            case HARDCODED:
+					//extensions = ['.hhx', '.hsc'];
             }    
         }
     }
