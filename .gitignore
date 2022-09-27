@@ -91,6 +91,7 @@ version.Awesome
 gameVersion.txt
 version.txt
 ver.thing
+current.version
 PlayState - Copy.hx
 
 ### Add these regardless of them getting ignored.
