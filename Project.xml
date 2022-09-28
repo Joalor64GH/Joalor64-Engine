@@ -122,8 +122,8 @@
 	<assets path="assets/week6"         library="week6"         exclude="*.ogg" if="web"/>
 	<assets path="assets/week6"         library="week6"         exclude="*.mp3" unless="web"/>
 	
-        <assets path="assets/artemis"         library="artemis"     if="windows"/>
-	<assets path="assets/swf"         library="swf"     if="SWF_ALLOWED"/>
+        <assets path="assets/artemis"       library="artemis"       if="windows"/>
+	<assets path="assets/swf"           library="swf"           if="SWF_ALLOWED"/>
 
 	<assets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
 	<assets path='polymod_mods' rename='polymods' if="MODS_ALLOWED"/>
@@ -221,6 +221,18 @@
 
 	<!-- Defines whether the Mods menu will display before launching. -->
         <haxedef name="FEATURE_MODCORE" if="desktop" />
+	
+	<!-- Defines whether WebM videos should be enabled. Currently only enabled on Windows. -->
+	<haxedef name="FEATURE_WEBM" if="windows" unless="neko" />
+	
+	<!-- Use defines to configure the behavior of Polymod. -->
+	<haxedef name="POLYMOD_SCRIPT_EXT" value=".hscript" || ".hx" || ".hxs" />
+	<haxedef name="POLYMOD_PYTHON_EXT" value=".py" />
+	<haxedef name="POLYMOD_SCRIPT_LIBRARY" value="scripts/" || "modcharts/" || "haxescript/" />
+	<haxedef name="POLYMOD_PYTHON_LIBRARY" value="pyscripts/" />
+	<haxedef name="POLYMOD_USE_NAMESPACE" value="false" />
+	<haxedef name="POLYMOD_ROOT_PATH" value="assets/scripts/" />
+        <haxedef name="POLYMOD_DEBUG" if="debug" />
 
 	<!-- _________________________________ Custom _______________________________ -->
 
