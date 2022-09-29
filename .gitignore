@@ -35,6 +35,7 @@ source-default/
 ### Android-Specific
 source/SUtil.hx
 source/android/
+source/mobile/
 assets/android/
 assets/images/androidcontrols/
 art/setupFiles/android/build_android.bat
@@ -61,7 +62,7 @@ assets/locales/
 
 ### Polymod Stuff
 polymod_mods/introMod/
-art/How to make a mod.url
+art/mod.url
 
 ### Stage Editor-Related
 assets/images/stageborder.png
