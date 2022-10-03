@@ -66,7 +66,7 @@ Hope you enjoy!
 * [sayofthelor](https://twitter.com/sayofthelor) - Checkerboards Code
 * [skedgyedgy](https://github.com/skedgyedgy) - Artemis Integration
 * [Verwex](https://twitter.com/ShiftVer) - Systools Code
-* [TheWorldMachine (Formerly TahirRollingArch)](https://github.com/TheWorldMachine) - Replay System + SScript
+* [TheWorldMachinima (Formerly TheWorldMachine)](https://github.com/TheWorldMachinima) - Replay System + SScript
 * [stephensrt (Formerly Magnumsrt)](https://github.com/stephensrt) - Stage Editor + Python Support + Custom State Support
 * [BulbyVR](https://harlessben321.itch.io/) - Modding Plus Code
 * [TheZoroForce240 (Formerly TheZoroForce420)](https://gamebanana.com/members/1708748) - Extra Keys made with LUA
