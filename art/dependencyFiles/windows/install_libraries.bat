@@ -28,7 +28,7 @@ haxelib install tjson
 haxelib install hxjsonast
 haxelib git hxCodec https://github.com/polybiusproxy/hxcodec
 haxelib install openfl-webm
-haxelib git SScript https://github.com/TheWorldMachinima/SScript.git
+haxelib git SScript https://github.com/TheWorldMachinima/SScript
 haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
 haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit
 haxelib install hscript 
