@@ -21,7 +21,6 @@ import openfl.Lib;
 import openfl.net.FileReference;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
-import MainVariables._variables;
 
 using StringTools;
 
@@ -113,7 +112,6 @@ class VideoState extends MusicBeatState
 			#end
 		}
 
-		fuckingVolume = _variables.mvolume;
 		FlxG.sound.music.volume = 0;
 		var isHTML:Bool = false;
 		#if web
