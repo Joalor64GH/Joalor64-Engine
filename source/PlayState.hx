@@ -66,6 +66,8 @@ import StageData;
 import FunkinLua;
 import DialogueBoxPsych;
 import ReplayState.ReplayPauseSubstate;
+import scripting.Script;
+import Cutscene;
 #if sys
 import sys.FileSystem;
 import sys.io.File;
@@ -300,8 +302,12 @@ class PlayState extends MusicBeatState
 	// Less laggy controls
 	private var keysArray:Array<Dynamic>;
 
+	public var hornyScript:Script; // we do a little trolling
+
 	override public function create()
 	{
+		hornyScript.onCreate();
+
 		Paths.clearStoredMemory();
 
 		// for lua
@@ -2657,6 +2663,8 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		hornyScript.onUpdate();
+
 		/*if (FlxG.keys.justPressed.NINE)
 		{
 			iconP1.swapOldIcon();
@@ -4355,6 +4363,7 @@ class PlayState extends MusicBeatState
 	}
 
 	function noteMiss(daNote:Note):Void { //You didn't hit the key and let it go offscreen, also used by Hurt Notes
+	hornyScript.onNoteMiss();
 		//Dupe note remove
 		notes.forEachAlive(function(note:Note) {
 			if (daNote != note && daNote.mustPress && daNote.noteData == note.noteData && daNote.isSustainNote == note.isSustainNote && Math.abs(daNote.strumTime - note.strumTime) < 1) {
@@ -4514,6 +4523,7 @@ class PlayState extends MusicBeatState
 
 	function goodNoteHit(note:Note):Void
 	{
+		hornyScript.onNoteHit();
 		if (!note.wasGoodHit)
 		{
 			if (ClientPrefs.hitsoundVolume > 0 && !note.hitsoundDisabled)

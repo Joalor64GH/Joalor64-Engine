@@ -22,6 +22,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import haxe.Json;
 import lime.app.Application;
+import scripting.MMScript;
 
 using StringTools;
 #if MODS_ALLOWED
@@ -80,6 +81,8 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
+		MMScript.onCreate();
+
 		WeekData.loadTheFirstEnabledMod();
                 menuJSON = Json.parse(Paths.getTextFromFile('images/mainmenu/menu_preferences.json'));
 
@@ -292,6 +295,8 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		MMScript.onUpdate();
+
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
@@ -416,6 +421,8 @@ class MainMenuState extends MusicBeatState
 
 	function changeItem(huh:Int = 0)
 	{
+		MMScript.onItemChange();
+
 		curSelected += huh;
 
 		if (curSelected >= menuItems.length)

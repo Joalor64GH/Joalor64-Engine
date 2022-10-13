@@ -7,9 +7,22 @@ class DumbKidLol extends RealDumbass
     var gotalife:Bool = true;
     var adopted:Bool = false;
     var STUPID:Bool = false;
-    var ratio:Int = 0;
+    var ratio(default, set):Int;
     var hasBrain:Bool = true;
-    var stupidKid:String = 'NimuDevUwU';
+    var stupidKid:String = 'NimuDevUwU'; // fuck you nimu, I reported your account & got it taken down, don't think I won't do it again
+
+    function set_ratio(r:Int):Int
+    {
+        if (stupidKid == 'NimuDevUwU'){
+            return 9999;
+        }
+        else if (stupidKid == 'MemeHoovy'){
+            return 0;
+        }
+        else {
+            return ratio = r;
+        }
+    }
 
     override function create()
     {
@@ -20,7 +33,7 @@ class DumbKidLol extends RealDumbass
             gotalife = false;
             adopted = true;
             STUPID = true;
-            ratio++;
+            // ratio++;
             hasBrain = false;
         }
     }
