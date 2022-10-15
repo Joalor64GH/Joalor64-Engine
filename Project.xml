@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project xmlns="http://lime.software/project/1.0.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://lime.software/project/1.0.3 http://lime.software/xsd/project-1.0.3.xsd">
+<project>
 	<!-- _________________________ Application Settings _________________________ -->
 
 	<app title="Friday Night Funkin': Joalor64 Engine" packageName="com.joalor64gh.joalor64engine" package="com.joalor64gh.joalor64engine" main="Main" version="0.2.8" company="Joalor64GH" />
@@ -32,9 +32,6 @@
 
 	<!--Mobile-specific-->
 	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false"/>
-
-	<!--Switch-specific-->
-	<window if="switch" orientation="landscape" fullscreen="true" width="0" height="0" resizable="true" />
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
@@ -129,9 +126,6 @@
        	<assets path='Launch.bat' if="windows"/>
 	<assets path='modsList.txt' rename='' />
 	<assets path='LICENSE' rename='LICENSE.txt' />
-	<!-- <template path='mods' /> -->
-	
-	<!-- assets path="CHANGELOG.md" rename='changelog.txt' -->
 
 	<!-- NOTE FOR FUTURE SELF SINCE FONTS ARE ALWAYS FUCKY 
 		TO FIX ONE OF THEM, I CONVERTED IT TO OTF. DUNNO IF YOU NEED TO
@@ -162,7 +156,6 @@
 	<haxelib name="linc_luajit" if="LUA_ALLOWED"/>
 	<haxelib name="hxvm-luajit" if="LUA_ALLOWED"/>
         <haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
-	<haxelib name="faxe" if='switch'/>
 	<haxelib name="polymod" if="MODS_ALLOWED"/>
 	<haxelib name="swf" if="SWF_ALLOWED"/>
 	<haxelib name="SScript" if="HAXE_EXTENSION"/>
@@ -180,8 +173,8 @@
 	<!--Disable the Flixel core focus lost screen-->
 	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
 
-        <!-- Show debug traces for hxCodec -->
-        <haxedef name="HXC_DEBUG_TRACE" if="debug" />
+	<!-- Show debug traces for hxCodec -->
+	<haxedef name="HXC_DEBUG_TRACE" if="debug" />
 
 	<!--Allow working memory greater than 1 Gig-->
 	<haxedef name="HXCPP_GC_BIG_BLOCKS"/>
