@@ -58,7 +58,7 @@ import ModsMenuState;
 
 using StringTools;
 
-class CustomState extends MusicBeatState
+class CustomSubState extends MusicBeatSubstate
 {
 	public var name:String;
 
@@ -81,8 +81,8 @@ class CustomState extends MusicBeatState
 	{
 		filesPushed = [];
 
-		var folders:Array<String> = [Paths.getPreloadPath('custom_states/')];
-		folders.insert(0, Paths.modFolder('custom_states/'));
+		var folders:Array<String> = [Paths.getPreloadPath('custom_substates/')];
+		folders.insert(0, Paths.modFolder('custom_substates/'));
 		for (folder in folders)
 		{
 			if (FileSystem.exists(folder))
@@ -91,7 +91,7 @@ class CustomState extends MusicBeatState
 				{
 					if (file.endsWith('.hx') && !filesPushed.contains(file))
 					{
-						var expr = File.getContent(Paths.state(file));
+						var expr = File.getContent(Paths.substate(file));
 						var parser = new hscript.Parser();
 						parser.allowTypes = true;
 						parser.allowJSON = true;
@@ -158,8 +158,7 @@ class CustomState extends MusicBeatState
 
 		if (controls.BACK)
 		{
-			FlxG.resetState();
-			MusicBeatState.switchState(new MainMenuState());
+			close();
 		}
 	}
 
