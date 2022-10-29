@@ -87,13 +87,13 @@ class PluginManager {
 		interp.variables.set("TitleState", TitleState);
 		interp.variables.set("makeRangeArray", CoolUtil.numberArray);
 		interp.variables.set("FNFAssets", FNFAssets);
-            interp.variables.set("CoolUtil", CoolUtil);
-            interp.variables.set("Main", Main);
-            interp.variables.set("AtlasFrameMaker", AtlasFrameMaker);
-            interp.variables.set("FlxCamera", FlxCamera);
-            interp.variables.set("ShaderCustom", ShaderCustom);
-            interp.variables.set("ShaderFilter", ShaderFilter);
-            interp.variables.set("FlxVideo", FlxVideo);
+                interp.variables.set("CoolUtil", CoolUtil);
+                interp.variables.set("Main", Main);
+                interp.variables.set("AtlasFrameMaker", AtlasFrameMaker);
+                interp.variables.set("FlxCamera", FlxCamera);
+                interp.variables.set("ShaderCustom", ShaderCustom);
+                interp.variables.set("ShaderFilter", ShaderFilter);
+                interp.variables.set("FlxVideo", FlxVideo);
 		// : )
 		interp.variables.set("FlxG", HscriptGlobals);
 		interp.variables.set("FlxTimer", flixel.util.FlxTimer);
@@ -106,14 +106,14 @@ class PluginManager {
 		interp.variables.set("Reflect", Reflect);
 		interp.variables.set("Character", Character);
 		interp.variables.set("OptionsHandler", OptionsHandler);
-            interp.variables.set("FlxText", FlxText);
-            interp.variables.set("FlxTextBorderStyle", FlxTextBorderStyle);
-            interp.variables.set("FlxBackdrop", FlxBackdrop);
-            interp.variables.set("LoadingState", LoadingState);
-            interp.variables.set("FlxRect", FlxRect);
-            interp.variables.set("FlixG", FlxG);
-            interp.variables.set("PluginManager", PluginManager);
-            interp.variables.set("callExternClass", instanceExClass); //Call modules?? :D
+                interp.variables.set("FlxText", FlxText);
+                interp.variables.set("FlxTextBorderStyle", FlxTextBorderStyle);
+                interp.variables.set("FlxBackdrop", FlxBackdrop);
+                interp.variables.set("LoadingState", LoadingState);
+                interp.variables.set("FlxRect", FlxRect);
+                interp.variables.set("FlixG", FlxG);
+                interp.variables.set("PluginManager", PluginManager);
+                interp.variables.set("callExternClass", instanceExClass); //Call modules?? :D
 
             //interp.variables.set("GitarooPause", GitarooPause);
 		#if debug
