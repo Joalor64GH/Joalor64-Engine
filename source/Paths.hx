@@ -54,6 +54,7 @@ class Paths
 		'modcharts',
 		'states',
 		'libs',
+		'cutscenes',
 		'achievements'
 	];
 	#end
