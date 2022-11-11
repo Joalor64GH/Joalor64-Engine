@@ -48,7 +48,7 @@ jobs:
           haxelib install flixel-ui
           haxelib install flixel-demos
           haxelib git flixel-addons https://github.com/HaxeFlixel/flixel-addons.git dev
-          haxelib git flixel-studio https://github.com/Dovyski/flixel-studio.git
+          haxelib git flixel-studio https://github.com/Dovyski/flixel-studio.git master
           haxelib install tjson
           haxelib install hxjsonast
           haxelib git hxCodec https://github.com/polybiusproxy/hxcodec
@@ -100,7 +100,7 @@ jobs:
           haxelib install flixel-ui
           haxelib install flixel-demos
           haxelib git flixel-addons https://github.com/HaxeFlixel/flixel-addons.git dev
-          haxelib git flixel-studio https://github.com/Dovyski/flixel-studio.git
+          haxelib git flixel-studio https://github.com/Dovyski/flixel-studio.git master
           haxelib install tjson
           haxelib install hxjsonast
           haxelib git hxCodec https://github.com/polybiusproxy/hxcodec
@@ -155,7 +155,7 @@ jobs:
           haxelib install flixel-ui
           haxelib install flixel-demos
           haxelib git flixel-addons https://github.com/HaxeFlixel/flixel-addons.git dev
-          haxelib git flixel-studio https://github.com/Dovyski/flixel-studio.git
+          haxelib git flixel-studio https://github.com/Dovyski/flixel-studio.git master
           haxelib install tjson
           haxelib install hxjsonast
           haxelib git hxCodec https://github.com/polybiusproxy/hxcodec
