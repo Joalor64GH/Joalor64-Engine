@@ -47,7 +47,7 @@ jobs:
           haxelib install flixel-tools
           haxelib install flixel-ui
           haxelib install flixel-demos
-          haxelib git flixel-addons https://github.com/HaxeFlixel/flixel-addons.git dev master
+          haxelib git flixel-addons https://github.com/HaxeFlixel/flixel-addons.git dev
           haxelib install tjson
           haxelib install hxjsonast
           haxelib git hxCodec https://github.com/polybiusproxy/hxcodec
