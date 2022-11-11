@@ -68,7 +68,7 @@ Hope you enjoy!
 * [skedgyedgy](https://github.com/skedgyedgy) - Artemis Integration
 * [Verwex](https://twitter.com/ShiftVer) - Systools Code
 * [TheWorldMachinima (Formerly TheWorldMachine)](https://github.com/TheWorldMachinima) - Replay System + SScript
-* [stephensrt (Formerly Magnumsrt)](https://github.com/stephensrt) - Stage Editor + Python Support + Custom State Support
+* [stevecodedev (Formerly stephensrt)](https://github.com/stevecodedev) - Stage Editor + Python Support + Custom State Support
 * [BulbyVR](https://harlessben321.itch.io/) - Modding Plus Code
 * [TheZoroForce240 (Formerly TheZoroForce420)](https://gamebanana.com/members/1708748) - Extra Keys made with LUA
 * [AT](https://github.com/UmbratheUmbreon) - Hardcoded Crossfades
