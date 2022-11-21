@@ -100,7 +100,7 @@ class CreditsState extends MusicBeatState
                         ['skedgyedgy',             'skedgy',             'Artemis Integration',                       		'https://github.com/skedgyedgy',          'D000FF'],
 			['Verwex',             'verwex',             'Systools\nCreator of Micd Up',                       		'https://twitter.com/ShiftVer',          '70FFF8'],
 			['TheWorldMachinima',             'tahir',             'Replay System\nSScript',                       		'https://github.com/TheWorldMachinima',          '638F5B'],
-			['stevecodedev',             'mag',             'Stage Editor\nPython Support\nCustom State Support',                       		'https://github.com/stevecodedev',          '0000FF'],
+			['magnumsrt',             'mag',             'Stage Editor\nPython Support\nCustom State Support',                       		'https://github.com/magnumsrt',          '0000FF'],
 			['BulbyVR',             'bulby',             'Modding Plus Code',                       		'https://harlessben321.itch.io/',          '0044FF'],
 			['TheZoroForce240',             'zoro',             'Extra Keys made with LUA',                       		'https://gamebanana.com/members/1708748',          'FFD900'],
 			['AT',             'at',             'Hardcoded Crossfades',                       		'https://github.com/UmbratheUmbreon',          'E8E8E8'],
