@@ -2,7 +2,7 @@
 ![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/art/logos/j64elogo.png?raw=true)
 
 ![](https://img.shields.io/github/v/release/Joalor64GH/Joalor64-Engine?color=0000ff&label=version&style=flat-square)
-![](https://img.shields.io/github/commits-since/Joalor64GH/Joalor64-Engine/v1.5.0?color=0&style=flat-square)
+![](https://img.shields.io/github/commits-since/Joalor64GH/Joalor64-Engine/v1.5.1?color=0&style=flat-square)
 ![](https://img.shields.io/github/downloads/Joalor64GH/Joalor64-Engine/total?color=FF00C8&style=flat-square)
 ![](https://img.shields.io/github/repo-size/Joalor64GH/Joalor64-Engine?color=AE00FF&style=flat-square)
 ![](https://img.shields.io/badge/subscribe%20to-joalor64%20yt-FF0000?style=flat-square)
@@ -68,7 +68,7 @@ Hope you enjoy!
 * [skedgyedgy](https://github.com/skedgyedgy) - Artemis Integration
 * [Verwex](https://twitter.com/ShiftVer) - Systools Code
 * [TheWorldMachinima (Formerly TheWorldMachine)](https://github.com/TheWorldMachinima) - Replay System + SScript
-* [stevecodedev (Formerly stephensrt)](https://github.com/stevecodedev) - Stage Editor + Python Support + Custom State Support
+* [magnumsrt](https://github.com/magnumsrt) - Stage Editor + Python Support + Custom State Support
 * [BulbyVR](https://harlessben321.itch.io/) - Modding Plus Code
 * [TheZoroForce240 (Formerly TheZoroForce420)](https://gamebanana.com/members/1708748) - Extra Keys made with LUA
 * [AT](https://github.com/UmbratheUmbreon) - Hardcoded Crossfades
