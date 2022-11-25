@@ -141,3 +141,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Openfl-Webm
 * Updated SWF to 3.1.0
 * And a lot more.
+
+## [1.5.1] - 2022-11-25
+### Added
+* Updated SWF to 3.1.1
+* Custom Substate Support
+* Main Menu Script Support
+* JSON Cutscene Support
+* Hscript Manu Support
+* Lua Lib Example
+* Lots of Code from Vixtin Engine
+* And some more things.
