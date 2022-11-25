@@ -1,7 +1,9 @@
-1.5.0;
-- Support for Haxe and Hscript Stages
-- Custom Menu Hscripts Support (WIP)
-- Added Missing Credits Again
-- Openfl-Webm
-- Updated SWF to 3.1.0
-- And a lot more.
+1.5.1;
+- Updated SWF to 3.1.1
+- Custom Substate Support
+- Main Menu Script Support
+- JSON Cutscene Support
+- Hscript Manu Support
+- Lua Lib Example
+- Lots of Code from Vixtin Engine
+- And some more things.
