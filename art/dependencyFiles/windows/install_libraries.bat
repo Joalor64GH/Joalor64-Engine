@@ -13,8 +13,7 @@ haxelib install flixel
 haxelib install flixel-tools
 haxelib install flixel-ui
 haxelib install flixel-demos
-haxelib install flixel-addons
-haxelib git flixel-studio https://github.com/Dovyski/flixel-studio.git
+haxelib git flixel-addons https://github.com/HaxeFlixel/flixel-addons.git dev
 title Joalor64 Engine Setup - User action required
 cls
 haxelib run flixel-tools setup

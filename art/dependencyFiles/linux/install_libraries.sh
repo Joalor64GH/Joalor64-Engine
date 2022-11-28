@@ -25,9 +25,7 @@ haxelib install flixel
 haxelib install flixel-tools
 haxelib install flixel-ui
 haxelib install flixel-demos
-haxelib install flixel-addons
-# Flixel Studio
-haxelib git flixel-studio https://github.com/Dovyski/flixel-studio.git
+haxelib git flixel-addons https://github.com/HaxeFlixel/flixel-addons.git dev
 # Not Sure what These are For
 haxelib install tjson
 haxelib install hxjsonast
