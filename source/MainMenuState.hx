@@ -64,6 +64,8 @@ class MainMenuState extends MusicBeatState
         var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
+	public static var firstStart:Bool = true;
+	public static var finishedFunnyMove:Bool = false;
 	
 	var optionShit:Array<String> = [];
         var linkArray:Array<Array<String>> = [];
@@ -242,6 +244,14 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			// menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
+			if (firstStart)
+					FlxTween.tween(menuItem,{y: 60 + (i * 160)},1 + (i * 0.25) ,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
+						{
+							finishedFunnyMove = true; 
+							changeItem();
+						}});
+				else
+					menuItem.y = 60 + (i * 160);
 		}
 
 		FlxG.camera.follow(camFollowPos, null, 1);
