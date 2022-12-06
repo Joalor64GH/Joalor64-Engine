@@ -90,8 +90,8 @@ class EngineType
 					extensions = ['.frag', '.vert'];
                                 case TEXT:
 					extensions = ['.txt'];
-                    //            case HARDCODED:
-					//extensions = ['.hhx', '.hsc'];
+                    /*            case HARDCODED:
+					extensions = ['.hhx', '.hsc'];*/
             }    
         }
     }

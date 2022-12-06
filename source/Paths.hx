@@ -198,6 +198,22 @@ class Paths
 	{
 		return getPath('$key.lua', TEXT, library);
 	}
+	inline static public function hscript(key:String, ?library:String)
+	{
+		return getPath('$key.hscript', TEXT, library);
+	}
+	inline static public function hx(key:String, ?library:String)
+	{
+		return getPath('$key.hx', TEXT, library);
+	}
+	inline static public function hxs(key:String, ?library:String)
+	{
+		return getPath('$key.hxs', TEXT, library);
+	}
+	inline static public function py(key:String, ?library:String)
+	{
+		return getPath('$key.py', TEXT, library);
+	}
 
 	static public function video(key:String)
 	{
