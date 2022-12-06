@@ -49,7 +49,9 @@ class ModCore
 		'hx' => SCRIPT,
 		'hscript' => SCRIPT
 		/*'hsc' => HARDCODE
-		'hhx' => HARDCODE*/
+		'hxc' => HARDCODE
+		'hhx' => HARDCODE
+		'hxx' => HARDCODE*/
 	];
 
 	public static function loadAllMods()

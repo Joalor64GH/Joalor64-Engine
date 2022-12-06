@@ -20,24 +20,31 @@ import haxe.io.Bytes;
 import flixel.graphics.FlxGraphic;
 import openfl.utils.AssetType;
 import openfl.system.System;
+
 using StringTools;
+
 enum Extensions {
 	None;
 	Json;
 	Hscript;
 }
+
 /**
  * Assets reader and writer
  */
-class FNFAssets {
+
+class FNFAssets 
+{
     public static var _file:FileReference;
 	public static var currentTrackedAssets:Map<String, FlxGraphic> = [];
 	public static var currentTrackedSounds:Map<String, Sound> = [];
+	
     /**
      * Get text content of a file. 
      * @param id Path to file.
      * @return String The file content. 
      */
+
     public static function getText(id:String):String {
         #if sys
             // if there a library strip it out..

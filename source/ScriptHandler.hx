@@ -1,10 +1,10 @@
 package;
 
-import flixel;
-import flixel.math;
-import flixel.system;
-import flixel.tweens;
-import flixel.util;
+import flixel.*;
+import flixel.math.*;
+import flixel.system.*;
+import flixel.tweens.*;
+import flixel.util.*;
 
 class ScriptHandler extends SScript
 {

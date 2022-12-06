@@ -28,7 +28,8 @@ import hscript.Parser;
 import hscript.ParserEx;
 import hscript.ClassDeclEx;
 
-class PluginManager {
+class PluginManager 
+{
     public static var interp = new InterpEx();
     public static var hscriptClasses:Array<String> = [];
     public static var hscriptInstances:Array<Dynamic> = [];

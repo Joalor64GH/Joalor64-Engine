@@ -91,7 +91,7 @@ class EngineType
                                 case TEXT:
 					extensions = ['.txt'];
                     /*            case HARDCODED:
-					extensions = ['.hhx', '.hsc'];*/
+					extensions = ['.hhx', '.hsc', '.hxc', '.hxx'];*/
             }    
         }
     }
