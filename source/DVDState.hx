@@ -40,8 +40,7 @@ class DVDState extends MusicBeatState
         if (FlxG.keys.justPressed.ESCAPE) 
         {
             FlxG.switchState(new MainMenuState());
-        }  
-    }
+        }
     
     if (dvdLogo.x > FlxG.width - dvdLogo.width || dvdLogo.x < 0) {
         dvdLogo.velocity.x = -dvdLogo.velocity.x;
