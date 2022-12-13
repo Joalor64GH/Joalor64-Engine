@@ -45,7 +45,7 @@
 * After that, just press space to go back to the menu.
 
 # Planned Features
-* [ ] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol.
+* [X] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol. **[COMPLETED AT LAST]**
 
 More things could added as we go along!
 
