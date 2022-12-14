@@ -7,6 +7,7 @@
 	<app file="J64Engine_APP" if="linux" />
 	<app file="J64Engine_MAC" if="mac" />
 	<!-- <app file="J64Engine (x64)" unless="32bit" /> -->
+	<!-- <app file="J64Engine_APK" if="android" /> -->
 
 	<!-- NOTE TO SELF: DISABLE THIS IF ISSUES ARE FOUND -->
 	<haxedef name="LINC_LUA_RELATIVE_DYNAMIC_LIB"/> <!-- stable luas PUT AFTER FIRST LINE WITH APP NAME AND ETC -->
@@ -61,16 +62,12 @@
         <define name="MP3_ALLOWED"/>
 	<define name="WAV_ALLOWED"/>
 	<define name="MUSIC_FOLDER_ALLOWED"/>
+	<define name="CHECK_FOR_UPDATES"/>
+	<define name="PRELOAD_ALL" unless="web" />
+	<define name="NO_PRELOAD_ALL" unless="PRELOAD_ALL"/>
 
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3|*.mp4"  unless="web"/>
-	
-	<!-- DONT ENABLE THIS -->
-	<define name="CHECK_FOR_UPDATES"/>
-
-	<!-- <define name="PRELOAD_ALL" /> -->
-	<define name="PRELOAD_ALL" unless="web" />
-	<define name="NO_PRELOAD_ALL" unless="PRELOAD_ALL"/>
 	
 	<!-- Do you really wanna try that?-->
 	<error value="Nintendo Switch is not supported." if="switch" />
@@ -101,7 +98,7 @@
 	</section>
 	
 	<assets path="plugins/"             rename=''               if="VIDEOS_ALLOWED windows" />
-	<assets path="dlls/"                rename=''               if="PYTHON_SCRIPTING windows" />
+	<assets path="dlls/"                rename=''               if="PYTHON_SCRIPTING" />
 	<assets path="assets/videos"        library="videos"        if="VIDEOS_ALLOWED"/>
 	<assets path="assets/songs"         library="songs"         exclude="*.ogg" if="web"/>
 	<assets path="assets/songs"         library="songs"         exclude="*.mp3|*.mp4" unless="web"/>
@@ -123,7 +120,7 @@
 	<assets path="assets/week6"         library="week6"         exclude="*.mp3|*.mp4" unless="web"/>
 	
         <assets path="assets/artemis"       library="artemis"       if="windows"/>
-	<assets path="assets/swf"           library="swf"           if="SWF_ALLOWED"/>
+	<assets path="assets/swf"           library="swf"           if="SWF_ALLOWED || VIDEOS_ALLOWED"/>
 
 	<assets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
 	<assets path='polymod_mods' rename='polymods' if="MODS_ALLOWED"/>
@@ -162,7 +159,7 @@
 	<haxelib name="hxvm-luajit" if="LUA_ALLOWED"/>
         <haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
 	<haxelib name="polymod" if="MODS_ALLOWED"/>
-	<haxelib name="swf" if="SWF_ALLOWED"/>
+	<haxelib name="swf" if="SWF_ALLOWED || VIDEOS_ALLOWED"/>
 	<haxelib name="SScript" if="HAXE_EXTENSION"/>
 	<haxelib name="tjson"/>
 	<haxelib name="discord_rpc" if="desktop"/>
