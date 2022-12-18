@@ -22,6 +22,7 @@ FNFBot.exe
 ### GameJolt-Specific
 source/GJKeys.hx
 source/GameJolt.hx
+source/gamejolt/
 
 ### Source Stuff
 source_test/
@@ -53,7 +54,6 @@ beta.md
 
 ### Git-Specific
 .gitconfig
-.gitmodules
 
 ### Localization-Specific
 source/locale/I18n.hx
@@ -94,6 +94,7 @@ version.txt
 ver.thing
 current.version
 PlayState - Copy.hx
+* - Copy.hx
 
 ### Add these regardless of them getting ignored.
 !TempFiles/
