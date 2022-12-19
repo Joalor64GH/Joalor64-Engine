@@ -99,7 +99,7 @@ class TitleState extends MusicBeatState
 		
 		//trace(path, FileSystem.exists(path));
 
-		#if (polymod)
+		#if (polymod && MODS_ALLOWED)
 		if (sys.FileSystem.exists('polymods/')) {
 			var folders:Array<String> = [];
 			for (file in sys.FileSystem.readDirectory('polymods/')) {
@@ -432,7 +432,7 @@ class TitleState extends MusicBeatState
 		funky.antialiasing = ClientPrefs.globalAntialiasing;
 		add(funky); //basically i have 2 sprites instead of newgrounds one
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Joalor64 Engine v1.5.1 (PE 0.5.2h)" #if debug + " DEBUG BUILD" #end, 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Joalor64 Engine v1.5.2 (PE 0.5.2h)" #if debug + " DEBUG BUILD" #end, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -658,7 +658,6 @@ class TitleState extends MusicBeatState
 					#if JOALOR64_WATERMARKS
 					addMoreText('Joalor64 YT', 15);
 					addMoreText('Bot 404', 15);
-					addMoreText('PE Devs', 15);
 					#elseif PSYCH_WATERMARKS
  					addMoreText('ShadowMario', 15);
  					addMoreText('RiverOaken', 15);
@@ -674,20 +673,32 @@ class TitleState extends MusicBeatState
 				// credTextShit.text = 'In association \nwith';
 				// credTextShit.screenCenter();
 				case 5:
-					#if (JOALOR64_WATERMARKS || PSYCH_WATERMARKS)
+					#if JOALOR64_WATERMARKS
 					createCoolText(['Powered', 'with'], -40);
-					#else
+					#elseif PSYCH_WATERMARKS
 					createCoolText(['Not in association', 'with'], -40);
+					#else
+					createCoolText(['In association', 'with'], -40);
 					#end
 				case 7:
+				    #if JOALOR64_WATERMARKS
 					addMoreText('Psych Engine', -40);
 					yt.visible = true;
 					funky.visible = true;
+					#else
+					addMoreText('Newgrounds', -40);
+					ngSpr.visible = true;
+					#end
 				// credTextShit.text += '\nPsych Engine';
+				// credTextShit.text += '\nNewgrounds';
 				case 8:
 					deleteCoolText();
+					#if JOALOR64_WATERMARKS
 					yt.visible = false;
 					funky.visible = false;
+					#else
+					ngSpr.visible = false;
+					#end
 				// credTextShit.visible = false;
 
 				// credTextShit.text = 'Shoutouts Tom Fulp';
@@ -710,7 +721,7 @@ class TitleState extends MusicBeatState
 					addMoreText('Joalor64 Engine');
 				// credTextShit.text += '\nJoalor64 Engine';
 				case 15:
-					addMoreText('V1.5.1'); // credTextShit.text += '\nV1.5.1';
+					addMoreText('V1.5.2'); // credTextShit.text += '\nV1.5.2';
 				case 16:
 			     	addMoreText('LOL'); // credTextShit.text += '\nLOL';
 
