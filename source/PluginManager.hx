@@ -94,7 +94,7 @@ class PluginManager
                 interp.variables.set("FlxCamera", FlxCamera);
                 interp.variables.set("ShaderCustom", ShaderCustom);
                 interp.variables.set("ShaderFilter", ShaderFilter);
-                interp.variables.set("FlxVideo", FlxVideo);
+                interp.variables.set("MP4Handler", MP4Handler);
 		// : )
 		interp.variables.set("FlxG", HscriptGlobals);
 		interp.variables.set("FlxTimer", flixel.util.FlxTimer);
@@ -106,7 +106,7 @@ class PluginManager
 		interp.variables.set("FlxEase", FlxEase);
 		interp.variables.set("Reflect", Reflect);
 		interp.variables.set("Character", Character);
-		interp.variables.set("OptionsHandler", OptionsHandler);
+		interp.variables.set("ClientPrefs", ClientPrefs);
                 interp.variables.set("FlxText", FlxText);
                 interp.variables.set("FlxTextBorderStyle", FlxTextBorderStyle);
                 interp.variables.set("FlxBackdrop", FlxBackdrop);

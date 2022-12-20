@@ -46,6 +46,12 @@ import hscript.Expr;
 import hscript.Parser;
 import hscript.ParserEx;
 import hscript.Interp;
+import FunkinHscript;
+#end
+#if (HAXE_MODCHART && HAXE_EXTENSION)
+import HaxeScript;
+import ScriptHandler;
+import FunkinSScript;
 #end
 import haxe.Json;
 import lime.utils.Assets;
@@ -64,6 +70,7 @@ import flixel.util.FlxSave;
 import Achievements;
 import StageData;
 import FunkinLua;
+import LLua;
 import DialogueBoxPsych;
 import ReplayState.ReplayPauseSubstate;
 import scripting.Script;

@@ -12,7 +12,6 @@ import flixel.util.FlxGradient;
 import flixel.system.FlxAssets.FlxShader;
 import flixel.addons.text.FlxTypeText;
 import openfl.media.Sound;
-import options.BaseOptionsMenu;
 import openfl.text.TextField;
 import haxe.io.Bytes;
 import lime.media.AudioBuffer;
@@ -51,13 +50,11 @@ import flixel.tweens.FlxEase;
 import flixel.system.FlxSound;
 import flixel.math.FlxRect;
 #if HSCRIPT_ALLOWED
-#if DISCORD_ALLOWED
+#if desktop
 import Discord.DiscordClient;
 #end
-import options.OptionsState;
-import editors.MasterEditorMenu;
-import editors.CharacterEditorState;
-import editors.ChartingState;
+import options.*;
+import editors.*;
 import flixel.math.FlxMath;
 import flixel.input.keyboard.FlxKey;
 import flixel.group.FlxSpriteGroup;
@@ -172,11 +169,11 @@ class FunkinHscript extends InterpEx {
         variables.set('CustomFadeTransition', CustomFadeTransition);
         variables.set('DialogueBox', DialogueBox);
         variables.set('DialogueBoxPsych', DialogueBoxPsych);
-        #if DISCORD_ALLOWED
+        #if desktop
         variables.set('DiscordClient', DiscordClient);
         #end
         #if VIDEOS_ALLOWED
-        variables.set('FlxVideo', FlxVideo);
+        variables.set('MP4Handler', MP4Handler);
         #end
         variables.set('FreeplayState', FreeplayState);
         variables.set('FunkinHscript', FunkinHscript);
@@ -188,7 +185,7 @@ class FunkinHscript extends InterpEx {
         variables.set('MainMenuState', MainMenuState);
         variables.set('MasterEditorMenu', MasterEditorMenu);
         variables.set('MusicBeatState', MusicBeatState);
-        variables.set('MusicBeatSubState', MusicBeatSubState);
+        variables.set('MusicBeatSubstate', MusicBeatSubstate);
         variables.set('Note', Note);
         variables.set('NoteSplash', NoteSplash);
         variables.set('OptionsState', OptionsState);
@@ -210,15 +207,9 @@ class FunkinHscript extends InterpEx {
 		variables.set('inChartEditor', PlayState.instance.inEditor);
 		variables.set('curBpm', Conductor.bpm);
 		variables.set('bpm', Conductor.bpm);
-		variables.set('signatureNumerator', Conductor.timeSignature[0]);
-		variables.set('signatureDenominator', Conductor.timeSignature[1]);
 		variables.set('crochet', Conductor.crochet);
 		variables.set('stepCrochet', Conductor.stepCrochet);
 		variables.set('scrollSpeed', PlayState.SONG.speed);
-		variables.set('playerKeyAmount', PlayState.SONG.playerKeyAmount);
-		variables.set('opponentKeyAmount', PlayState.SONG.opponentKeyAmount);
-		variables.set('playerSkin', PlayState.instance.uiSkinMap.get('player').name);
-		variables.set('opponentSkin', PlayState.instance.uiSkinMap.get('opponent').name);
 		variables.set('songLength', 0);
 		variables.set('songName', PlayState.SONG.song);
 		variables.set('startedCountdown', false);
@@ -249,8 +240,8 @@ class FunkinHscript extends InterpEx {
 		variables.set('rating', 0);
 		variables.set('ratingName', '');
 		variables.set('ratingFC', '');
-		variables.set('version', MainMenuState.psychEngineVersion.trim());
-		variables.set('versionExtra', MainMenuState.psychEngineExtraVersion.trim());
+		variables.set('versionJoalor', MainMenuState.joalor64EngineVersion.trim());
+		variables.set('versionPsych', MainMenuState.psychEngineVersion.trim());
 		
 		variables.set('inGameOver', false);
 		variables.set('curSection', 0);
@@ -267,10 +258,8 @@ class FunkinHscript extends InterpEx {
 		variables.set('instakillOnMiss', PlayState.instance.instakillOnMiss);
 		variables.set('botPlay', PlayState.instance.cpuControlled);
 		variables.set('practice', PlayState.instance.practiceMode);
-		variables.set('opponentPlay', PlayState.instance.opponentChart);
-		variables.set('playbackRate', PlayState.instance.playbackRate);
 
-		for (i in 0...Note.MAX_KEYS) {
+		for (i in 0...4) {
 			variables.set('defaultPlayerStrumX$i', 0);
 			variables.set('defaultPlayerStrumY$i', 0);
 			variables.set('defaultOpponentStrumX$i', 0);
@@ -301,11 +290,8 @@ class FunkinHscript extends InterpEx {
 		variables.set('cameraZoomOnBeat', ClientPrefs.camZooms);
 		variables.set('flashingLights', ClientPrefs.flashing);
 		variables.set('noteOffset', ClientPrefs.noteOffset);
-		variables.set('healthBarAlpha', ClientPrefs.healthBarAlpha);
 		variables.set('noResetButton', ClientPrefs.noReset);
-		variables.set('gameQuality', ClientPrefs.gameQuality);
-		variables.set('instantRestart', ClientPrefs.instantRestart);
-		variables.set('lowQuality', ClientPrefs.gameQuality != 'Normal');
+		variables.set('lowQuality', ClientPrefs.gameQuality);
 
 		#if windows
 		variables.set('buildTarget', 'windows');

@@ -38,7 +38,6 @@ final class FunkinSScript extends SScript
         set('FlxSprite', FlxSprite);
         set('FlxText', FlxText);
         set('FlxTimer', FlxTimer);
-        set('FunkySettings', FunkySettings);
         set('Paths', Paths);
         set('PlayState', PlayState);
         set('GameOverSubstate', GameOverSubstate);
