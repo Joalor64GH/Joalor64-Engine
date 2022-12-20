@@ -25,11 +25,11 @@ import lime.app.Application;
 import scripting.MMScript;
 
 using StringTools;
+
 #if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
 #end
-
 
 typedef MenuData =
 {
