@@ -71,6 +71,7 @@ import flixel.FlxSprite;
 import flixel.FlxG;
 import flixel.text.FlxText;
 import hscript.InterpEx;
+import Character;
 
 using StringTools;
 
@@ -319,7 +320,7 @@ class FunkinHscript extends InterpEx {
 
     inline function getInstance()
 	{
-		return PlayState.instance.isDead ? GameOverSubState.instance : PlayState.instance;
+		return PlayState.instance.isDead ? GameOverSubstate.instance : PlayState.instance;
 	}
 }
 
