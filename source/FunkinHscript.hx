@@ -107,7 +107,6 @@ class FunkinHscript extends InterpEx {
         variables.set('FlxKey', FlxKeyCustom);
         variables.set('FlxMath', FlxMath);
         variables.set('FlxObject', FlxObject);
-        variables.set('FlxPoint', FlxPoint);
         variables.set('FlxRect', FlxRect);
         variables.set('FlxSave', FlxSave);
         variables.set('FlxShader', FlxShader);
