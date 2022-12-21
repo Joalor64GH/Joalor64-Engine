@@ -55,6 +55,7 @@ import Discord.DiscordClient;
 #end
 import options.*;
 import editors.*;
+import animateatlas.*;
 import flixel.math.FlxMath;
 import flixel.input.keyboard.FlxKey;
 import flixel.group.FlxSpriteGroup;
@@ -151,7 +152,6 @@ class FunkinHscript extends InterpEx {
         variables.set('AchievementsMenuState', AchievementsMenuState);
         variables.set('Alphabet', Alphabet);
         variables.set('AtlasFrameMaker', AtlasFrameMaker);
-        variables.set('AttachedFlxText', AttachedFlxText);
         variables.set('AttachedSprite', AttachedSprite);
         variables.set('AttachedText', AttachedText);
         variables.set('BaseOptionsMenu', BaseOptionsMenu);
@@ -171,9 +171,6 @@ class FunkinHscript extends InterpEx {
         variables.set('DialogueBoxPsych', DialogueBoxPsych);
         #if desktop
         variables.set('DiscordClient', DiscordClient);
-        #end
-        #if VIDEOS_ALLOWED
-        variables.set('MP4Handler', MP4Handler);
         #end
         variables.set('FreeplayState', FreeplayState);
         variables.set('FunkinHscript', FunkinHscript);
@@ -204,7 +201,6 @@ class FunkinHscript extends InterpEx {
         //VARIABLES
         variables.set('Function_Stop', FunkinLua.Function_Stop);
 		variables.set('Function_Continue', FunkinLua.Function_Continue);
-		variables.set('inChartEditor', PlayState.instance.inEditor);
 		variables.set('curBpm', Conductor.bpm);
 		variables.set('bpm', Conductor.bpm);
 		variables.set('crochet', Conductor.crochet);
@@ -230,7 +226,6 @@ class FunkinHscript extends InterpEx {
 
 		// PlayState cringe ass nae nae bullcrap
 		variables.set('curBeat', 0);
-		variables.set('curNumeratorBeat', 0);
 		variables.set('curStep', 0);
 
 		variables.set('score', 0);
@@ -250,7 +245,6 @@ class FunkinHscript extends InterpEx {
 		variables.set('gfSection', false);
 		variables.set('lengthInSteps', 16);
 		variables.set('changeBPM', false);
-		variables.set('changeSignature', false);
 
 		// Gameplay settings
 		variables.set('healthGainMult', PlayState.instance.healthGain);
@@ -260,10 +254,10 @@ class FunkinHscript extends InterpEx {
 		variables.set('practice', PlayState.instance.practiceMode);
 
 		for (i in 0...4) {
-			variables.set('defaultPlayerStrumX$i', 0);
-			variables.set('defaultPlayerStrumY$i', 0);
-			variables.set('defaultOpponentStrumX$i', 0);
-			variables.set('defaultOpponentStrumY$i', 0);
+			variables.set('defaultPlayerStrumX', 0);
+			variables.set('defaultPlayerStrumY', 0);
+			variables.set('defaultOpponentStrumX', 0);
+			variables.set('defaultOpponentStrumY', 0);
 		}
 
 		// Default character positions woooo
@@ -291,7 +285,7 @@ class FunkinHscript extends InterpEx {
 		variables.set('flashingLights', ClientPrefs.flashing);
 		variables.set('noteOffset', ClientPrefs.noteOffset);
 		variables.set('noResetButton', ClientPrefs.noReset);
-		variables.set('lowQuality', ClientPrefs.gameQuality);
+		variables.set('lowQuality', ClientPrefs.lowQuality);
 
 		#if windows
 		variables.set('buildTarget', 'windows');

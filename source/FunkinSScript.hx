@@ -28,7 +28,6 @@ final class FunkinSScript extends SScript
         set('Alphabet', Alphabet);
         set('Application', Application);
         set('Conductor', Conductor);
-        set('game', PlayState.instance);
         set('FlxBasic', FlxBasic);
         set('FlxEase', FlxEase);
         set('FlxTween', FlxTween);
@@ -41,26 +40,10 @@ final class FunkinSScript extends SScript
         set('Paths', Paths);
         set('PlayState', PlayState);
         set('GameOverSubstate', GameOverSubstate);
-        set('gameover', GameOverSubstate.instance);
         
         set('add', function(FlxBasic:FlxBasic)
         {
             return PlayState.instance.add(FlxBasic);
-        });
-
-        set('addBehindGF', function(FlxBasic:FlxBasic)
-        {
-            return PlayState.instance.addBehindGF(FlxBasic);
-        });
-
-        set('addBehindBF', function(FlxBasic:FlxBasic)
-        {
-            return PlayState.instance.addBehindBF(FlxBasic);
-        });
-
-        set('addBehindDad', function(FlxBasic:FlxBasic)
-        {
-            return PlayState.instance.addBehindDad(FlxBasic);
         });
 
         set('get', function(id:String)
