@@ -176,7 +176,7 @@ class FunkinHscript extends InterpEx {
         variables.set('FreeplayState', FreeplayState);
         variables.set('FunkinHscript', FunkinHscript);
         variables.set('FunkinLua', FunkinLua);
-        variables.set('GameOverSubState', GameOverSubState);
+        variables.set('GameOverSubstate', GameOverSubstate);
         variables.set('HealthIcon', HealthIcon);
         variables.set('Highscore', Highscore);
         variables.set('InputFormatter', InputFormatter);
