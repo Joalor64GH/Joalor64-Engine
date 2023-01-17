@@ -6,12 +6,13 @@ import llua.Lua.Lua_helper;
 
 class LLua
 {
-    public var lua:State = LuaL.newstate();
+	public var lua:State = LuaL.newstate();
 
-    public function new(script:String)
-    {
+	public function new(script:String)
+	{
 		LuaL.openlibs(lua);
 		Lua.init_callbacks(lua);
+		// just for security reasons
 		LuaL.dostring(lua, "
             os.execute, os.getenv, os.rename, os.remove, os.tmpname = nil, nil, nil, nil, nil
             io, load, loadfile, loadstring, dofile = nil, nil, nil, nil, nil
@@ -29,11 +30,10 @@ class LLua
 		if (resultStr != null && result != 0)
 			return;
 
-        Lua_helper.add_callback(lua, 'trace', function(v:Dynamic)
-            trace(v));
+		Lua_helper.add_callback(lua, 'trace', function(v:Dynamic) trace(v));
 
-        call('onCreate', []);
-    }
+		call('onCreate', []);
+	}
 
 	public function call(evt:String, args:Array<Dynamic>):Null<Int>
 	{
@@ -66,7 +66,8 @@ class LLua
 		return 0;
 	}
 
-	public function set(variable:String, data:Dynamic):Void
+	// pretty sure this can't have inline iirc
+	inline public function set(variable:String, data:Dynamic):Void
 	{
 		if (isNull())
 			return;
@@ -75,6 +76,7 @@ class LLua
 		Lua.setglobal(lua, variable);
 	}
 
+	// this can't have inline due to it having a not final return
 	public function isAllowed(lua:State, result:Null<Int>):Null<Bool>
 	{
 		switch (Lua.type(lua, result))
@@ -86,18 +88,18 @@ class LLua
 		return false;
 	}
 
-    public function destroy():Void
-    {
-        if (isNull())
-            return;
+	inline public function destroy():Void
+	{
+		if (isNull())
+			return;
 
-        Lua.close(lua);
-        lua = null;
-    }
+		Lua.close(lua);
+		lua = null;
+	}
 
-    public function isNull():Bool
-    {
-        return lua == null;
-    }
+	inline public function isNull():Bool
+	{
+		return lua == null;
+	}
 }
 #end
