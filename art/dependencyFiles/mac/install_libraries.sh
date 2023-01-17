@@ -21,7 +21,7 @@ haxelib git flixel-addons https://github.com/HaxeFlixel/flixel-addons.git dev
 haxelib install tjson
 haxelib install hxjsonast
 # hxCodec
-haxelib git hxCodec https://github.com/polybiusproxy/hxcodec
+haxelib install hxCodec
 # openfl-webm
 haxelib install openfl-webm
 # Scripting and Stuff
