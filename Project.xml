@@ -6,7 +6,6 @@
         <app file="J64Engine_WIN" if="windows" />
 	<app file="J64Engine_APP" if="linux" />
 	<app file="J64Engine_MAC" if="mac" />
-	<!-- <app file="J64Engine (x64)" unless="32bit" /> -->
 	<!-- <app file="J64Engine_APK" if="android" /> -->
 
 	<!-- NOTE TO SELF: DISABLE THIS IF ISSUES ARE FOUND -->
@@ -36,14 +35,6 @@
 
 	<!--Mobile-->
 	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false"/>
-
-	<!-- _____________________________ Path Settings ____________________________ -->
-
-	<set name="BUILD_DIR" value="export/debug" if="debug" />
-	<set name="BUILD_DIR" value="export/release" unless="debug" />
-	<set name="BUILD_DIR" value="export/32bit" if="32bits" />
-
-	<classpath name="source" />
 	
 	<!-- JOALOR64 ENGINE CUSTOMIZATION -->
 	<!--<define name="HAXEFLIXEL_LOGO"/>--> <!--Allows the Haxeflixel watermark to show on startup when compiled as release;.-->
@@ -65,14 +56,30 @@
 	<define name="CHECK_FOR_UPDATES"/>
 	<define name="PRELOAD_ALL" unless="web" />
 	<define name="NO_PRELOAD_ALL" unless="PRELOAD_ALL"/>
-
-	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
-	<assets path="assets/preload" rename="assets" exclude="*.mp3|*.mp4"  unless="web"/>
+	
+	<!-- _____________________________ I don't have to explain this. ____________________________ -->
 	
 	<!-- Do you really wanna try that?-->
 	<error value="Nintendo Switch is not supported." if="switch" />
+
+	<!-- _____________________________ Export Folder ____________________________ -->
+
+	<set name="BUILD_DIR" value="export/debug" if="debug" />
+	<set name="BUILD_DIR" value="export/release" unless="debug" />
+	<set name="BUILD_DIR" value="export/32bit" if="32bits" />
 	
+	<!-- _____________________________ Path Settings ____________________________ -->
+
+	<source path="source" />
+
+	<assets path="assets/fonts" embed='true'/>
+	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
+	<assets path="assets/preload" rename="assets" exclude="*.mp3|*.mp4"  unless="web"/>
+	
+	<!-- ALWAYS PRELOADED -->
 	<library name="videos"        preload="true" />
+	
+	<!-- NOT ALWAYS PRELOADED -->
 	<section if="PRELOAD_ALL">
 		<library name="songs"         preload="true" />
 		<library name="shared"        preload="true" />
@@ -97,9 +104,20 @@
 		<library name="week6"         preload="false" />
 	</section>
 	
-	<assets path="plugins/"             rename=''               if="VIDEOS_ALLOWED windows" />
-	<assets path="dlls/"                rename=''               if="PYTHON_SCRIPTING" />
-	<assets path="assets/videos"        library="videos"        if="VIDEOS_ALLOWED"/>
+	<section if="VIDEOS_ALLOWED windows">
+		<assets path="plugins/"             rename='' if="windows"/>
+		<assets path="assets/videos"        library="videos" />
+	</section>
+	
+	<section if="PYTHON_SCRIPTING">
+		<assets path="dlls/"                rename='' />
+	</section>
+	
+	<section if="SWF_ALLOWED">
+		<assets path="assets/swf"           library="swf" />
+	</section>
+	
+	<!-- PATH DEFINITIONS -->
 	<assets path="assets/songs"         library="songs"         exclude="*.ogg" if="web"/>
 	<assets path="assets/songs"         library="songs"         exclude="*.mp3|*.mp4" unless="web"/>
 	<assets path="assets/shared"        library="shared"        exclude="*.ogg" if="web"/>
@@ -118,40 +136,29 @@
 	<assets path="assets/week5"         library="week5"         exclude="*.mp3|*.mp4" unless="web"/>
 	<assets path="assets/week6"         library="week6"         exclude="*.ogg" if="web"/>
 	<assets path="assets/week6"         library="week6"         exclude="*.mp3|*.mp4" unless="web"/>
-	
         <assets path="assets/artemis"       library="artemis"       if="windows"/>
-	<assets path="assets/swf"           library="swf"           if="SWF_ALLOWED"/>
 
-	<assets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
-	<assets path='polymod_mods' rename='polymods' if="MODS_ALLOWED"/>
+	<section if="MODS_ALLOWED">
+		<assets path='example_mods' rename='mods' embed='false' />
+		<assets path='polymod_mods' rename='polymods' />
+		<assets path='modsList.txt' rename='' />
+	</section>
 	<assets path='example_logs' rename='logs' embed='false' />
 	<assets path='art/readme.txt' rename='a little note.txt' />
        	<assets path='Launch.bat' if="windows"/>
-	<assets path='modsList.txt' rename='' />
 	<assets path='LICENSE' rename='LICENSE.txt' />
 
-	<!-- NOTE FOR FUTURE SELF SINCE FONTS ARE ALWAYS FUCKY 
-		TO FIX ONE OF THEM, I CONVERTED IT TO OTF. DUNNO IF YOU NEED TO
-		THEN UHHH I USED THE NAME OF THE FONT WITH SETFORMAT() ON THE TEXT!!!
-		NOT USING A DIRECT THING TO THE ASSET!!!
-	-->
-	<assets path="assets/fonts" embed='true'/>
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />
 	<haxedev set='webgl' />
-
-	<!--In case you want to use the addons package-->
 	<haxelib name="flixel-addons" />
 	<haxelib name="openfl-webm" />
 	<haxelib name="hscript" if="HSCRIPT_ALLOWED"/>
         <haxelib name="hscript-ex" if="HSCRIPT_ALLOWED"/>
 	<define name="hscriptPos" />
-
 	<haxelib name="actuate" />
 	<haxelib name="extension-webm" if="windows || mac"/> <!-- Make sure to use https://github.com/KadeDev/extension-webm/ -->
-	
-	<!--In case you want to use the ui package-->
 	<haxelib name="flixel-ui" />
 	<haxelib name="flixel-demos" />
 	<haxelib name="flixel-tools" />
@@ -166,9 +173,6 @@
 	<haxelib name="systools" />
 	<ndll name="systools" haxelib="systools" />
 	<haxelib name="hxcpp-debug-server" if="desktop"/>
-
-	<!--In case you want to use nape with flixel-->
-	<!--<haxelib name="nape-haxe4" />-->
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
