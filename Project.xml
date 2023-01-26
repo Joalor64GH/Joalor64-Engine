@@ -104,7 +104,7 @@
 		<library name="week6"         preload="false" />
 	</section>
 	
-	<section if="VIDEOS_ALLOWED windows">
+	<section if="VIDEOS_ALLOWED">
 		<assets path="plugins/"             rename='' if="windows"/>
 		<assets path="assets/videos"        library="videos" />
 	</section>
