@@ -25,7 +25,7 @@ pause >nul
 title Joalor64 Engine Setup - Installing libraries
 haxelib install tjson
 haxelib install hxjsonast
-haxelib install hxCodec
+haxelib git hxCodec https://github.com/polybiusproxy/hxCodec
 haxelib install openfl-webm
 haxelib git SScript https://github.com/TheWorldMachinima/SScript
 haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit

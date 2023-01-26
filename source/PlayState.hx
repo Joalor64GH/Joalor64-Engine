@@ -82,7 +82,8 @@ import sys.io.File;
 #end
 
 #if VIDEOS_ALLOWED
-import VideoHandler;
+import hxcodec.VideoHandler;
+import hxcodec.VideoSprite;
 #end
 
 /*#if SWF_ALLOWED
