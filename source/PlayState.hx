@@ -82,8 +82,9 @@ import sys.io.File;
 #end
 
 #if VIDEOS_ALLOWED
-import hxcodec.VideoHandler;
-import hxcodec.VideoSprite;
+#if (hxCodec >= "2.6.1") import hxcodec.VideoHandler as MP4Handler;
+#elseif (hxCodec == "2.6.0") import VideoHandler as MP4Handler;
+#else import vlc.MP4Handler; #end
 #end
 
 /*#if SWF_ALLOWED
@@ -1653,7 +1654,7 @@ class PlayState extends MusicBeatState
 		}
 		
 		FlxG.sound.music.stop();
-		var video:VideoHandler = new VideoHandler();
+		var video:MP4Handler = new MP4Handler();
 		video.playVideo(filepath);
 
 		video.finishCallback = function()
