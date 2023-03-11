@@ -1805,7 +1805,6 @@ class PlayState extends MusicBeatState
 	var finishTimer:FlxTimer = null;
 
 	// For being able to mess with the sprites on Lua
-	public var countdownPrepare:FlxSprite;
 	public var countdownReady:FlxSprite;
 	public var countdownSet:FlxSprite;
 	public var countdownGo:FlxSprite;
@@ -1866,13 +1865,11 @@ class PlayState extends MusicBeatState
 
 				var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 				introAssets.set('default', [
-					'prepare',
 					'ready', 
 					'set', 
 					'go'
 				]);
 				introAssets.set('pixel', [
-					'pixelUI/prepare-pixel', 
 					'pixelUI/ready-pixel', 
 					'pixelUI/set-pixel', 
 					'pixelUI/date-pixel'
@@ -1897,24 +1894,6 @@ class PlayState extends MusicBeatState
 				switch (swagCounter)
 				{
 					case 0:
-					    countdownPrepare = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
-						countdownPrepare.scrollFactor.set();
-						countdownPrepare.updateHitbox();
-
-						if (PlayState.isPixelStage)
-							countdownPrepare.setGraphicSize(Std.int(countdownPrepare.width * daPixelZoom));
-
-						countdownPrepare.screenCenter();
-						countdownPrepare.antialiasing = antialias;
-						add(countdownPrepare);
-						FlxTween.tween(countdownPrepare, {/*y: countdownPrepare.y + 100,*/ alpha: 0}, Conductor.crochet / 1000, {
-							ease: FlxEase.cubeInOut,
-							onComplete: function(twn:FlxTween)
-							{
-								remove(countdownPrepare);
-								countdownPrepare.destroy();
-							}
-						});
 						FlxG.sound.play(Paths.sound('intro3' + introSoundsSuffix), 0.6);
 					case 1:
 						countdownReady = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
