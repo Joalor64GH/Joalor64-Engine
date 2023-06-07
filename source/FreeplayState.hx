@@ -124,7 +124,20 @@ class FreeplayState extends MusicBeatState
 		{
 			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false);
 			songText.isMenuItem = true;
-			songText.itemType = 'D-Shape';
+			switch (ClientPrefs.songDisplay)
+			{
+				case 'Classic':
+					songText.itemType = 'Classic';
+
+				case 'Vertical':
+					songText.itemType = 'Vertical';
+
+				case 'C-Shape':
+					songText.itemType = 'C-Shape';
+
+				case 'D-Shape':
+					songText.itemType = 'D-Shape';
+			}
 			songText.targetY = i;
 			grpSongs.add(songText);
 

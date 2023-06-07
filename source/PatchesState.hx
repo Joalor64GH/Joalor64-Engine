@@ -86,7 +86,8 @@ class PatchesState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Patch - Icon name - Changelog - Link to Version - BG Color
-			['Patch Notes'],
+			['Patch Notes'], 
+			['V1.5.1',         'life',             'UNRELEASED',                                  		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.5.2',  'FF66CF'],
 			['V1.5.1',         'life',             'Updated SWF to 3.1.1, Custom Substate Support,\nMain Menu Script Support, JSON Cutscene Support,\nHscript Menu Support, Lua Lib Example,\nLots of Code from Vixtin Engine, and some more things.',                                  		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.5.1',  'FF66CF'],
 			['V1.5.0',         'life',             'Support for Haxe and Hscript Stages, Custom Menu Hscripts Support (WIP),\nAdded Missing Credits Again, Openfl-Webm,\nUpdated SWF to 3.1.0, and a lot more.',                                  		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.5.0',  'FF66CF'],
 			['V1.4.2',         'stamina',             'Full Support for Haxe, HaxeScript, and Python Scripts,\nSupport for Haxe Modcharts, Changed my Profile Link Again,\nand just a bit more.',                                  		'https://github.com/Joalor64GH/Joalor64-Engine/releases/tag/v1.4.2',  'FEE8FF'],

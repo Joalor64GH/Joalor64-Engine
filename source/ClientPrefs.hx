@@ -56,6 +56,7 @@ class ClientPrefs {
 	public static var cameramoveonnotes:Bool = true;
 	public static var removePerfects:Bool = false;
 	public static var characterTrail:Bool = false;
+	public static var songDisplay:String = 'Classic';
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -145,6 +146,7 @@ class ClientPrefs {
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.characterTrail = characterTrail;
+		FlxG.save.data.songDisplay = songDisplay;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.holdNoteVisibility = holdNoteVisibility;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
@@ -227,6 +229,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.characterTrail != null) {
 			characterTrail = FlxG.save.data.characterTrail;
+		}
+		if(FlxG.save.data.songDisplay != null) {
+			songDisplay = FlxG.save.data.songDisplay;
 		}
 		if(FlxG.save.data.framerate != null) {
 			framerate = FlxG.save.data.framerate;

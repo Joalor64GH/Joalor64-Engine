@@ -104,6 +104,19 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 		option.onChange = onChangeFPSCounter;
 		#end
+
+		var option:Option = new Option('Song Display Style:',
+			"How should the songs in Freeplay be displayed?",
+			'songDisplay',
+			'string',
+			'None',
+			[
+				'Classic', 
+				'Vertical', 
+				'C-Shape', 
+				'D-Shape'
+			]);
+		addOption(option);
 		
                 #if sys
 		var option:Option = new Option('Enable Artemis',

@@ -46,7 +46,7 @@
 * After that, just press space to go back to the menu.
 
 # Planned Features
-* [X] Making the freeplay and pause menu move in a disc-like motion similar to dnb lol. **[COMPLETED AT LAST]**
+* [ ] Literally anything that come to my mind lol.
 
 More things could added as we go along!
 
@@ -69,13 +69,13 @@ Hope you enjoy!
 * [skedgyedgy](https://github.com/skedgyedgy) - Artemis Integration
 * [Verwex](https://twitter.com/ShiftVer) - Systools Code
 * [TheWorldMachinima (Formerly TheWorldMachine)](https://github.com/TheWorldMachinima) - Replay System + SScript
-* [magnumsrt](https://github.com/magnumsrt) - Stage Editor + Python Support + Custom State Support
+* [magnumsrt](https://github.com/steve-studios) - Stage Editor + Python Support + Custom State Support
 * [BulbyVR](https://harlessben321.itch.io/) - Modding Plus Code
 * [TheZoroForce240 (Formerly TheZoroForce420)](https://gamebanana.com/members/1708748) - Extra Keys made with LUA
 * [AT](https://github.com/UmbratheUmbreon) - Hardcoded Crossfades
 * [YoshiCrafter29](https://github.com/YoshiCrafter29) - DVD State + Yoshi Engine Code
 * [ElAnthonyVixtin](https://github.com/ElAnthonyVix) - Vixtin Engine Code
-* [MemeHoovy](https://github.com/MemeHoovy) - Modified Forever Asset Manager
+* [MemeHoovy](https://github.com/MemeHovy) - Modified Forever Asset Manager
 
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
