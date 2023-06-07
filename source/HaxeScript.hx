@@ -4,7 +4,7 @@ import flixel.*;
 import flixel.math.*;
 import flixel.util.*;
 
-class HaxeScript extends SScript
+class HaxeScript extends tea.SScript
 {
     public function new(file:String, ?preset:Bool = true)
     {
