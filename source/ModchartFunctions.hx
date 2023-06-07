@@ -3,7 +3,8 @@ package;
 import flixel.FlxG;
 import openfl.*;
 
-class ModchartFunctions {
+class ModchartFunctions 
+{
     public static function camZoom(width:Int, height:Int)
     {
         FlxG.resizeGame(width, height);

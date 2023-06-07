@@ -1,7 +1,11 @@
 package plugins;
 
 import lime.ui.Window;
+#if (flixel >= "5.3.0")
+import flixel.sound.FlxSound;
+#else
 import flixel.system.FlxSound;
+#end
 import flixel.FlxSprite;
 import flixel.FlxCamera;
 import flixel.group.FlxGroup.FlxTypedGroup;

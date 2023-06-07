@@ -54,6 +54,8 @@ beta.md
 
 ### Git-Specific
 .gitconfig
+.gitinclude
+.gitkeep
 
 ### Localization-Specific
 source/locale/I18n.hx

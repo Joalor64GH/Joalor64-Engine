@@ -1,6 +1,5 @@
 package;
 
-
 class Signal<T> {
     var callbacks:Array<T -> Void> = [];
     public function new() {}
