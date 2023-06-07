@@ -3,9 +3,17 @@ package;
 import flixel.system.frontEnds.CameraFrontEnd;
 import flixel.system.frontEnds.BitmapFrontEnd;
 import flixel.system.FlxAssets.FlxSoundAsset;
+#if (flixel >= "5.3.0")
+import flixel.sound.FlxSound;
+#else
 import flixel.system.FlxSound;
+#end
 import flixel.group.FlxGroup.FlxTypedGroup;
+#if (flixel >= "5.3.0")
+import flixel.sound.FlxSoundGroup
+#else
 import flixel.system.FlxSoundGroup;
+#end
 import flixel.system.frontEnds.SoundFrontEnd;
 import openfl.display.DisplayObject;
 import flixel.input.keyboard.FlxKeyboard;

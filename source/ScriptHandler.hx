@@ -5,8 +5,13 @@ import flixel.math.*;
 import flixel.system.*;
 import flixel.tweens.*;
 import flixel.util.*;
+#if (flixel >= "5.3.0")
+import flixel.sound.FlxSound;
+#else
+import flixel.system.FlxSound;
+#end
 
-class ScriptHandler extends SScript
+class ScriptHandler extends tea.SScript
 {
     public function new(file:String, ?preset:Bool = true)
     {

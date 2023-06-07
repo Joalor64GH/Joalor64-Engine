@@ -13,13 +13,15 @@ import flixel.util.FlxTimer;
 
 import lime.app.Application;
 
-final class FunkinSScript extends SScript
+final class FunkinSScript extends tea.SScript
 {
-    override public function new(?scriptFile:String = "")
+    override public function new(?scriptFile:String = "", ?preset:Bool = true)
     {
-        super(scriptFile);
+        super(scriptFile, preset);
 
         traces = false;
+
+        execute();
     }
 
     override function preset():Void

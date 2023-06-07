@@ -47,7 +47,11 @@ import flixel.util.FlxColor;
 import flixel.ui.FlxBar;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
+#if (flixel >= "5.3.0")
+import flixel.sound.FlxSound;
+#else
 import flixel.system.FlxSound;
+#end
 import flixel.math.FlxRect;
 #if HSCRIPT_ALLOWED
 #if desktop

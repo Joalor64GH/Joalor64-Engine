@@ -41,7 +41,7 @@ jobs:
           haxelib install hxcpp > /dev/null
           haxelib install lime
           haxelib install openfl
-          haxelib --never install flixel
+          haxelib --never install flixel 5.2.2
           haxelib run lime setup flixel
           haxelib run lime setup
           haxelib install flixel-tools
@@ -62,6 +62,8 @@ jobs:
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
           haxelib install hxcpp-debug-server
           haxelib git systools https://github.com/haya3218/systools
+          haxelib git extension-webm https://github.com/KadeDev/extension-webm
+          haxelib run lime rebuild extension-webm linux
           haxelib install actuate
           haxelib list
       - name: Create Version Tag
@@ -92,7 +94,7 @@ jobs:
           haxelib install hxcpp > nul
           haxelib install lime
           haxelib install openfl
-          haxelib --never install flixel
+          haxelib --never install flixel 5.2.2
           haxelib run lime setup flixel
           haxelib run lime setup
           haxelib install flixel-tools
@@ -146,7 +148,7 @@ jobs:
           haxelib install hxcpp > /dev/null
           haxelib install lime
           haxelib install openfl
-          haxelib --never install flixel
+          haxelib --never install flixel 5.2.2
           haxelib run lime setup flixel
           haxelib run lime setup
           haxelib install flixel-tools

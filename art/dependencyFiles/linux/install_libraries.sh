@@ -21,7 +21,7 @@ echo "Installing Haxe libraries..."
 # Regular Haxe Stuff
 haxelib install lime
 haxelib install openfl
-haxelib install flixel
+haxelib install flixel 5.2.2
 haxelib install flixel-tools
 haxelib install flixel-ui
 haxelib install flixel-demos

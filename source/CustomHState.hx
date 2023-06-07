@@ -12,7 +12,11 @@ import flixel.FlxSprite;
 import flixel.FlxCamera;
 import lime.utils.Assets;
 import Section.SwagSection;
+#if (flixel >= "5.3.0")
+import flixel.sound.FlxSound;
+#else
 import flixel.system.FlxSound;
+#end
 import Song.SwagSong;
 import flixel.FlxBasic;
 import openfl.geom.Matrix;
