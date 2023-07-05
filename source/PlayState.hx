@@ -86,9 +86,16 @@ import sys.io.File;
 #end
 
 #if VIDEOS_ALLOWED
-#if (hxCodec >= "2.6.1") import hxcodec.VideoHandler as MP4Handler;
-#elseif (hxCodec == "2.6.0") import VideoHandler as MP4Handler;
-#else import vlc.MP4Handler; #end
+#if (hxCodec >= "3.0.0") 
+import hxcodec.flixel.VideoHandler as MP4Handler;
+import lime.app.Event;
+#elseif (hxCodec >= "2.6.1") 
+import hxcodec.VideoHandler as MP4Handler;
+#elseif (hxCodec == "2.6.0") 
+import VideoHandler as MP4Handler;
+#else 
+import vlc.MP4Handler; 
+#end
 #end
 
 /*#if SWF_ALLOWED
@@ -1661,24 +1668,32 @@ class PlayState extends MusicBeatState
 		
 		FlxG.sound.music.stop();
 		var video:MP4Handler = new MP4Handler();
+		#if (hxCodec >= "3.0.0")
+		// Recent versions
+		video.play(filepath);
+		video.onEndReached.add(function()
+		{
+			video.dispose();
+			startAndEnd();
+			return;
+		}, true);
+		#else
+		// Older versions
 		video.playVideo(filepath);
-
 		video.finishCallback = function()
 		{
 			startAndEnd();
+			return;
 		}
+		#end
 		#else
 		FlxG.log.warn('Platform not supported!');
 		startAndEnd();
                 #end
 	}
 
-	function startAndEnd()
-	{
-		if(endingSong)
-			endSong();
-		else
-			startCountdown();
+	function startAndEnd() {
+		(endingSong) ? endSong() : startCountdown();
 	}
 
 	var dialogueCount:Int = 0;
@@ -4875,7 +4890,6 @@ class PlayState extends MusicBeatState
 		super.beatHit();
 
 		if(lastBeatHit == curBeat) {
-			//trace('BEAT HIT: ' + curBeat + ', LAST HIT: ' + lastBeatHit);
 			return;
 		}
 
@@ -4893,7 +4907,6 @@ class PlayState extends MusicBeatState
 			if (SONG.notes[Math.floor(curStep / 16)].changeBPM)
 			{
 				Conductor.changeBPM(SONG.notes[Math.floor(curStep / 16)].bpm);
-				//FlxG.log.add('CHANGED BPM!');
 				setOnLuas('curBpm', Conductor.bpm);
 				setOnLuas('crochet', Conductor.crochet);
 				setOnLuas('stepCrochet', Conductor.stepCrochet);
@@ -4901,10 +4914,7 @@ class PlayState extends MusicBeatState
 			setOnLuas('mustHitSection', SONG.notes[Math.floor(curStep / 16)].mustHitSection);
 			setOnLuas('altAnim', SONG.notes[Math.floor(curStep / 16)].altAnim);
 			setOnLuas('gfSection', SONG.notes[Math.floor(curStep / 16)].gfSection);
-			// else
-			// Conductor.changeBPM(SONG.bpm);
 		}
-		// FlxG.log.add('change bpm' + SONG.notes[Std.int(curStep / 16)].changeBPM);
 
 		if (generatedMusic && PlayState.SONG.notes[Std.int(curStep / 16)] != null && !endingSong && !isCameraOnForcedPos)
 		{
