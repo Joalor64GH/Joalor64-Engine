@@ -343,7 +343,7 @@ class MainMenuState extends MusicBeatState
 					CoolUtil.browserLoad('${menuJSON.links[1]}');
 				}
 				else if (optionShit[curSelected] == 'donate') {
-					CoolUtil.browserLoad('sites.google.com/view/joalor64official-net6-deez/home');
+					CoolUtil.browserLoad('https://sites.google.com/view/joalor64official-net6-deez/home');
 				}
 				else
 				{
