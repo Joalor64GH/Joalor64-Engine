@@ -1,9 +1,6 @@
-1.5.1;
-- Updated SWF to 3.1.1
-- Custom Substate Support
-- Main Menu Script Support
-- JSON Cutscene Support
-- Hscript Manu Support
-- Lua Lib Example
-- Lots of Code from Vixtin Engine
-- And some more things.
+1.5.2;
+- Fixes for Flixel 5.3
+- Update SScript to 4.0.0
+- Formatted a few files
+- Song Display Option
+- And a little more.

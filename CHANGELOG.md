@@ -153,6 +153,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Lots of Code from Vixtin Engine
 * And some more things.
 
-## [1.5.2] - UNRELEASED
+## [1.5.2] - 2023-8-29
 ### Added
-* TBA
+* Fixes for Flixel 5.3
+* Update SScript to 4.0.0
+* Formatted a few files
+* Song Display Option
+* And a little more.
