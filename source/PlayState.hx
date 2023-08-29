@@ -88,7 +88,6 @@ import sys.io.File;
 #if VIDEOS_ALLOWED
 #if (hxCodec >= "3.0.0") 
 import hxcodec.flixel.VideoHandler as MP4Handler;
-import lime.app.Event;
 #elseif (hxCodec >= "2.6.1") 
 import hxcodec.VideoHandler as MP4Handler;
 #elseif (hxCodec == "2.6.0") 
@@ -397,13 +396,9 @@ class PlayState extends MusicBeatState
 
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
 		if (isStoryMode)
-		{
 			detailsText = "Story Mode: " + WeekData.getCurrentWeek().weekName;
-		}
 		else
-		{
 			detailsText = "Freeplay";
-		}
 
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
@@ -823,7 +818,6 @@ class PlayState extends MusicBeatState
 				phillyCityLightsEvent.add(light);
 			}
 		}
-
 
 		// "GLOBAL" SCRIPTS
 		#if LUA_ALLOWED
@@ -1256,6 +1250,11 @@ class PlayState extends MusicBeatState
 			botplayTxt.y = timeBarBG.y - 78;
 		}
 
+		var versionTxt:FlxText = new FlxText(4, FlxG.height - 24, 0, '${SONG.song} ${CoolUtil.difficultyString()} - Joalor64 Engine v${MainMenuState.joalor64EngineVersion}', 12);
+		versionTxt.scrollFactor.set();
+		versionTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(versionTxt);
+
 		strumLineNotes.cameras = [camHUD];
 		grpNoteSplashes.cameras = [camHUD];
 		notes.cameras = [camHUD];
@@ -1269,6 +1268,7 @@ class PlayState extends MusicBeatState
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+		versionTxt.cameras = [camHUD];
 
 		startingSong = true;
 
