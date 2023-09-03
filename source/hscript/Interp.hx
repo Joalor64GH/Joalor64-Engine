@@ -560,6 +560,9 @@ class Interp {
             return val;
         case EMeta(_, _, e):
             return expr(e);
+        // copy of the above
+        case ECheckType(e, _):
+            return expr(e);
 
             default: return null;
         }
