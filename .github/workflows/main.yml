@@ -52,7 +52,6 @@ jobs:
           haxelib install hxjsonast
           haxelib install hxCodec 2.5.1
           haxelib install openfl-webm
-          haxelib git SScript-New https://github.com/Joalor64GH/SScript-New
           haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
           haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit
           haxelib install hscript
@@ -105,7 +104,6 @@ jobs:
           haxelib install hxjsonast
           haxelib install hxCodec 2.5.1
           haxelib install openfl-webm
-          haxelib git SScript-New https://github.com/Joalor64GH/SScript-New
           haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
           haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit
           haxelib install hscript 
@@ -159,7 +157,6 @@ jobs:
           haxelib install hxjsonast
           haxelib install hxCodec 2.5.1
           haxelib install openfl-webm
-          haxelib git SScript-New https://github.com/Joalor64GH/SScript-New
           haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
           haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit
           haxelib install hscript

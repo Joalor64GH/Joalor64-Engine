@@ -38,7 +38,6 @@
 	
 	<!-- JOALOR64 ENGINE CUSTOMIZATION -->
 	<!--<define name="HAXEFLIXEL_LOGO"/>--> <!--Allows the Haxeflixel watermark to show on startup when compiled as release;.-->
-	<define name="HAXE_EXTENSION" unless="web || neko" />
 	<define name="MODS_ALLOWED" if="desktop" />
 	<define name="LUA_ALLOWED" if="desktop" />
 	<define name="DISCORD_ALLOWED" if="desktop" />
@@ -173,7 +172,6 @@
         <haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
 	<haxelib name="polymod" if="MODS_ALLOWED"/>
 	<haxelib name="swf" if="SWF_ALLOWED"/>
-	<haxelib name="SScript-New" if="HAXE_EXTENSION"/>
 	<haxelib name="tjson"/>
 	<haxelib name="discord_rpc" if="desktop"/>
 	<haxelib name="systools" />
