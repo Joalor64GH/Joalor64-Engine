@@ -15,14 +15,12 @@ import lime.app.Application;
 
 final class FunkinSScript extends tea.SScript
 {
-    override public function new(?scriptFile:String = "", ?preset:Bool = true)
-    {
-        super(scriptFile, preset);
-
-        traces = false;
-
-        execute();
-    }
+    public function new(?scriptFile:String = "", ?preset:Bool = true, ?startExecute:Bool = true)
+	{
+		super(scriptFile, preset, false);
+		
+		execute();
+	}
 
     override function preset():Void
     {
