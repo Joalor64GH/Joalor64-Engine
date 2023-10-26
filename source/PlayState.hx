@@ -53,8 +53,6 @@ import hscript.Interp;
 import FunkinHscript;
 #end
 #if (HAXE_MODCHART && HAXE_EXTENSION)
-import HaxeScript;
-import ScriptHandler;
 import FunkinSScript;
 #end
 import haxe.Json;
