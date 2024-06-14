@@ -11,11 +11,8 @@
 ![](https://img.shields.io/github/stars/Joalor64GH/Joalor64-Engine?color=FFF200&label=stargazers&style=flat-square)
 ![](https://img.shields.io/github/forks/Joalor64GH/Joalor64-Engine?color=6200FF&style=flat-square)
 * My custom version of Psych Engine made with a bunch of changes lol.
-* Yes, this is still being worked on. It's just that I'm working more on the rewrite.
+* I'm not sure if I'll continue working on this. Check out the rewrite instead.
 * [Joalor64 Engine Rewritten](https://github.com/Joalor64GH/Joalor64-Engine-Rewrite)
-* [Joalor64 Engine FOREVER](https://github.com/Joalor64GH/Joalor64-Engine-FOREVER)
-* [Joalor64 Engine PLUS](https://github.com/Joalor64GH/Joalor64-Engine-PLUS)
-* [ProjectFNF Version](https://github.com/Joalor64GH/Joalor64-Engine-PFNF)
 * [Discord Server](https://discord.gg/GnXqAVMFbA)
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
