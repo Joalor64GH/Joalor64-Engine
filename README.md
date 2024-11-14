@@ -1,3 +1,6 @@
+# JOALOR64 ENGINE LEGACY IS DISCONTINUED!!
+# PLEASE CHECK OUT THE [REWRITE](https://github.com/Joalor64GH/Joalor64-Engine-Rewrite) INSTEAD!!
+
 # Joalor64 Engine
 ![](https://github.com/Joalor64GH/Joalor64-Engine/blob/main/art/logos/j64elogo.png?raw=true)
 
@@ -11,8 +14,6 @@
 ![](https://img.shields.io/github/stars/Joalor64GH/Joalor64-Engine?color=FFF200&label=stargazers&style=flat-square)
 ![](https://img.shields.io/github/forks/Joalor64GH/Joalor64-Engine?color=6200FF&style=flat-square)
 * My custom version of Psych Engine made with a bunch of changes lol.
-* I'm not sure if I'll continue working on this. Check out the rewrite instead.
-* [Joalor64 Engine Rewritten](https://github.com/Joalor64GH/Joalor64-Engine-Rewrite)
 * [Discord Server](https://discord.gg/GnXqAVMFbA)
 * [Wiki](https://github.com/Joalor64GH/Joalor64-Engine/wiki)
 
